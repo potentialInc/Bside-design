@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>bside.art | Recognition Success</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+:root {
+--primary: #1C1C1E;
+--blue: #007AFF;
+--success: #34C759;
+--safe-bottom: 34px;
+}
+body {
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+background-color: #000;
+color: #FFFFFF;
+display: flex;
+align-items: center;
+justify-content: center;
+min-height: 100vh;
+margin: 0;
+padding: 20px;
+}
+.device-frame {
+width: 375px;
+height: 812px;
+background: #000000;
+border-radius: 40px;
+box-shadow: 0 0 0 12px #2d2d2d, 0 20px 50px rgba(0,0,0,0.5);
+position: relative;
+overflow: hidden;
+border: 8px solid #000;
+}
+.notch {
+position: absolute;
+top: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 120px;
+height: 30px;
+background: #000;
+border-bottom-left-radius: 16px;
+border-bottom-right-radius: 16px;
+z-index: 100;
+}
+.status-time {
+position: absolute;
+top: 12px;
+left: 24px;
+font-size: 14px;
+font-weight: 600;
+color: white;
+z-index: 100;
+}
+.status-icons {
+position: absolute;
+top: 14px;
+right: 24px;
+display: flex;
+gap: 6px;
+color: white;
+font-size: 12px;
+z-index: 100;
+}
+.home-indicator {
+position: absolute;
+bottom: 8px;
+left: 50%;
+transform: translateX(-50%);
+width: 134px;
+height: 5px;
+background: white;
+border-radius: 100px;
+opacity: 0.4;
+z-index: 1000; /* Above sheet */
+}
+/* Camera Viewfinder Corners */
+.viewfinder-corner {
+position: absolute;
+width: 40px;
+height: 40px;
+border-color: rgba(255, 255, 255, 0.5);
+border-style: solid;
+border-width: 0;
+pointer-events: none;
+}
+.tl { top: 60px; left: 24px; border-top-width: 2px; border-left-width: 2px; border-radius: 12px 0 0 0; }
+.tr { top: 60px; right: 24px; border-top-width: 2px; border-right-width: 2px; border-radius: 0 12px 0 0; }
+.bl { bottom: 120px; left: 24px; border-bottom-width: 2px; border-left-width: 2px; border-radius: 0 0 0 12px; }
+.br { bottom: 120px; right: 24px; border-bottom-width: 2px; border-right-width: 2px; border-radius: 0 0 12px 0; }
+/* Bottom Sheet Animation */
+@keyframes slideUp {
+from { transform: translateY(100%); }
+to { transform: translateY(0); }
+}
+.bottom-sheet {
+animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
+}
+/* Image Fade In */
+@keyframes fadeIn {
+from { opacity: 0; }
+to { opacity: 1; }
+}
+.artwork-image {
+animation: fadeIn 0.6s ease-out 0.2s forwards;
+opacity: 0;
+}
+/* Shimmer Loading Effect */
+.shimmer {
+background: linear-gradient(90deg, #2c2c2e 0%, #3a3a3c 50%, #2c2c2e 100%);
+background-size: 200% 100%;
+animation: shimmer 1.5s infinite;
+}
+@keyframes shimmer {
+0% { background-position: -200% 0; }
+100% { background-position: 200% 0; }
+}
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+</style></head>
+<body>
+
+    <div class="device-frame relative">
+        <!-- Status Bar -->
+        <div class="notch"></div>
+        <div class="status-time">9:41</div>
+        <div class="status-icons">
+            <iconify-icon icon="solar:signal-linear"></iconify-icon>
+            <iconify-icon icon="solar:wi-fi-linear"></iconify-icon>
+            <iconify-icon icon="solar:battery-full-solid"></iconify-icon>
+        </div>
+
+        <!-- Background: Camera View (Page 9 Simulation) -->
+        <div class="absolute inset-0 bg-black overflow-hidden z-0">
+            <!-- Simulated blurred camera feed -->
+            <img src="https://images.unsplash.com/photo-1544212711-c990d0b0b8c6?q=80&amp;w=600&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover opacity-60 scale-105 filter blur-[2px]" alt="Camera Feed">
+            
+            <!-- Viewfinder UI Elements (Background Context) -->
+            <div class="viewfinder-corner tl"></div>
+            <div class="viewfinder-corner tr"></div>
+            <div class="viewfinder-corner bl"></div>
+            <div class="viewfinder-corner br"></div>
+            
+            <!-- Shutter Button (Partially visible/inactive) -->
+            <div class="absolute bottom-[50px] left-1/2 -translate-x-1/2 w-[72px] h-[72px] rounded-full border-[4px] border-white flex items-center justify-center opacity-50">
+                <div class="w-[60px] h-[60px] bg-white rounded-full"></div>
+            </div>
+        </div>
+
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/60 z-10 backdrop-blur-sm transition-opacity" onclick="dismissSheet()"></div>
+
+        <!-- Recognition Success Bottom Sheet -->
+        <div class="bottom-sheet absolute bottom-0 left-0 right-0 bg-[#1C1C1E] rounded-t-[16px] z-20 max-h-[85%] overflow-hidden flex flex-col">
+            
+            <!-- Handle -->
+            <div class="w-full flex justify-center pt-3 pb-1">
+                <div class="w-[36px] h-[5px] bg-white/20 rounded-full"></div>
+            </div>
+
+            <!-- Scrollable Content Area -->
+            <div class="overflow-y-auto no-scrollbar pb-[40px]">
+                
+                <!-- Header -->
+                <div class="px-4 pt-2 pb-4 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <iconify-icon icon="solar:verified-check-linear" class="text-[#34C759] text-[20px]"></iconify-icon>
+                        <h2 class="text-[18px] font-medium text-[#34C759] tracking-tight">Artwork Recognized</h2>
+                    </div>
+                    <button class="w-[44px] h-[44px] flex items-center justify-end text-white/60 active:text-white transition-colors" onclick="dismissSheet()">
+                        <iconify-icon icon="solar:close-circle-linear" class="text-[24px]"></iconify-icon>
+                    </button>
+                </div>
+
+                <!-- Corrected Artwork Image -->
+                <!-- Edge-to-edge as requested, shimmer loading bg -->
+                <div class="w-full h-[320px] bg-[#2C2C2E] relative shimmer overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1578301978693-85e40d29469e?q=80&amp;w=800&amp;auto=format&amp;fit=crop" class="artwork-image w-full h-full object-cover" alt="Corrected Artwork">
+                    
+                    <!-- AI Tag Overlay -->
+                    <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-md px-2 py-1 rounded-lg flex items-center gap-1.5 border border-white/10 artwork-image">
+                        <iconify-icon icon="solar:magic-stick-3-linear" class="text-white/90 text-[12px]"></iconify-icon>
+                        <span class="text-[11px] font-medium text-white/90">AI Corrected</span>
+                    </div>
+                </div>
+
+                <!-- Artwork Details -->
+                <div class="px-4 pt-5">
+                    <!-- Title -->
+                    <h1 class="text-[20px] font-semibold text-white leading-snug mb-2 tracking-tight">The Starry Night (Cypress and Village)</h1>
+                    
+                    <!-- Artist (Tappable) -->
+                    <button class="text-[15px] text-white/60 hover:text-white transition-colors mb-2 text-left active:opacity-70 flex items-center gap-1 group">
+                        Vincent van Gogh
+                        <iconify-icon icon="solar:alt-arrow-right-linear" class="opacity-0 group-hover:opacity-100 transition-opacity text-[12px] -ml-1 translate-x-1"></iconify-icon>
+                    </button>
+
+                    <!-- Metadata -->
+                    <p class="text-[13px] text-white/40 mb-3 font-normal">1889 • Oil on canvas</p>
+
+                    <!-- Divider -->
+                    <div class="h-[1px] bg-white/5 w-full my-4"></div>
+
+                    <!-- Capture Info -->
+                    <div class="flex flex-col gap-1.5">
+                        <div class="flex items-center gap-2">
+                            <iconify-icon icon="solar:map-point-linear" class="text-white/60 text-[14px]"></iconify-icon>
+                            <span class="text-[13px] text-white/60">Museum of Modern Art, NY</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <iconify-icon icon="solar:calendar-linear" class="text-white/40 text-[14px]"></iconify-icon>
+                            <span class="text-[12px] text-white/40">Captured on Oct 24, 2023</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="px-4 pt-8 flex flex-col gap-3">
+                    <!-- Add to Collection (Primary) -->
+                    <button onclick="addToCollection(this)" class="w-full h-[48px] bg-white text-[#1C1C1E] rounded-xl flex items-center justify-center gap-2 active:scale-[0.98] transition-transform shadow-lg shadow-white/5">
+                        <iconify-icon icon="solar:add-circle-linear" class="text-[20px] stroke-[2px]"></iconify-icon>
+                        <span class="text-[15px] font-semibold">Add to Collection</span>
+                    </button>
+
+                    <!-- View Details (Secondary) -->
+                    <button class="w-full h-[48px] bg-transparent text-[#007AFF] rounded-xl flex items-center justify-center active:bg-white/5 transition-colors">
+                        <span class="text-[15px] font-semibold">View Details</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Home Indicator (Overlays Sheet) -->
+        <div class="home-indicator"></div>
+    </div>
+
+    <script>
+        function dismissSheet() {
+            const sheet = document.querySelector('.bottom-sheet');
+            // Animate out
+            sheet.style.transform = 'translateY(100%)';
+            sheet.style.transition = 'transform 0.3s ease-in';
+            
+            // Fade backdrop
+            const backdrop = document.querySelector('.bg-black\\/60');
+            if(backdrop) {
+                backdrop.style.opacity = '0';
+            }
+
+            // In a real app, this would remove the DOM elements or navigate back after timeout
+            setTimeout(() => {
+                console.log("Sheet dismissed");
+                // Reset for demo purposes
+                // location.reload(); 
+            }, 300);
+        }
+
+        function addToCollection(btn) {
+            // Simulate button loading/success state
+            const originalContent = btn.innerHTML;
+            
+            // Loading
+            btn.innerHTML = '<iconify-icon icon="line-md:loading-twotone-loop" class="text-[20px]"></iconify-icon>';
+            
+            setTimeout(() => {
+                // Success
+                btn.classList.remove('bg-white', 'text-[#1C1C1E]');
+                btn.classList.add('bg-[#34C759]', 'text-white');
+                btn.innerHTML = '<iconify-icon icon="solar:check-circle-bold" class="text-[20px]"></iconify-icon><span class="text-[15px] font-semibold">Saved</span>';
+                
+                // Show toast
+                showToast();
+            }, 800);
+        }
+
+        function showToast() {
+            // Create toast element
+            const toast = document.createElement('div');
+            toast.className = 'absolute top-12 left-1/2 -translate-x-1/2 bg-white text-black px-4 py-3 rounded-full shadow-xl flex items-center gap-2 z-50 animate-bounce-in';
+            toast.style.animation = 'slideDown 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards';
+            toast.innerHTML = `
+                <iconify-icon icon="solar:bookmark-circle-bold" class="text-[#34C759] text-lg"></iconify-icon>
+                <span class="text-[13px] font-semibold">Added to Favorites</span>
+            `;
+            
+            document.querySelector('.device-frame').appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transition = 'opacity 0.3s';
+                setTimeout(() => toast.remove(), 300);
+            }, 2500);
+        }
+
+        // Add keyframes for toast via JS
+        const styleSheet = document.createElement("style");
+        styleSheet.innerText = `
+            @keyframes slideDown {
+                from { transform: translate(-50%, -20px); opacity: 0; }
+                to { transform: translate(-50%, 0); opacity: 1; }
+            }
+        `;
+        document.head.appendChild(styleSheet);
+    </script>
+
+</body></html>

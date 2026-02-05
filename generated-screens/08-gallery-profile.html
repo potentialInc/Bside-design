@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>bside.art | Gallery Profile</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+:root {
+--safe-top: 44px;
+--safe-bottom: 34px;
+}
+body {
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+background-color: #111;
+color: #FFFFFF;
+display: flex;
+align-items: center;
+justify-content: center;
+min-height: 100vh;
+margin: 0;
+padding: 20px;
+}
+/* Phone Frame */
+.device-frame {
+width: 375px;
+height: 812px;
+background: #000000;
+border-radius: 40px;
+box-shadow: 0 0 0 12px #2d2d2d, 0 20px 50px rgba(0,0,0,0.5);
+position: relative;
+overflow: hidden;
+border: 8px solid #000;
+}
+/* Dynamic Island / Notch Area */
+.notch {
+position: absolute;
+top: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 120px;
+height: 30px;
+background: #000;
+border-bottom-left-radius: 16px;
+border-bottom-right-radius: 16px;
+z-index: 100;
+}
+/* Status Bar Time */
+.status-time {
+position: absolute;
+top: 12px;
+left: 24px;
+font-size: 14px;
+font-weight: 600;
+color: white;
+z-index: 100;
+}
+/* Status Bar Icons */
+.status-icons {
+position: absolute;
+top: 14px;
+right: 24px;
+display: flex;
+gap: 6px;
+color: white;
+font-size: 12px;
+z-index: 100;
+}
+/* Home Indicator */
+.home-indicator {
+position: absolute;
+bottom: 8px;
+left: 50%;
+transform: translateX(-50%);
+width: 134px;
+height: 5px;
+background: white;
+border-radius: 100px;
+opacity: 0.3;
+z-index: 100;
+}
+/* Hide Scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+display: none;
+}
+.no-scrollbar {
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
+.blur-bg {
+background: rgba(28, 28, 30, 0.85);
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+}
+.header-bg {
+background-color: #1C1C1E;
+}
+</style></head>
+<body>
+
+    <div class="device-frame">
+        <!-- Status Bar Elements -->
+        <div class="notch"></div>
+        <div class="status-time">9:41</div>
+        <div class="status-icons">
+            <iconify-icon icon="solar:signal-linear"></iconify-icon>
+            <iconify-icon icon="solar:wi-fi-linear"></iconify-icon>
+            <iconify-icon icon="solar:battery-full-solid"></iconify-icon>
+        </div>
+
+        <!-- Sticky Header (Glass) -->
+        <nav class="absolute top-0 left-0 right-0 z-50 h-[100px] flex items-end pb-3 px-4 pointer-events-none transition-all duration-300" id="sticky-nav">
+            <!-- Background Layer -->
+            <div class="absolute inset-0 bg-black/80 backdrop-blur-md opacity-0 transition-opacity duration-300" id="nav-bg"></div>
+            
+            <div class="relative w-full flex justify-between items-center z-10">
+                <!-- Back Button -->
+                <button onclick="alert('Go back')" class="pointer-events-auto w-11 h-11 rounded-full flex items-center justify-center text-white active:bg-white/10 transition-colors">
+                    <iconify-icon icon="solar:alt-arrow-left-linear" class="text-2xl"></iconify-icon>
+                </button>
+
+                <!-- Gallery Name (Hidden initially) -->
+                <span class="text-[17px] font-semibold text-white opacity-0 transition-opacity duration-300 transform translate-y-1" id="nav-title">Kukje Gallery</span>
+
+                <!-- Share Button -->
+                <button class="pointer-events-auto w-11 h-11 rounded-full flex items-center justify-center text-white active:bg-white/10 transition-colors">
+                    <iconify-icon icon="solar:share-linear" class="text-2xl"></iconify-icon>
+                </button>
+            </div>
+            
+            <!-- Bottom Border -->
+            <div class="absolute bottom-0 left-0 right-0 h-[0.5px] bg-white/10 opacity-0 transition-opacity duration-300" id="nav-border"></div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="h-full overflow-y-auto no-scrollbar bg-black" onscroll="handleScroll(this)">
+            
+            <!-- Header Section (Gallery Info) -->
+            <div class="header-bg pt-[110px] pb-10 px-8 flex flex-col items-center border-b border-white/5">
+                <!-- Logo -->
+                <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mb-4 overflow-hidden shadow-lg">
+                    <!-- Placeholder Logo -->
+                    <svg viewBox="0 0 100 100" class="w-12 h-12 text-black">
+                        <path d="M20 20 L20 80 L80 80" fill="none" stroke="currentColor" stroke-width="8"></path>
+                        <circle cx="65" cy="35" r="10" fill="currentColor"></circle>
+                    </svg>
+                </div>
+
+                <!-- Name -->
+                <h1 class="text-[28px] font-semibold text-white tracking-tight text-center mb-3">Kukje Gallery</h1>
+                
+                <!-- Location -->
+                <p class="text-[15px] text-white/60 mb-2">Seoul, Korea</p>
+                
+                <!-- Address -->
+                <button class="flex items-center gap-1.5 active:opacity-60 transition-opacity">
+                    <iconify-icon icon="solar:map-point-linear" class="text-white/40 text-sm"></iconify-icon>
+                    <span class="text-[13px] text-white/60">54 Samcheong-ro, Jongno-gu</span>
+                </button>
+
+                <!-- Website -->
+                <a href="#" class="mt-3 text-[13px] text-[#007AFF] font-medium active:opacity-60 transition-opacity">
+                    www.kukjegallery.com
+                </a>
+            </div>
+
+            <!-- Hours Section -->
+            <div class="pt-8 px-6 pb-2">
+                <h3 class="text-[16px] font-semibold text-white mb-5 flex items-center gap-2">
+                    <iconify-icon icon="solar:clock-circle-linear" class="text-white/40"></iconify-icon>
+                    Opening Hours
+                </h3>
+                
+                <div class="flex flex-col gap-2.5">
+                    <div class="flex justify-between items-center text-[15px]">
+                        <span class="w-20 text-white">Monday</span>
+                        <span class="text-white/60">10:00 AM - 6:00 PM</span>
+                    </div>
+                    <!-- Today (Highlighted) -->
+                    <div class="flex justify-between items-center text-[15px] font-semibold">
+                        <span class="w-20 text-white flex items-center gap-2">
+                            Tuesday
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#34C759]"></span>
+                        </span>
+                        <span class="text-[#34C759]">10:00 AM - 6:00 PM</span>
+                    </div>
+                    <div class="flex justify-between items-center text-[15px]">
+                        <span class="w-20 text-white">Wednesday</span>
+                        <span class="text-white/60">10:00 AM - 6:00 PM</span>
+                    </div>
+                    <div class="flex justify-between items-center text-[15px]">
+                        <span class="w-20 text-white">Thursday</span>
+                        <span class="text-white/60">10:00 AM - 6:00 PM</span>
+                    </div>
+                    <div class="flex justify-between items-center text-[15px]">
+                        <span class="w-20 text-white">Friday</span>
+                        <span class="text-white/60">10:00 AM - 6:00 PM</span>
+                    </div>
+                    <div class="flex justify-between items-center text-[15px]">
+                        <span class="w-20 text-white">Saturday</span>
+                        <span class="text-white/60">10:00 AM - 6:00 PM</span>
+                    </div>
+                    <div class="flex justify-between items-center text-[15px]">
+                        <span class="w-20 text-white/40">Sunday</span>
+                        <span class="text-white/40">Closed</span>
+                    </div>
+                </div>
+
+                <div class="h-[1px] bg-white/10 w-full mt-8"></div>
+            </div>
+
+            <!-- Current Exhibitions Section -->
+            <div class="pt-6 px-6">
+                <h3 class="text-[16px] font-semibold text-white mb-5 flex items-center gap-2">
+                    <iconify-icon icon="solar:gallery-wide-linear" class="text-white/40"></iconify-icon>
+                    Current Exhibitions
+                </h3>
+
+                <!-- Exhibition Card 1 -->
+                <div class="mb-5 bg-[#1C1C1E] rounded-2xl overflow-hidden shadow-lg active:scale-[0.98] transition-transform duration-200 cursor-pointer group">
+                    <div class="relative h-[180px] w-full overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1545989253-02cc26577f88?q=80&amp;w=600&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Exhibition Image">
+                        <!-- Status Badge -->
+                        <div class="absolute top-3 right-3 px-2 py-1 bg-black/60 backdrop-blur-md rounded-lg border border-white/10">
+                            <span class="text-[10px] font-medium text-[#34C759] uppercase tracking-wide">Now Open</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h2 class="text-[18px] font-semibold text-white mb-1.5">Forms of Silence</h2>
+                        <div class="flex flex-col gap-1">
+                            <span class="text-[12px] text-white/40">March 15 - April 30, 2024</span>
+                            <span class="text-[13px] text-white/60">Featuring Haegue Yang, Lee Ufan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exhibition Card 2 -->
+                <div class="mb-8 bg-[#1C1C1E] rounded-2xl overflow-hidden shadow-lg active:scale-[0.98] transition-transform duration-200 cursor-pointer group">
+                    <div class="relative h-[180px] w-full overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?q=80&amp;w=600&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Exhibition Image">
+                    </div>
+                    <div class="p-4">
+                        <h2 class="text-[18px] font-semibold text-white mb-1.5">Digital Horizon</h2>
+                        <div class="flex flex-col gap-1">
+                            <span class="text-[12px] text-white/40">Feb 10 - May 15, 2024</span>
+                            <span class="text-[13px] text-white/60">Featuring TeamLab</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="h-[1px] bg-white/10 w-full mb-8"></div>
+            </div>
+
+            <!-- Past Exhibitions Section -->
+            <div class="px-6 pb-20">
+                <h3 class="text-[16px] font-semibold text-white mb-5 flex items-center gap-2">
+                    <iconify-icon icon="solar:history-linear" class="text-white/40"></iconify-icon>
+                    Past Exhibitions
+                </h3>
+
+                <!-- Past List -->
+                <div class="flex flex-col gap-3">
+                    <!-- Item 1 -->
+                    <div class="p-4 rounded-xl border border-white/10 active:bg-white/5 transition-colors cursor-pointer">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h4 class="text-[15px] font-medium text-white">Color Field II</h4>
+                                <p class="text-[12px] text-white/40 mt-1">Jan 2024 - Feb 2024</p>
+                            </div>
+                            <iconify-icon icon="solar:alt-arrow-right-linear" class="text-white/20"></iconify-icon>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="p-4 rounded-xl border border-white/10 active:bg-white/5 transition-colors cursor-pointer">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h4 class="text-[15px] font-medium text-white">Minimalist Perspectives</h4>
+                                <p class="text-[12px] text-white/40 mt-1">Nov 2023 - Jan 2024</p>
+                            </div>
+                            <iconify-icon icon="solar:alt-arrow-right-linear" class="text-white/20"></iconify-icon>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="p-4 rounded-xl border border-white/10 active:bg-white/5 transition-colors cursor-pointer">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h4 class="text-[15px] font-medium text-white">Sculpting Time</h4>
+                                <p class="text-[12px] text-white/40 mt-1">Sep 2023 - Nov 2023</p>
+                            </div>
+                            <iconify-icon icon="solar:alt-arrow-right-linear" class="text-white/20"></iconify-icon>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Spacer for home indicator -->
+                <div class="h-10"></div>
+            </div>
+        </div>
+
+        <!-- Home Indicator -->
+        <div class="home-indicator"></div>
+    </div>
+
+    <script>
+        function handleScroll(element) {
+            const navBg = document.getElementById('nav-bg');
+            const navBorder = document.getElementById('nav-border');
+            const navTitle = document.getElementById('nav-title');
+            
+            // Show nav background and title after scrolling past header
+            if (element.scrollTop > 180) {
+                navBg.style.opacity = '1';
+                navBorder.style.opacity = '1';
+                navTitle.style.opacity = '1';
+                navTitle.style.transform = 'translateY(0)';
+            } else {
+                navBg.style.opacity = '0';
+                navBorder.style.opacity = '0';
+                navTitle.style.opacity = '0';
+                navTitle.style.transform = 'translateY(4px)';
+            }
+        }
+    </script>
+
+</body></html>

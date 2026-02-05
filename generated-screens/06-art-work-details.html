@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>bside.art | Artwork Detail</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+:root {
+--primary: #1C1C1E;
+--accent: #007AFF;
+--text-primary: rgba(255, 255, 255, 0.92);
+--text-secondary: rgba(255, 255, 255, 0.60);
+--text-tertiary: rgba(255, 255, 255, 0.38);
+}
+body {
+font-family: 'Inter', -apple-system, sans-serif;
+background-color: #121212; /* Presentation background */
+display: flex;
+align-items: center;
+justify-content: center;
+min-height: 100vh;
+margin: 0;
+padding: 20px;
+color: var(--text-primary);
+}
+/* Mobile Device Frame */
+.iphone-frame {
+width: 375px;
+height: 812px;
+background: #000000;
+border-radius: 40px;
+box-shadow: 0 0 0 12px #333333, 0 20px 50px rgba(0,0,0,0.5);
+position: relative;
+overflow: hidden;
+display: flex;
+flex-direction: column;
+}
+/* Notch */
+.notch {
+position: absolute;
+top: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 160px;
+height: 32px;
+background: #333;
+border-bottom-left-radius: 18px;
+border-bottom-right-radius: 18px;
+z-index: 100;
+}
+/* Status Bar Mockup */
+.status-bar {
+height: 44px;
+width: 100%;
+position: absolute;
+top: 0;
+left: 0;
+z-index: 90;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0 24px;
+box-sizing: border-box;
+font-size: 14px;
+font-weight: 600;
+color: white;
+pointer-events: none;
+}
+/* App Container */
+.app-container {
+width: 100%;
+height: 100%;
+position: relative;
+overflow: hidden;
+background-color: #000000;
+}
+/* Hide Scrollbar */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+/* Parallax Hero Layers */
+.parallax-layer {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 480px; /* Max height for hero */
+z-index: 0;
+will-change: transform;
+}
+.scroll-content {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+overflow-y: auto;
+overflow-x: hidden;
+z-index: 10;
+padding-bottom: 90px; /* Space for bottom bar */
+}
+.content-body {
+margin-top: 380px; /* Reveal hero height */
+background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000000 24px);
+position: relative;
+z-index: 20;
+}
+.content-bg {
+background-color: #000000;
+padding-bottom: 40px;
+min-height: 100vh;
+}
+/* Blur Elements */
+.blur-bg {
+background: rgba(0, 0, 0, 0.6);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+}
+.hero-badge {
+background: rgba(0, 0, 0, 0.8);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+}
+.bottom-nav {
+background: rgba(0, 0, 0, 0.94);
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+border-top: 0.5px solid rgba(255,255,255,0.1);
+}
+/* Typography & Utilities */
+.tracking-tight { letter-spacing: -0.015em; }
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-tertiary { color: var(--text-tertiary); }
+.divider {
+height: 1px;
+background-color: rgba(255,255,255,0.1);
+width: 100%;
+margin: 24px 0;
+}
+.card-press:active { transform: scale(0.98); transition: transform 0.2s; }
+</style></head>
+<body>
+
+    <!-- Device Frame -->
+    <div class="iphone-frame">
+        <div class="notch"></div>
+        
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <span>9:41</span>
+            <div class="flex gap-1.5 items-center">
+                <iconify-icon icon="solar:signal-linear" width="16"></iconify-icon>
+                <iconify-icon icon="solar:wi-fi-linear" width="16"></iconify-icon>
+                <iconify-icon icon="solar:battery-full-linear" width="20"></iconify-icon>
+            </div>
+        </div>
+
+        <!-- App View -->
+        <div class="app-container">
+            
+            <!-- Hero Image Layer (Parallax) -->
+            <div id="hero-image" class="parallax-layer">
+                <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&amp;w=800&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover" alt="Artwork Hero">
+                <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60"></div>
+                
+                <!-- Capture Count Badge -->
+                <div class="absolute bottom-4 right-4 px-3 py-1.5 rounded-xl hero-badge flex items-center gap-1.5 z-20">
+                    <iconify-icon icon="solar:camera-linear" class="text-white text-sm"></iconify-icon>
+                    <span class="text-[13px] font-semibold text-white">1,424 captures</span>
+                </div>
+            </div>
+
+            <!-- Top Navigation (Fixed) -->
+            <nav class="absolute top-0 left-0 right-0 z-50 px-4 pt-[52px] flex justify-between items-start pointer-events-none">
+                <button onclick="window.history.back()" class="pointer-events-auto blur-bg w-11 h-11 rounded-full flex items-center justify-center text-white active:scale-95 transition-transform">
+                    <iconify-icon icon="solar:alt-arrow-left-linear" class="text-2xl"></iconify-icon>
+                </button>
+                <button class="pointer-events-auto blur-bg w-11 h-11 rounded-full flex items-center justify-center text-white active:scale-95 transition-transform">
+                    <iconify-icon icon="solar:menu-dots-linear" class="text-2xl"></iconify-icon>
+                </button>
+            </nav>
+
+            <!-- Scrollable Content -->
+            <div id="scroll-container" class="scroll-content no-scrollbar">
+                <div class="content-body">
+                    <div class="content-bg px-4 pt-6 flex flex-col">
+                        
+                        <!-- Section 1: Artwork Info -->
+                        <div class="flex flex-col gap-2">
+                            <h1 class="text-[20px] leading-tight font-semibold text-primary tracking-tight">Neon Silence</h1>
+                            
+                            <button class="flex items-center gap-1 active:opacity-70 transition-opacity w-max mt-2">
+                                <span class="text-[15px] text-secondary">Kazuhiro Tsuji</span>
+                            </button>
+
+                            <div class="mt-2 text-[13px] text-tertiary flex items-center gap-2">
+                                <span>2019</span>
+                                <span class="w-1 h-1 rounded-full bg-white/20"></span>
+                                <span>Mixed Media</span>
+                                <span class="w-1 h-1 rounded-full bg-white/20"></span>
+                                <span>120 x 90 cm</span>
+                            </div>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <!-- Section 2: Engagement Stats -->
+                        <div class="flex items-center gap-3">
+                            <iconify-icon icon="solar:bookmark-linear" class="text-secondary text-2xl"></iconify-icon>
+                            <span class="text-[15px] font-semibold text-primary">1,424 captures</span>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <!-- Section 3: Exhibition Context -->
+                        <div class="flex flex-col gap-4">
+                            <h2 class="text-[18px] font-semibold text-primary tracking-tight">In Exhibition</h2>
+                            
+                            <div class="bg-[#1C1C1E] border border-white/10 rounded-2xl p-4 card-press cursor-pointer">
+                                <div class="flex justify-between items-start">
+                                    <div class="flex flex-col gap-1">
+                                        <h3 class="text-[16px] font-semibold text-primary">Modern Perspectives</h3>
+                                        <span class="text-[15px] text-[#007AFF] mt-1">MoMA, New York</span>
+                                        <span class="text-[12px] text-tertiary mt-1">March 15 - April 30, 2026</span>
+                                    </div>
+                                    <iconify-icon icon="solar:arrow-right-linear" class="text-tertiary text-xl"></iconify-icon>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <!-- Section 4: About Artist -->
+                        <div class="flex flex-col gap-4">
+                            <h2 class="text-[18px] font-semibold text-primary tracking-tight">About the Artist</h2>
+
+                            <div class="flex items-center gap-3 mt-2">
+                                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&amp;w=200&amp;auto=format&amp;fit=crop" alt="Artist" class="w-16 h-16 rounded-full object-cover border border-white/10 shrink-0">
+                                <div class="flex flex-col justify-center ml-1">
+                                    <h3 class="text-[16px] font-semibold text-primary">Kazuhiro Tsuji</h3>
+                                    <span class="text-[12px] text-tertiary mt-1">b. 1985, Based in Seoul, Korea</span>
+                                </div>
+                            </div>
+
+                            <div class="relative mt-1">
+                                <p id="artist-bio" class="text-[17px] leading-relaxed text-primary line-clamp-3">
+                                    Kazuhiro Tsuji is a contemporary artist known for hyperrealistic sculptures. After working in Hollywood as a special effects makeup artist for 25 years, he shifted his focus to fine art. His portraits are constructed two times life scale.
+                                </p>
+                                <button onclick="toggleBio()" id="read-more-btn" class="text-[#007AFF] text-[15px] font-medium mt-1">Read more</button>
+                            </div>
+
+                            <button id="follow-btn" onclick="toggleFollow()" class="w-full h-11 border border-white/20 rounded-xl flex items-center justify-center text-[15px] font-semibold text-white active:bg-white/10 transition-colors mt-2">
+                                Follow Artist
+                            </button>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <!-- Section 5: Related Artworks -->
+                        <div class="flex flex-col gap-4">
+                            <h2 class="text-[18px] font-semibold text-primary tracking-tight">Related Artworks</h2>
+                            
+                            <div class="flex overflow-x-auto no-scrollbar gap-3 -mx-4 px-4 pb-2 snap-x snap-mandatory mt-2">
+                                <!-- Card 1 -->
+                                <div class="flex-none w-[160px] snap-start">
+                                    <div class="relative w-[160px] h-[200px] rounded-xl overflow-hidden bg-[#1C1C1E] shadow-sm card-press">
+                                        <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&amp;w=400&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover">
+                                        <div class="absolute top-2 right-2 px-1.5 py-0.5 hero-badge rounded-md flex items-center gap-0.5">
+                                            <iconify-icon icon="solar:camera-linear" class="text-[10px] text-white"></iconify-icon>
+                                            <span class="text-[10px] font-semibold text-white">482</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 2 -->
+                                <div class="flex-none w-[160px] snap-start">
+                                    <div class="relative w-[160px] h-[200px] rounded-xl overflow-hidden bg-[#1C1C1E] shadow-sm card-press">
+                                        <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&amp;w=400&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover">
+                                        <div class="absolute top-2 right-2 px-1.5 py-0.5 hero-badge rounded-md flex items-center gap-0.5">
+                                            <iconify-icon icon="solar:camera-linear" class="text-[10px] text-white"></iconify-icon>
+                                            <span class="text-[10px] font-semibold text-white">1.2k</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 3 -->
+                                <div class="flex-none w-[160px] snap-start">
+                                    <div class="relative w-[160px] h-[200px] rounded-xl overflow-hidden bg-[#1C1C1E] shadow-sm card-press">
+                                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&amp;w=400&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover">
+                                        <div class="absolute top-2 right-2 px-1.5 py-0.5 hero-badge rounded-md flex items-center gap-0.5">
+                                            <iconify-icon icon="solar:camera-linear" class="text-[10px] text-white"></iconify-icon>
+                                            <span class="text-[10px] font-semibold text-white">89</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <!-- Section 6: Related Artists -->
+                        <div class="flex flex-col gap-4">
+                            <h2 class="text-[18px] font-semibold text-primary tracking-tight">Related Artists</h2>
+                            
+                            <div class="flex overflow-x-auto no-scrollbar gap-3 -mx-4 px-4 mt-2 snap-x snap-mandatory">
+                                <!-- Artist 1 -->
+                                <div class="flex-none w-[120px] snap-start flex flex-col items-center">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&amp;w=200&amp;auto=format&amp;fit=crop" class="w-16 h-16 rounded-full object-cover mb-2 border border-white/10">
+                                    <span class="text-[15px] font-semibold text-primary text-center w-full truncate mt-1">Elena R.</span>
+                                    <button class="mt-3 w-full h-8 rounded-lg border border-white/20 text-[13px] font-semibold text-white flex items-center justify-center card-press">Follow</button>
+                                </div>
+
+                                <!-- Artist 2 -->
+                                <div class="flex-none w-[120px] snap-start flex flex-col items-center">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&amp;w=200&amp;auto=format&amp;fit=crop" class="w-16 h-16 rounded-full object-cover mb-2 border border-white/10">
+                                    <span class="text-[15px] font-semibold text-primary text-center w-full truncate mt-1">James L.</span>
+                                    <button class="mt-3 w-full h-8 rounded-lg border border-white/20 text-[13px] font-semibold text-white flex items-center justify-center card-press">Follow</button>
+                                </div>
+
+                                <!-- Artist 3 -->
+                                <div class="flex-none w-[120px] snap-start flex flex-col items-center">
+                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&amp;w=200&amp;auto=format&amp;fit=crop" class="w-16 h-16 rounded-full object-cover mb-2 border border-white/10">
+                                    <span class="text-[15px] font-semibold text-primary text-center w-full truncate mt-1">Sarah K.</span>
+                                    <button class="mt-3 w-full h-8 rounded-lg border border-white/20 text-[13px] font-semibold text-white flex items-center justify-center card-press">Follow</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <!-- Section 7: Related Exhibitions -->
+                        <div class="flex flex-col gap-4 pb-8">
+                            <h2 class="text-[18px] font-semibold text-primary tracking-tight">Related Exhibitions</h2>
+                            
+                            <div class="flex flex-col gap-3 mt-2">
+                                <div class="bg-[#1C1C1E] border border-white/10 rounded-2xl p-4 card-press cursor-pointer">
+                                    <div class="flex flex-col gap-1">
+                                        <h3 class="text-[16px] font-semibold text-primary">Sculpting Light</h3>
+                                        <span class="text-[13px] text-secondary mt-1">Tate Modern</span>
+                                        <span class="text-[12px] text-tertiary mt-1">Jan 10 - Mar 22, 2026</span>
+                                    </div>
+                                </div>
+
+                                <div class="bg-[#1C1C1E] border border-white/10 rounded-2xl p-4 card-press cursor-pointer">
+                                    <div class="flex flex-col gap-1">
+                                        <h3 class="text-[16px] font-semibold text-primary">Abstract Realities</h3>
+                                        <span class="text-[13px] text-secondary mt-1">Gagosian Gallery</span>
+                                        <span class="text-[12px] text-tertiary mt-1">Apr 05 - Jun 12, 2026</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sticky Bottom Action Bar -->
+            <div class="absolute bottom-0 left-0 right-0 z-50 bottom-nav">
+                <div class="flex items-center gap-3 px-4 h-[84px] pb-[20px] pt-3">
+                    <!-- Add to Collection -->
+                    <button onclick="addToCollection()" class="flex-1 h-12 bg-[#1C1C1E] active:bg-[#2C2C2E] text-white rounded-xl flex items-center justify-center gap-2 transition-colors card-press">
+                        <iconify-icon icon="solar:add-circle-linear" class="text-xl"></iconify-icon>
+                        <span class="text-[15px] font-semibold">Add to Collection</span>
+                    </button>
+                    
+                    <!-- Share -->
+                    <button class="w-12 h-12 flex items-center justify-center rounded-xl border border-white/10 text-primary active:bg-white/5 transition-colors card-press">
+                        <iconify-icon icon="solar:share-linear" class="text-xl"></iconify-icon>
+                    </button>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+
+    <script>
+        // Parallax Effect Logic
+        const scrollContainer = document.getElementById('scroll-container');
+        const heroImage = document.getElementById('hero-image');
+
+        scrollContainer.addEventListener('scroll', () => {
+            const scrollY = scrollContainer.scrollTop;
+            if (scrollY < 480) { // Only animate while hero is visible
+                heroImage.style.transform = `translateY(${scrollY * 0.5}px)`;
+            }
+        });
+
+        // Bio Toggle
+        let bioExpanded = false;
+        function toggleBio() {
+            const bio = document.getElementById('artist-bio');
+            const btn = document.getElementById('read-more-btn');
+            bioExpanded = !bioExpanded;
+            
+            if (bioExpanded) {
+                bio.classList.remove('line-clamp-3');
+                btn.textContent = 'Show less';
+            } else {
+                bio.classList.add('line-clamp-3');
+                btn.textContent = 'Read more';
+            }
+        }
+
+        // Follow Toggle
+        let isFollowing = false;
+        function toggleFollow() {
+            const btn = document.getElementById('follow-btn');
+            isFollowing = !isFollowing;
+            
+            if (isFollowing) {
+                btn.textContent = 'Following';
+                btn.classList.add('bg-white', 'text-black', 'border-transparent');
+                btn.classList.remove('text-white', 'border-white/20');
+            } else {
+                btn.textContent = 'Follow Artist';
+                btn.classList.remove('bg-white', 'text-black', 'border-transparent');
+                btn.classList.add('text-white', 'border-white/20');
+            }
+        }
+
+        // Add to Collection Interaction
+        function addToCollection() {
+            const btn = document.querySelector('button[onclick="addToCollection()"]');
+            const originalHTML = btn.innerHTML;
+            
+            btn.innerHTML = '<iconify-icon icon="line-md:loading-twotone-loop" class="text-xl"></iconify-icon>';
+            
+            setTimeout(() => {
+                btn.classList.remove('bg-[#1C1C1E]', 'text-white');
+                btn.classList.add('bg-[#34C759]', 'text-white', 'border-transparent');
+                btn.innerHTML = '<iconify-icon icon="solar:check-circle-bold" class="text-xl"></iconify-icon><span class="text-[15px] font-semibold">Saved</span>';
+                
+                setTimeout(() => {
+                    btn.classList.add('bg-[#1C1C1E]', 'text-white');
+                    btn.classList.remove('bg-[#34C759]', 'text-white', 'border-transparent');
+                    btn.innerHTML = originalHTML;
+                }, 2000);
+            }, 800);
+        }
+    </script>
+
+</body></html>
