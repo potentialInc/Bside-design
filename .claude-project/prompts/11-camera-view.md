@@ -1,8 +1,8 @@
-# Camera View (09-camera-view)
+# Camera View (11-camera-view)
 
 ## Full Prompt for Aura.build
 
-Copy the text below and paste into Aura.build when creating the "09-camera-view" page:
+Copy the text below and paste into Aura.build when creating the "11-camera-view" page:
 
 ---
 
@@ -203,14 +203,14 @@ Purpose:
 - Tap-to-focus anywhere on preview
 - Capture animation (screen flash, haptic feedback)
 - Auto-tag captures with exhibition data if checked in
-- Navigate to Recognition Result (PAGE 10 or 11)
+- Navigate to Recognition Result (PAGE 12 or 11)
 - Dark mode: UI elements adapt, camera preview unaffected
 - Permission handling: Request camera and location permissions on first use
 
 ### MAIN ACTIONS
 | Action | Trigger | Behavior |
 |--------|---------|----------|
-| Capture Artwork | Tap capture button (center FAB) | Take photo, screen flash, haptic feedback, process image, navigate to Recognition Result (PAGE 10 or 11) |
+| Capture Artwork | Tap capture button (center FAB) | Take photo, screen flash, haptic feedback, process image, navigate to Recognition Result (PAGE 12 or 11) |
 | Upload Photo | Tap upload button (left) | Open photo picker, select image, process for recognition, navigate to Recognition Result |
 | Check In | Tap "Yes" in check-in prompt | Confirm check-in, tag session with exhibition data, show success toast, collapse drawer |
 | Dismiss Check-In | Tap "No" in check-in prompt | Dismiss prompt, collapse drawer, don't tag session |

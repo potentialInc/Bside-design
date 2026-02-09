@@ -1,8 +1,8 @@
-# Artist Profile (07-artist-profile)
+# Artist Profile (09-artist-profile)
 
 ## Full Prompt for Aura.build
 
-Copy the text below and paste into Aura.build when creating the "07-artist-profile" page:
+Copy the text below and paste into Aura.build when creating the "09-artist-profile" page:
 
 ---
 
@@ -109,6 +109,28 @@ Purpose:
 - Exhibitions section with tabs
 - Background: Background Primary
 
+**TOP HEADER BAR (GLOBAL - Pages 06-10, 15-22):**
+- Fixed top position
+- Height: 44pt + safe area inset
+- Background: Transparent or Surface color with blur
+- Left: Search icon (24pt, tappable 44x44pt) → Navigate to Search (PAGE 15)
+- Center: bside logo (proportional, centered)
+- Right: Notification bell (24pt, tappable 44x44pt, red dot badge if unread) → Navigate to Notifications (PAGE 22)
+- Badge: Red dot (8pt diameter, #FF3B30, top-right of bell)
+
+**BOTTOM NAVIGATION BAR (GLOBAL - Pages 06-10, 15-22):**
+- Fixed bottom position with floating style
+- Height: 56pt + safe area inset
+- Background: #FFFFFF (light) / #1C1C1E (dark)
+- Border radius: 24pt (floating pill effect)
+- Horizontal margins: 16pt, Bottom margin: 8pt above safe area
+- Shadow: Elevation-2 (0 4px 12px rgba(0,0,0,0.12))
+- 3 items evenly spaced: Home | Camera | My Page
+- Each item: Icon (24pt) + Label (Caption 11pt)
+- Active state: Icon + Label in Primary color (#1C1C1E or #007AFF), bold
+- Inactive state: Icon + Label in Text Tertiary
+- Tap target: Full item area (minimum 56pt height)
+
 **NAVIGATION BAR:**
 - Height: 60pt including safe area
 - Background: Transparent with blur (becomes opaque white/black on scroll)
@@ -177,7 +199,7 @@ Purpose:
     - Capture count badge (top-right):
       - Same style as previous pages (blur background, Caption 11pt)
   - Paginate: Load 12-20 initially, load more on scroll (infinite scroll)
-  - Tap artwork: Navigate to Artwork Detail (PAGE 6)
+  - Tap artwork: Navigate to Artwork Detail (PAGE 10)
 - Divider: 24pt margin-top
 
 **EXHIBITIONS SECTION:**
@@ -205,7 +227,7 @@ Purpose:
       - Dates: Caption (12pt Regular), Text Tertiary, 4pt margin-top
         - Format: "March 15 - April 30, 2026"
     - 12pt gap between cards
-  - Tap card: Navigate to Exhibition Detail or Gallery Profile (PAGE 8)
+  - Tap card: Navigate to Exhibition Detail or Gallery Profile (PAGE 10)
 - Empty state (if no exhibitions):
   - Icon: Calendar icon (64pt, Text Tertiary), centered
   - Message: "No upcoming exhibitions" or "No past exhibitions" (Body Large, Text Secondary), centered
@@ -235,9 +257,9 @@ Purpose:
 | Open Social Link | Tap Instagram/Website icon | Open URL in browser or native app |
 | Expand Bio | Tap "Read more" | Expand bio to full text, link becomes "Show less" |
 | Sort Artworks | Tap sort/filter icon | Open bottom sheet with sort options, apply selected sort |
-| View Artwork | Tap artwork card | Navigate to Artwork Detail (PAGE 6) with artwork ID |
+| View Artwork | Tap artwork card | Navigate to Artwork Detail (PAGE 10) with artwork ID |
 | Switch Exhibition Tab | Tap "Upcoming" or "Past" tab | Switch tab content, animate indicator slide |
-| View Exhibition | Tap exhibition card | Navigate to Exhibition Detail or Gallery Profile (PAGE 8) |
+| View Exhibition | Tap exhibition card | Navigate to Exhibition Detail or Gallery Profile (PAGE 10) |
 | Infinite Scroll Artworks | Scroll to bottom of artworks grid | Load next 12-20 artworks, append to grid |
 
 ### BRANDING ELEMENTS

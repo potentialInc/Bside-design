@@ -1,8 +1,8 @@
-# Follower List (18-follower-list)
+# Following List (21-following-list)
 
 ## Full Prompt for Aura.build
 
-Copy the text below and paste into Aura.build when creating the "18-follower-list" page:
+Copy the text below and paste into Aura.build when creating the "21-following-list" page:
 
 ---
 
@@ -88,14 +88,14 @@ Style: Minimal and Elegant with understated luxury, featuring #1C1C1E primary (D
 category: user
 
 ### SCREEN OVERVIEW
-The Follower List page displays all users who follow the current user. Users can search followers by username, view their profiles, and manage follow relationships (if own profile).
+The Following List page displays all users the current user follows. Similar to Follower List, users can search, view profiles, and manage following relationships.
 
 Purpose:
-- Display list of followers
-- Enable searching followers by username
-- Navigate to follower profiles
-- Show follow status (Following, Follow back)
-- Provide quick access to follower profiles
+- Display list of users being followed
+- Enable searching by username
+- Navigate to user profiles
+- Unfollow users (with confirmation)
+- Provide quick access to followed profiles
 
 ### LAYOUT INSTRUCTIONS
 
@@ -106,66 +106,79 @@ Purpose:
 - User list: Vertical scrollable list
 - Background: Background Primary
 
+**TOP HEADER BAR (GLOBAL - Pages 06-10, 15-22):**
+- Fixed top position
+- Height: 44pt + safe area inset
+- Background: Transparent or Surface color with blur
+- Left: Search icon (24pt, tappable 44x44pt) → Navigate to Search (PAGE 15)
+- Center: bside logo (proportional, centered)
+- Right: Notification bell (24pt, tappable 44x44pt, red dot badge if unread) → Navigate to Notifications (PAGE 22)
+- Badge: Red dot (8pt diameter, #FF3B30, top-right of bell)
+
+**BOTTOM NAVIGATION BAR (GLOBAL - Pages 06-10, 15-22):**
+- Fixed bottom position with floating style
+- Height: 56pt + safe area inset
+- Background: #FFFFFF (light) / #1C1C1E (dark)
+- Border radius: 24pt (floating pill effect)
+- Horizontal margins: 16pt, Bottom margin: 8pt above safe area
+- Shadow: Elevation-2 (0 4px 12px rgba(0,0,0,0.12))
+- 3 items evenly spaced: Home | Camera | My Page
+- Each item: Icon (24pt) + Label (Caption 11pt)
+- Active state: Icon + Label in Primary color (#1C1C1E or #007AFF), bold
+- Inactive state: Icon + Label in Text Tertiary
+- Tap target: Full item area (minimum 56pt height)
+
 **NAVIGATION BAR:**
 - Height: 60pt including safe area
 - Background: Background Primary with 0.5pt bottom border
 - Layout:
   - Left: Back button (chevron left icon 24pt), 44pt touch target
-  - Center: "Followers" (Heading 2, 18pt Semibold, Text Primary)
+  - Center: "Following" (Heading 2, 18pt Semibold, Text Primary)
   - Right: Empty
 - Tap back: Return to My Page (PAGE 15)
 
 **SEARCH BAR (optional):**
-- Position: Below nav bar, fixed
-- Padding: 16pt horizontal, 12pt vertical
-- Background: Background Primary
-- Search input:
-  - Height: 40pt, border radius: 12pt
-  - Background: #F2F2F2 (light) or #2C2C2E (dark)
-  - Padding: 12pt horizontal
-  - Icon: Magnifying glass (20pt, Text Secondary) leading
-  - Placeholder: "Search followers..." (Body Large, Text Tertiary)
-  - Clear button: X icon (20pt, Text Secondary) trailing, appears when typing
-- Functionality: Filter list in real-time as typing (by username)
+- Same as Follower List (PAGE 18)
+- Placeholder: "Search following..." (Body Large, Text Tertiary)
 
 **USER LIST:**
-- Padding: 16pt horizontal (if not full-width), 0pt top
-- Vertical list of user items
+- Same layout as Follower List
 - Each item:
   - Height: 72pt
   - Padding: 12pt horizontal
-  - Border-bottom: 0.5pt border color (last item: no border)
+  - Border-bottom: 0.5pt border color
   - Layout (horizontal):
     - Avatar: 48pt circular, left
     - Content (12pt margin-left, flex):
       - Username: Body Medium (15pt Semibold), Text Primary
       - Bio: Caption (12pt Regular), Text Tertiary, 4pt margin-top, max 1 line ellipsis
-    - Follow button (right, 12pt margin-left):
-      - If following: Secondary button (transparent, 1pt border), 32pt height, 80pt width, "Following" text
-      - If not following: Primary button (#1C1C1E background, white text), 32pt height, 80pt width, "Follow" text
-      - If self: Hide button
-      - Tap: Toggle follow state, call API
+    - Following button (right, 12pt margin-left):
+      - Secondary button: Transparent with 1pt border, 32pt height, 80pt width
+      - Text: "Following" (Body Small, 13pt Semibold)
+      - Tap: Show confirmation dialog "Unfollow [Username]?", if confirmed: call unfollow API, remove from list
 - Tap user (not button): Navigate to User Profile (PAGE 15) with user ID
-- Infinite scroll: Load more on bottom reached (if many followers)
 
-**EMPTY STATE (if no followers):**
+**EMPTY STATE (if not following anyone):**
 - Position: Centered in list area
 - Content (vertical stack, centered):
   - Icon: Person icon (64pt, Text Tertiary)
-  - Message: "No followers yet" (Heading 2, 18pt Semibold, Text Primary), 16pt margin-top
+  - Message: "Not following anyone yet" (Heading 2, 18pt Semibold, Text Primary), 16pt margin-top
+  - Suggestion: "Discover users to follow" (Body Large, Text Secondary), 8pt margin-top
+  - CTA: "Search" or "Explore" button (Secondary, 48pt height), 16pt margin-top
+    - Tap: Navigate to Search Main (PAGE 13) or Feed (PAGE 4)
 
 **LOADING STATE:**
 - Skeleton rows: 5 shimmer placeholder rows
 
 ### KEY FEATURES
-- List of all followers
+- List of all followed users
 - Search bar filters in real-time
-- Follow/Following buttons (if not self)
-- Navigate to follower profiles
-- Infinite scroll for many followers
-- Empty state if no followers
+- Following button shows "Following" state
+- Unfollow with confirmation dialog
+- Navigate to user profiles
+- Infinite scroll for many followed users
+- Empty state with discovery CTA
 - Loading state: Skeleton rows
-- Follow state persists
 - Dark mode support
 - Smooth scroll performance
 
@@ -173,23 +186,22 @@ Purpose:
 | Action | Trigger | Behavior |
 |--------|---------|----------|
 | Navigate Back | Tap back button | Return to My Page (PAGE 15) |
-| Search Followers | Type in search bar | Filter list in real-time by username (case-insensitive) |
+| Search Following | Type in search bar | Filter list in real-time by username (case-insensitive) |
 | Clear Search | Tap X in search bar | Clear text, show full list |
-| View Follower Profile | Tap user item (not button) | Navigate to User Profile (PAGE 15) with user ID |
-| Follow/Unfollow | Tap Follow/Following button | Call follow API, toggle button state (Follow ↔ Following) |
-| Infinite Scroll | Scroll to bottom | Load next page of followers (20-50 users), append to list |
+| View User Profile | Tap user item (not button) | Navigate to User Profile (PAGE 15) with user ID |
+| Unfollow | Tap "Following" button | Show confirmation dialog "Unfollow [Username]?", if confirmed: call unfollow API, remove user from list with animation |
+| Infinite Scroll | Scroll to bottom | Load next page of followed users (20-50 users), append to list |
+| Discover Users | Tap "Search" or "Explore" in empty state | Navigate to Search Main (PAGE 13) or Feed (PAGE 4) |
 
 ### BRANDING ELEMENTS
-- Instagram-inspired follower list (familiar pattern)
+- Instagram-inspired following list (familiar pattern)
 - Search bar for filtering (user convenience)
-- Follow buttons inline (social engagement)
-- Avatar + username + bio pattern (consistent with other lists)
-- Empty state friendly message
-- Typography: Heading 2 (18pt) for title → Body Medium (15pt) for usernames
-- Skeleton loading (modern UX)
-- Accent Blue for search bar focus
-- Primary button for Follow, Secondary for Following
+- Unfollow confirmation prevents accidents
+- Empty state with discovery CTA (encourages engagement)
+- Typography: Heading 2 (18pt) → Body Medium (15pt)
+- Secondary button for "Following" (consistent with other pages)
 - Border-bottom separators (0.5pt border color)
+- Skeleton loading (modern UX)
 - Generous spacing: 12pt padding per 8pt grid
 - Dark mode support
 

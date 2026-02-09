@@ -1,8 +1,8 @@
-# Notification List (20-notification-list)
+# Notification List (22-notification-list)
 
 ## Full Prompt for Aura.build
 
-Copy the text below and paste into Aura.build when creating the "20-notification-list" page:
+Copy the text below and paste into Aura.build when creating the "22-notification-list" page:
 
 ---
 
@@ -104,6 +104,28 @@ Purpose:
 - Top: Navigation bar (60pt height)
 - Notification list: Vertical scrollable list
 - Background: Background Primary
+
+**TOP HEADER BAR (GLOBAL - Pages 06-10, 15-22):**
+- Fixed top position
+- Height: 44pt + safe area inset
+- Background: Transparent or Surface color with blur
+- Left: Search icon (24pt, tappable 44x44pt) → Navigate to Search (PAGE 15)
+- Center: bside logo (proportional, centered)
+- Right: Notification bell (24pt, tappable 44x44pt, red dot badge if unread) → Navigate to Notifications (PAGE 22)
+- Badge: Red dot (8pt diameter, #FF3B30, top-right of bell)
+
+**BOTTOM NAVIGATION BAR (GLOBAL - Pages 06-10, 15-22):**
+- Fixed bottom position with floating style
+- Height: 56pt + safe area inset
+- Background: #FFFFFF (light) / #1C1C1E (dark)
+- Border radius: 24pt (floating pill effect)
+- Horizontal margins: 16pt, Bottom margin: 8pt above safe area
+- Shadow: Elevation-2 (0 4px 12px rgba(0,0,0,0.12))
+- 3 items evenly spaced: Home | Camera | My Page
+- Each item: Icon (24pt) + Label (Caption 11pt)
+- Active state: Icon + Label in Primary color (#1C1C1E or #007AFF), bold
+- Inactive state: Icon + Label in Text Tertiary
+- Tap target: Full item area (minimum 56pt height)
 
 **NAVIGATION BAR:**
 - Height: 60pt including safe area

@@ -1,8 +1,8 @@
-# Art Feed (Home) (04-feed)
+# Art Feed (Home) (06-feed)
 
 ## Full Prompt for Aura.build
 
-Copy the text below and paste into Aura.build when creating the "04-feed" page:
+Copy the text below and paste into Aura.build when creating the "06-feed" page:
 
 ---
 
@@ -107,15 +107,14 @@ Purpose:
 - Bottom tab bar navigation (fixed): 56pt height + safe area
 - Background: Background Primary (#FFFFFF light, #000000 dark)
 
-**TOP NAVIGATION BAR:**
-- Height: 60pt (includes safe area top inset)
-- Background: Background Primary with 0.5pt bottom border (border color)
-- Content layout (horizontal):
-  - Left: Empty (balance)
-  - Center: "bside" logo or "Home" text (Heading 2, 18pt Semibold, Text Primary)
-  - Right: Search icon (24pt, tappable, 16pt margin-right)
-- Logo/text: Centered, vertically aligned
-- Search icon tap: Navigate to Search Main (PAGE 13)
+**TOP HEADER BAR (GLOBAL - Pages 06-10, 15-22):**
+- Fixed top position
+- Height: 44pt + safe area inset
+- Background: Transparent or Surface color with blur
+- Left: Search icon (24pt, tappable 44x44pt) → Navigate to Search (PAGE 17)
+- Center: bside logo (proportional, centered)
+- Right: Notification bell (24pt, tappable 44x44pt, red dot badge if unread) → Navigate to Notifications (PAGE 22)
+- Badge: Red dot (8pt diameter, #FF3B30, top-right of bell)
 
 **FEED CONTENT AREA:**
 - Vertical scroll, starts 60pt from top (below nav bar)
@@ -173,11 +172,11 @@ Purpose:
       - Format: "124 captures"
 
 - Tap behaviors:
-  - Tap card header/username: Navigate to User Profile (PAGE 15 if others, My Page if self)
+  - Tap card header/username: Navigate to User Profile (PAGE 17 if others, My Page if self)
   - Tap more button: Open bottom sheet with actions (Report, Hide, Copy Link)
-  - Tap collection title/info: Navigate to Collection Detail (PAGE 5)
-  - Tap artwork thumbnail: Navigate to Artwork Detail (PAGE 6)
-  - Tap gallery tag: Navigate to Gallery Profile (PAGE 8)
+  - Tap collection title/info: Navigate to Collection Detail (PAGE 7)
+  - Tap artwork thumbnail: Navigate to Artwork Detail (PAGE 10)
+  - Tap gallery tag: Navigate to Gallery Profile (PAGE 10)
 
 **PLATFORM COLLECTION CARD (every 5-7 items):**
 - Same structure as Collection Card but with:
@@ -199,7 +198,7 @@ Purpose:
   - Bio: Caption (12pt Regular), Text Tertiary, centered, 1 line max, 4pt margin-top
   - Follow button: Secondary button (transparent, 1pt border), 36pt height, 8pt radius, 12pt margin-top
     - Text: "Follow" (Body Small, 13pt Semibold)
-  - Tap user card: Navigate to User Profile (PAGE 15)
+  - Tap user card: Navigate to User Profile (PAGE 17)
   - Tap Follow: Call API, update button to "Following" state
 
 **EMPTY STATE (if no feed content):**
@@ -208,21 +207,21 @@ Purpose:
 - Heading: "Welcome to bside!" (Heading 1, 20pt Semibold), Text Primary, centered, 16pt margin-top
 - Message: "Start capturing artworks or follow others." (Body Large, 17pt Regular), Text Secondary, centered, 8pt margin-top, max-width 280pt
 - CTA buttons (vertical stack, 16pt gaps, 24pt margin-top):
-  - Primary button: "Open Camera" (navigates to Camera View PAGE 9)
-  - Secondary button: "Explore" (navigates to Search Main PAGE 13)
+  - Primary button: "Open Camera" (navigates to Camera View PAGE 11)
+  - Secondary button: "Explore" (navigates to Search Main PAGE 17)
 
-**BOTTOM TAB BAR:**
-- Height: 56pt + safe area bottom inset
-- Background: Background Primary with 0.5pt top border (border color)
-- 5 tabs (evenly distributed):
-  1. Home (house icon, "Home" label): Active state (Accent Blue #007AFF), inactive (Text Secondary)
-  2. Search (magnifying glass icon, "Search" label): Navigate to PAGE 13
-  3. Camera (camera icon, "Camera" label): Navigate to PAGE 9 (or floating FAB alternative)
-  4. Notifications (bell icon, "Notifications" label): Navigate to PAGE 20, badge count if unread
-  5. Profile (person icon, "Profile" label): Navigate to My Page (PAGE 15)
-- Each tab: Icon (24pt) + Label (Caption, 12pt), vertical stack, 44pt touch target
-- Active tab: Accent Blue color, inactive: Text Secondary
-- Smooth transition animation on tap (200ms ease)
+**BOTTOM NAVIGATION BAR (GLOBAL - Pages 06-10, 15-22):**
+- Fixed bottom position with floating style
+- Height: 56pt + safe area inset
+- Background: #FFFFFF (light) / #1C1C1E (dark)
+- Border radius: 24pt (floating pill effect)
+- Horizontal margins: 16pt, Bottom margin: 8pt above safe area
+- Shadow: Elevation-2 (0 4px 12px rgba(0,0,0,0.12))
+- 3 items evenly spaced: Home | Camera | My Page
+- Each item: Icon (24pt) + Label (Caption 11pt)
+- Active state: Icon + Label in Primary color (#1C1C1E or #007AFF), bold
+- Inactive state: Icon + Label in Text Tertiary
+- Tap target: Full item area (minimum 56pt height)
 
 ### KEY FEATURES
 - Pull-to-refresh at top (reload feed)
@@ -246,17 +245,17 @@ Purpose:
 |--------|---------|----------|
 | Pull to Refresh | Pull down from top | Show spinner, reload feed data, dismiss spinner on complete |
 | Infinite Scroll | Scroll to within 200pt of bottom | Load next 10 cards, append to feed |
-| Tap Collection Card | Tap card body (not header/footer) | Navigate to Collection Detail (PAGE 5) with collection ID |
-| Tap Artwork Thumbnail | Tap artwork in carousel | Navigate to Artwork Detail (PAGE 6) with artwork ID |
-| Tap Username/Avatar | Tap in card header | Navigate to User Profile (PAGE 15) or My Page if own collection |
+| Tap Collection Card | Tap card body (not header/footer) | Navigate to Collection Detail (PAGE 7) with collection ID |
+| Tap Artwork Thumbnail | Tap artwork in carousel | Navigate to Artwork Detail (PAGE 10) with artwork ID |
+| Tap Username/Avatar | Tap in card header | Navigate to User Profile (PAGE 17) or My Page if own collection |
 | Tap More Button | Tap three dots icon | Open bottom sheet with actions: Report, Hide Collection, Copy Link |
-| Tap Gallery Tag | Tap gallery name link | Navigate to Gallery Profile (PAGE 8) with gallery ID |
-| Tap Search Icon | Tap search icon in top nav | Navigate to Search Main (PAGE 13) |
+| Tap Gallery Tag | Tap gallery name link | Navigate to Gallery Profile (PAGE 10) with gallery ID |
+| Tap Search Icon | Tap search icon in top nav | Navigate to Search Main (PAGE 17) |
 | Tap Follow Button | Tap Follow in user recommendation card | Call follow API, update button to "Following", remove from recommendations |
-| Tap User Recommendation | Tap user card | Navigate to User Profile (PAGE 15) with user ID |
+| Tap User Recommendation | Tap user card | Navigate to User Profile (PAGE 17) with user ID |
 | Scroll Carousel | Swipe horizontally on artwork carousel | Smooth scroll, snap to item, update page indicator dots |
 | Tap Tab Bar Item | Tap any tab bar icon | Navigate to respective screen (Search, Camera, Notifications, Profile) |
-| Tap Camera FAB | Tap floating camera button (alternative to tab) | Navigate to Camera View (PAGE 9) |
+| Tap Camera FAB | Tap floating camera button (alternative to tab) | Navigate to Camera View (PAGE 11) |
 
 ### BRANDING ELEMENTS
 - Visual-first design per Pinterest + Instagram inspiration

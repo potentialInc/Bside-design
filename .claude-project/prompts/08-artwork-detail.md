@@ -1,8 +1,8 @@
-# Artwork Detail (06-artwork-detail)
+# Artwork Detail (08-artwork-detail)
 
 ## Full Prompt for Aura.build
 
-Copy the text below and paste into Aura.build when creating the "06-artwork-detail" page:
+Copy the text below and paste into Aura.build when creating the "08-artwork-detail" page:
 
 ---
 
@@ -108,6 +108,28 @@ Purpose:
 - Bottom action bar (sticky, blur background)
 - Background: Background Primary
 
+**TOP HEADER BAR (GLOBAL - Pages 06-10, 15-22):**
+- Fixed top position
+- Height: 44pt + safe area inset
+- Background: Transparent or Surface color with blur
+- Left: Search icon (24pt, tappable 44x44pt) → Navigate to Search (PAGE 15)
+- Center: bside logo (proportional, centered)
+- Right: Notification bell (24pt, tappable 44x44pt, red dot badge if unread) → Navigate to Notifications (PAGE 22)
+- Badge: Red dot (8pt diameter, #FF3B30, top-right of bell)
+
+**BOTTOM NAVIGATION BAR (GLOBAL - Pages 06-10, 15-22):**
+- Fixed bottom position with floating style
+- Height: 56pt + safe area inset
+- Background: #FFFFFF (light) / #1C1C1E (dark)
+- Border radius: 24pt (floating pill effect)
+- Horizontal margins: 16pt, Bottom margin: 8pt above safe area
+- Shadow: Elevation-2 (0 4px 12px rgba(0,0,0,0.12))
+- 3 items evenly spaced: Home | Camera | My Page
+- Each item: Icon (24pt) + Label (Caption 11pt)
+- Active state: Icon + Label in Primary color (#1C1C1E or #007AFF), bold
+- Inactive state: Icon + Label in Text Tertiary
+- Tap target: Full item area (minimum 56pt height)
+
 **HERO IMAGE SECTION:**
 - Image: Full-width, edge-to-edge, maintain aspect ratio (no cropping)
 - Height: Flexible based on aspect ratio, min 300pt, max 600pt
@@ -137,7 +159,7 @@ Purpose:
   - Max 3 lines with ellipsis
 - Artist name (8pt margin-top):
   - Text: Body Medium (15pt Regular), Text Secondary, tappable
-  - Tap: Navigate to Artist Profile (PAGE 7)
+  - Tap: Navigate to Artist Profile (PAGE 9)
   - Underline on press for feedback
 - Metadata (8pt margin-top):
   - Text: Body Small (13pt Regular), Text Tertiary
@@ -163,7 +185,7 @@ Purpose:
     - Gallery name: Body Medium (15pt Regular), Accent Blue, tappable, 4pt margin-top
     - Dates: Caption (12pt Regular), Text Tertiary, 4pt margin-top
       - Format: "March 15 - April 30, 2026"
-  - Tap card: Navigate to Exhibition Detail (future feature) or Gallery Profile (PAGE 8)
+  - Tap card: Navigate to Exhibition Detail (future feature) or Gallery Profile (PAGE 10)
 - Divider: 24pt margin-top
 
 *Section 4: About Artist (24pt margin-top)*
@@ -207,7 +229,7 @@ Purpose:
     - Follow button: Secondary button (transparent, 1pt border), 32pt height, 8pt radius, 12pt margin-top
       - Text: "Follow" or "Following" (Body Small, 13pt Semibold)
   - 3-5 artist cards total
-- Tap artist card: Navigate to Artist Profile (PAGE 7)
+- Tap artist card: Navigate to Artist Profile (PAGE 9)
 - Tap follow: Call API, update button state
 - Divider: 24pt margin-top
 
@@ -275,12 +297,12 @@ Purpose:
 | Navigate Back | Tap back button (top-left) | Return to previous screen (Feed, Collection Detail, or Search) |
 | View Full Image | Tap hero image | Enter full-screen mode, enable pinch-to-zoom, swipe down to dismiss |
 | Open More Menu | Tap more button (top-right) | Open bottom sheet with Share, Report, Copy Link actions |
-| Navigate to Artist | Tap artist name | Navigate to Artist Profile (PAGE 7) with artist ID |
+| Navigate to Artist | Tap artist name | Navigate to Artist Profile (PAGE 9) with artist ID |
 | Expand Bio | Tap "Read more" in artist bio | Expand text to show full bio, "Read more" becomes "Show less" |
 | Follow Artist | Tap "Follow Artist" button | Call follow API, update to "Following" state |
-| Navigate to Gallery | Tap gallery name in exhibition card | Navigate to Gallery Profile (PAGE 8) with gallery ID |
+| Navigate to Gallery | Tap gallery name in exhibition card | Navigate to Gallery Profile (PAGE 10) with gallery ID |
 | View Related Artwork | Tap related artwork thumbnail | Navigate to that Artwork Detail (replace current page) |
-| View Related Artist | Tap related artist card | Navigate to Artist Profile (PAGE 7) with artist ID |
+| View Related Artist | Tap related artist card | Navigate to Artist Profile (PAGE 9) with artist ID |
 | Follow Related Artist | Tap Follow in related artist card | Call follow API, update button state |
 | View Related Exhibition | Tap exhibition card | Navigate to Exhibition Detail or Gallery Profile |
 | Add to Collection | Tap "Add to Collection" button | Open bottom sheet: Select existing collection or create new, save artwork, show success toast |

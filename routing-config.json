@@ -1,0 +1,141 @@
+{
+  "navigation": {
+    "bottom_nav": {
+      "home": "06-feed.html",
+      "camera": "12-camera-view.html",
+      "my_page": "19-my-page-profile.html"
+    },
+    "top_header": {
+      "search": "17-search-main.html",
+      "notifications": "24-notification-list.html",
+      "logo": "06-feed.html"
+    },
+    "auth_flow": {
+      "splash": "01-splash.html",
+      "login": "02-login.html",
+      "signup": "03-signup.html",
+      "password_recovery": "04-password-recovery.html",
+      "profile_setup": "05-profile-setup.html",
+      "login_success": "06-feed.html",
+      "signup_success": "05-profile-setup.html"
+    },
+    "page_links": {
+      "01-splash.html": {
+        "login": "02-login.html",
+        "home": "06-feed.html"
+      },
+      "02-login.html": {
+        "signup": "03-signup.html",
+        "forgot_password": "04-password-recovery.html",
+        "success": "06-feed.html"
+      },
+      "03-signup.html": {
+        "login": "02-login.html",
+        "success": "05-profile-setup.html"
+      },
+      "04-password-recovery.html": {
+        "login": "02-login.html",
+        "success": "02-login.html"
+      },
+      "05-profile-setup.html": {
+        "skip": "06-feed.html",
+        "complete": "06-feed.html"
+      },
+      "06-feed.html": {
+        "collection_detail": "08-collection-detail.html",
+        "artwork_detail": "09-artwork-detail.html",
+        "artist_profile": "10-artist-profile.html",
+        "gallery_profile": "11-gallery-profile.html",
+        "art_feed": "07-art-feed.html"
+      },
+      "07-art-feed.html": {
+        "artwork_detail": "09-artwork-detail.html",
+        "artist_profile": "10-artist-profile.html"
+      },
+      "08-collection-detail.html": {
+        "artwork_detail": "09-artwork-detail.html",
+        "back": "06-feed.html"
+      },
+      "09-artwork-detail.html": {
+        "artist_profile": "10-artist-profile.html",
+        "gallery_profile": "11-gallery-profile.html",
+        "back": "06-feed.html"
+      },
+      "10-artist-profile.html": {
+        "artwork_detail": "09-artwork-detail.html",
+        "followers": "22-follower-list.html",
+        "following": "23-following-list.html",
+        "back": "06-feed.html"
+      },
+      "11-gallery-profile.html": {
+        "artwork_detail": "09-artwork-detail.html",
+        "back": "06-feed.html"
+      },
+      "12-camera-view.html": {
+        "success": "14-recognition-success.html",
+        "failure": "15-recognition-failure.html",
+        "manual_input": "16-manual-artwork-input.html",
+        "close": "06-feed.html"
+      },
+      "13-camera-view-2.html": {
+        "success": "14-recognition-success.html",
+        "failure": "15-recognition-failure.html",
+        "close": "06-feed.html"
+      },
+      "14-recognition-success.html": {
+        "artwork_detail": "09-artwork-detail.html",
+        "save_to_collection": "08-collection-detail.html",
+        "done": "06-feed.html"
+      },
+      "15-recognition-failure.html": {
+        "retry": "12-camera-view.html",
+        "manual_input": "16-manual-artwork-input.html",
+        "cancel": "06-feed.html"
+      },
+      "16-manual-artwork-input.html": {
+        "submit": "09-artwork-detail.html",
+        "cancel": "06-feed.html"
+      },
+      "17-search-main.html": {
+        "results": "18-search-results.html",
+        "close": "06-feed.html"
+      },
+      "18-search-results.html": {
+        "artwork_detail": "09-artwork-detail.html",
+        "artist_profile": "10-artist-profile.html",
+        "gallery_profile": "11-gallery-profile.html",
+        "back": "17-search-main.html"
+      },
+      "19-my-page-profile.html": {
+        "settings": "20-settings.html",
+        "edit_profile": "21-edit-profile.html",
+        "followers": "22-follower-list.html",
+        "following": "23-following-list.html",
+        "artwork_detail": "09-artwork-detail.html",
+        "collection_detail": "08-collection-detail.html"
+      },
+      "20-settings.html": {
+        "back": "19-my-page-profile.html",
+        "logout": "02-login.html"
+      },
+      "21-edit-profile.html": {
+        "save": "19-my-page-profile.html",
+        "cancel": "19-my-page-profile.html"
+      },
+      "22-follower-list.html": {
+        "user_profile": "10-artist-profile.html",
+        "back": "19-my-page-profile.html"
+      },
+      "23-following-list.html": {
+        "user_profile": "10-artist-profile.html",
+        "back": "19-my-page-profile.html"
+      },
+      "24-notification-list.html": {
+        "artwork_detail": "09-artwork-detail.html",
+        "user_profile": "10-artist-profile.html",
+        "collection_detail": "08-collection-detail.html",
+        "close": "06-feed.html"
+      }
+    }
+  }
+}

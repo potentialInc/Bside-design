@@ -1,8 +1,8 @@
-# My Page (Profile) (15-my-page-profile)
+# My Page (Profile) (17-my-page-profile)
 
 ## Full Prompt for Aura.build
 
-Copy the text below and paste into Aura.build when creating the "15-my-page-profile" page:
+Copy the text below and paste into Aura.build when creating the "17-my-page-profile" page:
 
 ---
 
@@ -108,6 +108,28 @@ Purpose:
 - Bottom tab bar navigation (if using tab bar pattern)
 - Background: Background Primary
 
+**TOP HEADER BAR (GLOBAL - Pages 06-10, 15-22):**
+- Fixed top position
+- Height: 44pt + safe area inset
+- Background: Transparent or Surface color with blur
+- Left: Search icon (24pt, tappable 44x44pt) → Navigate to Search (PAGE 15)
+- Center: bside logo (proportional, centered)
+- Right: Notification bell (24pt, tappable 44x44pt, red dot badge if unread) → Navigate to Notifications (PAGE 22)
+- Badge: Red dot (8pt diameter, #FF3B30, top-right of bell)
+
+**BOTTOM NAVIGATION BAR (GLOBAL - Pages 06-10, 15-22):**
+- Fixed bottom position with floating style
+- Height: 56pt + safe area inset
+- Background: #FFFFFF (light) / #1C1C1E (dark)
+- Border radius: 24pt (floating pill effect)
+- Horizontal margins: 16pt, Bottom margin: 8pt above safe area
+- Shadow: Elevation-2 (0 4px 12px rgba(0,0,0,0.12))
+- 3 items evenly spaced: Home | Camera | My Page
+- Each item: Icon (24pt) + Label (Caption 11pt)
+- Active state: Icon + Label in Primary color (#1C1C1E or #007AFF), bold
+- Inactive state: Icon + Label in Text Tertiary
+- Tap target: Full item area (minimum 56pt height)
+
 **PROFILE HEADER:**
 - Background: Optional gradient or solid Background Secondary
 - Padding: 24pt horizontal, 32pt top (+ safe area), 24pt bottom
@@ -128,7 +150,7 @@ Purpose:
   *Edit Profile Button (16pt margin-top):*
   - Secondary button: Transparent with 1pt border, 36pt height, 8pt radius, 160pt width
   - Text: "Edit Profile" (Body Small, 13pt Semibold)
-  - Tap: Navigate to Edit Profile (PAGE 17)
+  - Tap: Navigate to Edit Profile (PAGE 21)
 
   *Stats Row (20pt margin-top):*
   - Horizontal layout, evenly spaced, centered
@@ -136,13 +158,13 @@ Purpose:
     - Captures: Number (Heading 1, 20pt Bold) over "Captures" label (Caption, 12pt, Text Tertiary)
     - Followers: Number over "Followers" label, tappable
     - Following: Number over "Following" label, tappable
-  - Tap Followers: Navigate to Follower List (PAGE 18)
-  - Tap Following: Navigate to Following List (PAGE 19)
+  - Tap Followers: Navigate to Follower List (PAGE 20)
+  - Tap Following: Navigate to Following List (PAGE 21)
 
   *Settings Icon (top-right of header):*
   - Position: Absolute top-right, 16pt from edges (+ safe area)
   - Icon: Gear icon (24pt, Text Secondary), 44pt touch target
-  - Tap: Navigate to Settings (PAGE 16)
+  - Tap: Navigate to Settings (PAGE 20)
 
 **TAB MENU:**
 - Position: Below profile header, fixed (doesn't scroll)
@@ -195,7 +217,7 @@ Purpose:
       - Artist: Body Small (13pt Regular), Text Secondary, 4pt margin-top
       - Date: Caption (12pt Regular), Text Tertiary, 4pt margin-top, "Captured on Mar 15, 2026"
     - Chevron right icon (16pt, Text Tertiary), right
-- Tap item: Navigate to Artwork Detail (PAGE 6)
+- Tap item: Navigate to Artwork Detail (PAGE 8)
 
 *Grid View:*
 - 2-column masonry (mobile), 3-column (tablet)
@@ -207,7 +229,7 @@ Purpose:
   - Message: "No captures yet" (Heading 2, 18pt Semibold, Text Primary), centered, 16pt margin-top
   - Suggestion: "Start capturing artworks at exhibitions" (Body Large, Text Secondary), centered, 8pt margin-top
   - CTA: "Go to Camera" button (Primary, 48pt height), 16pt margin-top
-    - Tap: Navigate to Camera View (PAGE 9)
+    - Tap: Navigate to Camera View (PAGE 11)
 
 **TAB 3: COLLECTIONS (organized collections):**
 - Padding: 16pt horizontal, 16pt top
@@ -230,7 +252,7 @@ Purpose:
       - Visibility badge: "Private" or "Public" (Caption, 11pt Semibold), 8pt margin-top
         - Background: Background Secondary, Text Secondary, 6pt padding horizontal, 4pt vertical, 6pt border radius
     - 16pt gap between cards
-- Tap card: Navigate to Collection Detail (PAGE 5)
+- Tap card: Navigate to Collection Detail (PAGE 7)
 - Long-press card: Open action sheet (Edit, Delete, Share, Change Visibility)
 
 - Empty state:
@@ -257,19 +279,19 @@ Purpose:
 ### MAIN ACTIONS
 | Action | Trigger | Behavior |
 |--------|---------|----------|
-| Edit Profile | Tap "Edit Profile" button | Navigate to Edit Profile (PAGE 17) |
-| View Settings | Tap gear icon (top-right) | Navigate to Settings (PAGE 16) |
-| View Followers | Tap Followers stat | Navigate to Follower List (PAGE 18) |
-| View Following | Tap Following stat | Navigate to Following List (PAGE 19) |
+| Edit Profile | Tap "Edit Profile" button | Navigate to Edit Profile (PAGE 21) |
+| View Settings | Tap gear icon (top-right) | Navigate to Settings (PAGE 20) |
+| View Followers | Tap Followers stat | Navigate to Follower List (PAGE 20) |
+| View Following | Tap Following stat | Navigate to Following List (PAGE 21) |
 | Switch Tab | Tap Home, Captures, or Collections tab | Switch content, animate underline slide |
 | Edit Home Highlights | Tap "Edit" in Home tab | Enter edit mode: pin/unpin, reorder, tap "Done" to save |
 | Toggle Captures View | Tap list/grid icon in Captures tab | Toggle between list and grid views |
 | Sort Captures | Tap sort dropdown | Open dropdown with sort options, apply selected sort |
-| View Artwork | Tap artwork item in Captures | Navigate to Artwork Detail (PAGE 6) |
-| View Collection | Tap collection card in Collections | Navigate to Collection Detail (PAGE 5) |
+| View Artwork | Tap artwork item in Captures | Navigate to Artwork Detail (PAGE 8) |
+| View Collection | Tap collection card in Collections | Navigate to Collection Detail (PAGE 7) |
 | Collection Actions | Long-press collection card | Open action sheet: Edit, Delete, Share, Change Visibility |
 | Group Collections | Tap grouping dropdown | Open dropdown with grouping options, apply selected grouping |
-| Go to Camera | Tap "Go to Camera" in empty states | Navigate to Camera View (PAGE 9) |
+| Go to Camera | Tap "Go to Camera" in empty states | Navigate to Camera View (PAGE 11) |
 | Pin from Captures | Tap "Pin from Captures" in Home empty state | Switch to Captures tab |
 
 ### BRANDING ELEMENTS

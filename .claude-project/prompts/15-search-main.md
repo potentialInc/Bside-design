@@ -1,8 +1,8 @@
-# Search Main (13-search-main)
+# Search Main (15-search-main)
 
 ## Full Prompt for Aura.build
 
-Copy the text below and paste into Aura.build when creating the "13-search-main" page:
+Copy the text below and paste into Aura.build when creating the "15-search-main" page:
 
 ---
 
@@ -106,6 +106,28 @@ Purpose:
 - Content area: Recent searches (default) or auto-complete suggestions (when typing)
 - Background: Background Primary
 
+**TOP HEADER BAR (GLOBAL - Pages 06-10, 15-22):**
+- Fixed top position
+- Height: 44pt + safe area inset
+- Background: Transparent or Surface color with blur
+- Left: Search icon (24pt, tappable 44x44pt) → Navigate to Search (PAGE 15)
+- Center: bside logo (proportional, centered)
+- Right: Notification bell (24pt, tappable 44x44pt, red dot badge if unread) → Navigate to Notifications (PAGE 22)
+- Badge: Red dot (8pt diameter, #FF3B30, top-right of bell)
+
+**BOTTOM NAVIGATION BAR (GLOBAL - Pages 06-10, 15-22):**
+- Fixed bottom position with floating style
+- Height: 56pt + safe area inset
+- Background: #FFFFFF (light) / #1C1C1E (dark)
+- Border radius: 24pt (floating pill effect)
+- Horizontal margins: 16pt, Bottom margin: 8pt above safe area
+- Shadow: Elevation-2 (0 4px 12px rgba(0,0,0,0.12))
+- 3 items evenly spaced: Home | Camera | My Page
+- Each item: Icon (24pt) + Label (Caption 11pt)
+- Active state: Icon + Label in Primary color (#1C1C1E or #007AFF), bold
+- Inactive state: Icon + Label in Text Tertiary
+- Tap target: Full item area (minimum 56pt height)
+
 **NAVIGATION BAR (optional):**
 - Height: 60pt including safe area
 - Background: Background Primary with 0.5pt bottom border
@@ -148,7 +170,7 @@ Purpose:
       - Leading: Clock icon (16pt, Text Tertiary), 12pt margin-right
       - Search term: Body Large (17pt Regular, Text Primary), flex
       - Trailing: X button (remove icon, 16pt, Text Tertiary), 44pt touch target
-    - Tap item: Re-run search with this term, navigate to Search Results (PAGE 14)
+    - Tap item: Re-run search with this term, navigate to Search Results (PAGE 16)
     - Tap X: Remove this term from history (no confirmation)
 - Clear all button (24pt margin-top from last item):
   - Text button: "Clear Search History" (Body Medium, 15pt Semibold, Error Red)
@@ -181,7 +203,7 @@ Purpose:
       - Matching part: Bolded (Semibold weight)
       - Format: "[Name]" or "[Title] by [Artist]" for artworks
     - Trailing: Category label (Caption, 11pt Regular, Text Tertiary), "Artist", "Artwork", or "User"
-  - Tap suggestion: Navigate to Search Results (PAGE 14) with selected query, or directly to entity (Artist Profile, Artwork Detail, User Profile)
+  - Tap suggestion: Navigate to Search Results (PAGE 16) with selected query, or directly to entity (Artist Profile, Artwork Detail, User Profile)
 - Empty (if no suggestions): Show "No suggestions" message (Body Medium, Text Tertiary, centered, 16pt padding)
 
 ### KEY FEATURES
@@ -208,8 +230,8 @@ Purpose:
 | Focus Search | Tap search bar | Focus input, show keyboard, highlight border, display recent searches or auto-complete |
 | Type Query | Type in search bar | Show auto-complete suggestions (debounced 300ms), update suggestions as typing |
 | Clear Input | Tap X button in search bar | Clear text, hide X button, hide auto-complete, show recent searches |
-| Submit Search | Tap return key on keyboard or select suggestion | Navigate to Search Results (PAGE 14) with query, add to recent searches |
-| Select Recent Search | Tap recent search item | Navigate to Search Results (PAGE 14) with that query |
+| Submit Search | Tap return key on keyboard or select suggestion | Navigate to Search Results (PAGE 16) with query, add to recent searches |
+| Select Recent Search | Tap recent search item | Navigate to Search Results (PAGE 16) with that query |
 | Remove Recent Search | Tap X on recent search item | Remove from history list (no confirmation) |
 | Clear All History | Tap "Clear Search History" | Show confirmation dialog, if confirmed: clear all history, show empty state |
 | Select Suggestion | Tap auto-complete suggestion | Navigate to Search Results or directly to entity (Artist Profile, Artwork Detail, User Profile) |

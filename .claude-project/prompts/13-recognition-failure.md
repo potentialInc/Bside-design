@@ -1,8 +1,8 @@
-# Recognition Result - Success (10-recognition-success)
+# Recognition Result - Failure (13-recognition-failure)
 
 ## Full Prompt for Aura.build
 
-Copy the text below and paste into Aura.build when creating the "10-recognition-success" page:
+Copy the text below and paste into Aura.build when creating the "13-recognition-failure" page:
 
 ---
 
@@ -88,15 +88,15 @@ Style: Minimal and Elegant with understated luxury, featuring #1C1C1E primary (D
 category: user
 
 ### SCREEN OVERVIEW
-The Recognition Success bottom sheet appears after capturing an artwork and successfully identifying it. It displays the corrected artwork image, comprehensive metadata, and actions to add to collection or view full details.
+The Recognition Failure bottom sheet appears when the AI cannot immediately identify the captured artwork. It provides processing feedback, suggests possible matches based on location/exhibition context, and offers manual input as fallback.
 
 Purpose:
-- Confirm successful artwork recognition
-- Display recognized artwork image and metadata
-- Provide immediate feedback after capture
-- Enable adding artwork to collection
-- Allow viewing full artwork details
-- Celebrate successful capture
+- Communicate processing status (AI still working)
+- Suggest possible artwork matches if available
+- Provide manual input option as fallback
+- Enable requesting platform to add artwork
+- Maintain user confidence despite recognition failure
+- Ensure smooth experience with clear next steps
 
 ### LAYOUT INSTRUCTIONS
 
@@ -112,106 +112,110 @@ Purpose:
 **SHEET HANDLE:**
 - Position: Top center, 12pt from top edge
 - Size: 36x5pt rounded rectangle
-- Background: Text Tertiary (rgba(0,0,0,0.38) light, rgba(255,255,255,0.38) dark)
+- Background: Text Tertiary
 - Swipe down to dismiss sheet
 
 **HEADER:**
 - Padding: 16pt horizontal, 16pt top
 - Layout (horizontal):
-  - Title: "Artwork Recognized" (Heading 2, 18pt Semibold, Success Green #34C759)
+  - Title: "Processing Artwork" (Heading 2, 18pt Semibold, Warning Orange #FF9500)
   - Spacer (flex)
   - Close button: X icon (24pt, Text Secondary), 44pt touch target
 - Tap close: Dismiss sheet, return to Camera View
 
-**CAPTURED IMAGE:**
+**CAPTURED IMAGE WITH OVERLAY:**
 - Position: 16pt margin-top from header
 - Padding: 0pt (edge-to-edge within sheet)
-- Image: Corrected artwork photo (perspective correction applied by recognition)
-- Aspect ratio: 16:10 (standard artwork ratio) or original if available
-- Max height: 320pt
-- Border radius: 0pt (edge-to-edge)
-- Animation: Fade in (400ms) after sheet appears
-- Loading: Show shimmer placeholder while image loads
+- Image: Captured artwork photo (full-width, maintain aspect ratio)
+- Max height: 280pt
+- Overlay (centered on image):
+  - Background: Scrim (rgba(0,0,0,0.60))
+  - Text: "We are processing this artwork for you" (Body Medium, 15pt Regular, white text, centered)
+  - Padding: 16pt horizontal, 12pt vertical
+  - Border radius: 8pt
+  - Optional: Spinner animation (white, 24pt) above text
 
-**ARTWORK DETAILS:**
+**SUGGESTED ARTWORKS (if location/exhibition known):**
 - Padding: 16pt horizontal, 16pt top
-- Content (vertical stack):
+- Section header: "Could it be one of these?" (Heading 3, 16pt Semibold, Text Primary)
+- Horizontal scroll carousel (16pt margin-top):
+  - 2-3 artwork cards per location/exhibition context
+  - Card size: 160pt width
+  - Gap: 12pt
+  - Each card:
+    - Image: 160x200pt, border radius 12pt, cover fit
+    - Title: Body Medium (15pt Semibold), Text Primary, centered, 8pt margin-top, max 1 line ellipsis
+    - Artist: Body Small (13pt Regular), Text Secondary, centered, 4pt margin-top
+  - Tap card: Assume this is correct artwork, open Recognition Success sheet (PAGE 10) with selected artwork data
+- Empty (if no suggestions): Hide this section
 
-  *Artwork Title:*
-  - Text: Heading 1 (20pt Semibold), Text Primary
-  - Max 2 lines with ellipsis
+**MANUAL INPUT OPTION:**
+- Padding: 16pt horizontal, 24pt top
+- Content (vertical stack, centered):
 
-  *Artist Name (8pt margin-top):*
-  - Text: Body Medium (15pt Regular), Text Secondary, tappable (underline on press)
-  - Tap: Dismiss sheet, navigate to Artist Profile (PAGE 7)
+  *Icon:*
+  - Icon: Pencil/edit icon (48pt, Text Tertiary)
+  - Centered
 
-  *Metadata (8pt margin-top):*
-  - Text: Body Small (13pt Regular), Text Tertiary
-  - Format: "1985 • Oil on canvas"
-  - Bullet-separated (year, medium)
+  *Message (12pt margin-top):*
+  - Text: "Can't find it?" (Body Large, 17pt Semibold, Text Primary, centered)
 
-  *Capture Info (12pt margin-top):*
-  - Icon + text: 📍 location pin emoji + location (Body Small, 13pt Regular, Text Secondary)
-  - Date: Caption (12pt Regular), Text Tertiary, 4pt margin-top
-    - Format: "Captured on March 15, 2026"
-
-**ACTION BUTTONS:**
-- Padding: 16pt horizontal, 24pt top, 24pt bottom (+ safe area)
-- Vertical stack, 12pt gap
-
-  *Add to Collection Button (Primary):*
-  - Background: #1C1C1E, white text
-  - Height: 48pt
-  - Border radius: 12pt
-  - Text: "Add to Collection" (Body Medium, 15pt Semibold)
-  - Icon: Plus icon (20pt) left of text
-  - Full-width
-  - Tap: Open collection picker bottom sheet (overlay current sheet or replace), select collection, save, show success toast, navigate to My Page or Feed
-
-  *View Details Button (Tertiary):*
+  *Manual Input Button (12pt margin-top):*
   - Background: Transparent, Accent Blue text
   - Height: 48pt
-  - Text: "View Details" (Body Medium, 15pt Semibold)
+  - Text: "Enter Artwork Info Manually" (Body Medium, 15pt Semibold)
   - Full-width
-  - Tap: Dismiss sheet, navigate to Artwork Detail (PAGE 6)
+  - Tap: Dismiss sheet, navigate to Manual Artwork Input (PAGE 12)
+
+**REQUEST PLATFORM OPTION:**
+- Padding: 16pt horizontal, 16pt top, 24pt bottom (+ safe area)
+- Content:
+
+  *Request Button (Secondary):*
+  - Background: Transparent with 1pt border (border color)
+  - Height: 48pt
+  - Border radius: 12pt
+  - Text: "Request Platform to Add This Artwork" (Body Medium, 15pt Semibold, Text Primary)
+  - Full-width
+  - Tap: Submit captured image + metadata to platform for admin review, show success toast "Request submitted. We'll review and add this artwork soon!", dismiss sheet
 
 ### KEY FEATURES
-- Bottom sheet presentation (slides up from bottom)
-- Success indicator (green title "Artwork Recognized")
-- Corrected artwork image (perspective correction from AI)
-- Comprehensive metadata (title, artist, year, medium)
-- Capture location and date recorded
-- Artist name tappable (quick navigation)
-- Two primary actions: Add to Collection (main CTA), View Details (secondary)
-- Swipe down to dismiss (handle at top)
-- Backdrop tap to dismiss (optional)
-- Close button (X) for explicit dismissal
-- Image fade-in animation for polish
-- Loading state for image (shimmer)
+- Processing indicator (orange title, spinner, overlay message)
+- Captured image displayed (user sees what was captured)
+- Suggested artworks if location/exhibition context available (smart fallback)
+- Manual input option always available (user not blocked)
+- Request platform to add artwork (crowdsourcing)
+- Horizontal scroll for suggestions (easy browsing)
+- Tap suggestion to select as correct artwork
+- Clear messaging ("Could it be one of these?", "Can't find it?")
+- Swipe down to dismiss
+- Close button for explicit dismissal
+- Loading state: Spinner on image overlay
 - Dark mode support
 - Safe area insets
 
 ### MAIN ACTIONS
 | Action | Trigger | Behavior |
 |--------|---------|----------|
-| Add to Collection | Tap "Add to Collection" button | Open collection picker (bottom sheet or modal), user selects existing collection or creates new, save artwork, show success toast "Added to [Collection Name]", navigate to My Page (Captures tab) or Feed |
-| View Details | Tap "View Details" button | Dismiss sheet, navigate to Artwork Detail (PAGE 6) with artwork ID |
-| Navigate to Artist | Tap artist name | Dismiss sheet, navigate to Artist Profile (PAGE 7) with artist ID |
-| Dismiss Sheet | Swipe down on handle, tap backdrop, or tap X button | Animate sheet down (300ms), return to Camera View (PAGE 9) |
+| Select Suggested Artwork | Tap artwork card in suggestions | Assume this is correct artwork, dismiss current sheet, open Recognition Success sheet (PAGE 10) with selected artwork data |
+| Enter Manual Input | Tap "Enter Artwork Info Manually" | Dismiss sheet, navigate to Manual Artwork Input (PAGE 12) with captured image |
+| Request Platform Add | Tap "Request Platform to Add This Artwork" | Submit captured image + metadata to admin queue, show success toast, dismiss sheet, return to Camera View |
+| Dismiss Sheet | Swipe down, tap backdrop, or tap X | Animate sheet down, return to Camera View (PAGE 9) |
 | Scroll Content | Vertical scroll if content exceeds max height | Smooth scroll within sheet |
 
 ### BRANDING ELEMENTS
-- Success feedback (green title, success green #34C759) provides positive reinforcement
-- Corrected artwork image showcases AI capability (Vivino inspiration)
-- Bottom sheet follows iOS/Android patterns (handle, swipe to dismiss)
-- Capture date/location preserves context
-- "Add to Collection" as primary action (collection curation is core feature per Spotify inspiration)
-- "View Details" offers deeper exploration
-- Image fade-in animation creates premium feel
-- Typography hierarchy: Heading 1 (20pt) for title → Body Medium (15pt) → Body Small (13pt)
+- Processing feedback (orange title, spinner) manages user expectations
+- Suggested artworks provide smart fallback (location-based context per design philosophy)
+- Manual input ensures user never blocked (Vivino fallback inspiration)
+- Request platform option enables crowdsourcing (community-driven)
+- Horizontal carousel for suggestions (easy browsing, Pinterest-like)
+- Clear messaging ("Could it be one of these?") guides user
+- Icon + text pattern ("Can't find it?") friendly and helpful
+- Typography hierarchy: Heading 2 (18pt) → Body Large (17pt) → Body Medium (15pt)
+- Warning Orange (#FF9500) for processing state (not error, just in progress)
+- Accent Blue for manual input CTA
 - Generous padding: 16pt margins per 8pt grid
-- Elevation-3 shadow on sheet for depth
-- Dark mode support with true black
-- Smooth animations: Slide up (300ms), fade in (400ms)
+- Smooth animations: Sheet slide up, image fade in
+- Dark mode support
 
 ---

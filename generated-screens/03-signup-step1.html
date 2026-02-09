@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>bside.art | Sign Up</title>
+    <title>bside.art | Sign Up - Email</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            background-color: #111; 
+            background-color: #111;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -22,10 +22,10 @@
 
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        
+
         input:-webkit-autofill,
-        input:-webkit-autofill:hover, 
-        input:-webkit-autofill:focus, 
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
         input:-webkit-autofill:active{
             -webkit-box-shadow: 0 0 0 30px #1C1C1E inset !important;
             -webkit-text-fill-color: white !important;
@@ -36,7 +36,7 @@
 <body>
 
     <div class="relative w-[375px] h-[812px] bg-black rounded-[50px] shadow-[0_0_0_12px_#2d2d2d,0_0_0_14px_#000,0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden shrink-0 border border-zinc-800">
-        
+
         <!-- Status Bar -->
         <div class="absolute top-0 left-0 w-full h-[44px] z-50 flex items-center justify-between px-6 select-none pointer-events-none mix-blend-difference text-white">
             <span class="text-[15px] font-semibold">9:41</span>
@@ -51,52 +51,47 @@
 
         <!-- Content Area -->
         <div class="w-full h-full bg-black relative flex flex-col overflow-y-auto no-scrollbar selection:bg-[#007AFF] selection:text-white">
-            
+
             <div class="absolute inset-0 z-0 pointer-events-none">
-                <img 
-                    src="https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=1000&auto=format&fit=crop" 
-                    alt="Background Art" 
+                <img
+                    src="https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=1000&auto=format&fit=crop"
+                    alt="Background Art"
                     class="w-full h-full object-cover blur-2xl opacity-60 scale-125"
                 >
                 <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-[#000000]/80 to-[#000000]"></div>
             </div>
 
             <div class="relative z-10 flex flex-col min-h-full px-[32px] pt-[88px] pb-[48px]">
-                
+
+                <!-- Back Button -->
+                <div class="absolute top-[56px] left-[20px]">
+                    <a href="./03-signup.html" class="w-10 h-10 flex items-center justify-center text-white/80 hover:text-white transition-colors">
+                        <iconify-icon icon="solar:alt-arrow-left-linear" width="24"></iconify-icon>
+                    </a>
+                </div>
+
                 <div class="flex flex-col items-center mb-8 shrink-0">
                     <h1 class="text-4xl font-semibold tracking-tighter text-white select-none mb-6">
                         bside<span class="text-[#007AFF]">.</span>art
                     </h1>
                     <div class="text-center">
-                        <h2 class="text-[28px] font-semibold tracking-tight text-white leading-tight mb-2">Create Account</h2>
-                        <p class="text-white/60 text-[17px] font-normal leading-relaxed">Join bside to capture and curate art</p>
+                        <h2 class="text-[28px] font-semibold tracking-tight text-white leading-tight mb-2">Enter Your Email</h2>
+                        <p class="text-white/60 text-[15px] font-normal leading-relaxed">We'll send you a verification code</p>
                     </div>
                 </div>
 
-                <div class="space-y-[12px] w-full shrink-0">
-                    <button class="w-full h-[48px] bg-white text-black font-normal text-[17px] rounded-xl flex items-center justify-center space-x-2 active:scale-[0.98] transition-transform duration-200">
-                        <iconify-icon icon="logos:apple" width="20"></iconify-icon>
-                        <span>Sign up with Apple</span>
+                <!-- Step 1: Email Form -->
+                <form onsubmit="goToStep2(event)" class="space-y-4 w-full">
+                    <div class="space-y-2">
+                        <label class="text-[13px] text-white/60 block">Email</label>
+                        <input type="email" id="email-input" placeholder="your@email.com" required
+                            class="w-full h-[48px] bg-[#1C1C1E] border border-white/10 rounded-xl px-4 text-white placeholder-white/20 focus:outline-none focus:border-[#007AFF] focus:ring-1 focus:ring-[#007AFF] transition-all text-[17px]"
+                        >
+                    </div>
+                    <button type="submit" class="w-full h-[48px] bg-[#1C1C1E] border border-white/10 hover:bg-[#2C2C2E] text-white font-semibold text-[17px] rounded-xl mt-4 active:scale-[0.98] transition-all duration-200 flex items-center justify-center">
+                        Send Verification Code
                     </button>
-
-                    <button class="w-full h-[48px] bg-white text-black/80 font-normal text-[17px] rounded-xl flex items-center justify-center space-x-2 border border-[#E0E0E0] active:scale-[0.98] transition-transform duration-200">
-                        <iconify-icon icon="logos:google-icon" width="20"></iconify-icon>
-                        <span>Sign up with Google</span>
-                    </button>
-                </div>
-
-                <div class="relative mt-[24px] mb-[16px] flex items-center justify-center shrink-0">
-                    <div class="absolute inset-0 flex items-center">
-                        <div class="w-full border-t border-white/10"></div>
-                    </div>
-                    <div class="relative px-4 bg-[#000000] rounded-full">
-                        <span class="text-[12px] text-white/40 uppercase tracking-widest font-medium">or</span>
-                    </div>
-                </div>
-
-                <a href="./03-signup-step1.html" class="w-full text-[#007AFF] font-normal text-[15px] text-center py-2 hover:text-[#007AFF]/80 transition-colors shrink-0 block">
-                    Sign up with email
-                </a>
+                </form>
 
                 <div class="mt-auto text-center pt-8">
                     <p class="text-[15px] text-white/60">
@@ -110,6 +105,16 @@
         </div>
     </div>
 
-    <!-- No JavaScript needed - using separate pages for each step -->
+    <script>
+        function goToStep2(e) {
+            e.preventDefault();
+            const email = document.getElementById('email-input').value;
+            if(email && email.includes('@')) {
+                // Store email in sessionStorage for next step
+                sessionStorage.setItem('signup_email', email);
+                window.location.href = './03-signup-step2.html';
+            }
+        }
+    </script>
 </body>
 </html>

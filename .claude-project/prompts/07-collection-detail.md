@@ -1,8 +1,8 @@
-# Collection Detail (05-collection-detail)
+# Collection Detail (07-collection-detail)
 
 ## Full Prompt for Aura.build
 
-Copy the text below and paste into Aura.build when creating the "05-collection-detail" page:
+Copy the text below and paste into Aura.build when creating the "07-collection-detail" page:
 
 ---
 
@@ -107,6 +107,15 @@ Purpose:
 - Artwork grid (scrollable)
 - Background: Background Primary
 
+**TOP HEADER BAR (GLOBAL - Pages 06-10, 15-22):**
+- Fixed top position
+- Height: 44pt + safe area inset
+- Background: Transparent or Surface color with blur
+- Left: Search icon (24pt, tappable 44x44pt) → Navigate to Search (PAGE 15)
+- Center: bside logo (proportional, centered)
+- Right: Notification bell (24pt, tappable 44x44pt, red dot badge if unread) → Navigate to Notifications (PAGE 22)
+- Badge: Red dot (8pt diameter, #FF3B30, top-right of bell)
+
 **NAVIGATION BAR:**
 - Height: 60pt including safe area
 - Background: Background Primary with 0.5pt bottom border, or transparent with blur (if parallax)
@@ -141,7 +150,7 @@ Purpose:
   *Exhibition Info (if applicable, 8pt margin-top):*
   - Exhibition name: Body Medium (15pt Regular), Text Primary
   - Gallery tag: Body Small (13pt Regular), Accent Blue, tappable, 4pt margin-top
-    - Tap: Navigate to Gallery Profile (PAGE 8)
+    - Tap: Navigate to Gallery Profile (PAGE 10)
 
   *Stats Row (16pt margin-top):*
   - Horizontal layout (evenly spaced):
@@ -172,11 +181,24 @@ Purpose:
     - Padding: 6pt horizontal, 4pt vertical
     - Border radius: 8pt
     - Position: 8pt from top-right edges
-- Tap artwork card: Navigate to Artwork Detail (PAGE 6) with artwork ID
+- Tap artwork card: Navigate to Artwork Detail (PAGE 10) with artwork ID
 - Loading: Skeleton cards (shimmer animation) while loading images
 - Empty state (no artworks):
   - Icon: Image icon (64pt, Text Tertiary), centered
   - Message: "No artworks in this collection yet" (Body Large, Text Secondary)
+
+**BOTTOM NAVIGATION BAR (GLOBAL - Pages 06-10, 15-22):**
+- Fixed bottom position with floating style
+- Height: 56pt + safe area inset
+- Background: #FFFFFF (light) / #1C1C1E (dark)
+- Border radius: 24pt (floating pill effect)
+- Horizontal margins: 16pt, Bottom margin: 8pt above safe area
+- Shadow: Elevation-2 (0 4px 12px rgba(0,0,0,0.12))
+- 3 items evenly spaced: Home | Camera | My Page
+- Each item: Icon (24pt) + Label (Caption 11pt)
+- Active state: Icon + Label in Primary color (#1C1C1E or #007AFF), bold
+- Inactive state: Icon + Label in Text Tertiary
+- Tap target: Full item area (minimum 56pt height)
 
 **EDIT MODE (if owner taps Edit button):**
 - Nav bar changes:
@@ -215,7 +237,7 @@ Purpose:
 | Navigate Back | Tap back button | Return to previous screen (Feed or My Page) |
 | Share Collection | Tap share icon | Open system share sheet with collection URL and preview image |
 | Follow User | Tap Follow button in hero | Call follow API, update button to "Following" state |
-| Navigate to Gallery | Tap gallery tag | Navigate to Gallery Profile (PAGE 8) with gallery ID |
+| Navigate to Gallery | Tap gallery tag | Navigate to Gallery Profile (PAGE 10) with gallery ID |
 | View Artwork | Tap artwork card in grid | Navigate to Artwork Detail (PAGE 6) with artwork ID |
 | Enter Edit Mode | Tap "Edit Collection" button (owner only) | Enable edit mode, show delete buttons, allow reordering |
 | Edit Title | Tap title in edit mode | Title becomes editable, keyboard appears, save button enabled |

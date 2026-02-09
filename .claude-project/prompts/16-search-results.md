@@ -1,8 +1,8 @@
-# Search Results (14-search-results)
+# Search Results (16-search-results)
 
 ## Full Prompt for Aura.build
 
-Copy the text below and paste into Aura.build when creating the "14-search-results" page:
+Copy the text below and paste into Aura.build when creating the "16-search-results" page:
 
 ---
 

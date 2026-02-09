@@ -1,8 +1,8 @@
-# Gallery Profile (08-gallery-profile)
+# Gallery Profile (10-gallery-profile)
 
 ## Full Prompt for Aura.build
 
-Copy the text below and paste into Aura.build when creating the "08-gallery-profile" page:
+Copy the text below and paste into Aura.build when creating the "10-gallery-profile" page:
 
 ---
 
@@ -109,6 +109,28 @@ Purpose:
 - Past exhibitions section (optional)
 - Background: Background Primary
 
+**TOP HEADER BAR (GLOBAL - Pages 06-10, 15-22):**
+- Fixed top position
+- Height: 44pt + safe area inset
+- Background: Transparent or Surface color with blur
+- Left: Search icon (24pt, tappable 44x44pt) → Navigate to Search (PAGE 15)
+- Center: bside logo (proportional, centered)
+- Right: Notification bell (24pt, tappable 44x44pt, red dot badge if unread) → Navigate to Notifications (PAGE 22)
+- Badge: Red dot (8pt diameter, #FF3B30, top-right of bell)
+
+**BOTTOM NAVIGATION BAR (GLOBAL - Pages 06-10, 15-22):**
+- Fixed bottom position with floating style
+- Height: 56pt + safe area inset
+- Background: #FFFFFF (light) / #1C1C1E (dark)
+- Border radius: 24pt (floating pill effect)
+- Horizontal margins: 16pt, Bottom margin: 8pt above safe area
+- Shadow: Elevation-2 (0 4px 12px rgba(0,0,0,0.12))
+- 3 items evenly spaced: Home | Camera | My Page
+- Each item: Icon (24pt) + Label (Caption 11pt)
+- Active state: Icon + Label in Primary color (#1C1C1E or #007AFF), bold
+- Inactive state: Icon + Label in Text Tertiary
+- Tap target: Full item area (minimum 56pt height)
+
 **NAVIGATION BAR:**
 - Height: 60pt including safe area
 - Background: Background Primary with 0.5pt bottom border
@@ -175,7 +197,7 @@ Purpose:
       - Artists: Body Small (13pt Regular), Text Secondary, 4pt margin-top
         - Format: "Featuring [Artist 1], [Artist 2]"
         - Max 2 artists shown, "+ N more" if more artists
-  - Tap card: Navigate to Exhibition Detail (future) or Collection Detail (PAGE 5)
+  - Tap card: Navigate to Exhibition Detail (future) or Collection Detail (PAGE 7)
 - Empty state (if no current exhibitions):
   - Icon: Calendar icon (64pt, Text Tertiary), centered
   - Message: "No current exhibitions" (Body Large, Text Secondary), centered
@@ -219,7 +241,7 @@ Purpose:
 | Share Gallery | Tap share icon | Open system share sheet with gallery profile URL |
 | Open in Maps | Tap address | Open Maps app with gallery location pinned |
 | Open Website | Tap website link | Open gallery website in browser |
-| View Current Exhibition | Tap current exhibition card | Navigate to Exhibition Detail or Collection Detail (PAGE 5) |
+| View Current Exhibition | Tap current exhibition card | Navigate to Exhibition Detail or Collection Detail (PAGE 7) |
 | View Past Exhibition | Tap past exhibition card | Navigate to Exhibition Detail or Collection Detail |
 
 ### BRANDING ELEMENTS

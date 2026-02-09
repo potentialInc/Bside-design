@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>bside.art | Artwork Detail</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body {
+font-family: 'Inter', sans-serif;
+background-color: #000000;
+display: flex;
+align-items: center;
+justify-content: center;
+min-height: 100vh;
+margin: 0;
+padding: 20px;
+color: #FFFFFF;
+}
+.iphone-frame {
+width: 375px;
+height: 812px;
+background: #000000;
+border-radius: 40px;
+box-shadow: 0 0 0 12px #222222, 0 20px 50px rgba(0,0,0,0.5);
+position: relative;
+overflow: hidden;
+display: flex;
+flex-direction: column;
+}
+.notch {
+position: absolute;
+top: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 160px;
+height: 32px;
+background: #222;
+border-bottom-left-radius: 18px;
+border-bottom-right-radius: 18px;
+z-index: 100;
+}
+.status-bar {
+height: 44px;
+width: 100%;
+position: absolute;
+top: 0;
+left: 0;
+z-index: 90;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0 24px;
+box-sizing: border-box;
+font-size: 14px;
+font-weight: 600;
+color: white;
+text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.tracking-tight { letter-spacing: -0.02em; }
+/* Smooth scrolling container */
+.app-content {
+flex: 1;
+overflow-y: auto;
+background-color: #000000;
+position: relative;
+}
+/* Custom utilities */
+.text-xxs { font-size: 10px; }
+.line-clamp-4 {
+display: -webkit-box;
+-webkit-line-clamp: 4;
+-webkit-box-orient: vertical;
+overflow: hidden;
+}
+.artwork-shadow {
+box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+</style></head>
+<body>
+
+    <div class="iphone-frame">
+        <div class="notch"></div>
+        
+        <!-- Status Bar -->
+        <div class="status-bar mix-blend-difference">
+            <span>9:41</span>
+            <div class="flex gap-1.5 items-center">
+                <i data-lucide="signal" class="w-4 h-4"></i>
+                <i data-lucide="wifi" class="w-4 h-4"></i>
+                <i data-lucide="battery-full" class="w-5 h-5"></i>
+            </div>
+        </div>
+
+        <!-- Scrollable Area -->
+        <div class="app-content no-scrollbar">
+            
+            <!-- Hero Image -->
+            <div class="relative w-full aspect-[375/500] bg-[#E5D5D0]">
+                <!-- Back Button Overlay -->
+                <a href="./06-feed.html" class="absolute top-[52px] left-5 z-20 w-8 h-8 flex items-center justify-center text-white drop-shadow-md active:scale-95 transition-transform">
+                    <i data-lucide="arrow-left" class="w-6 h-6 stroke-[2.5]"></i>
+                </a>
+
+                <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover" alt="Nuance Artwork">
+            </div>
+
+            <!-- Light Info Section -->
+            <div class="bg-[#FFEFEA] px-5 pt-5 pb-8 flex flex-col relative z-10">
+                <div class="flex flex-col">
+                    <h1 class="text-[28px] font-bold text-black tracking-tight leading-tight">Nuance</h1>
+                    <p class="text-[18px] text-black/90 font-medium mt-1 tracking-tight">Chansong Kim</p>
+                    
+                    <div class="mt-8 flex justify-between items-end">
+                        <div class="flex flex-col gap-0.5">
+                            <span class="text-[15px] font-normal text-black/80">Oil on Canvas</span>
+                            <span class="text-[15px] font-normal text-black/80">2023</span>
+                        </div>
+                        
+                        <div class="flex items-center gap-1.5 pb-0.5 text-black">
+                            <i data-lucide="camera" class="w-4 h-4 fill-black stroke-none"></i>
+                            <span class="text-[16px] font-bold tracking-tight">1,424</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dark Content Section -->
+            <div class="bg-black pt-10 pb-20 px-5 flex flex-col gap-10 min-h-[500px]">
+                
+                <!-- About Artist -->
+                <div class="flex flex-col gap-3">
+                    <div class="flex items-center justify-between group cursor-pointer">
+                        <h2 class="text-[17px] font-bold text-white tracking-tight">About Artist</h2>
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-white/60"></i>
+                    </div>
+
+                    <div class="relative w-full rounded-lg overflow-hidden bg-[#1C1C1E] aspect-[1.6/1]">
+                        <!-- Background with Overlay -->
+                        <img src="https://images.unsplash.com/photo-1634152962476-4b8a00e1915c?q=80&amp;w=600&amp;auto=format&amp;fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-overlay">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20"></div>
+                        
+                        <!-- Content -->
+                        <div class="absolute inset-0 p-5 flex flex-col justify-end">
+                            <h3 class="text-[19px] font-bold text-white tracking-tight">Chansong Kim</h3>
+                            <p class="text-[13px] text-white/70 font-medium mt-0.5">b.1988 / Based in South Korea and France</p>
+                            
+                            <div class="mt-3 pt-3 border-t border-white/10">
+                                <p class="text-[11px] leading-[1.5] text-gray-300 font-normal line-clamp-3">
+                                    Chansong Kim captures moments when the solidity of existence dissolves into fluidity. Her long-standing inquiry into the 'body' focuses on the instant when her once-familiar form becomes suddenly estranged...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Artworks -->
+                <div class="flex flex-col gap-3">
+                    <div class="flex items-center justify-between group cursor-pointer">
+                        <h2 class="text-[17px] font-bold text-white tracking-tight">Related Artworks</h2>
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-white/60"></i>
+                    </div>
+                    
+                    <div class="flex gap-1 overflow-x-hidden">
+                        <div class="flex-1 aspect-[3/4] bg-[#222]">
+                            <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&amp;w=400&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover hover:opacity-90 transition-opacity">
+                        </div>
+                        <div class="flex-1 aspect-[3/4] bg-[#222]">
+                            <img src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?q=80&amp;w=400&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover hover:opacity-90 transition-opacity">
+                        </div>
+                        <div class="flex-1 aspect-[3/4] bg-[#222]">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg" class="w-full h-full object-cover hover:opacity-90 transition-opacity">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Artists -->
+                <div class="flex flex-col gap-3">
+                    <div class="flex items-center justify-between group cursor-pointer">
+                        <h2 class="text-[17px] font-bold text-white tracking-tight">Related Artists</h2>
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-white/60"></i>
+                    </div>
+                    
+                    <div class="flex justify-between px-2 pt-2">
+                        <!-- Artist 1 -->
+                        <div class="flex flex-col items-center gap-2 text-center w-[90px]">
+                            <div class="w-[72px] h-[72px] rounded-full overflow-hidden bg-gray-800 border border-white/10">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&amp;w=200&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover">
+                            </div>
+                            <span class="text-[13px] font-medium text-white/90 leading-tight">Seungun Cha</span>
+                            <div class="bg-[#D4C3F8] px-1.5 py-0.5 rounded text-[9px] font-bold text-[#563196] uppercase tracking-wide flex items-center gap-1">
+                                <div class="w-1 h-1 rounded-full bg-[#563196]"></div>
+                                In Exhibition
+                            </div>
+                        </div>
+
+                        <!-- Artist 2 -->
+                        <div class="flex flex-col items-center gap-2 text-center w-[90px]">
+                            <div class="w-[72px] h-[72px] rounded-full overflow-hidden bg-gray-800 border border-white/10">
+                                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&amp;w=200&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover grayscale opacity-80">
+                            </div>
+                            <span class="text-[13px] font-medium text-white/90 leading-tight">Jihyun Im</span>
+                        </div>
+
+                        <!-- Artist 3 -->
+                        <div class="flex flex-col items-center gap-2 text-center w-[90px]">
+                            <div class="w-[72px] h-[72px] rounded-full overflow-hidden bg-gray-800 border border-white/10">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&amp;w=200&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover grayscale opacity-80">
+                            </div>
+                            <span class="text-[13px] font-medium text-white/90 leading-tight">Hyunjung Park</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Exhibitions -->
+                <div class="flex flex-col gap-4">
+                    <div class="flex items-center justify-between group cursor-pointer">
+                        <h2 class="text-[17px] font-bold text-white tracking-tight">Related Exhibitions</h2>
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-white/60"></i>
+                    </div>
+
+                    <div class="flex gap-4 items-start cursor-pointer active:opacity-80 transition-opacity">
+                        <div class="w-[85px] h-[110px] bg-[#222] shrink-0 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&amp;w=400&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover opacity-80">
+                        </div>
+                        <div class="flex flex-col pt-1">
+                            <h3 class="text-[15px] font-semibold text-white leading-tight">Tic Tac Toe: Elsewhere</h3>
+                            <p class="text-[13px] text-white/60 font-medium mt-1.5 leading-tight">Sean Crowley · Yuyun Hwang · Sonahn Lee</p>
+                            <p class="text-[12px] text-white/40 mt-1.5 tracking-tight font-normal">December 12, 2025 – January 3, 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body></html>

@@ -1,8 +1,8 @@
-# Manual Artwork Input (12-manual-artwork-input)
+# Manual Artwork Input (14-manual-artwork-input)
 
 ## Full Prompt for Aura.build
 
-Copy the text below and paste into Aura.build when creating the "12-manual-artwork-input" page:
+Copy the text below and paste into Aura.build when creating the "14-manual-artwork-input" page:
 
 ---
 
