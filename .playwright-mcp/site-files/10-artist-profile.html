@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>bside.art | Artist Profile</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+:root {
+--safe-top: 44px;
+--safe-bottom: 34px;
+--primary: #1C1C1E;
+--blue: #007AFF;
+}
+body {
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+background-color: #111;
+color: #FFFFFF;
+display: flex;
+align-items: center;
+justify-content: center;
+min-height: 100vh;
+margin: 0;
+padding: 20px;
+}
+.device-frame {
+width: 375px;
+height: 812px;
+background: #000000;
+border-radius: 40px;
+box-shadow: 0 0 0 12px #2d2d2d, 0 20px 50px rgba(0, 0, 0, 0.5);
+position: relative;
+overflow: hidden;
+border: 8px solid #000;
+}
+.notch {
+position: absolute;
+top: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 120px;
+height: 30px;
+background: #000;
+border-bottom-left-radius: 16px;
+border-bottom-right-radius: 16px;
+z-index: 100;
+}
+.status-time {
+position: absolute;
+top: 12px;
+left: 24px;
+font-size: 14px;
+font-weight: 600;
+color: white;
+z-index: 100;
+}
+.status-icons {
+position: absolute;
+top: 14px;
+right: 24px;
+display: flex;
+gap: 6px;
+color: white;
+font-size: 12px;
+z-index: 100;
+}
+.home-indicator {
+position: absolute;
+bottom: 8px;
+left: 50%;
+transform: translateX(-50%);
+width: 134px;
+height: 5px;
+background: white;
+border-radius: 100px;
+opacity: 0.3;
+z-index: 100;
+}
+.no-scrollbar::-webkit-scrollbar {
+display: none;
+}
+.no-scrollbar {
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
+/* Gradient overlay for artwork cards */
+.card-gradient {
+background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.8) 100%);
+}
+/* Smooth scroll behavior */
+.scroll-smooth {
+scroll-behavior: smooth;
+}
+</style></head>
+
+<body>
+
+    <div class="device-frame">
+        <!-- Status Bar -->
+        <div class="notch"></div>
+        <div class="status-time">9:41</div>
+        <div class="status-icons">
+            <iconify-icon icon="solar:signal-linear"></iconify-icon>
+            <iconify-icon icon="solar:wi-fi-linear"></iconify-icon>
+            <iconify-icon icon="solar:battery-full-solid"></iconify-icon>
+        </div>
+
+        <!-- Sticky Navigation -->
+        <nav class="absolute top-0 left-0 right-0 z-50 h-[100px] flex items-end pb-3 px-4 pointer-events-none transition-all duration-300">
+            <!-- Glass Background (appears on scroll) -->
+            <div class="absolute inset-0 bg-black/80 backdrop-blur-md opacity-0 transition-opacity duration-300 border-b border-white/10" id="nav-bg"></div>
+
+            <div class="relative w-full flex justify-between items-center z-10">
+                <!-- Back Button -->
+                <button class="pointer-events-auto w-11 h-11 rounded-full flex items-center justify-center text-white active:bg-white/10 transition-colors">
+                    <iconify-icon icon="solar:alt-arrow-left-linear" class="text-2xl"></iconify-icon>
+                </button>
+
+                <!-- Artist Name (Hidden initially) -->
+                <span class="text-[17px] font-semibold text-white opacity-0 transition-opacity duration-300 transform translate-y-1" id="nav-title">Haegue Yang</span>
+
+                <!-- Share Button -->
+                <button class="pointer-events-auto w-11 h-11 rounded-full flex items-center justify-center text-white active:bg-white/10 transition-colors">
+                    <iconify-icon icon="solar:share-linear" class="text-2xl"></iconify-icon>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Scrollable Content -->
+        <div class="h-full overflow-y-auto no-scrollbar bg-black scroll-smooth" onscroll="handleScroll(this)">
+
+            <!-- Profile Header Section -->
+            <div class="bg-[#1C1C1E] pt-[110px] pb-8 px-6 flex flex-col items-center">
+                <!-- Avatar -->
+                <div class="w-24 h-24 rounded-full p-0.5 bg-gradient-to-tr from-white/20 to-white/5 mb-4 shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&amp;w=400&amp;auto=format&amp;fit=crop" class="w-full h-full rounded-full object-cover border-2 border-[#1C1C1E]" alt="Artist Avatar">
+                </div>
+
+                <!-- Name -->
+                <h1 class="text-[28px] font-semibold text-white tracking-tight text-center mb-1">Haegue Yang</h1>
+
+                <!-- Bio Meta -->
+                <p class="text-[15px] text-white/60 text-center mb-3 font-normal">b. 1971, Based in Seoul &amp; Berlin
+                </p>
+
+                <!-- Social Links -->
+                <div class="flex gap-6 mb-5">
+                    <button class="text-white/60 hover:text-white transition-colors active:scale-95">
+                        <iconify-icon icon="solar:instagram-linear" class="text-2xl"></iconify-icon>
+                    </button>
+                    <button class="text-white/60 hover:text-white transition-colors active:scale-95">
+                        <iconify-icon icon="solar:globe-linear" class="text-2xl"></iconify-icon>
+                    </button>
+                </div>
+
+                <!-- Follow Button -->
+                <button onclick="toggleFollow(this)" class="w-[180px] h-12 bg-white text-black rounded-xl font-semibold text-[15px] mb-8 active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2">
+                    Follow
+                </button>
+
+                <!-- Stats Row -->
+                <div class="w-full max-w-sm flex justify-between px-4">
+                    <div class="flex flex-col items-center">
+                        <span class="text-[20px] font-bold text-white tracking-tight">12.4k</span>
+                        <span class="text-[12px] text-white/40 mt-0.5">Captures</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="text-[20px] font-bold text-white tracking-tight">142</span>
+                        <span class="text-[12px] text-white/40 mt-0.5">Artworks</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="text-[20px] font-bold text-white tracking-tight">48</span>
+                        <span class="text-[12px] text-white/40 mt-0.5">Exhibitions</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bio Section -->
+            <div class="px-6 py-6 border-b border-white/5">
+                <h3 class="text-[16px] font-semibold text-white mb-3">About</h3>
+                <div class="relative">
+                    <p class="text-[17px] leading-relaxed text-white/90 font-light" id="bio-text">
+                        Haegue Yang is renowned for her genre-defying practice that spans installation, sculpture, and
+                        video. Her work often repurposes industrial materials...
+                        <span class="text-[#007AFF] font-medium ml-1 cursor-pointer active:opacity-60" onclick="expandBio(this)">Read more</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Artworks Section -->
+            <div class="px-4 py-6">
+                <div class="flex justify-between items-center mb-4 px-2">
+                    <h3 class="text-[16px] font-semibold text-white">Artworks</h3>
+                    <button class="w-11 h-11 flex items-center justify-end text-white/60 active:text-white">
+                        <iconify-icon icon="solar:sort-linear" class="text-xl"></iconify-icon>
+                    </button>
+                </div>
+
+                <!-- Masonry Grid (CSS Columns) -->
+                <div class="columns-2 gap-3 space-y-3">
+
+                    <!-- Artwork Card 1 -->
+                    <div class="relative break-inside-avoid rounded-2xl overflow-hidden bg-[#1C1C1E] active:opacity-90 transition-opacity">
+                        <img src="https://images.unsplash.com/photo-1550613296-6e1ae3f32467?q=80&amp;w=400&amp;auto=format&amp;fit=crop" class="w-full h-auto object-cover" alt="Artwork">
+                        <div class="absolute inset-0 card-gradient flex flex-col justify-end p-3">
+                            <h4 class="text-white text-[15px] font-medium leading-tight mb-0.5 line-clamp-1">Sonic Gym
+                            </h4>
+                            <span class="text-white/60 text-[11px]">2022</span>
+                        </div>
+                        <div class="absolute top-2 right-2 bg-black/40 backdrop-blur-md px-2 py-1 rounded-lg flex items-center gap-1">
+                            <iconify-icon icon="solar:camera-linear" class="text-white/80 text-[10px]"></iconify-icon>
+                            <span class="text-[11px] font-medium text-white/90">2.1k</span>
+                        </div>
+                    </div>
+
+                    <!-- Artwork Card 2 -->
+                    <div class="relative break-inside-avoid rounded-2xl overflow-hidden bg-[#1C1C1E] active:opacity-90 transition-opacity">
+                        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&amp;w=400&amp;auto=format&amp;fit=crop" class="w-full h-auto object-cover" alt="Artwork">
+                        <div class="absolute inset-0 card-gradient flex flex-col justify-end p-3">
+                            <h4 class="text-white text-[15px] font-medium leading-tight mb-0.5 line-clamp-1">Sol LeWitt
+                                Upside Down</h4>
+                            <span class="text-white/60 text-[11px]">2019</span>
+                        </div>
+                        <div class="absolute top-2 right-2 bg-black/40 backdrop-blur-md px-2 py-1 rounded-lg flex items-center gap-1">
+                            <iconify-icon icon="solar:camera-linear" class="text-white/80 text-[10px]"></iconify-icon>
+                            <span class="text-[11px] font-medium text-white/90">856</span>
+                        </div>
+                    </div>
+
+                    <!-- Artwork Card 3 -->
+                    <div class="relative break-inside-avoid rounded-2xl overflow-hidden bg-[#1C1C1E] active:opacity-90 transition-opacity">
+                        <img src="https://images.unsplash.com/photo-1558230554-47d519495115?q=80&amp;w=400&amp;auto=format&amp;fit=crop" class="w-full h-auto object-cover" alt="Artwork">
+                        <div class="absolute inset-0 card-gradient flex flex-col justify-end p-3">
+                            <h4 class="text-white text-[15px] font-medium leading-tight mb-0.5 line-clamp-1">Coordinates
+                                of Places</h4>
+                            <span class="text-white/60 text-[11px]">2023</span>
+                        </div>
+                        <div class="absolute top-2 right-2 bg-black/40 backdrop-blur-md px-2 py-1 rounded-lg flex items-center gap-1">
+                            <iconify-icon icon="solar:camera-linear" class="text-white/80 text-[10px]"></iconify-icon>
+                            <span class="text-[11px] font-medium text-white/90">3.4k</span>
+                        </div>
+                    </div>
+
+                    <!-- Artwork Card 4 -->
+                    <div class="relative break-inside-avoid rounded-2xl overflow-hidden bg-[#1C1C1E] active:opacity-90 transition-opacity">
+                        <img src="https://images.unsplash.com/photo-1536924940846-227afb31e2a5?q=80&amp;w=400&amp;auto=format&amp;fit=crop" class="w-full h-auto object-cover" alt="Artwork">
+                        <div class="absolute inset-0 card-gradient flex flex-col justify-end p-3">
+                            <h4 class="text-white text-[15px] font-medium leading-tight mb-0.5 line-clamp-1">Handling
+                                the Abstract</h4>
+                            <span class="text-white/60 text-[11px]">2018</span>
+                        </div>
+                        <div class="absolute top-2 right-2 bg-black/40 backdrop-blur-md px-2 py-1 rounded-lg flex items-center gap-1">
+                            <iconify-icon icon="solar:camera-linear" class="text-white/80 text-[10px]"></iconify-icon>
+                            <span class="text-[11px] font-medium text-white/90">1.2k</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="h-[1px] bg-white/10 w-full mx-6 my-2"></div>
+
+            <!-- Exhibitions Section -->
+            <div class="px-6 py-6 pb-24">
+                <h3 class="text-[16px] font-semibold text-white mb-4">Exhibitions</h3>
+
+                <!-- Segmented Control -->
+                <div class="flex p-1 bg-[#1C1C1E] rounded-lg mb-5">
+                    <button class="flex-1 py-1.5 text-[13px] font-medium text-white bg-[#333] rounded shadow-sm transition-all">Upcoming</button>
+                    <button class="flex-1 py-1.5 text-[13px] font-medium text-white/40 hover:text-white transition-all">Past</button>
+                </div>
+
+                <!-- Exhibition List -->
+                <div class="flex flex-col gap-3">
+                    <!-- Exhibition Item 1 -->
+                    <div class="bg-[#1C1C1E] p-4 rounded-2xl border border-white/5 active:bg-white/5 transition-colors cursor-pointer group">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="text-[16px] font-semibold text-white mb-1">Changing From From To From</h4>
+                                <p class="text-[13px] text-white/60 mb-1">National Gallery of Art</p>
+                                <div class="flex items-center gap-1.5">
+                                    <iconify-icon icon="solar:calendar-linear" class="text-white/40 text-[12px]"></iconify-icon>
+                                    <p class="text-[12px] text-white/40">Oct 15, 2024 - Mar 10, 2025</p>
+                                </div>
+                            </div>
+                            <iconify-icon icon="solar:alt-arrow-right-linear" class="text-white/20 text-lg group-hover:text-white/60 transition-colors"></iconify-icon>
+                        </div>
+                    </div>
+
+                    <!-- Exhibition Item 2 -->
+                    <div class="bg-[#1C1C1E] p-4 rounded-2xl border border-white/5 active:bg-white/5 transition-colors cursor-pointer group">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="text-[16px] font-semibold text-white mb-1">Several Reenactments</h4>
+                                <p class="text-[13px] text-white/60 mb-1">Tate Modern</p>
+                                <div class="flex items-center gap-1.5">
+                                    <iconify-icon icon="solar:calendar-linear" class="text-white/40 text-[12px]"></iconify-icon>
+                                    <p class="text-[12px] text-white/40">May 20, 2025 - Sep 15, 2025</p>
+                                </div>
+                            </div>
+                            <iconify-icon icon="solar:alt-arrow-right-linear" class="text-white/20 text-lg group-hover:text-white/60 transition-colors"></iconify-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Home Indicator -->
+        <div class="home-indicator"></div>
+    </div>
+
+    <script>
+        // Scroll handler for Sticky Nav and Title visibility
+        function handleScroll(element) {
+            const navBg = document.getElementById('nav-bg');
+            const navTitle = document.getElementById('nav-title');
+            
+            // Threshold to show nav elements
+            if (element.scrollTop > 220) {
+                navBg.style.opacity = '1';
+                navTitle.style.opacity = '1';
+                navTitle.style.transform = 'translateY(0)';
+            } else {
+                navBg.style.opacity = '0';
+                navTitle.style.opacity = '0';
+                navTitle.style.transform = 'translateY(4px)';
+            }
+        }
+
+        // Toggle Follow Button State
+        function toggleFollow(btn) {
+            if (btn.innerText === "Follow") {
+                btn.innerText = "Following";
+                btn.classList.remove('bg-white', 'text-black');
+                btn.classList.add('bg-transparent', 'text-white', 'border', 'border-white/20');
+            } else {
+                btn.innerText = "Follow";
+                btn.classList.add('bg-white', 'text-black');
+                btn.classList.remove('bg-transparent', 'text-white', 'border', 'border-white/20');
+            }
+        }
+
+        // Expand Bio Logic
+        function expandBio(link) {
+            const p = document.getElementById('bio-text');
+            const fullText = "Haegue Yang is renowned for her genre-defying practice that spans installation, sculpture, and video. Her work often repurposes industrial materials into immersive sensory environments. Based between Seoul and Berlin, Yang addresses themes of migration, displacement, and labor through abstract yet evocative forms.";
+            
+            // Check if already expanded by checking class or text content
+            if (link.innerText === "Read more") {
+                p.childNodes[0].nodeValue = fullText + " ";
+                link.innerText = "Show less";
+            } else {
+                p.childNodes[0].nodeValue = "Haegue Yang is renowned for her genre-defying practice that spans installation, sculpture, and video. Her work often repurposes industrial materials... ";
+                link.innerText = "Read more";
+            }
+        }
+    </script>
+
+
+
+</body></html>

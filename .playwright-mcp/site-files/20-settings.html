@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>bside.art | Settings</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+:root {
+--bg-primary: #000000;
+--bg-secondary: #1C1C1E;
+--accent-blue: #007AFF;
+--success-green: #34C759;
+--error-red: #FF3B30;
+--toggle-off: #39393D;
+}
+body {
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+background-color: #111;
+display: flex;
+align-items: center;
+justify-content: center;
+min-height: 100vh;
+margin: 0;
+padding: 20px;
+color: #FFFFFF;
+}
+.device-frame {
+width: 375px;
+height: 812px;
+background: var(--bg-primary);
+border-radius: 40px;
+box-shadow: 0 0 0 12px #2d2d2d, 0 20px 50px rgba(0, 0, 0, 0.5);
+position: relative;
+overflow: hidden;
+border: 8px solid #000;
+}
+.notch {
+position: absolute;
+top: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 120px;
+height: 30px;
+background: #000;
+border-bottom-left-radius: 16px;
+border-bottom-right-radius: 16px;
+z-index: 50;
+}
+.no-scrollbar::-webkit-scrollbar {
+display: none;
+}
+.no-scrollbar {
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
+/* iOS Toggle Switch */
+.toggle-checkbox {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+height: 0;
+width: 0;
+}
+.toggle-track {
+width: 51px;
+height: 31px;
+background-color: var(--toggle-off);
+border-radius: 9999px;
+position: relative;
+transition: background-color 0.2s ease-in-out;
+}
+.toggle-knob {
+width: 27px;
+height: 27px;
+background-color: white;
+border-radius: 50%;
+position: absolute;
+top: 2px;
+left: 2px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+.toggle-checkbox:checked+.toggle-track {
+background-color: var(--success-green);
+}
+.toggle-checkbox:checked+.toggle-track .toggle-knob {
+transform: translateX(20px);
+}
+/* List Group Styling */
+.settings-group {
+background-color: var(--bg-secondary);
+border-radius: 12px;
+overflow: hidden;
+margin-bottom: 24px;
+}
+.settings-item {
+display: flex;
+align-items: center;
+justify-content: space-between;
+height: 48px;
+/* Fixed height for standard rows */
+padding: 0 16px;
+background-color: var(--bg-secondary);
+position: relative;
+transition: background-color 0.2s;
+}
+.settings-item:active {
+background-color: #2C2C2E;
+}
+.settings-item:not(:last-child)::after {
+content: '';
+position: absolute;
+bottom: 0;
+left: 16px;
+/* Inset separator */
+right: 0;
+height: 1px;
+/* thinner than 1px in reality, using scale below */
+background-color: rgba(255, 255, 255, 0.12);
+transform: scaleY(0.5);
+}
+/* Modal Backdrop */
+.modal-backdrop {
+background: rgba(0, 0, 0, 0.5);
+backdrop-filter: blur(2px);
+opacity: 0;
+pointer-events: none;
+transition: opacity 0.3s ease;
+}
+.modal-backdrop.active {
+opacity: 1;
+pointer-events: auto;
+}
+.bottom-sheet {
+transform: translateY(100%);
+transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+}
+.modal-backdrop.active .bottom-sheet {
+transform: translateY(0);
+}
+</style></head>
+
+<body class="antialiased text-white selection:bg-[#007AFF] selection:text-white">
+
+    <div class="device-frame">
+        <!-- Status Bar -->
+        <div class="notch"></div>
+        <div class="absolute top-3 left-6 text-sm font-semibold text-white z-50">9:41</div>
+        <div class="absolute top-3.5 right-6 flex gap-1.5 text-white text-xs z-50">
+            <iconify-icon icon="solar:signal-linear"></iconify-icon>
+            <iconify-icon icon="solar:wi-fi-linear"></iconify-icon>
+            <iconify-icon icon="solar:battery-full-solid"></iconify-icon>
+        </div>
+
+        <!-- Navigation Bar -->
+        <div class="absolute top-0 left-0 right-0 h-[100px] pt-[44px] px-2 flex items-center justify-between bg-black/95 backdrop-blur-md z-40 border-b-[0.5px] border-white/10">
+            <button class="flex items-center gap-1 h-[44px] pl-2 pr-4 text-[#007AFF] active:opacity-60 transition-opacity" onclick="console.log('Back tapped')">
+                <iconify-icon icon="solar:alt-arrow-left-linear" width="24" height="24"></iconify-icon>
+                <span class="text-[17px] font-normal">Back</span>
+            </button>
+            <h1 class="text-[17px] font-semibold text-white absolute left-1/2 -translate-x-1/2">Settings</h1>
+            <div class="w-[70px]"></div> <!-- Spacer for balance -->
+        </div>
+
+        <!-- Scrollable Content -->
+        <div class="h-full overflow-y-auto no-scrollbar pt-[116px] pb-[40px] px-4 bg-black">
+
+            <!-- GROUP 1: ACCOUNT SETTINGS -->
+            <div class="mb-[8px] pl-4">
+                <h3 class="text-[11px] font-medium text-white/40 uppercase tracking-wide">Account Settings</h3>
+            </div>
+            <div class="settings-group">
+                <!-- Username -->
+                <button class="settings-item w-full" onclick="showPasswordModal()">
+                    <span class="text-[16px] text-white">Username</span>
+                    <div class="flex items-center gap-2">
+                        <span class="text-[16px] text-white/40">alexmorgan</span>
+                        <iconify-icon icon="solar:alt-arrow-right-linear" class="text-white/30 text-[16px]"></iconify-icon>
+                    </div>
+                </button>
+
+                <!-- Password -->
+                <button class="settings-item w-full" onclick="showPasswordModal()">
+                    <span class="text-[16px] text-white">Password</span>
+                    <iconify-icon icon="solar:alt-arrow-right-linear" class="text-white/30 text-[16px]"></iconify-icon>
+                </button>
+
+                <!-- Private Account Toggle -->
+                <div class="settings-item h-[52px]">
+                    <span class="text-[16px] text-white">Private Account</span>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="toggle-checkbox" onchange="togglePrivate(this)">
+                        <div class="toggle-track">
+                            <div class="toggle-knob"></div>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- Search Engines Toggle -->
+                <div class="settings-item h-[52px]">
+                    <span class="text-[16px] text-white">Allow Search Engines</span>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" checked="" class="toggle-checkbox">
+                        <div class="toggle-track">
+                            <div class="toggle-knob"></div>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- Delete Account -->
+                <button class="settings-item w-full" onclick="showDeleteConfirm()">
+                    <span class="text-[16px] text-[#FF3B30]">Delete Account</span>
+                    <iconify-icon icon="solar:alt-arrow-right-linear" class="text-white/30 text-[16px]"></iconify-icon>
+                </button>
+            </div>
+
+
+            <!-- GROUP 2: NOTIFICATIONS -->
+            <div class="mb-[8px] pl-4 mt-6">
+                <h3 class="text-[11px] font-medium text-white/40 uppercase tracking-wide">Notifications</h3>
+            </div>
+            <div class="settings-group">
+                <!-- New Followers -->
+                <div class="settings-item h-[52px]">
+                    <span class="text-[16px] text-white">New Followers</span>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" checked="" class="toggle-checkbox">
+                        <div class="toggle-track">
+                            <div class="toggle-knob"></div>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- Accepted Requests -->
+                <div class="settings-item h-[52px]">
+                    <span class="text-[16px] text-white">Accepted Requests</span>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" checked="" class="toggle-checkbox">
+                        <div class="toggle-track">
+                            <div class="toggle-knob"></div>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- Comments -->
+                <div class="settings-item h-[52px]">
+                    <span class="text-[16px] text-white">Artwork Comments</span>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" checked="" class="toggle-checkbox">
+                        <div class="toggle-track">
+                            <div class="toggle-knob"></div>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- Announcements -->
+                <div class="settings-item h-[52px]">
+                    <span class="text-[16px] text-white">Platform Announcements</span>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" checked="" class="toggle-checkbox">
+                        <div class="toggle-track">
+                            <div class="toggle-knob"></div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+
+            <!-- GROUP 3: ABOUT -->
+            <div class="mb-[8px] pl-4 mt-6">
+                <h3 class="text-[11px] font-medium text-white/40 uppercase tracking-wide">About</h3>
+            </div>
+            <div class="settings-group">
+                <!-- Privacy Policy -->
+                <button class="settings-item w-full">
+                    <span class="text-[16px] text-white">Privacy Policy</span>
+                    <iconify-icon icon="solar:alt-arrow-right-linear" class="text-white/30 text-[16px]"></iconify-icon>
+                </button>
+
+                <!-- Terms -->
+                <button class="settings-item w-full">
+                    <span class="text-[16px] text-white">Terms of Service</span>
+                    <iconify-icon icon="solar:alt-arrow-right-linear" class="text-white/30 text-[16px]"></iconify-icon>
+                </button>
+
+                <!-- Help -->
+                <button class="settings-item w-full">
+                    <span class="text-[16px] text-white">Help &amp; Support</span>
+                    <iconify-icon icon="solar:alt-arrow-right-linear" class="text-white/30 text-[16px]"></iconify-icon>
+                </button>
+
+                <!-- Version -->
+                <div class="settings-item">
+                    <span class="text-[16px] text-white">App Version</span>
+                    <span class="text-[16px] text-white/40">1.0.0</span>
+                </div>
+            </div>
+
+            <!-- GROUP 4: ACTIONS -->
+            <div class="settings-group mt-8">
+                <button class="settings-item w-full flex justify-center items-center" onclick="showLogoutConfirm()">
+                    <span class="text-[16px] font-medium text-[#FF3B30]">Logout</span>
+                </button>
+            </div>
+
+            <div class="text-center mt-8 pb-4">
+                <p class="text-[12px] text-white/20">bside.art inc.</p>
+            </div>
+
+        </div>
+
+        <!-- Password Confirmation Modal (Overlay) -->
+        <div id="passwordModal" class="absolute inset-0 modal-backdrop z-[60] flex items-end">
+            <div class="bottom-sheet w-full bg-[#1C1C1E] rounded-t-[20px] p-6 pb-10">
+                <div class="w-[40px] h-[5px] bg-white/10 rounded-full mx-auto mb-6"></div>
+
+                <h2 class="text-[20px] font-semibold text-white text-center mb-6">Enter password to continue</h2>
+
+                <div class="relative w-full mb-6">
+                    <input type="password" placeholder="Your password" class="w-full h-[48px] bg-black border border-white/10 rounded-xl px-4 text-white placeholder-white/30 focus:outline-none focus:border-[#007AFF] transition-colors">
+                    <button class="absolute right-4 top-1/2 -translate-y-1/2 text-white/40">
+                        <iconify-icon icon="solar:eye-linear" width="20"></iconify-icon>
+                    </button>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <button onclick="hidePasswordModal()" class="w-full h-[48px] bg-white text-black font-semibold rounded-xl active:opacity-90 transition-opacity">
+                        Confirm
+                    </button>
+                    <button onclick="hidePasswordModal()" class="w-full h-[48px] bg-transparent text-white font-medium rounded-xl active:bg-white/5 transition-colors">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Generic Confirmation Modal (Simulated for Logout/Delete) -->
+        <div id="confirmModal" class="absolute inset-0 modal-backdrop z-[70] flex items-center justify-center p-8 hidden">
+            <div class="bg-[#1C1C1E]/90 backdrop-blur-xl w-full max-w-[280px] rounded-xl overflow-hidden text-center">
+                <div class="p-6">
+                    <h3 id="confirmTitle" class="text-[17px] font-semibold text-white mb-1">Confirm</h3>
+                    <p id="confirmText" class="text-[13px] text-white/80">Are you sure you want to perform this action?
+                    </p>
+                </div>
+                <div class="flex border-t border-white/10">
+                    <button onclick="hideConfirmModal()" class="flex-1 h-[44px] text-[17px] text-[#007AFF] font-medium border-r border-white/10 active:bg-white/5">Cancel</button>
+                    <button onclick="hideConfirmModal()" class="flex-1 h-[44px] text-[17px] text-[#FF3B30] font-semibold active:bg-white/5">Confirm</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Home Indicator -->
+        <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-[134px] h-[5px] bg-white/40 rounded-full z-[60]">
+        </div>
+    </div>
+
+    <script>
+        // Modal Logic
+        const passwordModal = document.getElementById('passwordModal');
+        const confirmModal = document.getElementById('confirmModal');
+        const confirmTitle = document.getElementById('confirmTitle');
+        const confirmText = document.getElementById('confirmText');
+
+        function showPasswordModal() {
+            passwordModal.classList.add('active');
+        }
+
+        function hidePasswordModal() {
+            passwordModal.classList.remove('active');
+        }
+
+        function showLogoutConfirm() {
+            confirmTitle.innerText = "Logout";
+            confirmText.innerText = "Are you sure you want to logout?";
+            confirmModal.classList.remove('hidden');
+            // Small delay to allow fade in if css transition was added, currently just hidden toggle
+            setTimeout(() => confirmModal.classList.add('active'), 10);
+        }
+
+        function showDeleteConfirm() {
+            // In a real flow this would go to password first, then here. 
+            // Simplifying for UI demo:
+            showPasswordModal(); // Step 1
+        }
+
+        function hideConfirmModal() {
+            confirmModal.classList.remove('active');
+            setTimeout(() => confirmModal.classList.add('hidden'), 300);
+        }
+
+        function togglePrivate(checkbox) {
+            if(checkbox.checked) {
+                confirmTitle.innerText = "Switch to Private?";
+                confirmText.innerText = "Your profile will be hidden from search. Only approved followers can see your content.";
+                confirmModal.classList.remove('hidden');
+                setTimeout(() => confirmModal.classList.add('active'), 10);
+            }
+        }
+    </script>
+
+
+
+</body></html>

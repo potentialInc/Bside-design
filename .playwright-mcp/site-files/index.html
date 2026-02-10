@@ -14,13 +14,23 @@ font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe U
 }
 /* Spring Animation for Logo */
 @keyframes spring-up {
-0% { opacity: 0; transform: scale(0.95) translateY(10px); }
-100% { opacity: 1; transform: scale(1.0) translateY(0); }
+0% {
+opacity: 0;
+transform: scale(0.95) translateY(10px);
+}
+100% {
+opacity: 1;
+transform: scale(1.0) translateY(0);
+}
 }
 /* Background Fade */
 @keyframes fade-in-bg {
-0% { opacity: 0; }
-100% { opacity: 1; }
+0% {
+opacity: 0;
+}
+100% {
+opacity: 1;
+}
 }
 .animate-spring {
 animation: spring-up 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
@@ -29,9 +39,15 @@ animation: spring-up 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 animation: fade-in-bg 0.6s ease-out forwards;
 }
 /* Hide Scrollbar */
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar {
+display: none;
+}
+.no-scrollbar {
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
 </style></head>
+
 <body class="bg-[#111] min-h-screen w-full flex items-center justify-center p-8 selection:bg-[#007AFF] selection:text-white">
 
     <!--
@@ -84,5 +100,7 @@ animation: fade-in-bg 0.6s ease-out forwards;
             }, 2000);
         });
     </script>
+
+
 
 </body></html>

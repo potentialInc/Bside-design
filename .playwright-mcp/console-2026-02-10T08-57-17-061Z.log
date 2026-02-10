@@ -1,0 +1,11 @@
+[    4388ms] [WARNING] An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing. @ about:srcdoc:0
+[    4479ms] [WARNING] cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation @ https://cdn.tailwindcss.com/:63
+[    4603ms] [WARNING] An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing. @ about:srcdoc:0
+[    4613ms] [WARNING] cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation @ https://cdn.tailwindcss.com/:63
+[    8951ms] [WARNING] An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing. @ https://www.aura.build/editor/02-login.html:0
+[    9684ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://hoirqrkdgbmvpwutwuwj.supabase.co/rest/v1/chats?select=cms_collection_id&id=eq.02-login.html:0
+[    9756ms] [WARNING] cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation @ https://cdn.tailwindcss.com/:63
+[    9844ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://hoirqrkdgbmvpwutwuwj.supabase.co/rest/v1/rpc/check_chat_ownership:0
+[    9845ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://hoirqrkdgbmvpwutwuwj.supabase.co/rest/v1/rpc/check_chat_ownership:0
+[    9846ms] [ERROR] Error checking chat ownership: {code: 22P02, details: null, hint: null, message: invalid input syntax for type uuid: "02-login.html"} @ https://www.aura.build/assets/index-ID64Vf1D.js:8765
+[    9850ms] [ERROR] Error checking chat ownership: {code: 22P02, details: null, hint: null, message: invalid input syntax for type uuid: "02-login.html"} @ https://www.aura.build/assets/index-ID64Vf1D.js:8765

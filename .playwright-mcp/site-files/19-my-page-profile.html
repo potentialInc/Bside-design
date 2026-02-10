@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>bside.art | My Profile</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+:root {
+--bg-primary: #000000;
+--bg-secondary: #1C1C1E;
+--accent-blue: #007AFF;
+--text-primary: #FFFFFF;
+--text-secondary: rgba(255, 255, 255, 0.6);
+--text-tertiary: rgba(255, 255, 255, 0.38);
+}
+body {
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+background-color: #111;
+display: flex;
+align-items: center;
+justify-content: center;
+min-height: 100vh;
+margin: 0;
+padding: 20px;
+}
+.device-frame {
+width: 375px;
+height: 812px;
+background: var(--bg-primary);
+border-radius: 40px;
+box-shadow: 0 0 0 12px #2d2d2d, 0 20px 50px rgba(0, 0, 0, 0.5);
+position: relative;
+overflow: hidden;
+border: 8px solid #000;
+}
+.notch {
+position: absolute;
+top: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 120px;
+height: 30px;
+background: #000;
+border-bottom-left-radius: 16px;
+border-bottom-right-radius: 16px;
+z-index: 50;
+}
+.no-scrollbar::-webkit-scrollbar {
+display: none;
+}
+.no-scrollbar {
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
+/* Masonry Grid */
+.masonry-grid {
+column-count: 2;
+column-gap: 12px;
+}
+.masonry-item {
+break-inside: avoid;
+margin-bottom: 12px;
+}
+/* Tab Transitions */
+.tab-content {
+display: none;
+animation: fadeIn 0.3s ease-out;
+}
+.tab-content.active {
+display: block;
+}
+.tab-underline {
+transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+@keyframes fadeIn {
+from {
+opacity: 0;
+transform: translateY(5px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+.glass-nav {
+background: rgba(0, 0, 0, 0.85);
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+border-top: 0.5px solid rgba(255, 255, 255, 0.1);
+}
+.gradient-overlay {
+background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+}
+</style></head>
+
+<body class="antialiased text-white">
+
+    <div class="device-frame">
+        <!-- Status Bar -->
+        <div class="notch"></div>
+        <div class="absolute top-3 left-6 text-sm font-semibold text-white z-50">9:41</div>
+        <div class="absolute top-3.5 right-6 flex gap-1.5 text-white text-xs z-50">
+            <iconify-icon icon="solar:signal-linear"></iconify-icon>
+            <iconify-icon icon="solar:wi-fi-linear"></iconify-icon>
+            <iconify-icon icon="solar:battery-full-solid"></iconify-icon>
+        </div>
+
+        <!-- Settings Icon (Fixed Top Right) -->
+        <a href="./20-settings.html" class="absolute top-12 right-4 w-11 h-11 flex items-center justify-center text-white/80 active:text-white z-40">
+            <iconify-icon icon="solar:settings-linear" width="24" height="24"></iconify-icon>
+        </a>
+
+        <!-- Main Scrollable Area -->
+        <div class="h-full overflow-y-auto no-scrollbar pb-[90px]" id="main-scroll">
+
+            <!-- Profile Header -->
+            <div class="pt-[80px] pb-6 px-6 flex flex-col items-center text-center">
+                <!-- Avatar -->
+                <div class="relative w-24 h-24 mb-4">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&amp;w=200&amp;auto=format&amp;fit=crop" class="w-full h-full rounded-full object-cover border-[2px] border-[#1C1C1E] shadow-xl" alt="Profile">
+                </div>
+
+                <!-- Username -->
+                <h1 class="text-[28px] font-semibold tracking-tight leading-tight">Alex Morgan</h1>
+
+                <!-- Bio -->
+                <p class="text-[17px] text-white/60 mt-2 leading-relaxed max-w-[280px]">
+                    Curating abstract expressionism and digital landscapes.
+                    <span class="text-white font-medium">more</span>
+                </p>
+
+                <!-- Edit Button -->
+                <button class="mt-4 h-[36px] px-6 rounded-lg border border-white/20 text-[13px] font-semibold text-white active:bg-white/10 transition-colors">
+                    Edit Profile
+                </button>
+
+                <!-- Stats -->
+                <div class="flex items-center justify-center gap-8 mt-8 w-full max-w-[300px]">
+                    <div class="flex flex-col items-center cursor-pointer active:opacity-60">
+                        <span class="text-[20px] font-bold">142</span>
+                        <span class="text-[12px] text-white/40 mt-0.5">Captures</span>
+                    </div>
+                    <div class="flex flex-col items-center cursor-pointer active:opacity-60">
+                        <span class="text-[20px] font-bold">8.4k</span>
+                        <span class="text-[12px] text-white/40 mt-0.5">Followers</span>
+                    </div>
+                    <div class="flex flex-col items-center cursor-pointer active:opacity-60">
+                        <span class="text-[20px] font-bold">428</span>
+                        <span class="text-[12px] text-white/40 mt-0.5">Following</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sticky Tabs -->
+            <div class="sticky top-0 z-30 bg-black/95 backdrop-blur-xl border-b border-white/10">
+                <div class="flex w-full relative">
+                    <button onclick="switchTab('home')" id="tab-btn-home" class="flex-1 h-[48px] flex items-center justify-center text-[15px] font-medium text-white transition-colors">
+                        Home
+                    </button>
+                    <button onclick="switchTab('captures')" id="tab-btn-captures" class="flex-1 h-[48px] flex items-center justify-center text-[15px] font-normal text-white/60 transition-colors">
+                        Captures
+                    </button>
+                    <button onclick="switchTab('collections')" id="tab-btn-collections" class="flex-1 h-[48px] flex items-center justify-center text-[15px] font-normal text-white/60 transition-colors">
+                        Collections
+                    </button>
+                    <!-- Active Indicator -->
+                    <div id="tab-line" class="absolute bottom-0 left-0 w-1/3 h-[2px] bg-[#007AFF] tab-underline"></div>
+                </div>
+            </div>
+
+            <!-- TAB 1: HOME (Highlights) -->
+            <div id="tab-home" class="tab-content active p-4">
+                <!-- Empty State / Customization Prompt -->
+                <div class="flex items-center justify-between mb-4 px-1">
+                    <h3 class="text-[18px] font-semibold text-white">Highlights</h3>
+                    <button class="text-[15px] text-[#007AFF]">Edit</button>
+                </div>
+
+                <!-- Pinned Item 1 (Collection) -->
+                <div class="bg-[#1C1C1E] rounded-2xl p-4 mb-4 shadow-lg active:scale-[0.98] transition-transform">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <iconify-icon icon="solar:pin-bold" class="text-[#007AFF] text-sm"></iconify-icon>
+                            <span class="text-[13px] font-medium text-white/60 uppercase tracking-wide">Pinned Collection</span>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 overflow-x-auto no-scrollbar pb-2">
+                        <img src="https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?q=80&amp;w=300&amp;auto=format&amp;fit=crop" class="w-[100px] h-[100px] rounded-lg object-cover flex-shrink-0">
+                        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&amp;w=300&amp;auto=format&amp;fit=crop" class="w-[100px] h-[100px] rounded-lg object-cover flex-shrink-0">
+                        <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&amp;w=300&amp;auto=format&amp;fit=crop" class="w-[100px] h-[100px] rounded-lg object-cover flex-shrink-0">
+                    </div>
+                    <div class="mt-2">
+                        <h4 class="text-[17px] font-semibold">Modernism 2024</h4>
+                        <p class="text-[13px] text-white/40">12 artworks • Public</p>
+                    </div>
+                </div>
+
+                <!-- Pinned Item 2 (Artwork) -->
+                <div class="relative h-[340px] rounded-2xl overflow-hidden active:scale-[0.98] transition-transform">
+                    <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&amp;w=600&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 gradient-overlay flex flex-col justify-end p-5">
+                        <div class="flex items-center gap-2 mb-2">
+                            <iconify-icon icon="solar:pin-bold" class="text-white text-sm"></iconify-icon>
+                            <span class="text-[13px] font-medium text-white/80 uppercase tracking-wide">Pinned Artwork</span>
+                        </div>
+                        <h4 class="text-[22px] font-bold leading-tight">The Dream</h4>
+                        <p class="text-[15px] text-white/80 mt-1">Pablo Picasso, 1932</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: CAPTURES -->
+            <div id="tab-captures" class="tab-content p-4">
+                <!-- Controls -->
+                <div class="flex items-center justify-between mb-4">
+                    <button class="flex items-center gap-1 text-[15px] text-white font-medium">
+                        Sort by: Date
+                        <iconify-icon icon="solar:alt-arrow-down-linear" class="text-white/60"></iconify-icon>
+                    </button>
+                    <button class="w-10 h-10 flex items-center justify-end text-white/60 active:text-white">
+                         <iconify-icon icon="solar:gallery-grid-linear" width="24" height="24"></iconify-icon>
+                    </button>
+                </div>
+
+                <!-- Masonry Grid -->
+                <div class="masonry-grid">
+                    <!-- Item 1 -->
+                    <div class="masonry-item relative rounded-2xl overflow-hidden bg-[#1C1C1E] group">
+                        <img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?q=80&amp;w=400&amp;auto=format&amp;fit=crop" class="w-full h-auto block">
+                        <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
+                            <p class="text-[13px] font-semibold truncate">Blue Period</p>
+                            <p class="text-[11px] text-white/70">Picasso</p>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="masonry-item relative rounded-2xl overflow-hidden bg-[#1C1C1E]">
+                        <img src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?q=80&amp;w=400&amp;auto=format&amp;fit=crop" class="w-full h-auto block">
+                        <div class="absolute top-2 right-2 bg-black/60 backdrop-blur-md rounded-lg px-2 py-1">
+                            <iconify-icon icon="solar:album-linear" class="text-white text-xs"></iconify-icon>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="masonry-item relative rounded-2xl overflow-hidden bg-[#1C1C1E]">
+                        <img src="https://images.unsplash.com/photo-1580136906451-b941541b6c0e?q=80&amp;w=400&amp;auto=format&amp;fit=crop" class="w-full h-auto block">
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="masonry-item relative rounded-2xl overflow-hidden bg-[#1C1C1E]">
+                        <img src="https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&amp;w=400&amp;auto=format&amp;fit=crop" class="w-full h-auto block">
+                        <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
+                            <p class="text-[13px] font-semibold truncate">Abstract No. 5</p>
+                        </div>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="masonry-item relative rounded-2xl overflow-hidden bg-[#1C1C1E]">
+                        <img src="https://images.unsplash.com/photo-1576769062329-3733c706c747?q=80&amp;w=400&amp;auto=format&amp;fit=crop" class="w-full h-auto block">
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: COLLECTIONS -->
+            <div id="tab-collections" class="tab-content p-4">
+                <div class="flex items-center justify-end mb-4">
+                    <button class="flex items-center gap-1 text-[15px] text-white/80">
+                        Group by: Year
+                        <iconify-icon icon="solar:alt-arrow-down-linear" class="text-white/40"></iconify-icon>
+                    </button>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <!-- Collection Card 1 -->
+                    <div class="bg-[#1C1C1E] rounded-2xl overflow-hidden shadow-lg active:scale-[0.98] transition-transform">
+                        <div class="h-[140px] w-full relative">
+                            <img src="https://images.unsplash.com/photo-1555580004-e51c110609d9?q=80&amp;w=600&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover">
+                            <div class="absolute top-3 right-3 bg-[#1C1C1E]/90 backdrop-blur text-white/80 text-[11px] font-semibold px-2 py-1 rounded-[6px]">
+                                Private
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-[18px] font-semibold text-white">MoMA Visit</h3>
+                            <div class="flex items-center gap-2 mt-1">
+                                <p class="text-[13px] text-white/60">24 artworks</p>
+                                <span class="text-white/20">•</span>
+                                <p class="text-[13px] text-white/60">Oct 2024</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Collection Card 2 -->
+                    <div class="bg-[#1C1C1E] rounded-2xl overflow-hidden shadow-lg active:scale-[0.98] transition-transform">
+                        <div class="h-[140px] w-full relative">
+                            <img src="https://images.unsplash.com/photo-1549887534-1541e9326642?q=80&amp;w=600&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover">
+                            <div class="absolute top-3 right-3 bg-white/20 backdrop-blur text-white text-[11px] font-semibold px-2 py-1 rounded-[6px]">
+                                Public
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-[18px] font-semibold text-white">Favorites</h3>
+                            <div class="flex items-center gap-2 mt-1">
+                                <p class="text-[13px] text-white/60">156 artworks</p>
+                                <span class="text-white/20">•</span>
+                                <p class="text-[13px] text-white/60">Ongoing</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="absolute bottom-0 left-0 right-0 h-[84px] glass-nav z-50 flex items-start justify-around pt-3 pb-8">
+            <a href="./06-feed.html" class="flex flex-col items-center gap-1 w-16 opacity-50 hover:opacity-100 transition-opacity">
+                <iconify-icon icon="solar:home-2-linear" width="26" height="26" class="text-white"></iconify-icon>
+            </a>
+            <a href="./17-search-main.html" class="flex flex-col items-center gap-1 w-16 opacity-50 hover:opacity-100 transition-opacity">
+                <iconify-icon icon="solar:magnifer-linear" width="26" height="26" class="text-white"></iconify-icon>
+            </a>
+            <a href="./12-camera-view.html" class="flex flex-col items-center gap-1 w-16 -mt-4">
+                <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-lg shadow-white/10">
+                    <iconify-icon icon="solar:camera-bold" width="28" height="28" class="text-black"></iconify-icon>
+                </div>
+            </a>
+            <button class="flex flex-col items-center gap-1 w-16 opacity-50 hover:opacity-100 transition-opacity">
+                <iconify-icon icon="solar:folder-with-files-linear" width="26" height="26" class="text-white"></iconify-icon>
+            </button>
+            <button class="flex flex-col items-center gap-1 w-16">
+                <iconify-icon icon="solar:user-circle-bold" width="26" height="26" class="text-white"></iconify-icon>
+                <span class="w-1 h-1 rounded-full bg-white mt-1"></span>
+            </button>
+        </div>
+
+        <!-- Home Indicator -->
+        <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-[134px] h-[5px] bg-white/40 rounded-full z-[60]">
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabName) {
+            // Update Content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(`tab-${tabName}`).classList.add('active');
+
+            // Update Buttons
+            const buttons = document.querySelectorAll('[id^="tab-btn-"]');
+            buttons.forEach(btn => {
+                btn.classList.remove('text-white', 'font-medium');
+                btn.classList.add('text-white/60', 'font-normal');
+            });
+            
+            const activeBtn = document.getElementById(`tab-btn-${tabName}`);
+            activeBtn.classList.remove('text-white/60', 'font-normal');
+            activeBtn.classList.add('text-white', 'font-medium');
+
+            // Move Indicator
+            const line = document.getElementById('tab-line');
+            const positions = { 'home': '0%', 'captures': '100%', 'collections': '200%' };
+            line.style.transform = `translateX(${positions[tabName]})`;
+
+            // Reset scroll on tab switch (optional UX choice)
+            // document.getElementById('main-scroll').scrollTop = 0; 
+        }
+    </script>
+
+
+
+</body></html>

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>bside.art | Mobile Mockup</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body {
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+background-color: #121212;
+display: flex;
+align-items: center;
+justify-content: center;
+min-height: 100vh;
+margin: 0;
+}
+.no-scrollbar::-webkit-scrollbar {
+display: none;
+}
+.no-scrollbar {
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
+/* Smooth transition for images */
+.carousel-img {
+transition: opacity 0.3s ease-in-out;
+}
+</style></head>
+<body>
+
+    <!-- App Content Wrapper -->
+    <div class="w-full max-w-[375px] h-[812px] max-h-screen bg-black relative flex flex-col overflow-hidden text-white shadow-2xl">
+
+        <!-- Header -->
+        <header class="absolute top-0 w-full z-40 bg-black/90 backdrop-blur-sm pt-[50px] pb-3 px-5 flex items-center justify-between">
+            <a href="./17-search-main.html" class="text-white hover:opacity-70 transition-opacity">
+                <iconify-icon icon="lucide:search" width="26" stroke-width="1.5"></iconify-icon>
+            </a>
+            <h1 class="text-[20px] font-semibold text-white tracking-tight">bside</h1>
+            <a href="./24-notification-list.html" class="text-white hover:opacity-70 transition-opacity relative">
+                <iconify-icon icon="lucide:bell" width="26" stroke-width="1.5"></iconify-icon>
+                <div class="absolute top-0.5 right-1 w-2 h-2 bg-red-500 rounded-full border-2 border-black"></div>
+            </a>
+        </header>
+
+        <!-- Main Feed -->
+        <main class="flex-1 overflow-y-auto pt-[100px] pb-[100px] px-3 space-y-6 scroll-smooth no-scrollbar">
+
+            <!-- CARD 1: Elena M. -->
+            <article class="bg-[#1C1C1E] rounded-[24px] p-4 relative overflow-hidden">
+                <!-- Header -->
+                <div class="flex justify-between items-start mb-4">
+                    <div class="flex gap-3">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&amp;fit=crop&amp;w=100&amp;q=80" alt="Avatar" class="w-10 h-10 rounded-full object-cover ring-2 ring-black/20">
+                        </div>
+                        <div class="flex flex-col pt-0.5">
+                            <span class="text-[15px] font-semibold text-white leading-none">Elena M.</span>
+                            <span class="text-[13px] text-[#8E8E93] mt-1">2h ago</span>
+                        </div>
+                    </div>
+                    <button class="text-[#8E8E93]">
+                        <iconify-icon icon="lucide:more-horizontal" width="24" stroke-width="1.5"></iconify-icon>
+                    </button>
+                </div>
+
+                <!-- Title & Context -->
+                <div class="flex justify-between items-end mb-4 px-1">
+                    <div>
+                        <h2 class="text-[22px] font-semibold text-white tracking-tight leading-tight">MoMA Visit 2024</h2>
+                        <div class="flex items-center gap-1 mt-1 text-[#8E8E93]">
+                            <iconify-icon icon="lucide:map-pin" width="14" stroke-width="1.5"></iconify-icon>
+                            <span class="text-[13px] font-medium">New York, USA</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-end">
+                        <span class="text-[11px] text-[#8E8E93] mb-1.5">12 friends were there</span>
+                        <div class="flex -space-x-2">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&amp;h=50&amp;fit=crop" class="w-6 h-6 rounded-full border border-[#1C1C1E] object-cover">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=50&amp;h=50&amp;fit=crop" class="w-6 h-6 rounded-full border border-[#1C1C1E] object-cover">
+                            <div class="w-6 h-6 rounded-full border border-[#1C1C1E] bg-[#007AFF] flex items-center justify-center text-[9px] font-semibold">+4</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layout: Center Big, Sides Small -->
+                <div class="flex items-center justify-center gap-5 mb-4 relative h-[320px]">
+                    <!-- Left Image (Partial) -->
+                    <div class="w-[200px] h-[280px] shrink-0 rounded-2xl overflow-hidden opacity-50 grayscale-[50%] relative transform translate-y-2">
+                        <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&amp;fit=crop&amp;w=600&amp;q=80" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                    </div>
+                    
+                    <!-- Center Image (Main) -->
+                    <div class="w-[220px] h-[320px] shrink-0 rounded-[20px] overflow-hidden shadow-2xl border border-white/10 z-10 relative">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/e/e5/Magritte_TheSonOfMan.jpg" class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- Right Image (Partial) -->
+                    <div class="w-[200px] h-[280px] shrink-0 rounded-2xl overflow-hidden opacity-50 grayscale-[50%] relative transform translate-y-2">
+                        <img src="https://images.unsplash.com/photo-1577720580479-7d839d829c73?auto=format&amp;fit=crop&amp;w=600&amp;q=80" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                    </div>
+                </div>
+
+                <!-- Footer Info -->
+                <div class="flex justify-between items-start px-1 pb-1">
+                    <div>
+                        <h3 class="text-[16px] font-semibold text-white leading-tight">Rene Magritte</h3>
+                        <p class="text-[14px] text-[#8E8E93]">The Son of Man</p>
+                    </div>
+                    <div class="flex items-center gap-1.5 text-white mt-0.5">
+                        <iconify-icon icon="solar:camera-bold" width="18"></iconify-icon>
+                        <span class="text-[15px] font-semibold">1,424</span>
+                    </div>
+                </div>
+
+                <!-- Pagination Pill -->
+                <div class="flex justify-center mt-3">
+                    <div class="bg-[#2C2C2E] px-3 py-1 rounded-full border border-white/5">
+                        <span class="text-[11px] font-medium text-[#A1A1AA] tracking-wide">1 / 24</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- CARD 2: David Choi -->
+            <article class="bg-[#1C1C1E] rounded-[24px] p-4 relative overflow-hidden">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="flex gap-3">
+                        <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=100&amp;h=100&amp;fit=crop" alt="Avatar" class="w-10 h-10 rounded-full object-cover ring-2 ring-black/20">
+                        <div class="flex flex-col pt-0.5">
+                            <span class="text-[15px] font-semibold text-white leading-none">David Choi</span>
+                            <span class="text-[13px] text-[#8E8E93] mt-1">February 3, 2026</span>
+                        </div>
+                    </div>
+                    <button class="text-[#8E8E93]">
+                        <iconify-icon icon="lucide:more-horizontal" width="24" stroke-width="1.5"></iconify-icon>
+                    </button>
+                </div>
+
+                <div class="flex justify-between items-start mb-4 px-1">
+                    <!-- Left: Title & Location info -->
+                    <div class="flex flex-col gap-1.5 w-[65%]">
+                        <h2 class="text-[22px] font-semibold text-white tracking-tight leading-tight">Vein and Fever</h2>
+                        <div class="flex items-center gap-2.5 whitespace-nowrap overflow-hidden">
+                                <!-- Gallery Tag -->
+                            <div class="flex items-center gap-1.5 bg-black rounded-full pl-1 pr-2.5 py-1 border border-white/10 shrink-0">
+                                <div class="w-4 h-4 rounded-full bg-white flex items-center justify-center overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=50&amp;h=50&amp;fit=crop" class="w-full h-full object-cover opacity-90">
+                                </div>
+                                <span class="text-[11px] font-semibold text-white leading-none tracking-tight">Pipe Gallery</span>
+                            </div>
+                            <!-- Location -->
+                            <div class="flex items-center gap-1 text-[#8E8E93] shrink-0">
+                                <iconify-icon icon="lucide:map-pin" width="14" stroke-width="1.5"></iconify-icon>
+                                <span class="text-[13px] font-medium">Seoul, Korea</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Friends Count & Avatars -->
+                    <div class="flex flex-col items-end pt-1">
+                        <span class="text-[11px] text-[#8E8E93] mb-1.5 whitespace-nowrap">27 friends were there</span>
+                        <div class="flex -space-x-2">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=50&amp;h=50&amp;fit=crop" class="w-6 h-6 rounded-full border border-[#1C1C1E] object-cover">
+                            <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=50&amp;h=50&amp;fit=crop" class="w-6 h-6 rounded-full border border-[#1C1C1E] object-cover">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=50&amp;h=50&amp;fit=crop" class="w-6 h-6 rounded-full border border-[#1C1C1E] object-cover">
+                            <div class="w-6 h-6 rounded-full border border-[#1C1C1E] bg-[#2C2C2E] flex items-center justify-center text-[9px] font-semibold text-white">+24</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layout: Center Big, Sides Small -->
+                <div class="flex items-center justify-center gap-5 mb-4 relative h-[320px]">
+                    <!-- Left Image (Partial) -->
+                    <div class="w-[200px] h-[280px] shrink-0 rounded-2xl overflow-hidden opacity-50 grayscale-[50%] relative transform translate-y-2">
+                        <img src="https://images.unsplash.com/photo-1564399580075-5dfe19c205f3?auto=format&amp;fit=crop&amp;w=600&amp;q=80" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                    </div>
+                    
+                    <!-- Center Image (Main) -->
+                    <div class="w-[220px] h-[320px] shrink-0 rounded-[20px] overflow-hidden shadow-2xl border border-white/10 z-10 relative">
+                        <img src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&amp;fit=crop&amp;w=600&amp;q=80" class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- Right Image (Partial) -->
+                    <div class="w-[200px] h-[280px] shrink-0 rounded-2xl overflow-hidden opacity-50 grayscale-[50%] relative transform translate-y-2">
+                        <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&amp;fit=crop&amp;w=600&amp;q=80" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                    </div>
+                </div>
+
+                <!-- Footer Info -->
+                <div class="flex justify-between items-start px-1 pb-1">
+                    <div>
+                        <h3 class="text-[16px] font-semibold text-white leading-tight">Various Artists</h3>
+                        <p class="text-[14px] text-[#8E8E93]">Modern Abstracts</p>
+                    </div>
+                    <div class="flex items-center gap-1.5 text-white mt-0.5">
+                        <iconify-icon icon="solar:camera-bold" width="18"></iconify-icon>
+                        <span class="text-[15px] font-semibold">2,410</span>
+                    </div>
+                </div>
+
+                <!-- Pagination Pill -->
+                <div class="flex justify-center mt-3">
+                    <div class="bg-[#2C2C2E] px-3 py-1 rounded-full border border-white/5">
+                        <span class="text-[11px] font-medium text-[#A1A1AA] tracking-wide">1 / 24</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- SECTION: You might also like -->
+            <section class="py-5">
+                <h2 class="text-[17px] font-semibold text-white mb-3 px-4 tracking-tight">You might also like</h2>
+                <div class="flex overflow-x-auto gap-3 no-scrollbar px-4 pb-2">
+                    
+                    <!-- User 1: Sarah Miller -->
+                    <div class="relative flex-none w-[142px] bg-[#0A0A0A] border border-white/10 rounded-[22px] p-4 flex flex-col items-center">
+                        <button class="absolute top-3 right-3 text-zinc-500 hover:text-white transition-colors">
+                            <iconify-icon icon="lucide:x" width="14" stroke-width="2"></iconify-icon>
+                        </button>
+                        
+                        <img src="https://images.unsplash.com/photo-1554727242-741c14fa561c?auto=format&amp;fit=crop&amp;w=200&amp;q=80" class="w-[52px] h-[52px] rounded-full object-cover mb-2.5 bg-zinc-800">
+                        
+                        <span class="text-[13px] font-semibold text-white text-center leading-tight">Sarah Miller</span>
+                        <span class="text-xs text-[#8E8E93] text-center mt-0.5 mb-4">@sarahm_design</span>
+                        
+                        <button class="w-full h-8 rounded-full bg-white text-black text-xs font-bold hover:bg-gray-200 transition-colors flex items-center justify-center gap-1.5">
+                            <iconify-icon icon="lucide:user-plus" width="14" stroke-width="2.5"></iconify-icon>
+                            Follow
+                        </button>
+                    </div>
+
+                    <!-- User 2: David Chen -->
+                    <div class="relative flex-none w-[142px] bg-[#0A0A0A] border border-white/10 rounded-[22px] p-4 flex flex-col items-center">
+                        <button class="absolute top-3 right-3 text-zinc-500 hover:text-white transition-colors">
+                            <iconify-icon icon="lucide:x" width="14" stroke-width="2"></iconify-icon>
+                        </button>
+                        
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&amp;fit=crop&amp;w=200&amp;q=80" class="w-[52px] h-[52px] rounded-full object-cover mb-2.5 bg-zinc-800">
+                        
+                        <span class="text-[13px] font-semibold text-white text-center leading-tight">David Chen</span>
+                        <span class="text-xs text-[#8E8E93] text-center mt-0.5 mb-4">@davidc_art</span>
+                        
+                        <button class="w-full h-8 rounded-full bg-transparent border border-zinc-700 text-white text-xs font-medium hover:bg-zinc-900 transition-colors flex items-center justify-center">
+                            Following
+                        </button>
+                    </div>
+
+                    <!-- User 3: James Lee -->
+                    <div class="relative flex-none w-[142px] bg-[#0A0A0A] border border-white/10 rounded-[22px] p-4 flex flex-col items-center">
+                        <button class="absolute top-3 right-3 text-zinc-500 hover:text-white transition-colors">
+                            <iconify-icon icon="lucide:x" width="14" stroke-width="2"></iconify-icon>
+                        </button>
+                        
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;w=200&amp;q=80" class="w-[52px] h-[52px] rounded-full object-cover mb-2.5 bg-zinc-800">
+                        
+                        <span class="text-[13px] font-semibold text-white text-center leading-tight">James Lee</span>
+                        <span class="text-xs text-[#8E8E93] text-center mt-0.5 mb-4">@j_street</span>
+                        
+                        <button class="w-full h-8 rounded-full bg-white text-black text-xs font-bold hover:bg-gray-200 transition-colors flex items-center justify-center gap-1.5">
+                            <iconify-icon icon="lucide:user-plus" width="14" stroke-width="2.5"></iconify-icon>
+                            Follow
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CARD 3: Sarah Jenkins -->
+            <article class="bg-[#1C1C1E] rounded-[24px] p-4 relative overflow-hidden">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="flex gap-3">
+                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&amp;fit=crop&amp;w=100&amp;q=80" alt="Avatar" class="w-10 h-10 rounded-full object-cover ring-2 ring-black/20">
+                        <div class="flex flex-col pt-0.5">
+                            <span class="text-[15px] font-semibold text-white leading-none">Sarah Jenkins</span>
+                            <span class="text-[13px] text-[#8E8E93] mt-1">January 27, 2026</span>
+                        </div>
+                    </div>
+                    <button class="text-[#8E8E93]">
+                        <iconify-icon icon="lucide:more-horizontal" width="24" stroke-width="1.5"></iconify-icon>
+                    </button>
+                </div>
+
+                <div class="flex justify-between items-end mb-4 px-1">
+                    <div>
+                        <h2 class="text-[22px] font-semibold text-white tracking-tight leading-tight">Light &amp; Space</h2>
+                        <div class="flex items-center gap-1 mt-1 text-[#8E8E93]">
+                            <iconify-icon icon="lucide:map-pin" width="14" stroke-width="1.5"></iconify-icon>
+                            <span class="text-[13px] font-medium">LACMA, Los Angeles</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layout: Center Big, Sides Small -->
+                <div class="flex items-center justify-center gap-5 mb-4 relative h-[320px]">
+                    <!-- Left Image (Partial) -->
+                    <div class="w-[200px] h-[280px] shrink-0 rounded-2xl overflow-hidden opacity-50 grayscale-[50%] relative transform translate-y-2">
+                        <img src="https://images.unsplash.com/photo-1495615080073-6b89c9839ce0?auto=format&amp;fit=crop&amp;w=600&amp;q=80" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                    </div>
+                    
+                    <!-- Center Image (Main) -->
+                    <div class="w-[220px] h-[320px] shrink-0 rounded-[20px] overflow-hidden shadow-2xl border border-white/10 z-10 relative">
+                        <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&amp;fit=crop&amp;w=600&amp;q=80" class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- Right Image (Partial) -->
+                    <div class="w-[200px] h-[280px] shrink-0 rounded-2xl overflow-hidden opacity-50 grayscale-[50%] relative transform translate-y-2">
+                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                    </div>
+                </div>
+
+                <!-- Footer Info -->
+                <div class="flex justify-between items-start px-1 pb-1">
+                    <div>
+                        <h3 class="text-[16px] font-semibold text-white leading-tight">James Turrell</h3>
+                        <p class="text-[14px] text-[#8E8E93]">Breathing Light</p>
+                    </div>
+                    <div class="flex items-center gap-1.5 text-white mt-0.5">
+                        <iconify-icon icon="solar:camera-bold" width="18"></iconify-icon>
+                        <span class="text-[15px] font-semibold">892</span>
+                    </div>
+                </div>
+
+                <!-- Pagination Pill -->
+                <div class="flex justify-center mt-3">
+                    <div class="bg-[#2C2C2E] px-3 py-1 rounded-full border border-white/5">
+                        <span class="text-[11px] font-medium text-[#A1A1AA] tracking-wide">1 / 24</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- SECTION: This Week's Most Captured -->
+            <section class="py-6 px-2 mt-4">
+                <div class="relative w-full mx-auto max-w-[340px]">
+                    <!-- Stack Layers -->
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-[88%] h-6 bg-[#27272a] rounded-t-[28px] border-t border-x border-white/5 z-0"></div>
+                    <div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-[94%] h-6 bg-[#18181b] rounded-t-[28px] border-t border-x border-white/10 z-10"></div>
+                    
+                    <!-- Main Card -->
+                    <div class="relative z-20 bg-[#09090b] rounded-[32px] border border-white/10 p-5 overflow-hidden">
+                        
+                        <!-- Header -->
+                        <div class="flex flex-col mb-6">
+                            <div class="flex justify-end px-1">
+                                <button class="text-zinc-500 hover:text-white transition-colors">
+                                    <iconify-icon icon="lucide:more-horizontal" width="24" stroke-width="1.5"></iconify-icon>
+                                </button>
+                            </div>
+                            <div class="text-center px-1">
+                                <h2 class="text-[20px] font-semibold text-white tracking-tight leading-none">This Week’s Most Captured</h2>
+                            </div>
+                        </div>
+
+                        <!-- Carousel with Arrows -->
+                        <div class="flex items-center justify-center gap-5 mb-4 relative h-[320px]">
+                            <!-- Left Arrow Button -->
+                            <button id="btn-prev" class="absolute -left-3 z-30 w-10 h-10 rounded-full bg-black/70 backdrop-blur-md border border-white/10 flex items-center justify-center text-white transition-all active:scale-95 hover:bg-black hover:border-white/30 cursor-pointer shadow-lg">
+                                <iconify-icon icon="lucide:chevron-left" width="22" stroke-width="2.5"></iconify-icon>
+                            </button>
+
+                            <!-- Left Image (Partial) -->
+                            <div class="w-[200px] h-[280px] shrink-0 rounded-2xl overflow-hidden opacity-40 grayscale-[80%] relative transform translate-y-2 group">
+                                <img id="carousel-img-left" src="https://images.unsplash.com/photo-1582201942988-13e60e4556ee?w=500&amp;auto=format&amp;fit=crop&amp;q=60" class="carousel-img w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-black/20"></div>
+                            </div>
+                            
+                            <!-- Center Image (Main) -->
+                            <div class="w-[220px] h-[320px] shrink-0 rounded-[20px] overflow-hidden shadow-2xl border border-white/10 z-10 relative">
+                                <img id="carousel-img-center" src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?q=80&amp;w=800&amp;auto=format&amp;fit=crop" class="carousel-img w-full h-full object-cover">
+                            </div>
+
+                            <!-- Right Image (Partial) -->
+                            <div class="w-[200px] h-[280px] shrink-0 rounded-2xl overflow-hidden opacity-40 grayscale-[30%] relative transform translate-y-2 group">
+                                <img id="carousel-img-right" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&amp;w=400&amp;auto=format&amp;fit=crop" class="carousel-img w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-black/20"></div>
+                            </div>
+
+                            <!-- Right Arrow Button -->
+                            <button id="btn-next" class="absolute -right-3 z-30 w-10 h-10 rounded-full bg-black/70 backdrop-blur-md border border-white/10 flex items-center justify-center text-white transition-all active:scale-95 hover:bg-black hover:border-white/30 cursor-pointer shadow-lg">
+                                <iconify-icon icon="lucide:chevron-right" width="22" stroke-width="2.5"></iconify-icon>
+                            </button>
+                        </div>
+
+                        <!-- Footer Info -->
+                        <div class="flex justify-between items-center px-2 mt-2">
+                            <span id="carousel-user" class="text-[15px] font-semibold text-white tracking-tight">Haevan Lee</span>
+                            <div class="flex items-center gap-1.5 text-white">
+                                <iconify-icon icon="lucide:camera" width="16" stroke-width="2.5"></iconify-icon>
+                                <span id="carousel-count" class="text-[15px] font-bold tracking-tight">17,040</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <div class="h-10"></div>
+        </main>
+
+        <!-- Bottom Navigation Bar -->
+        <nav class="absolute bottom-8 left-1/2 -translate-x-1/2 z-50 w-full flex justify-center">
+            <div class="relative flex items-center justify-between w-[280px] h-[72px] px-10 bg-[#0F0F0F] rounded-full border border-white/5 shadow-[0_20px_40px_rgba(0,0,0,0.8)] backdrop-blur-md">
+                
+                <!-- Home Icon -->
+                <a href="./06-feed.html" class="text-white hover:text-white/80 transition-colors">
+                    <iconify-icon icon="lucide:home" width="24" stroke-width="1.5"></iconify-icon>
+                </a>
+
+                <!-- Floating Center Button (Camera) -->
+                <div class="absolute left-1/2 -top-3 -translate-x-1/2">
+                    <a href="./12-camera-view.html" class="w-[60px] h-[60px] bg-white rounded-full flex items-center justify-center text-black hover:scale-105 active:scale-95 transition-transform z-20 relative border-[4px] border-black">
+                        <iconify-icon icon="lucide:aperture" width="28" stroke-width="1.5"></iconify-icon>
+                    </a>
+                </div>
+
+                <!-- User Icon -->
+                <a href="./19-my-page-profile.html" class="text-white hover:text-white/80 transition-colors">
+                    <iconify-icon icon="lucide:user" width="24" stroke-width="1.5"></iconify-icon>
+                </a>
+                
+            </div>
+        </nav>
+
+    </div>
+
+    <!-- Script for Carousel Logic -->
+    <script>
+        // Data for the carousel
+        const carouselItems = [
+            {
+                img: 'https://images.unsplash.com/photo-1547891654-e66ed7ebb968?q=80&w=800&auto=format&fit=crop',
+                user: 'Haevan Lee',
+                count: '17,040'
+            },
+            {
+                img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=400&auto=format&fit=crop',
+                user: 'David K.',
+                count: '15,220'
+            },
+            {
+                img: 'https://images.unsplash.com/photo-1582201942988-13e60e4556ee?w=500&auto=format&fit=crop&q=60',
+                user: 'Sarah J.',
+                count: '12,400'
+            },
+            {
+                img: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=600&q=80',
+                user: 'Marcus Art',
+                count: '11,105'
+            }
+        ];
+
+        let currentIndex = 0;
+
+        const imgLeft = document.getElementById('carousel-img-left');
+        const imgCenter = document.getElementById('carousel-img-center');
+        const imgRight = document.getElementById('carousel-img-right');
+        const txtUser = document.getElementById('carousel-user');
+        const txtCount = document.getElementById('carousel-count');
+        const btnPrev = document.getElementById('btn-prev');
+        const btnNext = document.getElementById('btn-next');
+
+        function updateCarousel() {
+            // Calculate indices
+            const len = carouselItems.length;
+            const prevIndex = (currentIndex - 1 + len) % len;
+            const nextIndex = (currentIndex + 1) % len;
+
+            // Update Images
+            imgLeft.src = carouselItems[prevIndex].img;
+            imgCenter.src = carouselItems[currentIndex].img;
+            imgRight.src = carouselItems[nextIndex].img;
+
+            // Update Text
+            txtUser.innerText = carouselItems[currentIndex].user;
+            txtCount.innerText = carouselItems[currentIndex].count;
+        }
+
+        btnNext.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % carouselItems.length;
+            updateCarousel();
+        });
+
+        btnPrev.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
+            updateCarousel();
+        });
+
+        // Initialize with correct order based on initial HTML images
+        updateCarousel();
+    </script>
+
+</body></html>

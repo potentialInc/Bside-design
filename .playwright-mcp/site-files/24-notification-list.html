@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>bside.art | Notifications</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+:root {
+--bg-primary: #000000;
+--bg-secondary: #1C1C1E;
+--accent-blue: #007AFF;
+--success-green: #34C759;
+--destructive-red: #FF3B30;
+--text-primary: rgba(255, 255, 255, 0.92);
+--text-secondary: rgba(255, 255, 255, 0.60);
+--text-tertiary: rgba(255, 255, 255, 0.38);
+}
+body {
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+background-color: #111;
+display: flex;
+align-items: center;
+justify-content: center;
+min-height: 100vh;
+margin: 0;
+padding: 20px;
+color: var(--text-primary);
+}
+.device-frame {
+width: 375px;
+height: 812px;
+background: var(--bg-primary);
+border-radius: 40px;
+box-shadow: 0 0 0 12px #2d2d2d, 0 20px 50px rgba(0, 0, 0, 0.5);
+position: relative;
+overflow: hidden;
+border: 8px solid #000;
+}
+.notch {
+position: absolute;
+top: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 120px;
+height: 30px;
+background: #000;
+border-bottom-left-radius: 16px;
+border-bottom-right-radius: 16px;
+z-index: 50;
+}
+.no-scrollbar::-webkit-scrollbar {
+display: none;
+}
+.no-scrollbar {
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
+.btn-press {
+transition: transform 0.1s ease, opacity 0.2s ease;
+}
+.btn-press:active {
+transform: scale(0.96);
+opacity: 0.8;
+}
+/* Swipe Animation Styles */
+.notification-item-container {
+position: relative;
+overflow: hidden;
+}
+.notification-content {
+position: relative;
+z-index: 10;
+transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+touch-action: pan-y;
+/* Allow vertical scrolling, handle horizontal in JS */
+}
+.delete-action {
+position: absolute;
+top: 0;
+bottom: 0;
+right: 0;
+width: 80px;
+background-color: var(--destructive-red);
+display: flex;
+align-items: center;
+justify-content: center;
+color: white;
+z-index: 1;
+}
+/* Animations */
+.slide-out-delete {
+animation: slideOutLeft 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+@keyframes slideOutLeft {
+from {
+transform: translateX(0);
+opacity: 1;
+height: auto;
+}
+to {
+transform: translateX(-100%);
+opacity: 0;
+height: 0;
+margin: 0;
+padding: 0;
+}
+}
+.unread {
+background-color: var(--bg-secondary);
+}
+.read {
+background-color: var(--bg-primary);
+}
+.unread .notif-text {
+font-weight: 600;
+color: white;
+}
+.read .notif-text {
+font-weight: 400;
+color: rgba(255, 255, 255, 0.9);
+}
+.unread-dot {
+position: absolute;
+right: 16px;
+top: 50%;
+transform: translateY(-50%);
+width: 8px;
+height: 8px;
+background-color: var(--accent-blue);
+border-radius: 50%;
+}
+/* Shimmer for loading */
+.shimmer {
+background: linear-gradient(90deg, #1C1C1E 0%, #2C2C2E 50%, #1C1C1E 100%);
+background-size: 200% 100%;
+animation: shimmer 1.5s infinite;
+}
+@keyframes shimmer {
+0% {
+background-position: 200% 0;
+}
+100% {
+background-position: -200% 0;
+}
+}
+</style></head>
+
+<body class="antialiased selection:bg-[#007AFF] selection:text-white">
+
+    <div class="device-frame flex flex-col relative">
+        <!-- Status Bar -->
+        <div class="notch"></div>
+        <div class="absolute top-3 left-6 text-sm font-medium text-white z-50">9:41</div>
+        <div class="absolute top-3.5 right-6 flex gap-1.5 text-white text-xs z-50">
+            <iconify-icon icon="solar:signal-linear"></iconify-icon>
+            <iconify-icon icon="solar:wi-fi-linear"></iconify-icon>
+            <iconify-icon icon="solar:battery-full-solid"></iconify-icon>
+        </div>
+
+        <!-- Navigation Bar -->
+        <div class="h-[100px] pt-[44px] flex-none px-4 flex items-center justify-between bg-black/80 backdrop-blur-md z-40 border-b border-white/5">
+            <button class="w-[44px] h-[44px] flex items-center justify-start text-white btn-press" onclick="history.back()">
+                <iconify-icon icon="solar:alt-arrow-left-linear" width="24" height="24"></iconify-icon>
+            </button>
+            <h1 class="text-[18px] font-semibold text-white tracking-tight absolute left-1/2 -translate-x-1/2">
+                Notifications</h1>
+            <div class="w-[44px] flex items-center justify-end">
+                <!-- Optional: Mark all read button could go here -->
+            </div>
+        </div>
+
+        <!-- Notification List -->
+        <div class="flex-1 overflow-y-auto no-scrollbar bg-black pb-8" id="notificationList">
+
+            <!-- Loading Skeleton (Hidden by default, can act as loading state) -->
+            <div id="loadingState" class="hidden">
+                <div class="h-[80px] border-b border-white/5 p-4 flex items-start w-full">
+                    <div class="w-10 h-10 rounded-full shimmer flex-none"></div>
+                    <div class="ml-3 flex-1 space-y-2 mt-1">
+                        <div class="h-4 w-3/4 shimmer rounded"></div>
+                        <div class="h-3 w-1/4 shimmer rounded"></div>
+                    </div>
+                </div>
+                <div class="h-[80px] border-b border-white/5 p-4 flex items-start w-full">
+                    <div class="w-10 h-10 rounded-full shimmer flex-none"></div>
+                    <div class="ml-3 flex-1 space-y-2 mt-1">
+                        <div class="h-4 w-2/3 shimmer rounded"></div>
+                        <div class="h-3 w-1/4 shimmer rounded"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content List -->
+            <div id="listContent">
+
+                <!-- Item 1: Follow Request (Unread) -->
+                <div class="notification-item-container w-full" data-id="1">
+                    <div class="delete-action" onclick="deleteNotification(this)">
+                        <iconify-icon icon="solar:trash-bin-trash-linear" width="24" height="24"></iconify-icon>
+                    </div>
+                    <div class="notification-content unread w-full p-4 border-b border-white/5 flex items-start cursor-pointer relative" onclick="markAsRead(this)">
+                        <!-- Avatar -->
+                        <div class="w-10 h-10 rounded-full bg-gray-800 flex-none overflow-hidden mt-0.5">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&amp;w=150&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover" alt="User">
+                        </div>
+
+                        <!-- Content -->
+                        <div class="ml-3 flex-1 min-w-0 pr-2">
+                            <p class="text-[15px] leading-snug notif-text text-white/90">
+                                <span class="font-semibold text-white">sarah_j</span> requested to follow you.
+                            </p>
+                            <p class="text-[12px] text-white/40 mt-1">2h ago</p>
+
+                            <!-- Action Buttons -->
+                            <div class="flex gap-2 mt-3 action-buttons">
+                                <button onclick="handleRequest(event, this, true)" class="h-[32px] px-5 bg-[#007AFF] text-white rounded-lg text-[13px] font-medium btn-press">
+                                    Accept
+                                </button>
+                                <button onclick="handleRequest(event, this, false)" class="h-[32px] px-5 border border-white/20 text-white rounded-lg text-[13px] font-medium btn-press">
+                                    Reject
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Unread Dot -->
+                        <div class="w-2 h-2 rounded-full bg-[#007AFF] flex-none mt-2"></div>
+                    </div>
+                </div>
+
+                <!-- Item 2: New Follow (Unread) -->
+                <div class="notification-item-container w-full" data-id="2">
+                    <div class="delete-action" onclick="deleteNotification(this)">
+                        <iconify-icon icon="solar:trash-bin-trash-linear" width="24" height="24"></iconify-icon>
+                    </div>
+                    <div class="notification-content unread w-full p-4 border-b border-white/5 flex items-start cursor-pointer relative" onclick="markAsRead(this)">
+                        <div class="w-10 h-10 rounded-full bg-gray-800 flex-none overflow-hidden mt-0.5">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&amp;w=150&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover" alt="User">
+                        </div>
+                        <div class="ml-3 flex-1 min-w-0 pr-4">
+                            <p class="text-[15px] leading-snug notif-text text-white/90">
+                                <span class="font-semibold text-white">davide.art</span> started following you.
+                            </p>
+                            <p class="text-[12px] text-white/40 mt-1">5h ago</p>
+                        </div>
+                        <div class="w-2 h-2 rounded-full bg-[#007AFF] flex-none mt-2"></div>
+                    </div>
+                </div>
+
+                <!-- Item 3: Platform Announcement (Read) -->
+                <div class="notification-item-container w-full" data-id="3">
+                    <div class="delete-action" onclick="deleteNotification(this)">
+                        <iconify-icon icon="solar:trash-bin-trash-linear" width="24" height="24"></iconify-icon>
+                    </div>
+                    <div class="notification-content read w-full p-4 border-b border-white/5 flex items-start cursor-pointer relative" onclick="markAsRead(this)">
+                        <!-- App Icon -->
+                        <div class="w-10 h-10 rounded-full bg-[#1C1C1E] border border-white/10 flex items-center justify-center flex-none mt-0.5 text-white">
+                            <iconify-icon icon="solar:box-minimalistic-linear" width="20"></iconify-icon>
+                        </div>
+                        <div class="ml-3 flex-1 min-w-0 pr-4">
+                            <p class="text-[15px] leading-snug notif-text text-white/90">
+                                <span class="font-medium text-white/80">Platform Update:</span> Introducing Collections.
+                                Organize your favorite artworks into curated lists.
+                            </p>
+                            <p class="text-[12px] text-white/40 mt-1">Yesterday</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 4: Follow Accepted (Read) -->
+                <div class="notification-item-container w-full" data-id="4">
+                    <div class="delete-action" onclick="deleteNotification(this)">
+                        <iconify-icon icon="solar:trash-bin-trash-linear" width="24" height="24"></iconify-icon>
+                    </div>
+                    <div class="notification-content read w-full p-4 border-b border-white/5 flex items-start cursor-pointer relative" onclick="markAsRead(this)">
+                        <div class="w-10 h-10 rounded-full bg-gray-800 flex-none overflow-hidden mt-0.5">
+                            <img src="https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?q=80&amp;w=150&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover" alt="User">
+                        </div>
+                        <div class="ml-3 flex-1 min-w-0 pr-4">
+                            <p class="text-[15px] leading-snug notif-text text-white/90">
+                                <span class="font-semibold text-white">m_rodriguez</span> accepted your follow request.
+                            </p>
+                            <p class="text-[12px] text-white/40 mt-1">Mar 15</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 5: Another Follow (Read) -->
+                <div class="notification-item-container w-full" data-id="5">
+                    <div class="delete-action" onclick="deleteNotification(this)">
+                        <iconify-icon icon="solar:trash-bin-trash-linear" width="24" height="24"></iconify-icon>
+                    </div>
+                    <div class="notification-content read w-full p-4 border-b border-white/5 flex items-start cursor-pointer relative" onclick="markAsRead(this)">
+                        <div class="w-10 h-10 rounded-full bg-gray-800 flex-none overflow-hidden mt-0.5">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&amp;w=150&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover" alt="User">
+                        </div>
+                        <div class="ml-3 flex-1 min-w-0 pr-4">
+                            <p class="text-[15px] leading-snug notif-text text-white/90">
+                                <span class="font-semibold text-white">elena_w</span> started following you.
+                            </p>
+                            <p class="text-[12px] text-white/40 mt-1">Mar 12</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Empty State -->
+            <div id="emptyState" class="hidden h-full flex flex-col items-center justify-center pt-32 px-10 text-center">
+                <div class="w-16 h-16 rounded-full bg-[#1C1C1E] flex items-center justify-center mb-4">
+                    <iconify-icon icon="solar:bell-linear" class="text-white/30 text-3xl"></iconify-icon>
+                </div>
+                <h3 class="text-[18px] font-semibold text-white">No new notifications</h3>
+                <p class="text-[15px] text-white/40 mt-2">When you get notifications, they'll show up here.</p>
+            </div>
+        </div>
+
+        <!-- Toast Notification (Hidden by default) -->
+        <div id="toast" class="absolute bottom-10 left-1/2 -translate-x-1/2 bg-[#333] text-white px-4 py-2.5 rounded-full text-[13px] font-medium opacity-0 pointer-events-none transition-opacity duration-300 z-50 flex items-center shadow-2xl border border-white/10 whitespace-nowrap">
+            <iconify-icon icon="solar:check-circle-bold" class="text-[#34C759] mr-2 text-base"></iconify-icon>
+            <span id="toastMsg">Request accepted</span>
+        </div>
+
+        <!-- Home Indicator -->
+        <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-[134px] h-[5px] bg-white/40 rounded-full z-50 pointer-events-none">
+        </div>
+    </div>
+
+    <script>
+        // --- Logic for Interactivity ---
+
+        function markAsRead(element) {
+            // Remove unread styling
+            if(element.classList.contains('unread')) {
+                element.classList.remove('unread');
+                element.classList.add('read');
+                
+                // Remove the blue dot
+                const dot = element.querySelector('.bg-\\[\\#007AFF\\]');
+                if(dot) dot.remove();
+            }
+        }
+
+        function handleRequest(e, btn, isAccepted) {
+            e.stopPropagation(); // Prevent triggering markAsRead
+            
+            const container = btn.closest('.notification-content');
+            const buttonsContainer = btn.closest('.action-buttons');
+            const username = container.querySelector('span').innerText;
+            
+            // UI Feedback
+            buttonsContainer.innerHTML = `<span class="text-[13px] text-white/60 animate-pulse">Processing...</span>`;
+
+            setTimeout(() => {
+                if (isAccepted) {
+                    buttonsContainer.innerHTML = `<span class="text-[13px] text-[#34C759] font-medium">Request Accepted</span>`;
+                    showToast(`${username} is now following you`);
+                } else {
+                    // If rejected, remove the whole item
+                    deleteNotification(container.parentElement.querySelector('.delete-action'));
+                    showToast(`Request rejected`);
+                    return;
+                }
+                
+                // Mark as read after action
+                markAsRead(container);
+            }, 600);
+        }
+
+        function deleteNotification(btn) {
+            const itemContainer = btn.closest('.notification-item-container');
+            
+            // Animate height/opacity to 0
+            itemContainer.style.transition = 'all 0.3s ease';
+            itemContainer.style.height = itemContainer.offsetHeight + 'px'; // Fix height first
+            itemContainer.style.opacity = '1';
+            
+            // Trigger reflow
+            void itemContainer.offsetWidth;
+
+            itemContainer.style.transform = 'translateX(-100%)';
+            itemContainer.style.height = '0px';
+            itemContainer.style.opacity = '0';
+            itemContainer.style.margin = '0';
+
+            setTimeout(() => {
+                itemContainer.remove();
+                checkEmpty();
+            }, 300);
+        }
+
+        function checkEmpty() {
+            const list = document.getElementById('listContent');
+            if (list.children.length === 0) {
+                document.getElementById('emptyState').classList.remove('hidden');
+            }
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').innerText = msg;
+            toast.style.opacity = '1';
+            setTimeout(() => {
+                toast.style.opacity = '0';
+            }, 2500);
+        }
+
+        // --- Swipe Logic (Basic Implementation) ---
+        const listItems = document.querySelectorAll('.notification-content');
+        
+        listItems.forEach(item => {
+            let startX, currentX;
+            const threshold = -60; // How far to swipe to reveal delete
+            const maxSwipe = -80;
+            
+            item.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                item.style.transition = 'none'; // Disable transition for direct drag
+            }, {passive: true});
+
+            item.addEventListener('touchmove', (e) => {
+                currentX = e.touches[0].clientX;
+                let diff = currentX - startX;
+                
+                // Only allow swiping left
+                if (diff < 0 && diff > -100) {
+                    item.style.transform = `translateX(${diff}px)`;
+                }
+            }, {passive: true});
+
+            item.addEventListener('touchend', (e) => {
+                item.style.transition = 'transform 0.2s ease-out';
+                let diff = currentX - startX;
+                
+                if (diff < threshold) {
+                    // Snap to open
+                    item.style.transform = `translateX(${maxSwipe}px)`;
+                } else {
+                    // Snap back to close
+                    item.style.transform = `translateX(0px)`;
+                }
+                startX = null;
+                currentX = null;
+            });
+        });
+
+    </script>
+
+
+
+</body></html>

@@ -1,0 +1,886 @@
+- generic [ref=e2]:
+  - generic [ref=e7]:
+    - generic [ref=e8]:
+      - generic [ref=e9]:
+        - button "Back" [ref=e10] [cursor=pointer]:
+          - img [ref=e11]
+          - text: Back
+        - generic [ref=e13]:
+          - button "Chats" [ref=e14] [cursor=pointer]:
+            - text: Chats
+            - img [ref=e15]
+          - button "Pages - 04-password-recovery-success" [ref=e17] [cursor=pointer]:
+            - img [ref=e18]
+            - generic [ref=e20]: Pages - 04-password-recovery-success
+            - img [ref=e21]
+          - button "CMS" [ref=e24] [cursor=pointer]:
+            - text: CMS
+            - img [ref=e25]
+          - button "Hide sidebar" [ref=e27] [cursor=pointer]:
+            - img [ref=e28]
+      - generic [ref=e31]:
+        - generic [ref=e32]:
+          - generic [ref=e35]:
+            - paragraph [ref=e37]: Here is the complete replacement for the Password Recovery - Step 3 page.
+            - generic [ref=e38]:
+              - generic [ref=e39]:
+                - generic [ref=e40]:
+                  - img [ref=e42] [cursor=pointer]
+                  - img [ref=e46] [cursor=pointer]
+                  - img [ref=e48] [cursor=pointer]
+                  - generic [ref=e53]:
+                    - button "View" [ref=e54] [cursor=pointer]:
+                      - img [ref=e55]
+                      - text: View
+                    - button "Enable animations & effects" [ref=e59] [cursor=pointer]:
+                      - img [ref=e60]
+                - generic [ref=e62]:
+                  - button "Copy" [ref=e63] [cursor=pointer]:
+                    - img [ref=e64]
+                    - text: Copy
+                  - generic [ref=e67]:
+                    - button "Preview" [ref=e68] [cursor=pointer]
+                    - button "Code" [ref=e69] [cursor=pointer]
+              - generic [ref=e71]: Code preview paused (off-screen)
+            - generic [ref=e72]:
+              - paragraph [ref=e73]: How would you like to change this page?
+              - list [ref=e74]:
+                - listitem [ref=e75]: "\"Change this page to features\""
+                - listitem [ref=e76]: "\"Adapt this page to a pricing page with pricing, comparison table, testimonials and FAQ\""
+          - generic [ref=e77]:
+            - img [ref=e78]
+            - generic [ref=e81]: 2:36 PM
+            - generic [ref=e82]: •
+            - generic [ref=e83]: gpt-5-mini-2025-08-07
+            - generic [ref=e84]:
+              - button "Copy message text" [ref=e85] [cursor=pointer]:
+                - img [ref=e86]
+              - button "Delete message" [ref=e89] [cursor=pointer]:
+                - img [ref=e90]
+        - generic [ref=e93]:
+          - generic [ref=e95]:
+            - generic [ref=e97]:
+              - paragraph [ref=e98]: "Completely replace this page with a Password Recovery - Step 4: Success page for \"bside.art\" mobile app."
+              - paragraph [ref=e99]: "DEVICE FRAME (MUST KEEP):"
+              - list [ref=e100]:
+                - listitem [ref=e101]: "iPhone mockup: 375x812px, bg-black, rounded-[50px], ring-[14px] ring-[#2d2d2d], overflow-hidden"
+                - listitem [ref=e102]: "Dynamic Island: 120x34px centered top, bg-black, rounded-b-[20px], z-50"
+                - listitem [ref=e103]: "Status bar: \"9:41\" left (14px font-semibold), signal/wifi/battery Iconify Solar icons right, z-50"
+                - listitem [ref=e104]: "Home indicator: 134x5px, bg-white/30, rounded-full, absolute bottom-2 centered, z-50"
+                - listitem [ref=e105]: Body bg-[#111] with flex items-center justify-center
+              - paragraph [ref=e106]: "SCREEN CONTENT (inside iPhone frame, dark mode bg-black):"
+              - list [ref=e107]:
+                - listitem [ref=e108]: Blurred artwork background with gradient overlay (same style as other bside pages)
+                - listitem [ref=e109]: "Branding: \"bside.art\" logo (text-4xl font-semibold tracking-tighter) with blue dot, centered"
+                - listitem [ref=e110]:
+                  - text: "Centered success content (vertically and horizontally centered in screen):"
+                  - list [ref=e111]:
+                    - listitem [ref=e112]: "Large green checkmark circle icon: 64x64px, #34C759 color (use Iconify solar:check-circle-bold), with subtle scale-in animation on load"
+                    - listitem [ref=e113]: "Title: \"Password Reset Successfully\" (text-2xl font-semibold white, centered, mt-6)"
+                    - listitem [ref=e114]: "Subtitle: \"Your password has been updated. You can now sign in with your new password.\" (text-base text-white/60, centered, max-w-[280px], mt-3)"
+                    - listitem [ref=e115]: "Countdown: \"Redirecting to login in 3...\" (text-sm text-white/40, centered, mt-4) - counts down from 3 to 0"
+                - listitem [ref=e116]: "\"Back to Login\" button: h-12 bg-white text-black font-semibold rounded-xl, full-width, mt-8, links to ./02-login.html"
+                - listitem [ref=e117]: "Auto-redirect countdown: JavaScript counts down from 3, then redirects to ./02-login.html"
+              - paragraph [ref=e118]: "ANIMATIONS:"
+              - list [ref=e119]:
+                - listitem [ref=e120]: Checkmark icon scales in from 0 to 1 with ease-out (CSS animation, 0.5s delay)
+                - listitem [ref=e121]: Title and subtitle fade in after checkmark (0.3s delay after icon)
+                - listitem [ref=e122]: Countdown text updates every second
+              - paragraph [ref=e123]: "TECH: Tailwind CSS CDN, Iconify Solar icons CDN, Inter font. Include tailwind.config with brand colors (dark:#1C1C1E, blue:#007AFF, green:#34C759). Dark theme."
+            - button "Show All" [ref=e124] [cursor=pointer]:
+              - text: Show All
+              - img [ref=e125]
+          - generic [ref=e127]:
+            - img [ref=e128]
+            - generic [ref=e131]: 2:37 PM
+            - generic [ref=e132]:
+              - button "Copy message text" [ref=e133] [cursor=pointer]:
+                - img [ref=e134]
+              - button "Regenerate" [ref=e137] [cursor=pointer]:
+                - img [ref=e138]
+              - button "Delete message" [ref=e143] [cursor=pointer]:
+                - img [ref=e144]
+        - generic [ref=e147]:
+          - generic [ref=e150]:
+            - paragraph [ref=e152]: Here is the updated Password Recovery Success page.
+            - generic [ref=e153]:
+              - generic [ref=e154]:
+                - generic [ref=e155]:
+                  - img [ref=e157] [cursor=pointer]
+                  - img [ref=e161] [cursor=pointer]
+                  - img [ref=e163] [cursor=pointer]
+                  - generic [ref=e168]:
+                    - button "View" [ref=e169] [cursor=pointer]:
+                      - img [ref=e170]
+                      - text: View
+                    - button "Enable animations & effects" [ref=e174] [cursor=pointer]:
+                      - img [ref=e175]
+                - generic [ref=e177]:
+                  - button "Copy" [ref=e178] [cursor=pointer]:
+                    - img [ref=e179]
+                    - text: Copy
+                  - generic [ref=e182]:
+                    - button "Preview" [ref=e183] [cursor=pointer]
+                    - button "Code" [ref=e184] [cursor=pointer]
+              - iframe [ref=e187]:
+                - generic [ref=f24e3]:
+                  - generic [ref=f24e5]: 9:41
+                  - img [ref=f24e8]
+                  - generic [ref=f24e13]:
+                    - generic:
+                      - img "Background Art"
+                    - generic [ref=f24e14]:
+                      - heading "bside.art" [level=1] [ref=f24e16]
+                      - generic [ref=f24e17]:
+                        - img [ref=f24e20]
+                        - generic [ref=f24e22]:
+                          - heading "Password Reset Successfully" [level=2] [ref=f24e23]
+                          - paragraph [ref=f24e24]: Your password has been updated. You can now sign in with your new password.
+                        - paragraph [ref=f24e25]: Redirecting to login in 3...
+                        - link "Back to Login" [ref=f24e26] [cursor=pointer]:
+                          - /url: ./02-login.html
+                          - button "Back to Login" [ref=f24e27]
+          - generic [ref=e188]:
+            - img [ref=e189]
+            - generic [ref=e192]: 2:37 PM
+            - generic [ref=e193]: •
+            - generic [ref=e194]: gemini-3-pro-preview
+            - generic [ref=e195]:
+              - button "Copy message text" [ref=e196] [cursor=pointer]:
+                - img [ref=e197]
+              - button "Delete message" [ref=e200] [cursor=pointer]:
+                - img [ref=e201]
+      - generic [ref=e205]:
+        - generic [ref=e206]:
+          - generic [ref=e208]:
+            - button "Default" [ref=e209] [cursor=pointer]
+            - button "Edits" [ref=e210] [cursor=pointer]
+          - textbox "Ask for revisions..." [ref=e211]
+        - generic [ref=e212]:
+          - button "Prompt Builder" [ref=e213] [cursor=pointer]:
+            - img [ref=e214]
+            - generic [ref=e217]: Prompt Builder
+          - button "Gemini 3 Pro" [ref=e218] [cursor=pointer]:
+            - img [ref=e219]
+            - text: Gemini 3 Pro
+            - img [ref=e221]
+          - button "Reference Components & Templates" [ref=e223] [cursor=pointer]:
+            - img [ref=e224]
+          - button "Attach Files (Max 2)" [ref=e227] [cursor=pointer]:
+            - img [ref=e228]
+          - button "Import from Figma" [ref=e230] [cursor=pointer]:
+            - img [ref=e231]
+        - button [disabled] [ref=e238]:
+          - img [ref=e239]
+    - generic [ref=e241]:
+      - generic [ref=e242]:
+        - generic [ref=e243]:
+          - generic [ref=e244]:
+            - button "Preview" [ref=e245] [cursor=pointer]:
+              - generic [ref=e246]: Preview
+            - button "Design" [ref=e247] [cursor=pointer]:
+              - generic [ref=e248]: Design
+            - button "Code" [ref=e249] [cursor=pointer]:
+              - generic [ref=e250]: Code
+          - button "Disable animations & effects" [ref=e251] [cursor=pointer]:
+            - img [ref=e252]
+          - generic [ref=e255]:
+            - button "Fonts" [ref=e256] [cursor=pointer]:
+              - img [ref=e257]
+              - generic [ref=e259]: Fonts
+            - button "Colors" [ref=e260] [cursor=pointer]:
+              - img [ref=e261]
+              - generic [ref=e267]: Colors
+            - button "Assets" [ref=e268] [cursor=pointer]:
+              - img [ref=e269]
+              - generic [ref=e273]: Assets
+          - generic [ref=e274]:
+            - button "Save" [disabled] [ref=e275]:
+              - img [ref=e276]
+              - generic [ref=e280]: Save
+            - button "Undo" [disabled] [ref=e281]:
+              - img [ref=e282]
+            - button "Redo" [disabled] [ref=e285]:
+              - img [ref=e286]
+            - button [disabled] [ref=e289]:
+              - img [ref=e290]
+          - generic [ref=e293]:
+            - button [ref=e294] [cursor=pointer]:
+              - img [ref=e295]
+            - button [ref=e297] [cursor=pointer]:
+              - img [ref=e298]
+            - button [ref=e300] [cursor=pointer]:
+              - img [ref=e301]
+        - generic [ref=e303]:
+          - button "Export" [ref=e305] [cursor=pointer]:
+            - img [ref=e306]
+            - generic [ref=e309]: Export
+          - button "Publish" [ref=e310] [cursor=pointer]:
+            - img [ref=e311]
+            - generic [ref=e314]: Publish
+      - generic [ref=e315]:
+        - generic [ref=e317]:
+          - button "Canvas" [ref=e318] [cursor=pointer]:
+            - img [ref=e319]
+            - generic: Canvas
+          - generic:
+            - button "Minimize to 100%":
+              - img
+        - generic [ref=e327]:
+          - generic [ref=e328]:
+            - generic [ref=e331]: Preview 1
+            - generic [ref=e334]:
+              - textbox [ref=e335]: "0"
+              - generic [ref=e336]: ×
+              - textbox [ref=e337]: "0"
+              - generic [ref=e338]:
+                - combobox [ref=e339] [cursor=pointer]:
+                  - option "Desktop - Full Screen" [selected]
+                  - option "Desktop - 1440×1024"
+                  - option "Desktop - 1280×832"
+                  - option "Tablet - 1024x768 (Landscape)"
+                  - option "Tablet - 768×1024 (Portrait)"
+                  - option "Phone - 402×874 (17 Pro)"
+                  - option "Phone - 393×852 (iPhone)"
+                - generic:
+                  - generic: Desktop
+                  - img
+          - iframe [ref=e341]:
+            - generic [ref=f20e2]:
+              - generic [ref=f20e3]:
+                - banner [ref=f20e4]:
+                  - generic [ref=f20e5]:
+                    - link "Aura Logo" [ref=f20e8] [cursor=pointer]:
+                      - /url: /
+                      - img "Aura Logo" [ref=f20e9]
+                    - navigation [ref=f20e10]:
+                      - link "CREATE" [ref=f20e11] [cursor=pointer]:
+                        - /url: /create
+                      - link "TEMPLATES" [ref=f20e12] [cursor=pointer]:
+                        - /url: /browse/components
+                      - link "COMPONENTS" [ref=f20e13] [cursor=pointer]:
+                        - /url: /components
+                      - link "ASSETS" [ref=f20e14] [cursor=pointer]:
+                        - /url: /assets
+                      - link "SKILLS" [ref=f20e15] [cursor=pointer]:
+                        - /url: /skills
+                      - link "LEARN" [ref=f20e16] [cursor=pointer]:
+                        - /url: /learn/introduction
+                      - link "PRICING" [ref=f20e17] [cursor=pointer]:
+                        - /url: /pricing
+                      - link "CHANGELOG" [ref=f20e18] [cursor=pointer]:
+                        - /url: /changelog
+                    - generic [ref=f20e19]:
+                      - generic [ref=f20e20]:
+                        - button "Light mode" [ref=f20e22] [cursor=pointer]:
+                          - img [ref=f20e23]
+                        - button "System theme" [ref=f20e29] [cursor=pointer]:
+                          - img [ref=f20e30]
+                        - button "Dark mode" [ref=f20e32] [cursor=pointer]:
+                          - img [ref=f20e33]
+                      - img "DE" [ref=f20e37] [cursor=pointer]
+                - main [ref=f20e38]:
+                  - generic [ref=f20e39]:
+                    - generic [ref=f20e43]:
+                      - link "Introducing Gemini 3, the most creative model" [ref=f20e783] [cursor=pointer]:
+                        - /url: /learn/introduction
+                        - img [ref=f20e784]
+                        - generic [ref=f20e50]: Introducing Gemini 3, the most creative model
+                        - generic:
+                          - generic:
+                            - img
+                      - heading "Create beautiful designs" [level=1] [ref=f20e52]:
+                        - generic [ref=f20e53]:
+                          - generic [ref=f20e54]: Create
+                          - generic [ref=f20e55]: beautiful
+                          - generic [ref=f20e56]: designs
+                    - generic [ref=f20e57]:
+                      - paragraph [ref=f20e61]:
+                        - generic [ref=f20e62]: Generate
+                        - generic [ref=f20e63]: top-tier
+                        - generic [ref=f20e64]: landing
+                        - generic [ref=f20e65]: pages
+                        - generic [ref=f20e66]: in
+                        - generic [ref=f20e67]: seconds.
+                        - link "Watch video." [ref=f20e68] [cursor=pointer]:
+                          - /url: /learn/introduction
+                      - generic [ref=f20e74]:
+                        - generic [ref=f20e75]:
+                          - textbox [ref=f20e76]
+                          - generic:
+                            - generic:
+                              - generic: R
+                              - generic: e
+                              - generic: f
+                              - generic: e
+                              - generic: r
+                              - generic: e
+                              - generic: "n"
+                              - generic: c
+                              - generic: e
+                              - generic: "@"
+                              - generic: t
+                              - generic: e
+                              - generic: m
+                              - generic: p
+                              - generic: l
+                              - generic: a
+                              - generic: t
+                              - generic: e
+                              - generic: t
+                              - generic: o
+                              - generic: g
+                              - generic: e
+                              - generic: t
+                              - generic: t
+                              - generic: h
+                              - generic: e
+                              - generic: p
+                              - generic: e
+                              - generic: r
+                              - generic: f
+                              - generic: e
+                              - generic: c
+                              - generic: t
+                              - generic: l
+                              - generic: a
+                              - generic: "n"
+                              - generic: d
+                              - generic: i
+                              - generic: "n"
+                              - generic: g
+                              - generic: p
+                              - generic: a
+                              - generic: g
+                              - generic: e
+                              - generic: .
+                              - generic: .
+                              - generic: .
+                        - generic [ref=f20e77]:
+                          - button "Prompt Builder" [ref=f20e78] [cursor=pointer]:
+                            - img [ref=f20e79]
+                            - generic [ref=f20e82]: Prompt Builder
+                          - button "Gemini 3 Pro" [ref=f20e83] [cursor=pointer]:
+                            - img [ref=f20e84]
+                            - text: Gemini 3 Pro
+                            - img [ref=f20e86]
+                          - button "Reference Components & Templates" [ref=f20e88] [cursor=pointer]:
+                            - img [ref=f20e89]
+                          - button "Attach Files (Max 2)" [ref=f20e92] [cursor=pointer]:
+                            - img [ref=f20e93]
+                          - button "Import from Figma" [ref=f20e95] [cursor=pointer]:
+                            - img [ref=f20e96]
+                        - button [disabled] [ref=f20e103]:
+                          - img [ref=f20e104]
+                    - generic [ref=f20e109]:
+                      - generic [ref=f20e110]:
+                        - generic [ref=f20e111]:
+                          - button "Recent Chats" [ref=f20e112] [cursor=pointer]
+                          - button "Iterations" [ref=f20e113] [cursor=pointer]
+                        - generic [ref=f20e114]:
+                          - button "Stacked view" [ref=f20e115] [cursor=pointer]:
+                            - img [ref=f20e116]
+                          - button "All view" [ref=f20e121] [cursor=pointer]:
+                            - img [ref=f20e122]
+                          - generic [ref=f20e124]:
+                            - img [ref=f20e125]
+                            - textbox "Search 132 projects..." [ref=f20e128]
+                      - generic [ref=f20e129]:
+                        - button "32 Mobile App - home Mobile App - home Feb 10, 2:38 PM" [ref=f20e131] [cursor=pointer]:
+                          - generic [ref=f20e132]:
+                            - generic [ref=f20e133]: "32"
+                            - img "Mobile App - home" [ref=f20e134]
+                          - generic [ref=f20e135]:
+                            - paragraph [ref=f20e136]: Mobile App - home
+                            - paragraph [ref=f20e137]: Feb 10, 2:38 PM
+                        - button "24 Art Discovery App Splash Screen Template Art Discovery App Splash Screen Template Feb 10, 10:13 AM" [ref=f20e139] [cursor=pointer]:
+                          - generic [ref=f20e140]:
+                            - generic [ref=f20e141]: "24"
+                            - img "Art Discovery App Splash Screen Template" [ref=f20e142]
+                          - generic [ref=f20e143]:
+                            - paragraph [ref=f20e144]: Art Discovery App Splash Screen Template
+                            - paragraph [ref=f20e145]: Feb 10, 10:13 AM
+                        - button "24 TaskBoard App - home TaskBoard App - home Feb 10, 10:07 AM" [ref=f20e147] [cursor=pointer]:
+                          - generic [ref=f20e148]:
+                            - generic [ref=f20e149]: "24"
+                            - img "TaskBoard App - home" [ref=f20e150]
+                          - generic [ref=f20e151]:
+                            - paragraph [ref=f20e152]: TaskBoard App - home
+                            - paragraph [ref=f20e153]: Feb 10, 10:07 AM
+                        - button "Coaching Pricing Card Template Coaching Pricing Card Template Feb 9, 1:29 PM" [ref=f20e155] [cursor=pointer]:
+                          - img "Coaching Pricing Card Template" [ref=f20e157]
+                          - generic [ref=f20e158]:
+                            - paragraph [ref=f20e159]: Coaching Pricing Card Template
+                            - paragraph [ref=f20e160]: Feb 9, 1:29 PM
+                        - button "2 Creative Digital Designer Portfolio Template - home Creative Digital Designer Portfolio Template - home Feb 8, 5:59 PM" [ref=f20e162] [cursor=pointer]:
+                          - generic [ref=f20e163]:
+                            - generic [ref=f20e164]: "2"
+                            - img "Creative Digital Designer Portfolio Template - home" [ref=f20e165]
+                          - generic [ref=f20e166]:
+                            - paragraph [ref=f20e167]: Creative Digital Designer Portfolio Template - home
+                            - paragraph [ref=f20e168]: Feb 8, 5:59 PM
+                        - button "6 Premium Gifting - home Premium Gifting - home Feb 6, 10:17 PM" [ref=f20e170] [cursor=pointer]:
+                          - generic [ref=f20e171]:
+                            - generic [ref=f20e172]: "6"
+                            - img "Premium Gifting - home" [ref=f20e173]
+                          - generic [ref=f20e174]:
+                            - paragraph [ref=f20e175]: Premium Gifting - home
+                            - paragraph [ref=f20e176]: Feb 6, 10:17 PM
+                        - button "FreshBite Food Delivery Landing Page Template FreshBite Food Delivery Landing Page Template Feb 6, 11:07 AM" [ref=f20e178] [cursor=pointer]:
+                          - img "FreshBite Food Delivery Landing Page Template" [ref=f20e180]
+                          - generic [ref=f20e181]:
+                            - paragraph [ref=f20e182]: FreshBite Food Delivery Landing Page Template
+                            - paragraph [ref=f20e183]: Feb 6, 11:07 AM
+                        - button "[A modern e-commerce platform for selling lifestyl [A modern e-commerce platform for selling lifestyl Feb 6, 9:16 AM" [ref=f20e185] [cursor=pointer]:
+                          - img "[A modern e-commerce platform for selling lifestyl" [ref=f20e187]
+                          - generic [ref=f20e188]:
+                            - paragraph [ref=f20e189]: "[A modern e-commerce platform for selling lifestyl"
+                            - paragraph [ref=f20e190]: Feb 6, 9:16 AM
+                      - button "Show More" [ref=f20e192] [cursor=pointer]
+                    - generic [ref=f20e196]:
+                      - generic [ref=f20e197]:
+                        - heading "Trending" [level=2] [ref=f20e198]
+                        - button "Browse Trending" [ref=f20e199] [cursor=pointer]:
+                          - generic [ref=f20e200]: Browse Trending
+                          - img [ref=f20e201]
+                      - generic [ref=f20e203]:
+                        - generic [ref=f20e205]:
+                          - img "Preview for AI Video Editor Landing Page Template" [ref=f20e207] [cursor=pointer]
+                          - generic [ref=f20e209]:
+                            - generic [ref=f20e210]:
+                              - paragraph [ref=f20e211]: AI Video Editor Landing Page Template
+                              - generic [ref=f20e212]: PRO
+                            - generic [ref=f20e213]:
+                              - link "Meng To Meng To" [ref=f20e214] [cursor=pointer]:
+                                - /url: /meng
+                                - img "Meng To" [ref=f20e216]
+                                - paragraph [ref=f20e217]: Meng To
+                              - generic [ref=f20e218]:
+                                - button "Remix" [ref=f20e219] [cursor=pointer]:
+                                  - img [ref=f20e220]
+                                  - text: Remix
+                                - generic [ref=f20e226]: •
+                                - generic [ref=f20e227]:
+                                  - img [ref=f20e228]
+                                  - generic [ref=f20e231]: "768"
+                        - generic [ref=f20e233]:
+                          - img "Preview for Brand Sprint Agency Landing Page Template" [ref=f20e235] [cursor=pointer]
+                          - generic [ref=f20e237]:
+                            - generic [ref=f20e238]:
+                              - paragraph [ref=f20e239]: Brand Sprint Agency Landing Page Template
+                              - generic [ref=f20e240]: PRO
+                            - generic [ref=f20e241]:
+                              - link "Sourany Phomhome Sourany Phomhome" [ref=f20e242] [cursor=pointer]:
+                                - /url: /sourany
+                                - img "Sourany Phomhome" [ref=f20e244]
+                                - paragraph [ref=f20e245]: Sourany Phomhome
+                              - generic [ref=f20e246]:
+                                - button "Remix" [ref=f20e247] [cursor=pointer]:
+                                  - img [ref=f20e248]
+                                  - text: Remix
+                                - generic [ref=f20e254]: •
+                                - generic [ref=f20e255]:
+                                  - img [ref=f20e256]
+                                  - generic [ref=f20e259]: "753"
+                        - generic [ref=f20e261]:
+                          - img "Preview for AI Builder Landing Page Template" [ref=f20e263] [cursor=pointer]
+                          - generic [ref=f20e265]:
+                            - generic [ref=f20e266]:
+                              - paragraph [ref=f20e267]: AI Builder Landing Page Template
+                              - generic [ref=f20e268]: PRO
+                            - generic [ref=f20e269]:
+                              - link "S Sam" [ref=f20e270] [cursor=pointer]:
+                                - /url: /samaing1983
+                                - generic [ref=f20e272]: S
+                                - paragraph [ref=f20e273]: Sam
+                              - generic [ref=f20e274]:
+                                - button "Remix" [ref=f20e275] [cursor=pointer]:
+                                  - img [ref=f20e276]
+                                  - text: Remix
+                                - generic [ref=f20e282]: •
+                                - generic [ref=f20e283]:
+                                  - img [ref=f20e284]
+                                  - generic [ref=f20e287]: "609"
+                    - generic [ref=f20e291]:
+                      - generic [ref=f20e292]:
+                        - heading "Recently Featured" [level=2] [ref=f20e293]
+                        - button "Browse Featured" [ref=f20e294] [cursor=pointer]:
+                          - generic [ref=f20e295]: Browse Featured
+                          - img [ref=f20e296]
+                      - generic [ref=f20e298]:
+                        - generic [ref=f20e300]:
+                          - img "Preview for AI Education Landing Page Template" [ref=f20e302] [cursor=pointer]
+                          - generic [ref=f20e304]:
+                            - generic [ref=f20e305]:
+                              - paragraph [ref=f20e306]: AI Education Landing Page Template
+                              - generic [ref=f20e307]: PRO
+                            - generic [ref=f20e308]:
+                              - link "Aksonvady Phomhome Aksonvady Phomhome" [ref=f20e309] [cursor=pointer]:
+                                - /url: /aksonvady
+                                - img "Aksonvady Phomhome" [ref=f20e311]
+                                - paragraph [ref=f20e312]: Aksonvady Phomhome
+                              - generic [ref=f20e313]:
+                                - button "Remix" [ref=f20e314] [cursor=pointer]:
+                                  - img [ref=f20e315]
+                                  - text: Remix
+                                - generic [ref=f20e321]: •
+                                - generic [ref=f20e322]:
+                                  - img [ref=f20e323]
+                                  - generic [ref=f20e326]: "160"
+                        - generic [ref=f20e328]:
+                          - img "Preview for FORMA Digital Design Studio Website Template" [ref=f20e330] [cursor=pointer]
+                          - generic [ref=f20e332]:
+                            - generic [ref=f20e333]:
+                              - paragraph [ref=f20e334]: FORMA Digital Design Studio Website Template
+                              - generic [ref=f20e335]: PRO
+                            - generic [ref=f20e336]:
+                              - link "Vannarot Roeung Vannarot Roeung" [ref=f20e337] [cursor=pointer]:
+                                - /url: /vannarot-roeung
+                                - img "Vannarot Roeung" [ref=f20e339]
+                                - paragraph [ref=f20e340]: Vannarot Roeung
+                              - generic [ref=f20e341]:
+                                - button "Remix" [ref=f20e342] [cursor=pointer]:
+                                  - img [ref=f20e343]
+                                  - text: Remix
+                                - generic [ref=f20e349]: •
+                                - generic [ref=f20e350]:
+                                  - img [ref=f20e351]
+                                  - generic [ref=f20e354]: "152"
+                        - generic [ref=f20e356]:
+                          - img "Preview for AI Builder Landing Page Template" [ref=f20e358] [cursor=pointer]
+                          - generic [ref=f20e360]:
+                            - generic [ref=f20e361]:
+                              - paragraph [ref=f20e362]: AI Builder Landing Page Template
+                              - generic [ref=f20e363]: PRO
+                            - generic [ref=f20e364]:
+                              - link "S Sam" [ref=f20e365] [cursor=pointer]:
+                                - /url: /samaing1983
+                                - generic [ref=f20e367]: S
+                                - paragraph [ref=f20e368]: Sam
+                              - generic [ref=f20e369]:
+                                - button "Remix" [ref=f20e370] [cursor=pointer]:
+                                  - img [ref=f20e371]
+                                  - text: Remix
+                                - generic [ref=f20e377]: •
+                                - generic [ref=f20e378]:
+                                  - img [ref=f20e379]
+                                  - generic [ref=f20e382]: "609"
+                    - generic [ref=f20e386]:
+                      - generic [ref=f20e387]:
+                        - heading "Free Templates" [level=2] [ref=f20e388]
+                        - button "Browse Free Templates" [ref=f20e389] [cursor=pointer]:
+                          - generic [ref=f20e390]: Browse Free Templates
+                          - img [ref=f20e391]
+                      - generic [ref=f20e393]:
+                        - generic [ref=f20e395]:
+                          - img "Preview for Social Media Agency Landing Page Template" [ref=f20e397] [cursor=pointer]
+                          - generic [ref=f20e399]:
+                            - paragraph [ref=f20e401]: Social Media Agency Landing Page Template
+                            - generic [ref=f20e402]:
+                              - link "François Savard François Savard" [ref=f20e403] [cursor=pointer]:
+                                - /url: /francois
+                                - img "François Savard" [ref=f20e405]
+                                - paragraph [ref=f20e406]: François Savard
+                              - generic [ref=f20e407]:
+                                - button "Remix" [ref=f20e408] [cursor=pointer]:
+                                  - img [ref=f20e409]
+                                  - text: Remix
+                                - generic [ref=f20e415]: •
+                                - generic [ref=f20e416]:
+                                  - img [ref=f20e417]
+                                  - generic [ref=f20e420]: 6.8k
+                        - generic [ref=f20e422]:
+                          - img "Preview for Decision Traceability SaaS Landing Page Template" [ref=f20e424] [cursor=pointer]
+                          - generic [ref=f20e426]:
+                            - paragraph [ref=f20e428]: Decision Traceability SaaS Landing Page Template
+                            - generic [ref=f20e429]:
+                              - link "Dara To Dara To" [ref=f20e430] [cursor=pointer]:
+                                - /url: /user-40f1385b
+                                - img "Dara To" [ref=f20e432]
+                                - paragraph [ref=f20e433]: Dara To
+                              - generic [ref=f20e434]:
+                                - button "Remix" [ref=f20e435] [cursor=pointer]:
+                                  - img [ref=f20e436]
+                                  - text: Remix
+                                - generic [ref=f20e442]: •
+                                - generic [ref=f20e443]:
+                                  - img [ref=f20e444]
+                                  - generic [ref=f20e447]: 5.2k
+                        - generic [ref=f20e449]:
+                          - img "Preview for Glassmorphism Travel Booking Mobile UI Template" [ref=f20e451] [cursor=pointer]
+                          - generic [ref=f20e453]:
+                            - paragraph [ref=f20e455]: Glassmorphism Travel Booking Mobile UI Template
+                            - generic [ref=f20e456]:
+                              - link "Aksonvady Phomhome Aksonvady Phomhome" [ref=f20e457] [cursor=pointer]:
+                                - /url: /aksonvady
+                                - img "Aksonvady Phomhome" [ref=f20e459]
+                                - paragraph [ref=f20e460]: Aksonvady Phomhome
+                              - generic [ref=f20e461]:
+                                - button "Remix" [ref=f20e462] [cursor=pointer]:
+                                  - img [ref=f20e463]
+                                  - text: Remix
+                                - generic [ref=f20e469]: •
+                                - generic [ref=f20e470]:
+                                  - img [ref=f20e471]
+                                  - generic [ref=f20e474]: 4.2k
+                    - generic [ref=f20e478]:
+                      - generic [ref=f20e479]:
+                        - heading "Pro Templates" [level=2] [ref=f20e480]
+                        - button "Browse Pro Templates" [ref=f20e481] [cursor=pointer]:
+                          - generic [ref=f20e482]: Browse Pro Templates
+                          - img [ref=f20e483]
+                      - generic [ref=f20e485]:
+                        - generic [ref=f20e487]:
+                          - img "Preview for Fluxer SaaS Landing Page Template" [ref=f20e489] [cursor=pointer]
+                          - generic [ref=f20e491]:
+                            - generic [ref=f20e492]:
+                              - paragraph [ref=f20e493]: Fluxer SaaS Landing Page Template
+                              - generic [ref=f20e494]: PRO
+                            - generic [ref=f20e495]:
+                              - link "Aksonvady Phomhome Aksonvady Phomhome" [ref=f20e496] [cursor=pointer]:
+                                - /url: /aksonvady
+                                - img "Aksonvady Phomhome" [ref=f20e498]
+                                - paragraph [ref=f20e499]: Aksonvady Phomhome
+                              - generic [ref=f20e500]:
+                                - button "Remix" [ref=f20e501] [cursor=pointer]:
+                                  - img [ref=f20e502]
+                                  - text: Remix
+                                - generic [ref=f20e508]: •
+                                - generic [ref=f20e509]:
+                                  - img [ref=f20e510]
+                                  - generic [ref=f20e513]: 6.5k
+                        - generic [ref=f20e515]:
+                          - img "Preview for Canvas Website Builder Landing Page Template" [ref=f20e517] [cursor=pointer]
+                          - generic [ref=f20e519]:
+                            - generic [ref=f20e520]:
+                              - paragraph [ref=f20e521]: Canvas Website Builder Landing Page Template
+                              - generic [ref=f20e522]: PRO
+                            - generic [ref=f20e523]:
+                              - link "Aksonvady Phomhome Aksonvady Phomhome" [ref=f20e524] [cursor=pointer]:
+                                - /url: /aksonvady
+                                - img "Aksonvady Phomhome" [ref=f20e526]
+                                - paragraph [ref=f20e527]: Aksonvady Phomhome
+                              - generic [ref=f20e528]:
+                                - button "Remix" [ref=f20e529] [cursor=pointer]:
+                                  - img [ref=f20e530]
+                                  - text: Remix
+                                - generic [ref=f20e536]: •
+                                - generic [ref=f20e537]:
+                                  - img [ref=f20e538]
+                                  - generic [ref=f20e541]: 5.1k
+                        - generic [ref=f20e543]:
+                          - img "Preview for Ledger SaaS Monetization Landing Page Template" [ref=f20e545] [cursor=pointer]
+                          - generic [ref=f20e547]:
+                            - generic [ref=f20e548]:
+                              - paragraph [ref=f20e549]: Ledger SaaS Monetization Landing Page Template
+                              - generic [ref=f20e550]: PRO
+                            - generic [ref=f20e551]:
+                              - link "Sourasith Phomhome Sourasith Phomhome" [ref=f20e552] [cursor=pointer]:
+                                - /url: /sourasith-p
+                                - img "Sourasith Phomhome" [ref=f20e554]
+                                - paragraph [ref=f20e555]: Sourasith Phomhome
+                              - generic [ref=f20e556]:
+                                - button "Remix" [ref=f20e557] [cursor=pointer]:
+                                  - img [ref=f20e558]
+                                  - text: Remix
+                                - generic [ref=f20e564]: •
+                                - generic [ref=f20e565]:
+                                  - img [ref=f20e566]
+                                  - generic [ref=f20e569]: 4.8k
+                    - generic [ref=f20e573]:
+                      - generic [ref=f20e574]:
+                        - heading "Paid Templates" [level=2] [ref=f20e575]
+                        - button "Browse Paid Templates" [ref=f20e576] [cursor=pointer]:
+                          - generic [ref=f20e577]: Browse Paid Templates
+                          - img [ref=f20e578]
+                      - generic [ref=f20e580]:
+                        - generic [ref=f20e582]:
+                          - img "Preview for Aura Financial Banking SaaS Landing Page Template" [ref=f20e584] [cursor=pointer]
+                          - generic [ref=f20e586]:
+                            - generic [ref=f20e587]:
+                              - paragraph [ref=f20e588]: Aura Financial Banking SaaS Landing Page Template
+                              - generic [ref=f20e589]: $39
+                            - generic [ref=f20e590]:
+                              - link "Meng To Meng To" [ref=f20e591] [cursor=pointer]:
+                                - /url: /meng
+                                - img "Meng To" [ref=f20e593]
+                                - paragraph [ref=f20e594]: Meng To
+                              - generic [ref=f20e596]:
+                                - img [ref=f20e597]
+                                - generic [ref=f20e600]: 5.6k
+                        - generic [ref=f20e602]:
+                          - img "Preview for Layer 1 Crypto Blockchain Startup Landing Page Template" [ref=f20e604] [cursor=pointer]
+                          - generic [ref=f20e606]:
+                            - generic [ref=f20e607]:
+                              - paragraph [ref=f20e608]: Layer 1 Crypto Blockchain Startup Landing Page Template
+                              - generic [ref=f20e609]: $39
+                            - generic [ref=f20e610]:
+                              - link "Vannarot Roeung Vannarot Roeung" [ref=f20e611] [cursor=pointer]:
+                                - /url: /vannarot-roeung
+                                - img "Vannarot Roeung" [ref=f20e613]
+                                - paragraph [ref=f20e614]: Vannarot Roeung
+                              - generic [ref=f20e616]:
+                                - img [ref=f20e617]
+                                - generic [ref=f20e620]: 3.1k
+                        - generic [ref=f20e622]:
+                          - img "Preview for Spectra AR Hardware Landing Page Template" [ref=f20e624] [cursor=pointer]
+                          - generic [ref=f20e626]:
+                            - generic [ref=f20e627]:
+                              - paragraph [ref=f20e628]: Spectra AR Hardware Landing Page Template
+                              - generic [ref=f20e629]: $39
+                            - generic [ref=f20e630]:
+                              - link "Meng To Meng To" [ref=f20e631] [cursor=pointer]:
+                                - /url: /meng
+                                - img "Meng To" [ref=f20e633]
+                                - paragraph [ref=f20e634]: Meng To
+                              - generic [ref=f20e636]:
+                                - img [ref=f20e637]
+                                - generic [ref=f20e640]: 2.9k
+                - contentinfo [ref=f20e641]:
+                  - button "Scroll to top" [ref=f20e642] [cursor=pointer]:
+                    - img [ref=f20e643]
+                  - generic [ref=f20e645]:
+                    - generic [ref=f20e646]:
+                      - generic [ref=f20e647]:
+                        - img "Aura Logo" [ref=f20e649]
+                        - paragraph [ref=f20e650]: AI landing page builder that creates stunning designs in seconds. No design skills needed. Export to HTML & Figma. Trusted by 120,000+ users worldwide.
+                      - generic [ref=f20e651]:
+                        - generic [ref=f20e652]:
+                          - heading "PRODUCT" [level=3] [ref=f20e653]
+                          - list [ref=f20e654]:
+                            - listitem [ref=f20e655]:
+                              - link "Create" [ref=f20e656] [cursor=pointer]:
+                                - /url: /create
+                                - text: Create
+                            - listitem [ref=f20e657]:
+                              - link "Templates" [ref=f20e658] [cursor=pointer]:
+                                - /url: /templates
+                                - text: Templates
+                            - listitem [ref=f20e659]:
+                              - link "Components" [ref=f20e660] [cursor=pointer]:
+                                - /url: /components
+                                - text: Components
+                            - listitem [ref=f20e661]:
+                              - link "Assets" [ref=f20e662] [cursor=pointer]:
+                                - /url: /assets
+                                - text: Assets
+                            - listitem [ref=f20e663]:
+                              - link "Pricing" [ref=f20e664] [cursor=pointer]:
+                                - /url: /pricing
+                                - text: Pricing
+                            - listitem [ref=f20e665]:
+                              - link "Changelog" [ref=f20e666] [cursor=pointer]:
+                                - /url: /changelog
+                                - text: Changelog
+                        - generic [ref=f20e667]:
+                          - heading "RESOURCES" [level=3] [ref=f20e668]
+                          - list [ref=f20e669]:
+                            - listitem [ref=f20e670]:
+                              - link "Introduction" [ref=f20e671] [cursor=pointer]:
+                                - /url: /learn/tips-for-prompting
+                                - text: Introduction
+                            - listitem [ref=f20e672]:
+                              - link "How to Prompt" [ref=f20e673] [cursor=pointer]:
+                                - /url: /learn/how-to-prompt
+                                - text: How to Prompt
+                            - listitem [ref=f20e674]:
+                              - link "How to Edit" [ref=f20e675] [cursor=pointer]:
+                                - /url: /learn/how-to-design
+                                - text: How to Edit
+                            - listitem [ref=f20e676]:
+                              - link "Sell Templates" [ref=f20e677] [cursor=pointer]:
+                                - /url: /sell-templates
+                                - text: Sell Templates
+                            - listitem [ref=f20e678]:
+                              - link "Affiliates" [ref=f20e679] [cursor=pointer]:
+                                - /url: /affiliates
+                                - text: Affiliates
+                            - listitem [ref=f20e680]:
+                              - link "FAQ" [ref=f20e681] [cursor=pointer]:
+                                - /url: /learn/faq
+                                - text: FAQ
+                        - generic [ref=f20e682]:
+                          - heading "WHAT WE USE" [level=3] [ref=f20e683]
+                          - list [ref=f20e684]:
+                            - listitem [ref=f20e685]:
+                              - link "Mobbin" [ref=f20e686] [cursor=pointer]:
+                                - /url: https://mobbin.com/?via=designcode
+                                - text: Mobbin
+                            - listitem [ref=f20e687]:
+                              - link "Screen Studio" [ref=f20e688] [cursor=pointer]:
+                                - /url: https://www.screen.studio/?aff=BB6w6
+                                - text: Screen Studio
+                            - listitem [ref=f20e689]:
+                              - link "Courses" [ref=f20e690] [cursor=pointer]:
+                                - /url: https://designcode.io
+                                - text: Courses
+                            - listitem [ref=f20e691]:
+                              - link "UI Kit" [ref=f20e692] [cursor=pointer]:
+                                - /url: https://designcodeui.com
+                                - text: UI Kit
+                            - listitem [ref=f20e693]:
+                              - link "Video Editor" [ref=f20e694] [cursor=pointer]:
+                                - /url: https://dreamcut.ai
+                                - text: Video Editor
+                            - listitem [ref=f20e695]:
+                              - link "Mockups" [ref=f20e696] [cursor=pointer]:
+                                - /url: https://angle.sh
+                                - text: Mockups
+                        - generic [ref=f20e697]:
+                          - heading "CONNECT" [level=3] [ref=f20e698]
+                          - list [ref=f20e699]:
+                            - listitem [ref=f20e700]:
+                              - link "Privacy" [ref=f20e701] [cursor=pointer]:
+                                - /url: /privacy
+                                - text: Privacy
+                            - listitem [ref=f20e702]:
+                              - link "Terms" [ref=f20e703] [cursor=pointer]:
+                                - /url: /terms
+                                - text: Terms
+                            - listitem [ref=f20e704]:
+                              - link "Support" [ref=f20e705] [cursor=pointer]:
+                                - /url: mailto:meng@designcode.io
+                                - text: Support
+                            - listitem [ref=f20e706]:
+                              - link "Report Issue" [ref=f20e707] [cursor=pointer]:
+                                - /url: mailto:meng@designcode.io
+                                - text: Report Issue
+                            - listitem [ref=f20e708]:
+                              - link "LinkedIn" [ref=f20e709] [cursor=pointer]:
+                                - /url: https://www.linkedin.com/in/mengto
+                                - text: LinkedIn
+                            - listitem [ref=f20e710]:
+                              - link "X" [ref=f20e711] [cursor=pointer]:
+                                - /url: https://x.com/mengto
+                                - text: X
+                    - generic [ref=f20e712]:
+                      - generic [ref=f20e713]:
+                        - paragraph [ref=f20e714]:
+                          - text: © 2026 Aura. All rights reserved.
+                          - link "Made with Cursor" [ref=f20e715] [cursor=pointer]:
+                            - /url: http://designcode.io/cursor
+                          - text: .
+                        - generic [ref=f20e716]:
+                          - button "Light mode" [ref=f20e718] [cursor=pointer]:
+                            - img [ref=f20e719]
+                          - button "System theme" [ref=f20e725] [cursor=pointer]:
+                            - img [ref=f20e726]
+                          - button "Dark mode" [ref=f20e728] [cursor=pointer]:
+                            - img [ref=f20e729]
+                      - generic [ref=f20e731]:
+                        - link "Twitter" [ref=f20e732] [cursor=pointer]:
+                          - /url: https://x.com/mengto
+                          - generic [ref=f20e733]: Twitter
+                          - img [ref=f20e734]
+                        - link "YouTube" [ref=f20e736] [cursor=pointer]:
+                          - /url: https://youtube.com/@designcodeteam
+                          - generic [ref=f20e737]: YouTube
+                          - img [ref=f20e738]
+                        - link "LinkedIn" [ref=f20e741] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/mengto
+                          - generic [ref=f20e742]: LinkedIn
+                          - img [ref=f20e743]
+              - region "Notifications (F8)":
+                - list
+  - region "Notifications (F8)":
+    - list

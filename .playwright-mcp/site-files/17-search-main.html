@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>bside.art | Search</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+:root {
+--bg-dark: #000000;
+--bg-card: #1C1C1E;
+--bg-input: #2C2C2E;
+--accent-blue: #007AFF;
+--error-red: #FF3B30;
+--text-primary: #FFFFFF;
+--text-secondary: rgba(255, 255, 255, 0.6);
+--text-tertiary: rgba(255, 255, 255, 0.38);
+}
+body {
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+background-color: #111;
+color: var(--text-primary);
+display: flex;
+align-items: center;
+justify-content: center;
+min-height: 100vh;
+margin: 0;
+padding: 20px;
+}
+.device-frame {
+width: 375px;
+height: 812px;
+background: var(--bg-dark);
+border-radius: 40px;
+box-shadow: 0 0 0 12px #2d2d2d, 0 20px 50px rgba(0,0,0,0.5);
+position: relative;
+overflow: hidden;
+border: 8px solid #000;
+}
+.notch {
+position: absolute;
+top: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 120px;
+height: 30px;
+background: #000;
+border-bottom-left-radius: 16px;
+border-bottom-right-radius: 16px;
+z-index: 50;
+}
+/* Scrollbar hiding */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+/* Custom Input Styles */
+.search-input {
+transition: all 0.3s ease;
+}
+.search-input:focus-within {
+box-shadow: 0 0 0 2px var(--accent-blue);
+}
+/* Animations */
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(5px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.suggestion-highlight {
+font-weight: 600;
+color: var(--text-primary);
+}
+</style></head>
+<body class="antialiased">
+
+    <div class="device-frame">
+        <!-- Status Bar -->
+        <div class="notch"></div>
+        <div class="absolute top-3 left-6 text-sm font-semibold text-white z-50">9:41</div>
+        <div class="absolute top-3.5 right-6 flex gap-1.5 text-white text-xs z-50">
+            <iconify-icon icon="solar:signal-linear"></iconify-icon>
+            <iconify-icon icon="solar:wi-fi-linear"></iconify-icon>
+            <iconify-icon icon="solar:battery-full-solid"></iconify-icon>
+        </div>
+
+        <!-- Navigation Bar -->
+        <div class="absolute top-0 left-0 right-0 h-[105px] bg-black/95 backdrop-blur-xl z-40 flex flex-col justify-end pb-3 border-b border-white/5">
+            <!-- Nav Header -->
+            <div class="w-full flex items-center justify-between px-4 mb-3">
+                <button class="w-10 h-10 flex items-center justify-start text-white active:opacity-60 transition-opacity">
+                    <iconify-icon icon="solar:alt-arrow-left-linear" width="24" height="24"></iconify-icon>
+                </button>
+                <h1 class="text-[18px] font-semibold text-white absolute left-1/2 -translate-x-1/2">Search</h1>
+                <div class="w-10"></div> <!-- Spacer -->
+            </div>
+
+            <!-- Search Bar -->
+            <div class="px-4">
+                <div class="search-input w-full h-[40px] bg-[#2C2C2E] rounded-xl flex items-center px-3 gap-2">
+                    <iconify-icon icon="solar:magnifer-linear" class="text-white/60 text-[20px] shrink-0"></iconify-icon>
+                    <input type="text" id="searchInput" class="bg-transparent border-none outline-none text-[17px] text-white placeholder-white/40 w-full h-full pb-0.5" placeholder="Search artists, artworks, users..." oninput="handleInput()" onfocus="handleFocus()">
+                    <button id="clearBtn" onclick="clearSearch()" class="hidden w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-black shrink-0 active:opacity-80">
+                        <iconify-icon icon="solar:close-circle-bold" class="text-white/60 text-[14px]"></iconify-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="h-full pt-[105px] pb-[40px] overflow-y-auto no-scrollbar bg-black relative">
+            
+            <!-- Default View: Recent Searches -->
+            <div id="recentSearches" class="px-0 pt-4 fade-in">
+                <div class="px-4 mb-2">
+                    <h3 class="text-[16px] font-semibold text-white">Recent</h3>
+                </div>
+                
+                <div class="flex flex-col">
+                    <!-- Recent Item 1 -->
+                    <div class="flex items-center h-[48px] px-4 active:bg-white/5 transition-colors cursor-pointer border-b border-white/5 group">
+                        <iconify-icon icon="solar:clock-circle-linear" class="text-white/40 text-[18px] mr-3"></iconify-icon>
+                        <span class="text-[17px] text-white flex-1">Basquiat</span>
+                        <button onclick="event.stopPropagation(); this.closest('div').remove()" class="w-10 h-10 flex items-center justify-end text-white/40 active:text-white">
+                            <iconify-icon icon="solar:close-circle-linear" class="text-[18px]"></iconify-icon>
+                        </button>
+                    </div>
+
+                    <!-- Recent Item 2 -->
+                    <div class="flex items-center h-[48px] px-4 active:bg-white/5 transition-colors cursor-pointer border-b border-white/5 group">
+                        <iconify-icon icon="solar:clock-circle-linear" class="text-white/40 text-[18px] mr-3"></iconify-icon>
+                        <span class="text-[17px] text-white flex-1">Abstract Expressionism</span>
+                        <button onclick="event.stopPropagation(); this.closest('div').remove()" class="w-10 h-10 flex items-center justify-end text-white/40 active:text-white">
+                            <iconify-icon icon="solar:close-circle-linear" class="text-[18px]"></iconify-icon>
+                        </button>
+                    </div>
+
+                    <!-- Recent Item 3 -->
+                    <div class="flex items-center h-[48px] px-4 active:bg-white/5 transition-colors cursor-pointer border-b border-white/5 group">
+                        <iconify-icon icon="solar:clock-circle-linear" class="text-white/40 text-[18px] mr-3"></iconify-icon>
+                        <span class="text-[17px] text-white flex-1">Yayoi Kusama</span>
+                        <button onclick="event.stopPropagation(); this.closest('div').remove()" class="w-10 h-10 flex items-center justify-end text-white/40 active:text-white">
+                            <iconify-icon icon="solar:close-circle-linear" class="text-[18px]"></iconify-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-8 flex justify-center">
+                    <button onclick="showClearModal()" class="text-[#FF3B30] text-[15px] font-semibold active:opacity-60 transition-opacity">
+                        Clear Search History
+                    </button>
+                </div>
+            </div>
+
+            <!-- Auto-complete Suggestions (Hidden by default) -->
+            <div id="suggestions" class="hidden px-2 pt-2 absolute top-[105px] left-0 right-0 bottom-0 bg-black z-10">
+                <div class="bg-[#1C1C1E] rounded-2xl overflow-hidden shadow-2xl border border-white/5">
+                    <!-- Suggestion: Artist -->
+                    <div class="flex items-center h-[56px] px-4 active:bg-white/5 transition-colors cursor-pointer border-b border-white/5">
+                        <div class="w-8 flex justify-center mr-3">
+                            <iconify-icon icon="solar:user-circle-linear" class="text-white/60 text-[22px]"></iconify-icon>
+                        </div>
+                        <div class="flex-1 flex flex-col justify-center">
+                            <span class="text-[17px] text-white/60"><span class="suggestion-highlight">Picasso</span></span>
+                        </div>
+                        <span class="text-[11px] text-white/40 font-medium">Artist</span>
+                    </div>
+
+                    <!-- Suggestion: Artwork -->
+                    <div class="flex items-center h-[56px] px-4 active:bg-white/5 transition-colors cursor-pointer border-b border-white/5">
+                        <div class="w-8 flex justify-center mr-3">
+                            <iconify-icon icon="solar:gallery-linear" class="text-white/60 text-[22px]"></iconify-icon>
+                        </div>
+                        <div class="flex-1 flex flex-col justify-center">
+                            <span class="text-[17px] text-white/60"><span class="suggestion-highlight">Picasso</span>'s Blue Period</span>
+                        </div>
+                        <span class="text-[11px] text-white/40 font-medium">Collection</span>
+                    </div>
+
+                    <!-- Suggestion: Specific Artwork -->
+                    <div class="flex items-center h-[56px] px-4 active:bg-white/5 transition-colors cursor-pointer border-b border-white/5">
+                        <div class="w-8 flex justify-center mr-3">
+                            <iconify-icon icon="solar:palette-linear" class="text-white/60 text-[22px]"></iconify-icon>
+                        </div>
+                        <div class="flex-1 flex flex-col justify-center">
+                            <span class="text-[17px] text-white/60">Guernica by <span class="suggestion-highlight">Picasso</span></span>
+                        </div>
+                        <span class="text-[11px] text-white/40 font-medium">Artwork</span>
+                    </div>
+
+                    <!-- Suggestion: User -->
+                    <div class="flex items-center h-[56px] px-4 active:bg-white/5 transition-colors cursor-pointer">
+                        <div class="w-8 flex justify-center mr-3">
+                            <iconify-icon icon="solar:user-bold" class="text-white/60 text-[22px]"></iconify-icon>
+                        </div>
+                        <div class="flex-1 flex flex-col justify-center">
+                            <span class="text-[17px] text-white/60">Pablo_<span class="suggestion-highlight">Picasso</span>_Fan</span>
+                        </div>
+                        <span class="text-[11px] text-white/40 font-medium">User</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty State (Hidden by default, used when history cleared) -->
+            <div id="emptyState" class="hidden h-full flex flex-col items-center justify-center pb-20 fade-in">
+                <div class="w-20 h-20 rounded-full bg-[#1C1C1E] flex items-center justify-center mb-6">
+                    <iconify-icon icon="solar:magnifer-linear" class="text-white/20 text-[40px]"></iconify-icon>
+                </div>
+                <h2 class="text-[17px] text-white/80 font-normal mb-2">Search for artworks</h2>
+                <p class="text-[12px] text-white/40">Find artists, collections, and curators</p>
+            </div>
+
+        </div>
+
+        <!-- Confirmation Modal -->
+        <div id="confirmModal" class="absolute inset-0 z-[60] bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-8 opacity-0 transition-opacity duration-200">
+            <div class="bg-[#1C1C1E] w-full max-w-[300px] rounded-2xl p-6 border border-white/10 transform scale-95 transition-transform duration-200" id="modalContent">
+                <h3 class="text-white text-[17px] font-semibold text-center mb-2">Clear History?</h3>
+                <p class="text-white/60 text-[13px] text-center mb-6 leading-relaxed">This action cannot be undone. All recent searches will be removed.</p>
+                <div class="flex flex-col gap-3">
+                    <button onclick="clearHistory()" class="w-full h-[44px] rounded-xl bg-[#FF3B30] text-white text-[15px] font-semibold">
+                        Clear All
+                    </button>
+                    <button onclick="closeModal()" class="w-full h-[44px] rounded-xl bg-white/5 text-white text-[15px] font-medium">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Home Indicator -->
+        <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-[134px] h-[5px] bg-white/40 rounded-full z-50"></div>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const clearBtn = document.getElementById('clearBtn');
+        const recentSearches = document.getElementById('recentSearches');
+        const suggestions = document.getElementById('suggestions');
+        const emptyState = document.getElementById('emptyState');
+        const confirmModal = document.getElementById('confirmModal');
+        const modalContent = document.getElementById('modalContent');
+
+        function handleInput() {
+            const hasText = searchInput.value.length > 0;
+            
+            // Toggle Clear Button
+            clearBtn.classList.toggle('hidden', !hasText);
+            
+            // Toggle Suggestions View
+            if (hasText) {
+                recentSearches.classList.add('hidden');
+                emptyState.classList.add('hidden');
+                suggestions.classList.remove('hidden');
+                suggestions.classList.add('fade-in');
+            } else {
+                suggestions.classList.add('hidden');
+                suggestions.classList.remove('fade-in');
+                // Check if we should show recent or empty
+                if (recentSearches.querySelector('.flex-col').children.length > 0) {
+                    recentSearches.classList.remove('hidden');
+                } else {
+                    emptyState.classList.remove('hidden');
+                }
+            }
+        }
+
+        function clearSearch() {
+            searchInput.value = '';
+            handleInput();
+            searchInput.focus();
+        }
+
+        function showClearModal() {
+            confirmModal.classList.remove('hidden');
+            requestAnimationFrame(() => {
+                confirmModal.classList.remove('opacity-0');
+                modalContent.classList.remove('scale-95');
+                modalContent.classList.add('scale-100');
+            });
+        }
+
+        function closeModal() {
+            confirmModal.classList.add('opacity-0');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+            setTimeout(() => {
+                confirmModal.classList.add('hidden');
+            }, 200);
+        }
+
+        function clearHistory() {
+            // Remove all items
+            const list = recentSearches.querySelector('.flex-col');
+            list.innerHTML = '';
+            
+            closeModal();
+            
+            // Switch views
+            setTimeout(() => {
+                recentSearches.classList.add('hidden');
+                emptyState.classList.remove('hidden');
+            }, 200);
+        }
+
+        // Simulate focus behavior
+        function handleFocus() {
+            // Add focus specific logic if needed
+        }
+    </script>
+
+</body></html>

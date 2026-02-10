@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>bside.art | Search Results</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+:root {
+--bg-dark: #000000;
+--bg-card: #1C1C1E;
+--accent-blue: #007AFF;
+--text-primary: #FFFFFF;
+--text-secondary: rgba(255, 255, 255, 0.6);
+--text-tertiary: rgba(255, 255, 255, 0.38);
+}
+body {
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+background-color: #111;
+color: var(--text-primary);
+display: flex;
+align-items: center;
+justify-content: center;
+min-height: 100vh;
+margin: 0;
+padding: 20px;
+}
+.device-frame {
+width: 375px;
+height: 812px;
+background: var(--bg-dark);
+border-radius: 40px;
+box-shadow: 0 0 0 12px #2d2d2d, 0 20px 50px rgba(0, 0, 0, 0.5);
+position: relative;
+overflow: hidden;
+border: 8px solid #000;
+}
+.notch {
+position: absolute;
+top: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 120px;
+height: 30px;
+background: #000;
+border-bottom-left-radius: 16px;
+border-bottom-right-radius: 16px;
+z-index: 50;
+}
+/* Scrollbar hiding */
+.no-scrollbar::-webkit-scrollbar {
+display: none;
+}
+.no-scrollbar {
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
+/* Masonry Grid Layout */
+.masonry-grid {
+column-count: 2;
+column-gap: 12px;
+}
+.masonry-item {
+break-inside: avoid;
+margin-bottom: 12px;
+}
+/* Smooth Tab Transition */
+.tab-indicator {
+transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.tab-content {
+display: none;
+animation: fadeIn 0.3s ease-out;
+}
+.tab-content.active {
+display: block;
+}
+@keyframes fadeIn {
+from {
+opacity: 0;
+transform: translateY(10px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+/* Image Overlays */
+.gradient-overlay {
+background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0) 100%);
+}
+</style></head>
+
+<body class="antialiased">
+
+    <div class="device-frame">
+        <!-- Status Bar -->
+        <div class="notch"></div>
+        <div class="absolute top-3 left-6 text-sm font-semibold text-white z-50">9:41</div>
+        <div class="absolute top-3.5 right-6 flex gap-1.5 text-white text-xs z-50">
+            <iconify-icon icon="solar:signal-linear"></iconify-icon>
+            <iconify-icon icon="solar:wi-fi-linear"></iconify-icon>
+            <iconify-icon icon="solar:battery-full-solid"></iconify-icon>
+        </div>
+
+        <!-- Navigation Bar (Increased Height & Padding) -->
+        <div class="absolute top-0 left-0 right-0 h-[100px] pt-[44px] bg-black/95 backdrop-blur-xl z-40 flex items-end pb-3 border-b border-white/10">
+            <div class="w-full flex items-center justify-between px-4">
+                <!-- Back Button -->
+                <button class="w-10 h-10 flex items-center justify-start text-white active:opacity-60 transition-opacity">
+                    <iconify-icon icon="solar:alt-arrow-left-linear" width="24" height="24"></iconify-icon>
+                </button>
+
+                <!-- Search Query (Editable) -->
+                <div class="flex-1 text-center">
+                    <input type="text" value="Picasso" class="bg-transparent border-none outline-none text-[17px] font-semibold text-white text-center w-full focus:bg-[#1C1C1E] focus:rounded-lg focus:py-1 transition-all" onclick="this.select()">
+                </div>
+
+                <!-- Filter Button -->
+                <button class="w-10 h-10 flex items-center justify-end text-white active:opacity-60 transition-opacity">
+                    <iconify-icon icon="solar:tuning-2-linear" width="24" height="24"></iconify-icon>
+                </button>
+            </div>
+        </div>
+
+        <!-- Tabs (Pushed down) -->
+        <div class="absolute top-[100px] left-0 right-0 h-[48px] bg-black z-30 flex items-end border-b border-white/10">
+            <div class="relative w-full flex">
+                <button onclick="switchTab('all')" class="flex-1 pb-3 text-[15px] font-medium text-white transition-colors" id="tab-btn-all">All</button>
+                <button onclick="switchTab('artworks')" class="flex-1 pb-3 text-[15px] font-normal text-white/60 transition-colors" id="tab-btn-artworks">Artworks</button>
+                <button onclick="switchTab('artists')" class="flex-1 pb-3 text-[15px] font-normal text-white/60 transition-colors" id="tab-btn-artists">Artists</button>
+                <button onclick="switchTab('profiles')" class="flex-1 pb-3 text-[15px] font-normal text-white/60 transition-colors" id="tab-btn-profiles">Profiles</button>
+
+                <!-- Active Indicator Line -->
+                <div id="tab-indicator" class="absolute bottom-0 left-0 h-[2px] bg-[#007AFF] w-1/4 tab-indicator"></div>
+            </div>
+        </div>
+
+        <!-- Scrollable Content Area (Increased top padding) -->
+        <div class="h-full pt-[148px] pb-[40px] overflow-y-auto no-scrollbar bg-black">
+
+            <!-- TAB 1: ALL RESULTS -->
+            <div id="tab-all" class="tab-content active px-4 pt-4">
+
+                <!-- Artworks Section -->
+                <div class="mb-6">
+                    <div class="flex justify-between items-end mb-4">
+                        <h3 class="text-[16px] font-semibold text-white">Artworks
+                            <span class="text-white/40 font-normal ml-1">24</span></h3>
+                        <button onclick="switchTab('artworks')" class="text-[15px] text-[#007AFF] font-normal active:opacity-60">See All</button>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <!-- Artwork 1 -->
+                        <div class="relative rounded-xl overflow-hidden aspect-[3/4] group cursor-pointer active:scale-95 transition-transform">
+                            <img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?q=80&amp;w=400&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover" alt="Artwork">
+                            <div class="absolute inset-0 gradient-overlay flex flex-col justify-end p-3">
+                                <h4 class="text-[15px] font-semibold text-white leading-tight truncate">Blue Period
+                                    Study</h4>
+                                <p class="text-[13px] text-white/80 mt-1">Pablo Picasso</p>
+                            </div>
+                            <div class="absolute top-2 right-2 px-2 py-1 bg-black/60 backdrop-blur-md rounded-lg flex items-center gap-1">
+                                <iconify-icon icon="solar:camera-linear" class="text-white text-[10px]"></iconify-icon>
+                                <span class="text-[11px] font-semibold text-white">1.2k</span>
+                            </div>
+                        </div>
+
+                        <!-- Artwork 2 -->
+                        <div class="relative rounded-xl overflow-hidden aspect-[3/3.5] group cursor-pointer active:scale-95 transition-transform">
+                            <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&amp;w=400&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover" alt="Artwork">
+                            <div class="absolute inset-0 gradient-overlay flex flex-col justify-end p-3">
+                                <h4 class="text-[15px] font-semibold text-white leading-tight truncate">Cubist Portrait
+                                </h4>
+                                <p class="text-[13px] text-white/80 mt-1">Pablo Picasso</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Artists Section -->
+                <div class="mb-6">
+                    <div class="flex justify-between items-end mb-2">
+                        <h3 class="text-[16px] font-semibold text-white">Artists
+                            <span class="text-white/40 font-normal ml-1">3</span></h3>
+                        <button onclick="switchTab('artists')" class="text-[15px] text-[#007AFF] font-normal active:opacity-60">See All</button>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <!-- Artist 1 -->
+                        <div class="flex items-center h-[80px] border-b border-white/10 active:bg-white/5 -mx-4 px-4">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&amp;w=200&amp;auto=format&amp;fit=crop" class="w-[56px] h-[56px] rounded-full object-cover bg-[#1C1C1E]" alt="Artist">
+                            <div class="flex-1 ml-3">
+                                <h4 class="text-[15px] font-semibold text-white">Pablo Picasso</h4>
+                                <p class="text-[12px] text-white/40 mt-1 truncate">Spanish painter, sculptor, printmaker
+                                </p>
+                            </div>
+                            <button onclick="toggleFollow(this)" class="h-[32px] px-4 rounded-lg border border-white/20 text-[13px] font-semibold text-white ml-3 bg-transparent active:bg-white/10 transition-colors">
+                                Follow
+                            </button>
+                        </div>
+
+                        <!-- Artist 2 -->
+                        <div class="flex items-center h-[80px] border-b border-white/10 active:bg-white/5 -mx-4 px-4">
+                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&amp;w=200&amp;auto=format&amp;fit=crop" class="w-[56px] h-[56px] rounded-full object-cover bg-[#1C1C1E]" alt="Artist">
+                            <div class="flex-1 ml-3">
+                                <h4 class="text-[15px] font-semibold text-white">Paloma Picasso</h4>
+                                <p class="text-[12px] text-white/40 mt-1 truncate">French fashion designer and
+                                    businesswoman</p>
+                            </div>
+                            <button onclick="toggleFollow(this)" class="h-[32px] px-4 rounded-lg border border-white/20 text-[13px] font-semibold text-white ml-3 bg-transparent active:bg-white/10 transition-colors">
+                                Follow
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: ARTWORKS (GRID) -->
+            <div id="tab-artworks" class="tab-content px-4 pt-4 pb-20">
+                <div class="masonry-grid">
+                    <!-- Artwork 1 -->
+                    <div class="masonry-item relative rounded-xl overflow-hidden bg-[#1C1C1E] active:scale-95 transition-transform duration-200">
+                        <img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?q=80&amp;w=400&amp;auto=format&amp;fit=crop" class="w-full h-auto object-cover block" alt="Artwork">
+                        <div class="absolute inset-0 gradient-overlay flex flex-col justify-end p-3">
+                            <h4 class="text-[15px] font-semibold text-white leading-tight truncate">Blue Period Study
+                            </h4>
+                            <p class="text-[13px] text-white/80 mt-1">Pablo Picasso</p>
+                        </div>
+                        <div class="absolute top-2 right-2 px-2 py-1 bg-black/60 backdrop-blur-md rounded-lg flex items-center gap-1">
+                            <iconify-icon icon="solar:camera-linear" class="text-white text-[10px]"></iconify-icon>
+                            <span class="text-[11px] font-semibold text-white">1.2k</span>
+                        </div>
+                    </div>
+
+                    <!-- Artwork 2 -->
+                    <div class="masonry-item relative rounded-xl overflow-hidden bg-[#1C1C1E] active:scale-95 transition-transform duration-200">
+                        <img src="https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?q=80&amp;w=400&amp;auto=format&amp;fit=crop" class="w-full h-auto object-cover block" alt="Artwork">
+                        <div class="absolute inset-0 gradient-overlay flex flex-col justify-end p-3">
+                            <h4 class="text-[15px] font-semibold text-white leading-tight truncate">Abstract Forms</h4>
+                            <p class="text-[13px] text-white/80 mt-1">Picasso Inspired</p>
+                        </div>
+                        <div class="absolute top-2 right-2 px-2 py-1 bg-black/60 backdrop-blur-md rounded-lg flex items-center gap-1">
+                            <iconify-icon icon="solar:camera-linear" class="text-white text-[10px]"></iconify-icon>
+                            <span class="text-[11px] font-semibold text-white">842</span>
+                        </div>
+                    </div>
+
+                    <!-- Artwork 3 -->
+                    <div class="masonry-item relative rounded-xl overflow-hidden bg-[#1C1C1E] active:scale-95 transition-transform duration-200">
+                        <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&amp;w=400&amp;auto=format&amp;fit=crop" class="w-full h-auto object-cover block" alt="Artwork">
+                        <div class="absolute inset-0 gradient-overlay flex flex-col justify-end p-3">
+                            <h4 class="text-[15px] font-semibold text-white leading-tight truncate">Cubist Portrait</h4>
+                            <p class="text-[13px] text-white/80 mt-1">Pablo Picasso</p>
+                        </div>
+                        <div class="absolute top-2 right-2 px-2 py-1 bg-black/60 backdrop-blur-md rounded-lg flex items-center gap-1">
+                            <iconify-icon icon="solar:camera-linear" class="text-white text-[10px]"></iconify-icon>
+                            <span class="text-[11px] font-semibold text-white">2.4k</span>
+                        </div>
+                    </div>
+
+                    <!-- Artwork 4 -->
+                    <div class="masonry-item relative rounded-xl overflow-hidden bg-[#1C1C1E] active:scale-95 transition-transform duration-200">
+                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg" class="w-full h-auto object-cover block" alt="Artwork">
+                        <div class="absolute inset-0 gradient-overlay flex flex-col justify-end p-3">
+                            <h4 class="text-[15px] font-semibold text-white leading-tight truncate">Guernica Detail</h4>
+                            <p class="text-[13px] text-white/80 mt-1">Pablo Picasso</p>
+                        </div>
+                    </div>
+
+                    <!-- Artwork 5 -->
+                    <div class="masonry-item relative rounded-xl overflow-hidden bg-[#1C1C1E] active:scale-95 transition-transform duration-200">
+                        <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&amp;w=400&amp;auto=format&amp;fit=crop" class="w-full h-auto object-cover block" alt="Artwork">
+                        <div class="absolute inset-0 gradient-overlay flex flex-col justify-end p-3">
+                            <h4 class="text-[15px] font-semibold text-white leading-tight truncate">The Dream</h4>
+                            <p class="text-[13px] text-white/80 mt-1">Pablo Picasso</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Loading Skeleton for infinite scroll -->
+                <div class="grid grid-cols-2 gap-3 mt-3 animate-pulse">
+                    <div class="bg-[#1C1C1E] rounded-xl aspect-[3/4]"></div>
+                    <div class="bg-[#1C1C1E] rounded-xl aspect-[3/3.5]"></div>
+                </div>
+            </div>
+
+            <!-- TAB 3: ARTISTS (LIST) -->
+            <div id="tab-artists" class="tab-content pt-2">
+                <div class="flex flex-col">
+                    <!-- Artist 1 -->
+                    <div class="flex items-center h-[80px] border-b border-white/10 active:bg-white/5 px-4">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&amp;w=200&amp;auto=format&amp;fit=crop" class="w-[56px] h-[56px] rounded-full object-cover bg-[#1C1C1E]" alt="Artist">
+                        <div class="flex-1 ml-3">
+                            <h4 class="text-[15px] font-semibold text-white">Pablo Picasso</h4>
+                            <p class="text-[12px] text-white/40 mt-1 truncate">Spanish painter, sculptor, printmaker</p>
+                        </div>
+                        <button onclick="toggleFollow(this)" class="h-[32px] px-4 rounded-lg border border-white/20 text-[13px] font-semibold text-white ml-3 bg-transparent active:bg-white/10 transition-colors">
+                            Follow
+                        </button>
+                    </div>
+
+                    <!-- Artist 2 -->
+                    <div class="flex items-center h-[80px] border-b border-white/10 active:bg-white/5 px-4">
+                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&amp;w=200&amp;auto=format&amp;fit=crop" class="w-[56px] h-[56px] rounded-full object-cover bg-[#1C1C1E]" alt="Artist">
+                        <div class="flex-1 ml-3">
+                            <h4 class="text-[15px] font-semibold text-white">Paloma Picasso</h4>
+                            <p class="text-[12px] text-white/40 mt-1 truncate">French fashion designer</p>
+                        </div>
+                        <button onclick="toggleFollow(this)" class="h-[32px] px-4 rounded-lg bg-[#1C1C1E] border border-[#1C1C1E] text-[13px] font-semibold text-white ml-3">
+                            Following
+                        </button>
+                    </div>
+
+                    <!-- Artist 3 -->
+                    <div class="flex items-center h-[80px] border-b border-white/10 active:bg-white/5 px-4">
+                        <div class="w-[56px] h-[56px] rounded-full bg-[#1C1C1E] flex items-center justify-center">
+                            <iconify-icon icon="solar:user-circle-bold" class="text-white/20 text-[32px]"></iconify-icon>
+                        </div>
+                        <div class="flex-1 ml-3">
+                            <h4 class="text-[15px] font-semibold text-white">Marina Picasso</h4>
+                            <p class="text-[12px] text-white/40 mt-1 truncate">Granddaughter of Pablo Picasso</p>
+                        </div>
+                        <button onclick="toggleFollow(this)" class="h-[32px] px-4 rounded-lg border border-white/20 text-[13px] font-semibold text-white ml-3 bg-transparent active:bg-white/10 transition-colors">
+                            Follow
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 4: PROFILES (USERS) -->
+            <div id="tab-profiles" class="tab-content pt-2">
+                <div class="flex flex-col">
+                    <!-- User 1 -->
+                    <div class="flex items-center h-[72px] border-b border-white/10 active:bg-white/5 px-4">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&amp;w=200&amp;auto=format&amp;fit=crop" class="w-[48px] h-[48px] rounded-full object-cover bg-[#1C1C1E]" alt="User">
+                        <div class="flex-1 ml-3">
+                            <h4 class="text-[15px] font-semibold text-white">picasso_fan_art</h4>
+                            <p class="text-[12px] text-white/40 mt-1 truncate">Collecting cubism pieces</p>
+                        </div>
+                        <button onclick="toggleFollow(this)" class="h-[32px] px-4 rounded-lg border border-white/20 text-[13px] font-semibold text-white ml-3 bg-transparent active:bg-white/10 transition-colors">
+                            Follow
+                        </button>
+                    </div>
+
+                    <!-- User 2 -->
+                    <div class="flex items-center h-[72px] border-b border-white/10 active:bg-white/5 px-4">
+                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&amp;w=200&amp;auto=format&amp;fit=crop" class="w-[48px] h-[48px] rounded-full object-cover bg-[#1C1C1E]" alt="User">
+                        <div class="flex-1 ml-3">
+                            <h4 class="text-[15px] font-semibold text-white">pablito_99</h4>
+                            <p class="text-[12px] text-white/40 mt-1 truncate">Art enthusiast | NYC</p>
+                        </div>
+                        <button onclick="toggleFollow(this)" class="h-[32px] px-4 rounded-lg bg-[#1C1C1E] border border-[#1C1C1E] text-[13px] font-semibold text-white ml-3">
+                            Following
+                        </button>
+                    </div>
+
+                    <!-- User 3 -->
+                    <div class="flex items-center h-[72px] border-b border-white/10 active:bg-white/5 px-4">
+                        <div class="w-[48px] h-[48px] rounded-full bg-[#1C1C1E] flex items-center justify-center">
+                            <iconify-icon icon="solar:user-bold" class="text-white/20 text-[24px]"></iconify-icon>
+                        </div>
+                        <div class="flex-1 ml-3">
+                            <h4 class="text-[15px] font-semibold text-white">abstract_mind</h4>
+                            <p class="text-[12px] text-white/40 mt-1 truncate">Curator of modern abstract</p>
+                        </div>
+                        <button onclick="toggleFollow(this)" class="h-[32px] px-4 rounded-lg border border-white/20 text-[13px] font-semibold text-white ml-3 bg-transparent active:bg-white/10 transition-colors">
+                            Follow
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Home Indicator -->
+        <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-[134px] h-[5px] bg-white/40 rounded-full z-50"></div>
+    </div>
+
+    <script>
+        // Tab Functionality
+        function switchTab(tabName) {
+            // Update Tab Content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(`tab-${tabName}`).classList.add('active');
+
+            // Update Tab Buttons (Text Color & Weight)
+            const buttons = document.querySelectorAll('[id^="tab-btn-"]');
+            buttons.forEach(btn => {
+                btn.classList.remove('text-white', 'font-medium');
+                btn.classList.add('text-white/60', 'font-normal');
+            });
+            
+            const activeBtn = document.getElementById(`tab-btn-${tabName}`);
+            activeBtn.classList.remove('text-white/60', 'font-normal');
+            activeBtn.classList.add('text-white', 'font-medium');
+
+            // Move Indicator
+            const indicator = document.getElementById('tab-indicator');
+            const index = ['all', 'artworks', 'artists', 'profiles'].indexOf(tabName);
+            indicator.style.transform = `translateX(${index * 100}%)`;
+            
+            // Scroll to top
+            document.querySelector('.no-scrollbar').scrollTop = 0;
+        }
+
+        // Follow Button Functionality
+        function toggleFollow(btn) {
+            const isFollowing = btn.textContent.trim() === 'Following';
+            
+            if (isFollowing) {
+                // Unfollow state
+                btn.textContent = 'Follow';
+                btn.classList.remove('bg-[#1C1C1E]', 'border-[#1C1C1E]');
+                btn.classList.add('bg-transparent', 'border-white/20');
+            } else {
+                // Follow state
+                btn.textContent = 'Following';
+                btn.classList.remove('bg-transparent', 'border-white/20');
+                btn.classList.add('bg-[#1C1C1E]', 'border-[#1C1C1E]');
+            }
+        }
+    </script>
+
+
+
+</body></html>
