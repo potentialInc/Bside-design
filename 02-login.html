@@ -1,73 +1,40 @@
-<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>bside.art | Login</title>
+<title>Login Screen</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
 <script>
 tailwind.config = {
-theme: {
-extend: {
-fontFamily: {
-sans: ['Inter', '-apple-system', 'system-ui', 'sans-serif'],
-},
-colors: {
-brand: {
-dark: '#1C1C1E',
-blue: '#007AFF',
-red: '#FF3B30',
-}
-},
-boxShadow: {
-'elevation-1': '0 2px 8px rgba(0,0,0,0.08)',
-}
-}
-}
+    theme: {
+        extend: {
+            fontFamily: {
+                sans: ['Inter', '-apple-system', 'system-ui', 'sans-serif'],
+            },
+            colors: {
+                brand: {
+                    dark: '#1C1C1E',
+                    blue: '#007AFF',
+                }
+            }
+        }
+    }
 }
 </script>
 <style>
-/* Custom Scrollbar Hide */
-.no-scrollbar::-webkit-scrollbar {
-display: none;
-}
-.no-scrollbar {
--ms-overflow-style: none;
-scrollbar-width: none;
-}
-/* Smooth Expand Animation */
-.expand-content {
-transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease-in-out, margin 0.4s;
-max-height: 0;
-opacity: 0;
-overflow: hidden;
-}
-.expand-content.expanded {
-max-height: 500px;
-opacity: 1;
-margin-top: 1rem;
-}
-/* Hide Toggle Trigger */
-.fade-out-hidden {
-transition: opacity 0.3s ease, height 0.3s ease, margin 0.3s ease;
-}
-.hidden-trigger {
-opacity: 0;
-height: 0;
-margin: 0;
-pointer-events: none;
-}
-/* Autofill Fix for Dark Theme */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+/* Autofill override */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
--webkit-box-shadow: 0 0 0 30px #1C1C1E inset !important;
--webkit-text-fill-color: white !important;
-transition: background-color 5000s ease-in-out 0s;
+    -webkit-box-shadow: 0 0 0 30px #1C1C1E inset !important;
+    -webkit-text-fill-color: white !important;
+    transition: background-color 5000s ease-in-out 0s;
 }
 </style></head>
-<body class="bg-[#111] min-h-screen w-full flex items-center justify-center p-4 selection:bg-brand-blue selection:text-white font-sans antialiased">
+<body class="bg-[#111] min-h-screen w-full flex items-center justify-center p-4 selection:bg-blue-500 selection:text-white font-sans antialiased">
 
     <!-- iPhone Frame Container -->
     <div class="relative w-[375px] h-[812px] bg-black rounded-[50px] shadow-2xl ring-[14px] ring-[#2d2d2d] overflow-hidden flex flex-col shrink-0">
@@ -75,169 +42,72 @@ transition: background-color 5000s ease-in-out 0s;
         <!-- Dynamic Island / Notch Area -->
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[34px] bg-black rounded-b-[20px] z-50"></div>
 
-        <!-- Status Bar Time -->
+        <!-- Status Bar -->
         <div class="absolute top-[14px] left-[32px] z-50 text-white text-[14px] font-semibold tracking-wide">9:41</div>
-        <!-- Status Bar Icons -->
-        <div class="absolute top-[14px] right-[28px] z-50 flex gap-1.5 text-white">
-            <iconify-icon icon="solar:signal-linear" width="16"></iconify-icon>
-            <iconify-icon icon="solar:wi-fi-linear" width="16"></iconify-icon>
-            <iconify-icon icon="solar:battery-full-linear" width="16"></iconify-icon>
+        <div class="absolute top-[14px] right-[28px] z-50 flex gap-1.5 text-white items-center">
+            <i data-lucide="signal" class="w-4 h-4" stroke-width="2.5"></i>
+            <i data-lucide="wifi" class="w-4 h-4" stroke-width="2.5"></i>
+            <div class="w-[22px] h-[11px] border-[1.5px] border-white/40 rounded-[3.5px] relative">
+                <div class="absolute inset-[1.5px] bg-white rounded-[1px]"></div>
+            </div>
         </div>
 
         <!-- Screen Content -->
-        <div class="relative w-full h-full overflow-y-auto no-scrollbar bg-black text-white">
-
-            <!-- Background Artwork -->
-            <div class="absolute inset-0 z-0 h-[110%]">
-                <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Background Art" class="w-full h-full object-cover blur-2xl opacity-60 scale-110">
-                <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/80 to-black"></div>
+        <div class="relative w-full h-full flex flex-col bg-black text-white">
+            
+            <!-- Top Section: Title & Logo -->
+            <div class="flex-1 flex flex-col items-center justify-center pt-20 pb-10">
+                <h1 class="text-[28px] font-semibold tracking-tight text-white mb-8">Welcome Back</h1>
+                
+                <!-- Logo Image -->
+                <img 
+                    src="https://potential-dev.s3.ap-northeast-2.amazonaws.com/PotentialAi/media/04fac069-a187-4284-aa0b-6a0caa278649-image (3).png" 
+                    alt="Logo" 
+                    class="w-[224px] h-[212px] object-contain"
+                />
             </div>
 
-            <!-- LOGIN VIEW -->
-            <div class="relative z-10 w-full min-h-full px-6 pt-[60px] pb-10 flex flex-col">
-
-                <!-- Branding Header -->
-                <div class="flex flex-col items-center mt-6 mb-10">
-                    <h1 class="text-4xl font-semibold tracking-tighter text-white select-none mb-6">
-                        bside<span class="text-brand-blue">.</span>art
-                    </h1>
-
-                    <div class="text-center space-y-2">
-                        <h2 class="text-3xl font-semibold tracking-tight text-white leading-tight">Welcome Back</h2>
-                        <p class="text-white/60 text-lg font-normal">Sign in to continue your art journey</p>
+            <!-- Bottom Section: Form (Background removed) -->
+            <div class="w-full px-6 pb-12 pt-8">
+                <form onsubmit="event.preventDefault();" class="flex flex-col gap-5">
+                    
+                    <!-- Email Input -->
+                    <div class="space-y-2">
+                        <label class="text-xs font-medium text-white/50 ml-1">Email</label>
+                        <input type="email" value="your@email.com" class="w-full h-[52px] bg-transparent border border-blue-500 rounded-xl px-4 text-white/60 focus:outline-none focus:ring-1 focus:ring-blue-500 text-[15px] font-normal" />
                     </div>
-                </div>
 
-                <!-- Social Login Buttons -->
-                <div class="space-y-3 w-full">
-                    <button class="w-full h-12 bg-white text-black font-medium text-lg rounded-xl flex items-center justify-center space-x-2 active:scale-[0.98] transition-transform duration-200">
-                        <iconify-icon icon="logos:apple" width="20"></iconify-icon>
-                        <span class="leading-none">Sign in with Apple</span>
+                    <!-- Password Input -->
+                    <div class="space-y-2">
+                        <label class="text-xs font-medium text-white/50 ml-1">Password</label>
+                        <div class="relative group">
+                            <input type="password" placeholder="Enter your password" class="w-full h-[52px] bg-[#1C1C1E] border border-white/5 rounded-xl pl-4 pr-12 text-white placeholder:text-white/20 focus:outline-none focus:border-white/20 transition-colors text-[15px]" />
+                            <button type="button" class="absolute right-0 top-0 h-full px-4 text-white/30 hover:text-white transition-colors">
+                                <i data-lucide="eye" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Forgot Password -->
+                    <div class="flex justify-end pt-1">
+                        <a href="#" class="text-xs font-medium text-blue-500 hover:text-blue-400 transition-colors">Forgot password?</a>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button class="w-full h-[52px] bg-[#1C1C1E] hover:bg-[#2C2C2E] text-white font-semibold text-[15px] rounded-xl mt-4 transition-all active:scale-[0.98] border border-white/5">
+                        Sign In
                     </button>
+                </form>
 
-                    <button class="w-full h-12 bg-white text-black/90 font-medium text-lg rounded-xl flex items-center justify-center space-x-2 border border-gray-200 active:scale-[0.98] transition-transform duration-200">
-                        <iconify-icon icon="logos:google-icon" width="20"></iconify-icon>
-                        <span class="leading-none">Sign in with Google</span>
-                    </button>
-                </div>
-
-                <!-- Divider -->
-                <div class="relative py-8 flex items-center justify-center w-full">
-                    <div class="absolute inset-0 flex items-center">
-                        <div class="w-full border-t border-white/10"></div>
-                    </div>
-                    <div class="relative px-4 bg-transparent">
-                        <span class="text-xs text-white/40 uppercase tracking-widest bg-[#000000] px-2 rounded-full">or</span>
-                    </div>
-                </div>
-
-                <!-- Email Form Toggle -->
-                <button id="login-toggle-btn" onclick="toggleForm()" class="fade-out-hidden w-full text-brand-blue font-normal text-base text-center py-2 hover:text-brand-blue/80 transition-colors">
-                    Sign in with email
-                </button>
-
-                <!-- Expandable Form -->
-                <div id="login-form" class="expand-content w-full flex flex-col pb-4">
-                    <form class="space-y-5" onsubmit="handleLogin(event)">
-                        <div class="space-y-2">
-                            <label class="text-xs text-white/60 pl-1 block">Email</label>
-                            <input type="email" placeholder="your@email.com" class="w-full h-12 bg-brand-dark border border-white/10 rounded-xl px-4 text-white placeholder-white/20 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-all text-lg" required="">
-                        </div>
-
-                        <div class="space-y-2">
-                            <label class="text-xs text-white/60 pl-1 block">Password</label>
-                            <div class="relative">
-                                <input type="password" id="login-password" placeholder="Enter your password" class="w-full h-12 bg-brand-dark border border-white/10 rounded-xl pl-4 pr-12 text-white placeholder-white/20 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-all text-lg" required="">
-                                <button type="button" onclick="togglePassword()" class="absolute right-0 top-0 h-full px-4 text-white/40 hover:text-white transition-colors flex items-center justify-center">
-                                    <iconify-icon id="login-eye" icon="solar:eye-linear" width="24"></iconify-icon>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="flex justify-end -mt-1">
-                            <a href="./04-password-recovery.html" class="text-xs text-brand-blue hover:text-brand-blue/80 transition-colors">Forgot password?</a>
-                        </div>
-
-                        <button type="submit" id="login-btn" class="w-full h-12 bg-brand-dark border border-white/10 hover:bg-[#2C2C2E] text-white font-semibold text-lg rounded-xl mt-4 active:scale-[0.98] transition-all duration-200 flex items-center justify-center shadow-elevation-1">
-                            <span id="login-btn-text">Sign In</span>
-                            <iconify-icon id="login-btn-loader" icon="svg-spinners:ring-resize" class="hidden text-xl text-white"></iconify-icon>
-                        </button>
-                    </form>
-                </div>
-
-                <!-- Footer -->
-                <div class="mt-auto pt-8 text-center pb-8">
-                    <p class="text-[15px] text-white/60">
-                        Don't have an account?
-                        <a href="./02-signup.html" class="text-brand-blue font-medium ml-1">Sign Up</a>
-                    </p>
-                </div>
-
-                <div class="h-6"></div>
+                <div class="h-4"></div>
             </div>
 
             <!-- Home Indicator -->
-            <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-[134px] h-[5px] bg-white/30 rounded-full z-50"></div>
+            <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-[134px] h-[5px] bg-white/20 rounded-full z-50"></div>
         </div>
     </div>
 
-    <!-- Interactive Logic -->
     <script>
-        // Toggle Email Form visibility
-        function toggleForm() {
-            const form = document.getElementById('login-form');
-            const toggleBtn = document.getElementById('login-toggle-btn');
-            const firstInput = form.querySelector('input');
-
-            form.classList.add('expanded');
-            toggleBtn.classList.add('hidden-trigger');
-
-            setTimeout(() => {
-                if(firstInput) firstInput.focus();
-            }, 400);
-        }
-
-        // Toggle Password Visibility
-        function togglePassword() {
-            const input = document.getElementById('login-password');
-            const icon = document.getElementById('login-eye');
-
-            if (input.type === "password") {
-                input.type = "text";
-                icon.setAttribute('icon', 'solar:eye-closed-linear');
-            } else {
-                input.type = "password";
-                icon.setAttribute('icon', 'solar:eye-linear');
-            }
-        }
-
-        // Handle Form Submission
-        function handleLogin(e) {
-            e.preventDefault();
-            const btn = document.getElementById('login-btn');
-            const text = document.getElementById('login-btn-text');
-            const loader = document.getElementById('login-btn-loader');
-
-            text.classList.add('hidden');
-            loader.classList.remove('hidden');
-            btn.disabled = true;
-            btn.classList.add('opacity-80', 'cursor-not-allowed');
-
-            // Simulate API call
-            setTimeout(() => {
-                const emailInput = document.querySelector('input[type="email"]');
-                const passwordInput = document.querySelector('input[type="password"]');
-
-                if (emailInput && passwordInput) {
-                    if (emailInput.value === 'demo@demo.com' && passwordInput.value === '1234') {
-                        window.location.href = './06-feed.html';
-                        return;
-                    }
-                }
-                // For any other credentials, also redirect to feed (demo mode)
-                window.location.href = './06-feed.html';
-            }, 1500);
-        }
+        lucide.createIcons();
     </script>
-
 </body></html>

@@ -1,115 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>bside.art | Sign Up</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>bside.art | Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
     <style>
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            background-color: #111; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-        }
+      body {
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          background-color: #111;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 100vh;
+          margin: 0;
+      }
 
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        
-        input:-webkit-autofill,
-        input:-webkit-autofill:hover, 
-        input:-webkit-autofill:focus, 
-        input:-webkit-autofill:active{
-            -webkit-box-shadow: 0 0 0 30px #1C1C1E inset !important;
-            -webkit-text-fill-color: white !important;
-            transition: background-color 5000s ease-in-out 0s;
-        }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <div
+      class="relative w-[375px] h-[812px] bg-black rounded-[50px] shadow-[0_0_0_12px_#2d2d2d,0_0_0_14px_#000,0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden shrink-0 border border-zinc-900"
+    >
+      <!-- Status Bar -->
+      <div
+        class="absolute top-0 left-0 w-full h-[44px] z-50 flex items-center justify-between px-6 select-none pointer-events-none text-white mix-blend-difference"
+      >
+        <span class="text-[15px] font-semibold">9:41</span>
+        <div class="flex items-center space-x-2">
+          <iconify-icon icon="solar:signal-bold" width="16"></iconify-icon>
+          <iconify-icon icon="solar:wi-fi-bold" width="16"></iconify-icon>
+          <iconify-icon
+            icon="solar:battery-full-bold"
+            width="20"
+          ></iconify-icon>
+        </div>
+      </div>
 
-    <div class="relative w-[375px] h-[812px] bg-black rounded-[50px] shadow-[0_0_0_12px_#2d2d2d,0_0_0_14px_#000,0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden shrink-0 border border-zinc-800">
-        
-        <!-- Status Bar -->
-        <div class="absolute top-0 left-0 w-full h-[44px] z-50 flex items-center justify-between px-6 select-none pointer-events-none mix-blend-difference text-white">
-            <span class="text-[15px] font-semibold">9:41</span>
-            <div class="flex items-center space-x-2">
-                <iconify-icon icon="solar:signal-bold" width="16"></iconify-icon>
-                <iconify-icon icon="solar:wi-fi-bold" width="16"></iconify-icon>
-                <iconify-icon icon="solar:battery-full-bold" width="20"></iconify-icon>
-            </div>
+      <!-- Dynamic Island Placeholder -->
+      <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[35px] bg-black rounded-b-[20px] z-50"
+      ></div>
+
+      <!-- Content -->
+      <div
+        class="w-full h-full flex flex-col relative z-10 pt-[44px] pb-[34px]"
+      >
+        <!-- Logo Section -->
+        <div class="flex-1 flex flex-col items-center justify-center -mt-10">
+          <div class="w-[224px] h-[212px] mb-4 relative">
+            <img
+              src="https://potential-dev.s3.ap-northeast-2.amazonaws.com/PotentialAi/media/04fac069-a187-4284-aa0b-6a0caa278649-image (3).png"
+              class="w-full h-full object-contain"
+              alt="bside.art"
+            />
+          </div>
+          <h1 class="text-white text-[28px] font-medium tracking-tight">
+            bside.art
+          </h1>
         </div>
 
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[35px] bg-black rounded-b-[20px] z-50"></div>
+        <!-- Buttons Section -->
+        <div class="w-full px-6 space-y-3 mb-6">
+          <!-- Apple -->
+          <button
+            class="w-full h-[50px] bg-white rounded-xl flex items-center justify-center space-x-2 active:scale-[0.98] transition-transform duration-200"
+          >
+            <iconify-icon
+              icon="logos:apple"
+              width="22"
+              class="mb-0.5"
+            ></iconify-icon>
+            <span class="text-black font-semibold text-[16px]">
+              Sign in with Apple
+            </span>
+          </button>
 
-        <!-- Content Area -->
-        <div class="w-full h-full bg-black relative flex flex-col overflow-y-auto no-scrollbar selection:bg-[#007AFF] selection:text-white">
-            
-            <div class="absolute inset-0 z-0 pointer-events-none">
-                <img 
-                    src="https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=1000&auto=format&fit=crop" 
-                    alt="Background Art" 
-                    class="w-full h-full object-cover blur-2xl opacity-60 scale-125"
-                >
-                <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-[#000000]/80 to-[#000000]"></div>
-            </div>
+          <!-- Google -->
+          <button
+            class="w-full h-[50px] bg-white rounded-xl flex items-center justify-center space-x-2 active:scale-[0.98] transition-transform duration-200"
+          >
+            <iconify-icon icon="logos:google-icon" width="20"></iconify-icon>
+            <span class="text-black font-semibold text-[16px]">
+              Sign in with Google
+            </span>
+          </button>
 
-            <div class="relative z-10 flex flex-col min-h-full px-[32px] pt-[88px] pb-[48px]">
-                
-                <div class="flex flex-col items-center mb-8 shrink-0">
-                    <h1 class="text-4xl font-semibold tracking-tighter text-white select-none mb-6">
-                        bside<span class="text-[#007AFF]">.</span>art
-                    </h1>
-                    <div class="text-center">
-                        <h2 class="text-[28px] font-semibold tracking-tight text-white leading-tight mb-2">Create Account</h2>
-                        <p class="text-white/60 text-[17px] font-normal leading-relaxed">Join bside to capture and curate art</p>
-                    </div>
-                </div>
-
-                <div class="space-y-[12px] w-full shrink-0">
-                    <button class="w-full h-[48px] bg-white text-black font-normal text-[17px] rounded-xl flex items-center justify-center space-x-2 active:scale-[0.98] transition-transform duration-200">
-                        <iconify-icon icon="logos:apple" width="20"></iconify-icon>
-                        <span>Sign up with Apple</span>
-                    </button>
-
-                    <button class="w-full h-[48px] bg-white text-black/80 font-normal text-[17px] rounded-xl flex items-center justify-center space-x-2 border border-[#E0E0E0] active:scale-[0.98] transition-transform duration-200">
-                        <iconify-icon icon="logos:google-icon" width="20"></iconify-icon>
-                        <span>Sign up with Google</span>
-                    </button>
-                </div>
-
-                <div class="relative mt-[24px] mb-[16px] flex items-center justify-center shrink-0">
-                    <div class="absolute inset-0 flex items-center">
-                        <div class="w-full border-t border-white/10"></div>
-                    </div>
-                    <div class="relative px-4 bg-[#000000] rounded-full">
-                        <span class="text-[12px] text-white/40 uppercase tracking-widest font-medium">or</span>
-                    </div>
-                </div>
-
-                <a href="./03-signup-step1.html" class="w-full text-[#007AFF] font-normal text-[15px] text-center py-2 hover:text-[#007AFF]/80 transition-colors shrink-0 block">
-                    Sign up with email
-                </a>
-
-                <div class="mt-auto text-center pt-8">
-                    <p class="text-[15px] text-white/60">
-                        Already have an account?
-                        <a href="./02-login.html" class="text-[#007AFF] font-normal ml-1 hover:text-[#007AFF]/80 transition-colors">Sign In</a>
-                    </p>
-                </div>
-            </div>
-
-            <div class="fixed bottom-[10px] left-1/2 -translate-x-1/2 w-[134px] h-[5px] bg-white rounded-full z-50 pointer-events-none"></div>
+          <!-- Email -->
+          <a
+            href="#"
+            class="w-full h-[50px] bg-[#6e7480] rounded-xl flex items-center justify-center active:scale-[0.98] transition-transform duration-200"
+          >
+            <span class="text-white font-semibold text-[16px]">
+              Continue with email
+            </span>
+          </a>
         </div>
+
+        <!-- Footer -->
+        <div class="px-6 text-center">
+          <p class="text-[14px] text-zinc-500 font-normal">
+            Don't have an account?
+            <a
+              href="#"
+              class="text-[#0A84FF] font-medium hover:text-[#0A84FF]/80 transition-colors"
+            >
+              Sign Up
+            </a>
+          </p>
+        </div>
+
+        <!-- Home Indicator -->
+        <div
+          class="absolute bottom-[8px] left-1/2 -translate-x-1/2 w-[134px] h-[5px] bg-white rounded-full pointer-events-none"
+        ></div>
+      </div>
     </div>
-
-    <!-- No JavaScript needed - using separate pages for each step -->
-</body>
+  </body>
 </html>

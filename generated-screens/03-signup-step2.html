@@ -1,152 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>bside.art | Sign Up - Verification</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Create Account</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+      rel="stylesheet"
+    />
     <style>
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            background-color: #111;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-        }
+      body {
+          font-family: 'Inter', sans-serif;
+          background-color: #000;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 100vh;
+          margin: 0;
+          color: white;
+      }
 
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      /* Custom glow for the bottom area to match the image's subtle purple ambience */
+      .bottom-glow {
+          background: radial-gradient(circle at 50% 100%, rgba(58, 48, 82, 0.4) 0%, rgba(0, 0, 0, 0) 60%);
+      }
 
-        input:-webkit-autofill,
-        input:-webkit-autofill:hover,
-        input:-webkit-autofill:focus,
-        input:-webkit-autofill:active{
-            -webkit-box-shadow: 0 0 0 30px #1C1C1E inset !important;
-            -webkit-text-fill-color: white !important;
-            transition: background-color 5000s ease-in-out 0s;
-        }
+      @keyframes blink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0; }
+      }
+      .cursor-blink {
+          animation: blink 1.2s infinite;
+      }
     </style>
-</head>
-<body>
+  </head>
 
-    <div class="relative w-[375px] h-[812px] bg-black rounded-[50px] shadow-[0_0_0_12px_#2d2d2d,0_0_0_14px_#000,0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden shrink-0 border border-zinc-800">
+  <body>
+    <div
+      class="relative w-[375px] h-[812px] bg-black rounded-[40px] shadow-[0_0_0_12px_#2d2d2d,0_0_0_14px_#000] overflow-hidden shrink-0 border border-zinc-900 flex flex-col"
+    >
+      <!-- Status Bar -->
+      <div
+        class="absolute top-0 left-0 w-full h-[44px] z-50 flex items-center justify-between px-6 pt-2 select-none pointer-events-none text-white mix-blend-difference"
+      >
+        <span class="text-[15px] font-semibold tracking-tight">9:41</span>
+        <div class="flex items-center space-x-2">
+          <iconify-icon icon="solar:signal-bold" width="16"></iconify-icon>
+          <iconify-icon icon="solar:wi-fi-bold" width="16"></iconify-icon>
+          <iconify-icon
+            icon="solar:battery-full-bold"
+            width="22"
+          ></iconify-icon>
+        </div>
+      </div>
 
-        <!-- Status Bar -->
-        <div class="absolute top-0 left-0 w-full h-[44px] z-50 flex items-center justify-between px-6 select-none pointer-events-none mix-blend-difference text-white">
-            <span class="text-[15px] font-semibold">9:41</span>
-            <div class="flex items-center space-x-2">
-                <iconify-icon icon="solar:signal-bold" width="16"></iconify-icon>
-                <iconify-icon icon="solar:wi-fi-bold" width="16"></iconify-icon>
-                <iconify-icon icon="solar:battery-full-bold" width="20"></iconify-icon>
-            </div>
+      <!-- Dynamic Island / Notch Placeholder -->
+      <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[35px] bg-black rounded-b-[20px] z-40"
+      ></div>
+
+      <!-- Main Content -->
+      <div class="flex-1 flex flex-col relative z-10">
+        <!-- Header -->
+        <div class="pt-[110px] pb-10 flex justify-center">
+          <h1 class="text-[26px] font-semibold tracking-tight text-white">
+            Create Account
+          </h1>
         </div>
 
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[35px] bg-black rounded-b-[20px] z-50"></div>
-
-        <!-- Content Area -->
-        <div class="w-full h-full bg-black relative flex flex-col overflow-y-auto no-scrollbar selection:bg-[#007AFF] selection:text-white">
-
-            <div class="absolute inset-0 z-0 pointer-events-none">
-                <img
-                    src="https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=1000&auto=format&fit=crop"
-                    alt="Background Art"
-                    class="w-full h-full object-cover blur-2xl opacity-60 scale-125"
-                >
-                <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-[#000000]/80 to-[#000000]"></div>
-            </div>
-
-            <div class="relative z-10 flex flex-col min-h-full px-[32px] pt-[88px] pb-[48px]">
-
-                <!-- Back Button -->
-                <div class="absolute top-[56px] left-[20px]">
-                    <a href="./03-signup-step1.html" class="w-10 h-10 flex items-center justify-center text-white/80 hover:text-white transition-colors">
-                        <iconify-icon icon="solar:alt-arrow-left-linear" width="24"></iconify-icon>
-                    </a>
-                </div>
-
-                <div class="flex flex-col items-center mb-8 shrink-0">
-                    <h1 class="text-4xl font-semibold tracking-tighter text-white select-none mb-6">
-                        bside<span class="text-[#007AFF]">.</span>art
-                    </h1>
-                    <div class="text-center">
-                        <h2 class="text-[28px] font-semibold tracking-tight text-white leading-tight mb-2">Verify Your Email</h2>
-                        <p class="text-white/60 text-[15px] font-normal leading-relaxed">Enter the 6-digit code we sent to</p>
-                        <p class="text-white/80 text-[15px] font-medium mt-1" id="email-display">your@email.com</p>
-                    </div>
-                </div>
-
-                <!-- Step 2: Verification Code -->
-                <div class="space-y-4 w-full">
-                    <div class="space-y-2">
-                        <label class="text-[13px] text-white/60 block">Verification Code</label>
-                        <input type="text" id="code-input" placeholder="000000" maxlength="6"
-                            class="w-full h-[48px] bg-[#1C1C1E] border border-white/10 rounded-xl px-4 text-white placeholder-white/20 text-center tracking-[0.25em] font-mono focus:outline-none focus:border-[#007AFF] focus:ring-1 focus:ring-[#007AFF] transition-all text-[17px]"
-                            oninput="checkCode(this)"
-                        >
-                    </div>
-                    <div class="text-center pt-2">
-                        <p id="timer" class="text-[12px] text-white/40">Resend code in 0:59</p>
-                        <button id="resend-btn" class="hidden text-[13px] text-[#007AFF] hover:opacity-80">Resend Code</button>
-                    </div>
-                </div>
-
-                <div class="mt-auto text-center pt-8">
-                    <p class="text-[15px] text-white/60">
-                        Already have an account?
-                        <a href="./02-login.html" class="text-[#007AFF] font-normal ml-1 hover:text-[#007AFF]/80 transition-colors">Sign In</a>
-                    </p>
-                </div>
-            </div>
-
-            <div class="fixed bottom-[10px] left-1/2 -translate-x-1/2 w-[134px] h-[5px] bg-white rounded-full z-50 pointer-events-none"></div>
+        <!-- Logo Section -->
+        <div class="flex-1 flex items-center justify-center pb-20">
+          <div
+            class="relative w-[224px] h-[212px] flex items-center justify-center"
+          >
+            <img
+              src="https://potential-dev.s3.ap-northeast-2.amazonaws.com/PotentialAi/media/04fac069-a187-4284-aa0b-6a0caa278649-image (3).png"
+              alt="Logo"
+              class="w-full h-full object-contain"
+            />
+          </div>
         </div>
+
+        <!-- Form Section with Bottom Glow -->
+        <div class="relative w-full pb-[50px]">
+          <!-- Subtle purple glow behind the input area -->
+          <div class="absolute inset-0 bottom-glow pointer-events-none"></div>
+
+          <div class="relative px-6 flex flex-col space-y-2 z-10">
+            <label class="text-[13px] font-medium text-zinc-500 ml-1">
+              Verification Code
+            </label>
+
+            <!-- Input Field -->
+            <div
+              class="relative w-full h-[56px] bg-[#161618] rounded-xl border-[1.5px] border-[#0A84FF] shadow-[0_0_0_4px_rgba(10,132,255,0.15)] flex items-center justify-center overflow-hidden group"
+            >
+              <!-- Text Content -->
+              <div
+                class="font-[JetBrains_Mono] text-[17px] tracking-[0.2em] text-zinc-700 flex items-center justify-center h-full w-full"
+              >
+                <span class="mr-[2px]">0</span>
+                <span class="mr-[2px]">0</span>
+                <span class="mr-[2px]">0</span>
+
+                <!-- Cursor -->
+                <div
+                  class="w-[1.5px] h-[20px] bg-white cursor-blink mx-[6px] rounded-full"
+                ></div>
+
+                <span class="ml-[2px]">0</span>
+                <span class="ml-[2px]">0</span>
+                <span class="ml-[2px]">0</span>
+              </div>
+
+              <!-- Hidden Input for functionality -->
+              <input
+                type="text"
+                inputmode="numeric"
+                pattern="[0-9]*"
+                class="absolute inset-0 w-full h-full opacity-0 cursor-text font-mono text-transparent bg-transparent focus:outline-none"
+                spellcheck="false"
+                autocomplete="one-time-code"
+              />
+            </div>
+
+            <!-- Timer Text -->
+            <div class="flex justify-center pt-3">
+              <p class="text-[13px] font-medium text-zinc-600">
+                Resend code in 0:57
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Home Indicator -->
+      <div
+        class="absolute bottom-[8px] left-1/2 -translate-x-1/2 w-[134px] h-[5px] bg-white rounded-full z-50 pointer-events-none mix-blend-difference"
+      ></div>
     </div>
-
     <script>
-        // Display stored email
-        const storedEmail = sessionStorage.getItem('signup_email');
-        if(storedEmail) {
-            document.getElementById('email-display').textContent = storedEmail;
-        }
-
-        // Start countdown timer
-        window.onload = function() {
-            startTimer();
-            document.getElementById('code-input').focus();
-        };
-
-        function startTimer() {
-            let timeLeft = 59;
-            const timerElem = document.getElementById('timer');
-            const resendBtn = document.getElementById('resend-btn');
-
-            const interval = setInterval(() => {
-                timerElem.textContent = `Resend code in 0:${timeLeft < 10 ? '0'+timeLeft : timeLeft}`;
-                timeLeft--;
-                if(timeLeft < 0) {
-                    clearInterval(interval);
-                    timerElem.classList.add('hidden');
-                    resendBtn.classList.remove('hidden');
-                }
-            }, 1000);
-        }
-
-        function checkCode(input) {
-            input.value = input.value.replace(/[^0-9]/g, '');
-            if(input.value.length === 6) {
-                input.disabled = true;
-                // Simulate verification
-                setTimeout(() => {
-                    window.location.href = './03-signup-step3.html';
-                }, 500);
-            }
-        }
+      // Navigate to password step when verification code is entered
+      const codeInput = document.querySelector('input[inputmode="numeric"]');
+      if (codeInput) {
+        codeInput.addEventListener('input', function() {
+          if (this.value.length >= 6) {
+            setTimeout(() => { window.location.href = './03-signup-step3.html'; }, 500);
+          }
+        });
+        // Also allow clicking the code field area to proceed (for demo)
+        codeInput.closest('.relative').addEventListener('click', function() {
+          setTimeout(() => { window.location.href = './03-signup-step3.html'; }, 800);
+        });
+      }
     </script>
-</body>
+  </body>
 </html>

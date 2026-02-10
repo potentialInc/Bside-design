@@ -226,7 +226,7 @@ animation: shimmer 1.5s infinite;
                     </button>
 
                     <!-- View Details (Secondary) -->
-                    <button class="w-full h-[48px] bg-transparent text-[#007AFF] rounded-xl flex items-center justify-center active:bg-white/5 transition-colors">
+                    <button onclick="window.location.href='./09-artwork-detail.html'" class="w-full h-[48px] bg-transparent text-[#007AFF] rounded-xl flex items-center justify-center active:bg-white/5 transition-colors">
                         <span class="text-[15px] font-semibold">View Details</span>
                     </button>
                 </div>
@@ -253,9 +253,7 @@ animation: shimmer 1.5s infinite;
 
             // In a real app, this would remove the DOM elements or navigate back after timeout
             setTimeout(() => {
-                console.log("Sheet dismissed");
-                // Reset for demo purposes
-                // location.reload(); 
+                window.location.href = './12-camera-view.html';
             }, 300);
         }
 

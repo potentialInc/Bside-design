@@ -146,7 +146,7 @@ transform: translateY(0);
 
         <!-- Navigation Bar -->
         <div class="absolute top-0 left-0 right-0 h-[100px] pt-[44px] px-2 flex items-center justify-between bg-black/95 backdrop-blur-md z-40 border-b-[0.5px] border-white/10">
-            <button class="flex items-center gap-1 h-[44px] pl-2 pr-4 text-[#007AFF] active:opacity-60 transition-opacity" onclick="console.log('Back tapped')">
+            <button class="flex items-center gap-1 h-[44px] pl-2 pr-4 text-[#007AFF] active:opacity-60 transition-opacity" onclick="window.location.href='./19-my-page-profile.html'">
                 <iconify-icon icon="solar:alt-arrow-left-linear" width="24" height="24"></iconify-icon>
                 <span class="text-[17px] font-normal">Back</span>
             </button>
@@ -335,7 +335,7 @@ transform: translateY(0);
                 </div>
                 <div class="flex border-t border-white/10">
                     <button onclick="hideConfirmModal()" class="flex-1 h-[44px] text-[17px] text-[#007AFF] font-medium border-r border-white/10 active:bg-white/5">Cancel</button>
-                    <button onclick="hideConfirmModal()" class="flex-1 h-[44px] text-[17px] text-[#FF3B30] font-semibold active:bg-white/5">Confirm</button>
+                    <button onclick="confirmAction()" class="flex-1 h-[44px] text-[17px] text-[#FF3B30] font-semibold active:bg-white/5">Confirm</button>
                 </div>
             </div>
         </div>
@@ -376,6 +376,14 @@ transform: translateY(0);
         function hideConfirmModal() {
             confirmModal.classList.remove('active');
             setTimeout(() => confirmModal.classList.add('hidden'), 300);
+        }
+
+        function confirmAction() {
+            const title = confirmTitle.innerText;
+            hideConfirmModal();
+            if (title === 'Logout') {
+                setTimeout(() => { window.location.href = './02-login.html'; }, 300);
+            }
         }
 
         function togglePrivate(checkbox) {
