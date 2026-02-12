@@ -381,7 +381,7 @@ z-index: 100;
                 updateUIState();
             } else {
                 // Back Action
-                console.log("Navigating back...");
+                window.location.href = './06-feed.html';
             }
         }
 
@@ -441,7 +441,7 @@ z-index: 100;
         // Navigation simulation
         function handleCardClick() {
             if (!isEditMode) {
-                console.log("Navigate to Artwork Detail");
+                window.location.href = './09-artwork-detail.html';
             }
         }
     </script>

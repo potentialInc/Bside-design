@@ -307,8 +307,7 @@
                 text.textContent = 'Success!';
                 
                 setTimeout(() => {
-                     // Normally would navigate to /feed
-                     console.log("Navigate to Feed");
+                     window.location.href = './06-feed.html';
                 }, 500);
             }, 1500);
         }
@@ -322,7 +321,7 @@
             container.style.transition = 'all 0.3s ease';
             
             setTimeout(() => {
-                console.log("Navigating to Feed (Defaults)...");
+                window.location.href = './06-feed.html';
             }, 300);
         }
     </script>

@@ -220,7 +220,7 @@ animation: slideInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
                 // Simulate back navigation
                 document.body.style.opacity = '0';
                 document.body.style.transition = 'opacity 0.3s';
-                setTimeout(() => console.log('Navigated back'), 300);
+                setTimeout(() => { window.location.href = './12-camera-view.html'; }, 300);
             }
         }
 
@@ -236,8 +236,7 @@ animation: slideInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         function discardChanges() {
             closeModal();
             setTimeout(() => {
-                document.body.style.opacity = '0';
-                document.body.style.transition = 'opacity 0.3s';
+                window.location.href = './12-camera-view.html';
             }, 200);
         }
 

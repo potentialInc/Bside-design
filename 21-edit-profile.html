@@ -304,7 +304,7 @@ opacity: 1;
                 discardModal.classList.remove('hidden');
                 setTimeout(() => discardModal.classList.add('active'), 10);
             } else {
-                console.log("Navigating back...");
+                window.location.href = './19-my-page-profile.html';
             }
         }
 
@@ -319,7 +319,7 @@ opacity: 1;
             usernameInput.value = initialState.username;
             bioInput.value = initialState.bio;
             checkDirty();
-            console.log("Changes discarded, navigating back...");
+            window.location.href = './19-my-page-profile.html';
         }
 
         function handleSave() {
@@ -340,7 +340,7 @@ opacity: 1;
 
                 setTimeout(() => {
                     toast.classList.remove('show');
-                    console.log("Navigating back after save...");
+                    window.location.href = './19-my-page-profile.html';
                 }, 2000);
             }, 1000);
         }

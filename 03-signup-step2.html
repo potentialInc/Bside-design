@@ -144,5 +144,19 @@
         class="absolute bottom-[8px] left-1/2 -translate-x-1/2 w-[134px] h-[5px] bg-white rounded-full z-50 pointer-events-none mix-blend-difference"
       ></div>
     </div>
+    <script>
+      const codeInput = document.querySelector('input[inputmode="numeric"]');
+      if (codeInput) {
+        codeInput.addEventListener('input', function() {
+          if (this.value.length >= 6) {
+            setTimeout(() => { window.location.href = './03-signup-step3.html'; }, 500);
+          }
+        });
+      }
+      // Also allow clicking the input area to navigate for demo purposes
+      document.querySelector('.group').addEventListener('click', function() {
+        setTimeout(() => { window.location.href = './03-signup-step3.html'; }, 800);
+      });
+    </script>
   </body>
 </html>

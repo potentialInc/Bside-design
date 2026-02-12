@@ -213,7 +213,7 @@ box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
                 <div class="px-6 pt-10 flex flex-col items-center justify-center">
                     <iconify-icon icon="solar:pen-new-square-linear" class="text-white/30 text-[48px] mb-3"></iconify-icon>
                     <h3 class="text-[17px] font-semibold text-white mb-3">Can't find it?</h3>
-                    <button class="w-full h-[48px] flex items-center justify-center text-[#007AFF] text-[15px] font-semibold active:bg-white/5 rounded-xl transition-colors">
+                    <button onclick="window.location.href='./16-manual-artwork-input.html'" class="w-full h-[48px] flex items-center justify-center text-[#007AFF] text-[15px] font-semibold active:bg-white/5 rounded-xl transition-colors">
                         Enter Artwork Info Manually
                     </button>
                 </div>
@@ -244,7 +244,7 @@ box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
             }
             
             setTimeout(() => {
-                console.log("Sheet dismissed");
+                window.location.href = './12-camera-view.html';
             }, 300);
         }
 
@@ -252,9 +252,7 @@ box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
             // Visual feedback
             card.style.transform = 'scale(0.95)';
             setTimeout(() => {
-                // Simulate navigation to success page
-                dismissSheet();
-                // In a real app: window.location.href = 'recognition-success.html';
+                window.location.href = './14-recognition-success.html';
             }, 200);
         }
 
