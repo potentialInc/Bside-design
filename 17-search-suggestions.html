@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <title>Search UI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body { font-family: 'Inter', sans-serif; background-color: #000; }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      /* Smooth fade */
+      .fade-in { animation: fadeIn 0.2s ease-out forwards; }
+      @keyframes fadeIn { from { opacity: 0; transform: translateY(2px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+  </head>
+  <body
+    class="flex items-center justify-center min-h-screen bg-[#111] text-white p-4 antialiased selection:bg-blue-500/30"
+  >
+    <!-- Device Frame -->
+    <div
+      class="relative w-full max-w-[375px] h-[812px] bg-black rounded-[40px] shadow-2xl overflow-hidden border-[8px] border-[#1a1a1a] ring-1 ring-white/10"
+    >
+      <!-- Status Bar -->
+      <div
+        class="absolute top-0 left-0 right-0 h-12 flex items-end justify-between px-6 pb-2 z-50"
+      >
+        <span class="text-[15px] font-semibold tracking-tight">9:41</span>
+        <div class="flex gap-1.5 items-center">
+          <div
+            class="w-[18px] h-[12px] rounded-[2px] border border-white/30 relative"
+          >
+            <div
+              class="absolute top-0.5 bottom-0.5 left-0.5 right-0.5 bg-white rounded-[1px]"
+            ></div>
+            <div
+              class="absolute top-1 -right-1.5 w-[2px] h-[4px] bg-white/30 rounded-r-[1px]"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Header Area -->
+      <div class="pt-14 pb-2 px-4 flex items-center gap-3 bg-black z-40">
+        <!-- Back Button -->
+        <button
+          class="w-8 h-8 flex items-center justify-center text-white/80 active:text-white transition-colors -ml-1"
+        >
+          <i data-lucide="chevron-left" class="w-7 h-7 stroke-[1.5]"></i>
+        </button>
+
+        <!-- Search Input -->
+        <div
+          class="flex-1 h-10 bg-[#262626] rounded-xl flex items-center px-3 gap-2 ring-[1.5px] ring-[#007AFF] transition-shadow"
+        >
+          <i data-lucide="search" class="w-[18px] h-[18px] text-white/40"></i>
+          <input
+            type="text"
+            value="p"
+            class="flex-1 bg-transparent border-none outline-none text-[17px] text-white placeholder-white/30 h-full font-normal pb-0.5 caret-[#007AFF]"
+            placeholder="Search"
+          />
+          <button class="text-white/40 hover:text-white transition-colors">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="text-white/20 hover:text-white/40 transition-colors cursor-pointer"
+            >
+              <path
+                d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+              ></path>
+              <path
+                d="M15 9L9 15"
+                stroke="#262626"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+              <path
+                d="M9 9L15 15"
+                stroke="#262626"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Suggestions List -->
+      <div class="px-2 mt-2">
+        <div class="bg-[#1C1C1E] rounded-[18px] overflow-hidden">
+          <!-- Item 1: Artist -->
+          <div
+            class="flex items-center h-[60px] px-4 border-b border-white/5 active:bg-white/5 transition-colors cursor-pointer group"
+          >
+            <div class="w-10 flex justify-center mr-3">
+              <img
+                src="https://avatar.vercel.sh/picasso"
+                alt="Artist"
+                class="w-8 h-8 rounded-full opacity-90"
+              />
+            </div>
+            <div class="flex-1 flex flex-col justify-center gap-0.5">
+              <span class="text-[16px] text-white font-semibold">Picasso</span>
+            </div>
+            <span class="text-[13px] text-[#555] font-medium tracking-tight">
+              Artist
+            </span>
+          </div>
+
+          <!-- Item 2: Collection -->
+          <div
+            class="flex items-center h-[60px] px-4 border-b border-white/5 active:bg-white/5 transition-colors cursor-pointer group"
+          >
+            <div class="w-10 flex justify-center mr-3">
+              <img
+                src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?auto=format&amp;fit=crop&amp;w=64&amp;h=64"
+                alt="Collection"
+                class="w-8 h-8 rounded-[6px] object-cover opacity-80 saturate-50 group-hover:saturate-100 transition-all"
+              />
+            </div>
+            <div class="flex-1 flex flex-col justify-center gap-0.5">
+              <span class="text-[16px] text-white/40">
+                <span class="text-white font-semibold">Picasso</span>
+                's Blue Period
+              </span>
+            </div>
+            <span class="text-[13px] text-[#555] font-medium tracking-tight">
+              Collection
+            </span>
+          </div>
+
+          <!-- Item 3: Artwork -->
+          <div
+            class="flex items-center h-[60px] px-4 border-b border-white/5 active:bg-white/5 transition-colors cursor-pointer group"
+          >
+            <div class="w-10 flex justify-center mr-3">
+              <img
+                src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg"
+                alt="Artwork"
+                class="w-8 h-8 rounded-[6px] object-cover opacity-80 saturate-50 group-hover:saturate-100 transition-all"
+              />
+            </div>
+            <div class="flex-1 flex flex-col justify-center gap-0.5">
+              <span class="text-[16px] text-white/40">
+                Guernica by
+                <span class="text-white font-semibold">Picasso</span>
+              </span>
+            </div>
+            <span class="text-[13px] text-[#555] font-medium tracking-tight">
+              Artwork
+            </span>
+          </div>
+
+          <!-- Item 4: User (Profile Picture Added) -->
+          <div
+            class="flex items-center h-[60px] px-4 active:bg-white/5 transition-colors cursor-pointer group"
+          >
+            <div class="w-10 flex justify-center mr-3">
+              <!-- Replaced generic avatar with a person profile photo -->
+              <img
+                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=64&h=64"
+                alt="User"
+                class="w-8 h-8 rounded-full opacity-90 group-hover:opacity-100 transition-opacity"
+              />
+            </div>
+            <div class="flex-1 flex flex-col justify-center gap-0.5">
+              <span class="text-[16px] text-white/40">
+                Pablo_
+                <span class="text-white font-semibold">Picasso</span>
+                _Fan
+              </span>
+            </div>
+            <span class="text-[13px] text-[#555] font-medium tracking-tight">
+              User
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Home Indicator -->
+      <div
+        class="absolute bottom-2 left-1/2 -translate-x-1/2 w-[134px] h-[5px] bg-white/20 rounded-full z-50"
+      ></div>
+    </div>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

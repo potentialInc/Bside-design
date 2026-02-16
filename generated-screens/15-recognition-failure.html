@@ -1,305 +1,427 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title>bside.art | Recognition Processing</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
-<style>
-:root {
---primary: #1C1C1E;
---blue: #007AFF;
---orange: #FF9500;
-}
-body {
-font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-background-color: #000;
-color: #FFFFFF;
-display: flex;
-align-items: center;
-justify-content: center;
-min-height: 100vh;
-margin: 0;
-padding: 20px;
-}
-.device-frame {
-width: 375px;
-height: 812px;
-background: #000000;
-border-radius: 40px;
-box-shadow: 0 0 0 12px #2d2d2d, 0 20px 50px rgba(0,0,0,0.5);
-position: relative;
-overflow: hidden;
-border: 8px solid #000;
-}
-.notch {
-position: absolute;
-top: 0;
-left: 50%;
-transform: translateX(-50%);
-width: 120px;
-height: 30px;
-background: #000;
-border-bottom-left-radius: 16px;
-border-bottom-right-radius: 16px;
-z-index: 100;
-}
-.status-time {
-position: absolute;
-top: 12px;
-left: 24px;
-font-size: 14px;
-font-weight: 600;
-color: white;
-z-index: 100;
-}
-.status-icons {
-position: absolute;
-top: 14px;
-right: 24px;
-display: flex;
-gap: 6px;
-color: white;
-font-size: 12px;
-z-index: 100;
-}
-.home-indicator {
-position: absolute;
-bottom: 8px;
-left: 50%;
-transform: translateX(-50%);
-width: 134px;
-height: 5px;
-background: white;
-border-radius: 100px;
-opacity: 0.4;
-z-index: 1000;
-}
-/* Camera Viewfinder Corners */
-.viewfinder-corner {
-position: absolute;
-width: 40px;
-height: 40px;
-border-color: rgba(255, 255, 255, 0.5);
-border-style: solid;
-border-width: 0;
-pointer-events: none;
-}
-.tl { top: 60px; left: 24px; border-top-width: 2px; border-left-width: 2px; border-radius: 12px 0 0 0; }
-.tr { top: 60px; right: 24px; border-top-width: 2px; border-right-width: 2px; border-radius: 0 12px 0 0; }
-.bl { bottom: 120px; left: 24px; border-bottom-width: 2px; border-left-width: 2px; border-radius: 0 0 0 12px; }
-.br { bottom: 120px; right: 24px; border-bottom-width: 2px; border-right-width: 2px; border-radius: 0 0 12px 0; }
-/* Animation */
-@keyframes slideUp {
-from { transform: translateY(100%); }
-to { transform: translateY(0); }
-}
-.bottom-sheet {
-animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
-}
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-</style></head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <title>bside.art | Recognition Processing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+      --primary: #1C1C1E;
+      --blue: #007AFF;
+      --orange: #FF9500;
+      }
+      body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #000;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      }
+      .device-frame {
+      width: 375px;
+      height: 812px;
+      background: #000000;
+      border-radius: 40px;
+      box-shadow: 0 0 0 12px #2d2d2d, 0 20px 50px rgba(0, 0, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+      border: 8px solid #000;
+      }
+      .notch {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 30px;
+      background: #000;
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+      z-index: 100;
+      }
+      .status-time {
+      position: absolute;
+      top: 12px;
+      left: 24px;
+      font-size: 14px;
+      font-weight: 600;
+      color: white;
+      z-index: 100;
+      }
+      .status-icons {
+      position: absolute;
+      top: 14px;
+      right: 24px;
+      display: flex;
+      gap: 6px;
+      color: white;
+      font-size: 12px;
+      z-index: 100;
+      }
+      .home-indicator {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 134px;
+      height: 5px;
+      background: white;
+      border-radius: 100px;
+      opacity: 0.4;
+      z-index: 1000;
+      }
+      /* Camera Viewfinder Corners */
+      .viewfinder-corner {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border-color: rgba(255, 255, 255, 0.5);
+      border-style: solid;
+      border-width: 0;
+      pointer-events: none;
+      }
+      .tl {
+      top: 60px;
+      left: 24px;
+      border-top-width: 2px;
+      border-left-width: 2px;
+      border-radius: 12px 0 0 0;
+      }
+      .tr {
+      top: 60px;
+      right: 24px;
+      border-top-width: 2px;
+      border-right-width: 2px;
+      border-radius: 0 12px 0 0;
+      }
+      .bl {
+      bottom: 120px;
+      left: 24px;
+      border-bottom-width: 2px;
+      border-left-width: 2px;
+      border-radius: 0 0 0 12px;
+      }
+      .br {
+      bottom: 120px;
+      right: 24px;
+      border-bottom-width: 2px;
+      border-right-width: 2px;
+      border-radius: 0 0 12px 0;
+      }
+      /* Animation */
+      @keyframes slideUp {
+      from {
+      transform: translateY(100%);
+      }
+      to {
+      transform: translateY(0);
+      }
+      }
+      .bottom-sheet {
+      animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
+      }
+      .no-scrollbar::-webkit-scrollbar {
+      display: none;
+      }
+      .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      }
+    </style>
+  </head>
 
+  <body>
     <div class="device-frame relative">
-        <!-- Status Bar -->
-        <div class="notch"></div>
-        <div class="status-time">9:41</div>
-        <div class="status-icons">
-            <iconify-icon icon="solar:signal-linear"></iconify-icon>
-            <iconify-icon icon="solar:wi-fi-linear"></iconify-icon>
-            <iconify-icon icon="solar:battery-full-solid"></iconify-icon>
+      <!-- Status Bar -->
+      <div class="notch"></div>
+      <div class="status-time">9:41</div>
+      <div class="status-icons">
+        <iconify-icon icon="solar:signal-linear"></iconify-icon>
+        <iconify-icon icon="solar:wi-fi-linear"></iconify-icon>
+        <iconify-icon icon="solar:battery-full-solid"></iconify-icon>
+      </div>
+
+      <!-- Background: Camera View (Page 9 Simulation) -->
+      <div class="absolute inset-0 bg-black overflow-hidden z-0">
+        <!-- Simulated blurred camera feed -->
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"
+          class="w-full h-full object-cover opacity-60 scale-105 filter blur-[2px]"
+          alt="Camera Feed"
+        />
+
+        <!-- Viewfinder UI Elements -->
+        <div class="viewfinder-corner tl"></div>
+        <div class="viewfinder-corner tr"></div>
+        <div class="viewfinder-corner bl"></div>
+        <div class="viewfinder-corner br"></div>
+      </div>
+
+      <!-- Backdrop -->
+      <div
+        class="absolute inset-0 bg-black/60 z-10 backdrop-blur-sm transition-opacity"
+        onclick="dismissSheet()"
+      ></div>
+
+      <!-- Recognition Failure/Processing Bottom Sheet -->
+      <div
+        class="bottom-sheet absolute bottom-0 left-0 right-0 bg-[#1C1C1E] rounded-t-[16px] z-20 max-h-[85%] h-auto flex flex-col"
+      >
+        <!-- Handle -->
+        <div class="w-full flex justify-center pt-3 pb-1 shrink-0">
+          <div class="w-[36px] h-[5px] bg-white/20 rounded-full"></div>
         </div>
 
-        <!-- Background: Camera View (Page 9 Simulation) -->
-        <div class="absolute inset-0 bg-black overflow-hidden z-0">
-            <!-- Simulated blurred camera feed -->
-            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg" class="w-full h-full object-cover opacity-60 scale-105 filter blur-[2px]" alt="Camera Feed">
-            
-            <!-- Viewfinder UI Elements -->
-            <div class="viewfinder-corner tl"></div>
-            <div class="viewfinder-corner tr"></div>
-            <div class="viewfinder-corner bl"></div>
-            <div class="viewfinder-corner br"></div>
-        </div>
-
-        <!-- Backdrop -->
-        <div class="absolute inset-0 bg-black/60 z-10 backdrop-blur-sm transition-opacity" onclick="dismissSheet()"></div>
-
-        <!-- Recognition Failure/Processing Bottom Sheet -->
-        <div class="bottom-sheet absolute bottom-0 left-0 right-0 bg-[#1C1C1E] rounded-t-[16px] z-20 max-h-[85%] h-auto flex flex-col">
-            
-            <!-- Handle -->
-            <div class="w-full flex justify-center pt-3 pb-1 shrink-0">
-                <div class="w-[36px] h-[5px] bg-white/20 rounded-full"></div>
+        <!-- Scrollable Content Area -->
+        <div class="overflow-y-auto no-scrollbar pb-[40px] flex-1">
+          <!-- Header -->
+          <div class="px-4 pt-2 pb-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <!-- Warning/Processing Icon -->
+              <iconify-icon
+                icon="solar:danger-circle-bold"
+                class="text-[#FF3B30] text-[20px]"
+              ></iconify-icon>
+              <h2
+                class="text-[18px] font-semibold text-[#FF3B30] tracking-tight"
+              >
+                Artwork Not Recognized
+              </h2>
             </div>
+            <button
+              class="w-[44px] h-[44px] flex items-center justify-end text-white/60 active:text-white transition-colors"
+              onclick="dismissSheet()"
+            >
+              <iconify-icon
+                icon="solar:close-circle-linear"
+                class="text-[24px]"
+              ></iconify-icon>
+            </button>
+          </div>
 
-            <!-- Scrollable Content Area -->
-            <div class="overflow-y-auto no-scrollbar pb-[40px] flex-1">
-                
-                <!-- Header -->
-                <div class="px-4 pt-2 pb-4 flex items-center justify-between">
-                    <div class="flex items-center gap-2">
-                        <!-- Warning/Processing Icon -->
-                        <iconify-icon icon="solar:scanner-linear" class="text-[#FF9500] text-[20px] animate-pulse"></iconify-icon>
-                        <h2 class="text-[18px] font-semibold text-[#FF9500] tracking-tight">Processing Artwork</h2>
-                    </div>
-                    <button class="w-[44px] h-[44px] flex items-center justify-end text-white/60 active:text-white transition-colors" onclick="dismissSheet()">
-                        <iconify-icon icon="solar:close-circle-linear" class="text-[24px]"></iconify-icon>
-                    </button>
-                </div>
+          <!-- Captured Image with Overlay -->
+          <div
+            class="w-full h-[280px] bg-[#2C2C2E] relative overflow-hidden shrink-0"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"
+              class="w-full h-full object-cover opacity-80"
+              alt="Captured Artwork"
+            />
 
-                <!-- Captured Image with Overlay -->
-                <div class="w-full h-[280px] bg-[#2C2C2E] relative overflow-hidden shrink-0">
-                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg" class="w-full h-full object-cover opacity-80" alt="Captured Artwork">
-                    
-                    <!-- Processing Overlay -->
-                    <div class="absolute inset-0 flex items-center justify-center p-4">
-                        <div class="bg-black/60 backdrop-blur-md rounded-xl px-6 py-5 flex flex-col items-center gap-3 border border-white/10 max-w-[280px]">
-                            <iconify-icon icon="line-md:loading-loop" class="text-white text-[28px]"></iconify-icon>
-                            <span class="text-[15px] font-normal text-white/90 text-center leading-snug">We are processing this artwork for you</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Suggested Artworks (Horizontal Scroll) -->
-                <div class="pt-6">
-                    <h3 class="px-4 text-[16px] font-semibold text-white mb-4">Could it be one of these?</h3>
-                    
-                    <!-- Horizontal Carousel -->
-                    <div class="flex overflow-x-auto gap-4 px-4 pb-2 no-scrollbar snap-x">
-                        
-                        <!-- Card 1 -->
-                        <div class="flex-none w-[160px] group active:scale-95 transition-transform" onclick="selectSuggestion(this)">
-                            <div class="w-full h-[200px] rounded-xl overflow-hidden bg-[#2C2C2E] border border-white/5 relative">
-                                <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4734259a-bad7-422f-981e-ce01e79184f2_1600w.jpg" class="w-full h-full object-cover" alt="Art 1">
-                            </div>
-                            <div class="mt-2 text-center">
-                                <p class="text-[15px] font-medium text-white truncate px-1">The Starry Night</p>
-                                <p class="text-[13px] text-white/60 mt-0.5 truncate px-1">Vincent van Gogh</p>
-                            </div>
-                        </div>
-
-                        <!-- Card 2 -->
-                        <div class="flex-none w-[160px] group active:scale-95 transition-transform" onclick="selectSuggestion(this)">
-                            <div class="w-full h-[200px] rounded-xl overflow-hidden bg-[#2C2C2E] border border-white/5 relative">
-                                <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/db347209-4674-42b7-876a-54070a240217_1600w.jpg" class="w-full h-full object-cover" alt="Art 2">
-                            </div>
-                            <div class="mt-2 text-center">
-                                <p class="text-[15px] font-medium text-white truncate px-1">Wheat Field</p>
-                                <p class="text-[13px] text-white/60 mt-0.5 truncate px-1">Vincent van Gogh</p>
-                            </div>
-                        </div>
-
-                        <!-- Card 3 -->
-                        <div class="flex-none w-[160px] group active:scale-95 transition-transform" onclick="selectSuggestion(this)">
-                            <div class="w-full h-[200px] rounded-xl overflow-hidden bg-[#2C2C2E] border border-white/5 relative">
-                                <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/e1676f4b-0100-4b13-8951-344498328734_1600w.jpg" class="w-full h-full object-cover" alt="Art 3">
-                            </div>
-                            <div class="mt-2 text-center">
-                                <p class="text-[15px] font-medium text-white truncate px-1">Olive Trees</p>
-                                <p class="text-[13px] text-white/60 mt-0.5 truncate px-1">Vincent van Gogh</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Spacer for right padding -->
-                        <div class="w-2 flex-none"></div>
-                    </div>
-                </div>
-
-                <!-- Manual Input Option -->
-                <div class="px-6 pt-10 flex flex-col items-center justify-center">
-                    <iconify-icon icon="solar:pen-new-square-linear" class="text-white/30 text-[48px] mb-3"></iconify-icon>
-                    <h3 class="text-[17px] font-semibold text-white mb-3">Can't find it?</h3>
-                    <button onclick="window.location.href='./16-manual-artwork-input.html'" class="w-full h-[48px] flex items-center justify-center text-[#007AFF] text-[15px] font-semibold active:bg-white/5 rounded-xl transition-colors">
-                        Enter Artwork Info Manually
-                    </button>
-                </div>
-
-                <!-- Request Platform Button -->
-                <div class="px-4 mt-2 pb-6">
-                    <button onclick="requestPlatform(this)" class="w-full h-[48px] border border-white/10 rounded-xl flex items-center justify-center text-[15px] font-medium text-white hover:bg-white/5 active:scale-[0.98] transition-all">
-                        Request Platform to Add This Artwork
-                    </button>
-                </div>
-
+            <!-- Processing Overlay -->
+            <div class="absolute inset-0 flex items-center justify-center p-4">
+              <div
+                class="bg-black/60 backdrop-blur-md rounded-xl px-6 py-5 flex flex-col items-center gap-3 border border-white/10 max-w-[280px]"
+              >
+                <iconify-icon
+                  icon="solar:close-circle-bold"
+                  class="text-[#FF3B30] text-[32px]"
+                ></iconify-icon>
+                <span
+                  class="text-[15px] font-normal text-white/90 text-center leading-snug"
+                >
+                  We couldn't find this artwork
+                </span>
+              </div>
             </div>
-        </div>
+          </div>
 
-        <!-- Home Indicator -->
-        <div class="home-indicator"></div>
+          <!-- Suggested Artworks (Horizontal Scroll) -->
+          <div class="pt-6">
+            <h3 class="px-4 text-[16px] font-semibold text-white mb-4">
+              Could it be one of these?
+            </h3>
+
+            <!-- Horizontal Carousel -->
+            <div
+              class="flex overflow-x-auto gap-4 px-4 pb-2 no-scrollbar snap-x"
+            >
+              <!-- Card 1 -->
+              <div
+                class="flex-none w-[160px] group active:scale-95 transition-transform"
+                onclick="selectSuggestion(this)"
+              >
+                <div
+                  class="w-full h-[200px] rounded-xl overflow-hidden bg-[#2C2C2E] border border-white/5 relative"
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?q=80&amp;w=1000&amp;auto=format&amp;fit=crop"
+                    class="w-full h-full object-cover"
+                    alt="Art 1"
+                  />
+                </div>
+                <div class="mt-2 text-center">
+                  <p class="text-[15px] font-medium text-white truncate px-1">
+                    The Starry Night
+                  </p>
+                  <p class="text-[13px] text-white/60 mt-0.5 truncate px-1">
+                    Vincent van Gogh
+                  </p>
+                </div>
+              </div>
+
+              <!-- Card 2 -->
+              <div
+                class="flex-none w-[160px] group active:scale-95 transition-transform"
+                onclick="selectSuggestion(this)"
+              >
+                <div
+                  class="w-full h-[200px] rounded-xl overflow-hidden bg-[#2C2C2E] border border-white/5 relative"
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&amp;w=1000&amp;auto=format&amp;fit=crop"
+                    class="w-full h-full object-cover"
+                    alt="Art 2"
+                  />
+                </div>
+                <div class="mt-2 text-center">
+                  <p class="text-[15px] font-medium text-white truncate px-1">
+                    Wheat Field
+                  </p>
+                  <p class="text-[13px] text-white/60 mt-0.5 truncate px-1">
+                    Vincent van Gogh
+                  </p>
+                </div>
+              </div>
+
+              <!-- Card 3 -->
+              <div
+                class="flex-none w-[160px] group active:scale-95 transition-transform"
+                onclick="selectSuggestion(this)"
+              >
+                <div
+                  class="w-full h-[200px] rounded-xl overflow-hidden bg-[#2C2C2E] border border-white/5 relative"
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1605806616949-1e87b487bc2a?q=80&amp;w=1000&amp;auto=format&amp;fit=crop"
+                    class="w-full h-full object-cover"
+                    alt="Art 3"
+                  />
+                </div>
+                <div class="mt-2 text-center">
+                  <p class="text-[15px] font-medium text-white truncate px-1">
+                    Olive Trees
+                  </p>
+                  <p class="text-[13px] text-white/60 mt-0.5 truncate px-1">
+                    Vincent van Gogh
+                  </p>
+                </div>
+              </div>
+
+              <!-- Spacer for right padding -->
+              <div class="w-2 flex-none"></div>
+            </div>
+          </div>
+
+          <!-- Manual Input Option -->
+          <div class="px-6 pt-10 flex flex-col items-center justify-center">
+            <iconify-icon
+              icon="solar:pen-new-square-linear"
+              class="text-white/30 text-[48px] mb-3"
+            ></iconify-icon>
+            <h3 class="text-[17px] font-semibold text-white mb-3">
+              Can't find it?
+            </h3>
+            <button
+              class="w-full h-[48px] flex items-center justify-center text-[#007AFF] text-[15px] font-semibold active:bg-white/5 rounded-xl transition-colors"
+            >
+              Enter Artwork Info Manually
+            </button>
+          </div>
+
+          <!-- Request Platform Button -->
+        </div>
+      </div>
+
+      <!-- Home Indicator -->
+      <div class="home-indicator"></div>
     </div>
 
     <script>
-        function dismissSheet() {
-            const sheet = document.querySelector('.bottom-sheet');
-            sheet.style.transform = 'translateY(100%)';
-            sheet.style.transition = 'transform 0.3s ease-in';
-            
-            const backdrop = document.querySelector('.bg-black\\/60');
-            if(backdrop) {
-                backdrop.style.opacity = '0';
-            }
-            
-            setTimeout(() => {
-                window.location.href = './12-camera-view.html';
-            }, 300);
-        }
+      function dismissSheet() {
+          const sheet = document.querySelector('.bottom-sheet');
+          sheet.style.transform = 'translateY(100%)';
+          sheet.style.transition = 'transform 0.3s ease-in';
 
-        function selectSuggestion(card) {
-            // Visual feedback
-            card.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                window.location.href = './14-recognition-success.html';
-            }, 200);
-        }
+          const backdrop = document.querySelector('.bg-black\\/60');
+          if(backdrop) {
+              backdrop.style.opacity = '0';
+          }
 
-        function requestPlatform(btn) {
-            const originalText = btn.innerHTML;
-            
-            // Loading state
-            btn.innerHTML = '<iconify-icon icon="line-md:loading-twotone-loop" class="text-[20px]"></iconify-icon>';
-            
-            setTimeout(() => {
-                // Success State & Toast
-                btn.innerHTML = originalText;
-                showToast();
-                dismissSheet();
-            }, 800);
-        }
+          setTimeout(() => {
+              console.log("Sheet dismissed");
+          }, 300);
+      }
 
-        function showToast() {
-            const toast = document.createElement('div');
-            toast.className = 'absolute top-12 left-4 right-4 bg-white text-black px-4 py-3 rounded-xl shadow-xl flex items-center gap-3 z-50';
-            toast.style.animation = 'slideDown 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards';
-            toast.innerHTML = `
-                <iconify-icon icon="solar:check-circle-bold" class="text-[#34C759] text-[24px] shrink-0"></iconify-icon>
-                <div class="flex flex-col">
-                    <span class="text-[14px] font-semibold">Request Submitted</span>
-                    <span class="text-[12px] text-black/60">We'll review and add this artwork soon!</span>
-                </div>
-            `;
-            
-            document.querySelector('.device-frame').appendChild(toast);
-            
-            setTimeout(() => {
-                toast.style.opacity = '0';
-                toast.style.transform = 'translateY(-10px)';
-                toast.style.transition = 'all 0.3s';
-                setTimeout(() => toast.remove(), 300);
-            }, 3000);
-        }
+      function selectSuggestion(card) {
+          // Visual feedback
+          card.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+              // Simulate navigation to success page
+              dismissSheet();
+              // In a real app: window.location.href = 'recognition-success.html';
+          }, 200);
+      }
 
-        const styleSheet = document.createElement("style");
-        styleSheet.innerText = `
-            @keyframes slideDown {
-                from { transform: translateY(-20px); opacity: 0; }
-                to { transform: translateY(0); opacity: 1; }
-            }
-        `;
-        document.head.appendChild(styleSheet);
+      function requestPlatform(btn) {
+          const originalText = btn.innerHTML;
+
+          // Loading state
+          btn.innerHTML = '<iconify-icon icon="line-md:loading-twotone-loop" class="text-[20px]"></iconify-icon>';
+
+          setTimeout(() => {
+              // Success State & Toast
+              btn.innerHTML = originalText;
+              showToast();
+              dismissSheet();
+          }, 800);
+      }
+
+      function showToast() {
+          const toast = document.createElement('div');
+          toast.className = 'absolute top-12 left-4 right-4 bg-white text-black px-4 py-3 rounded-xl shadow-xl flex items-center gap-3 z-50';
+          toast.style.animation = 'slideDown 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards';
+          toast.innerHTML = `
+              <iconify-icon icon="solar:check-circle-bold" class="text-[#34C759] text-[24px] shrink-0"></iconify-icon>
+              <div class="flex flex-col">
+                  <span class="text-[14px] font-semibold">Request Submitted</span>
+                  <span class="text-[12px] text-black/60">We'll review and add this artwork soon!</span>
+              </div>
+          `;
+
+          document.querySelector('.device-frame').appendChild(toast);
+
+          setTimeout(() => {
+              toast.style.opacity = '0';
+              toast.style.transform = 'translateY(-10px)';
+              toast.style.transition = 'all 0.3s';
+              setTimeout(() => toast.remove(), 300);
+          }, 3000);
+      }
+
+      const styleSheet = document.createElement("style");
+      styleSheet.innerText = `
+          @keyframes slideDown {
+              from { transform: translateY(-20px); opacity: 0; }
+              to { transform: translateY(0); opacity: 1; }
+          }
+      `;
+      document.head.appendChild(styleSheet);
     </script>
-
-</body></html>
+  </body>
+</html>

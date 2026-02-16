@@ -1,328 +1,452 @@
-<html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title>bside.art | Profile Setup</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', '-apple-system', 'system-ui', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            black: '#000000',
-                            dark: '#1C1C1E', // Dark Charcoal
-                            blue: '#007AFF', // iOS Blue
-                            green: '#34C759', // Success
-                            red: '#FF3B30',   // Error
-                            text: {
-                                primary: 'rgba(255,255,255,0.92)',
-                                secondary: 'rgba(255,255,255,0.60)',
-                                tertiary: 'rgba(255,255,255,0.38)',
-                            }
-                        }
-                    },
-                    boxShadow: {
-                        'elevation-1': '0 2px 8px rgba(0,0,0,0.08)',
-                        'elevation-2': '0 4px 12px rgba(0,0,0,0.12)',
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+          theme: {
+              extend: {
+                  fontFamily: {
+                      sans: ['Inter', '-apple-system', 'system-ui', 'sans-serif'],
+                  },
+                  colors: {
+                      brand: {
+                          black: '#000000',
+                          dark: '#1C1C1E', // Dark Charcoal
+                          blue: '#007AFF', // iOS Blue
+                          green: '#34C759', // Success
+                          red: '#FF3B30',   // Error
+                          text: {
+                              primary: 'rgba(255,255,255,0.92)',
+                              secondary: 'rgba(255,255,255,0.60)',
+                              tertiary: 'rgba(255,255,255,0.38)',
+                          }
+                      }
+                  },
+                  boxShadow: {
+                      'elevation-1': '0 2px 8px rgba(0,0,0,0.08)',
+                      'elevation-2': '0 4px 12px rgba(0,0,0,0.12)',
+                  }
+              }
+          }
+      }
     </script>
     <style>
-        /* Custom Scrollbar Hide */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
+      /* Custom Scrollbar Hide */
+      .no-scrollbar::-webkit-scrollbar {
+          display: none;
+      }
 
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
+      .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+      }
 
-        /* Smooth Inputs */
-        input,
-        textarea {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+      /* Smooth Inputs */
+      input,
+      textarea {
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
 
-        /* Loading Spinner Animation */
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
+      /* Loading Spinner Animation */
+      @keyframes spin {
+          to {
+              transform: rotate(360deg);
+          }
+      }
 
-        .animate-spin-custom {
-            animation: spin 0.8s linear infinite;
-        }
+      .animate-spin-custom {
+          animation: spin 0.8s linear infinite;
+      }
 
-        /* Avatar overlay transition */
-        .avatar-overlay {
-            background: rgba(0, 0, 0, 0.4);
-            opacity: 0;
-            transition: opacity 0.2s ease;
-        }
+      /* Avatar overlay transition */
+      .avatar-overlay {
+          background: rgba(0, 0, 0, 0.4);
+          opacity: 0;
+          transition: opacity 0.2s ease;
+      }
 
-        .avatar-container:hover .avatar-overlay {
-            opacity: 1;
-        }
+      .avatar-container:hover .avatar-overlay {
+          opacity: 1;
+      }
     </style>
-</head>
+  </head>
 
-<body class="bg-[#111] min-h-screen w-full flex items-center justify-center p-4 selection:bg-brand-blue selection:text-white font-sans antialiased">
-
+  <body
+    class="bg-[#111] min-h-screen w-full flex items-center justify-center p-4 selection:bg-brand-blue selection:text-white font-sans antialiased"
+  >
     <!-- iPhone Frame Container -->
-    <div class="relative w-[375px] h-[812px] bg-black rounded-[50px] shadow-2xl ring-[14px] ring-[#2d2d2d] overflow-hidden flex flex-col shrink-0">
+    <div
+      class="relative w-[375px] h-[812px] bg-black rounded-[50px] shadow-2xl ring-[14px] ring-[#2d2d2d] overflow-hidden flex flex-col shrink-0"
+    >
+      <!-- Dynamic Island / Notch Area -->
+      <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[34px] bg-black rounded-b-[20px] z-50 pointer-events-none"
+      ></div>
 
-        <!-- Dynamic Island / Notch Area -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[34px] bg-black rounded-b-[20px] z-50 pointer-events-none">
+      <!-- Status Bar -->
+      <div
+        class="absolute top-[14px] left-[32px] z-50 text-white text-[14px] font-semibold tracking-wide pointer-events-none"
+      >
+        9:41
+      </div>
+      <div
+        class="absolute top-[14px] right-[28px] z-50 flex gap-1.5 text-white pointer-events-none"
+      >
+        <iconify-icon icon="solar:signal-linear" width="16"></iconify-icon>
+        <iconify-icon icon="solar:wi-fi-linear" width="16"></iconify-icon>
+        <iconify-icon
+          icon="solar:battery-full-linear"
+          width="16"
+        ></iconify-icon>
+      </div>
+
+      <!-- Screen Content -->
+      <div
+        class="relative w-full h-full overflow-hidden bg-black text-brand-text-primary flex flex-col"
+      >
+        <!-- Modal Close Button (Top Right) -->
+        <button
+          onclick="skipSetup()"
+          class="absolute top-[50px] right-6 z-20 text-brand-text-tertiary hover:text-white transition-colors p-2"
+        >
+          <iconify-icon
+            icon="solar:close-circle-linear"
+            width="28"
+          ></iconify-icon>
+        </button>
+
+        <!-- Background Gradient -->
+        <div class="fixed inset-0 pointer-events-none z-0">
+          <div
+            class="absolute top-[-10%] right-[-10%] w-[300px] h-[300px] bg-brand-blue/10 rounded-full blur-[80px]"
+          ></div>
+          <div
+            class="absolute bottom-[-10%] left-[-10%] w-[300px] h-[300px] bg-brand-dark/50 rounded-full blur-[80px]"
+          ></div>
         </div>
 
-        <!-- Status Bar -->
-        <div class="absolute top-[14px] left-[32px] z-50 text-white text-[14px] font-semibold tracking-wide pointer-events-none">
-            9:41</div>
-        <div class="absolute top-[14px] right-[28px] z-50 flex gap-1.5 text-white pointer-events-none">
-            <iconify-icon icon="solar:signal-linear" width="16"></iconify-icon>
-            <iconify-icon icon="solar:wi-fi-linear" width="16"></iconify-icon>
-            <iconify-icon icon="solar:battery-full-linear" width="16"></iconify-icon>
-        </div>
+        <!-- Content Container -->
+        <div
+          class="relative z-10 w-full px-6 pt-[80px] pb-8 flex flex-col h-full justify-between"
+        >
+          <!-- Top Section -->
+          <div class="flex flex-col items-center w-full">
+            <!-- Welcome Header -->
+            <div
+              class="flex flex-col items-center mb-6 text-center animate-fade-in"
+            >
+              <!-- Updated Logo Container -->
+              <div
+                class="w-16 h-16 bg-black rounded-2xl flex items-center justify-center mb-5 shadow-elevation-1 border border-white/10 overflow-hidden"
+              >
+                <img
+                  src="https://potential-dev.s3.ap-northeast-2.amazonaws.com/PotentialAi/media/0a6cd86a-961c-40f7-bc39-010aa7658a56-image (2).png"
+                  class="w-full h-full object-contain p-2"
+                  alt="Logo"
+                />
+              </div>
+              <h1
+                class="text-[28px] leading-tight font-semibold tracking-tight text-white mb-2"
+              >
+                Welcome to bside!
+              </h1>
+              <p class="text-[17px] text-brand-text-secondary font-normal">
+                Set up your profile to get started
+              </p>
+            </div>
 
-        <!-- Screen Content -->
-        <div class="relative w-full h-full overflow-hidden bg-black text-brand-text-primary flex flex-col">
+            <!-- Profile Photo Selector -->
+            <div class="flex flex-col items-center mb-6">
+              <div
+                class="relative group cursor-pointer avatar-container"
+                onclick="document.getElementById('file-upload').click()"
+              >
+                <!-- Avatar Image/Placeholder -->
+                <div
+                  id="avatar-preview"
+                  class="w-24 h-24 rounded-full bg-brand-dark border-2 border-brand-dark ring-2 ring-white/10 flex items-center justify-center overflow-hidden relative"
+                >
+                  <iconify-icon
+                    id="avatar-icon"
+                    icon="solar:camera-minimalistic-linear"
+                    class="text-brand-text-tertiary text-3xl"
+                  ></iconify-icon>
+                  <img
+                    id="avatar-img"
+                    src=""
+                    class="hidden w-full h-full object-cover"
+                  />
+                </div>
 
-            <!-- Modal Close Button (Top Right) -->
-            <button onclick="skipSetup()" class="absolute top-[50px] right-6 z-20 text-brand-text-tertiary hover:text-white transition-colors p-2">
-                <iconify-icon icon="solar:close-circle-linear" width="28"></iconify-icon>
+                <!-- Edit Overlay -->
+
+                <!-- Plus Badge -->
+                <div
+                  class="absolute bottom-0 right-0 w-8 h-8 bg-brand-blue rounded-full border-[3px] border-black flex items-center justify-center shadow-lg"
+                >
+                  <iconify-icon
+                    icon="solar:pen-new-square-linear"
+                    class="text-white text-[16px]"
+                  ></iconify-icon>
+                </div>
+              </div>
+              <button
+                onclick="document.getElementById('file-upload').click()"
+                class="mt-3 text-[15px] font-medium text-brand-blue hover:text-brand-blue/80 transition-colors"
+              >
+                Add Photo
+              </button>
+              <input
+                type="file"
+                id="file-upload"
+                class="hidden"
+                accept="image/*"
+                onchange="handleImageUpload(this)"
+              />
+            </div>
+
+            <!-- Form Section -->
+            <div class="space-y-4 w-full">
+              <!-- Username Input -->
+              <div class="space-y-2">
+                <label class="text-[13px] text-brand-text-secondary pl-1 block">
+                  Username
+                </label>
+                <div class="relative">
+                  <div
+                    class="absolute left-4 top-1/2 -translate-y-1/2 text-brand-text-tertiary"
+                  >
+                    <iconify-icon
+                      icon="solar:mention-circle-linear"
+                      width="20"
+                    ></iconify-icon>
+                  </div>
+                  <input
+                    type="text"
+                    id="username"
+                    value="art_lover_882"
+                    oninput="validateUsername(this.value)"
+                    class="w-full h-12 bg-brand-dark text-white text-[17px] rounded-xl pl-11 pr-10 border border-white/5 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue placeholder-brand-text-tertiary"
+                    placeholder="Choose a username"
+                  />
+                  <!-- Validation Status Icon -->
+                  <div
+                    class="absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center"
+                  >
+                    <iconify-icon
+                      id="status-check"
+                      icon="solar:check-circle-bold"
+                      class="text-brand-green text-xl hidden"
+                    ></iconify-icon>
+                    <iconify-icon
+                      id="status-error"
+                      icon="solar:close-circle-bold"
+                      class="text-brand-red text-xl hidden"
+                    ></iconify-icon>
+                    <iconify-icon
+                      id="status-spin"
+                      icon="svg-spinners:ring-resize"
+                      class="text-brand-text-tertiary text-lg hidden"
+                    ></iconify-icon>
+                  </div>
+                </div>
+                <p
+                  id="username-msg"
+                  class="text-[12px] pl-1 h-4 transition-colors text-brand-green"
+                >
+                  Username available
+                </p>
+              </div>
+
+              <!-- Bio Input -->
+              <div class="space-y-2">
+                <div class="flex justify-between items-end px-1">
+                  <label class="text-[13px] text-brand-text-secondary">
+                    Bio
+                    <span class="text-brand-text-tertiary">(optional)</span>
+                  </label>
+                </div>
+                <div class="relative">
+                  <textarea
+                    id="bio"
+                    oninput="updateCounter(this)"
+                    maxlength="200"
+                    class="w-full min-h-[90px] bg-brand-dark text-white text-[16px] leading-relaxed rounded-xl p-4 border border-white/5 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue placeholder-brand-text-tertiary resize-none"
+                    placeholder="Tell us a bit about yourself..."
+                  ></textarea>
+                  <div
+                    class="absolute bottom-3 right-3 text-[12px] text-brand-text-tertiary bg-brand-dark/80 px-1 rounded"
+                  >
+                    <span id="char-count">0</span>
+                    / 200
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer Actions -->
+          <div
+            class="mt-auto w-full flex flex-col items-center space-y-3 pt-2 pb-4"
+          >
+            <button
+              id="complete-btn"
+              onclick="completeSetup()"
+              class="w-full h-[52px] bg-white hover:bg-white/90 text-black font-semibold text-[17px] rounded-xl flex items-center justify-center shadow-elevation-2 active:scale-[0.98] transition-all"
+            >
+              <span id="btn-text">Complete</span>
+              <iconify-icon
+                id="btn-loader"
+                icon="svg-spinners:ring-resize"
+                class="hidden text-xl text-black"
+              ></iconify-icon>
             </button>
 
-            <!-- Background Gradient -->
-            <div class="fixed inset-0 pointer-events-none z-0">
-                <div class="absolute top-[-10%] right-[-10%] w-[300px] h-[300px] bg-brand-blue/10 rounded-full blur-[80px]">
-                </div>
-                <div class="absolute bottom-[-10%] left-[-10%] w-[300px] h-[300px] bg-brand-dark/50 rounded-full blur-[80px]">
-                </div>
-            </div>
-
-            <!-- Content Container -->
-            <div class="relative z-10 w-full px-6 pt-[80px] pb-8 flex flex-col h-full justify-between">
-
-                <!-- Top Section -->
-                <div class="flex flex-col items-center w-full">
-                    <!-- Welcome Header -->
-                    <div class="flex flex-col items-center mb-6 text-center animate-fade-in">
-                        <div class="w-16 h-16 bg-gradient-to-tr from-brand-dark to-[#2C2C2E] rounded-2xl flex items-center justify-center mb-5 shadow-elevation-1 border border-white/5">
-                            <iconify-icon icon="solar:stars-minimalistic-linear" class="text-brand-blue text-3xl"></iconify-icon>
-                        </div>
-                        <h1 class="text-[28px] leading-tight font-semibold tracking-tight text-white mb-2">
-                            Welcome to bside!
-                        </h1>
-                        <p class="text-[17px] text-brand-text-secondary font-normal">
-                            Set up your profile to get started
-                        </p>
-                    </div>
-
-                    <!-- Profile Photo Selector -->
-                    <div class="flex flex-col items-center mb-6">
-                        <div class="relative group cursor-pointer avatar-container" onclick="document.getElementById('file-upload').click()">
-                            <!-- Avatar Image/Placeholder -->
-                            <div id="avatar-preview" class="w-24 h-24 rounded-full bg-brand-dark border-2 border-brand-dark ring-2 ring-white/10 flex items-center justify-center overflow-hidden relative">
-                                <iconify-icon id="avatar-icon" icon="solar:camera-minimalistic-linear" class="text-brand-text-tertiary text-3xl"></iconify-icon>
-                                <img id="avatar-img" src="" class="hidden w-full h-full object-cover">
-                            </div>
-
-                            <!-- Edit Overlay -->
-                            <div class="avatar-overlay absolute inset-0 rounded-full flex items-center justify-center pointer-events-none">
-                                <iconify-icon icon="solar:pen-new-square-linear" class="text-white text-xl"></iconify-icon>
-                            </div>
-
-                            <!-- Plus Badge -->
-                            <div class="absolute bottom-0 right-0 w-8 h-8 bg-brand-blue rounded-full border-[3px] border-black flex items-center justify-center shadow-lg">
-                                <iconify-icon icon="solar:add-linear" class="text-white text-lg font-bold"></iconify-icon>
-                            </div>
-                        </div>
-                        <button onclick="document.getElementById('file-upload').click()" class="mt-3 text-[15px] font-medium text-brand-blue hover:text-brand-blue/80 transition-colors">
-                            Add Photo
-                        </button>
-                        <input type="file" id="file-upload" class="hidden" accept="image/*" onchange="handleImageUpload(this)">
-                    </div>
-
-                    <!-- Form Section -->
-                    <div class="space-y-4 w-full">
-                        <!-- Username Input -->
-                        <div class="space-y-2">
-                            <label class="text-[13px] text-brand-text-secondary pl-1 block">Username</label>
-                            <div class="relative">
-                                <div class="absolute left-4 top-1/2 -translate-y-1/2 text-brand-text-tertiary">
-                                    <iconify-icon icon="solar:mention-circle-linear" width="20"></iconify-icon>
-                                </div>
-                                <input type="text" id="username" value="art_lover_882" oninput="validateUsername(this.value)" class="w-full h-12 bg-brand-dark text-white text-[17px] rounded-xl pl-11 pr-10 border border-white/5 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue placeholder-brand-text-tertiary" placeholder="Choose a username">
-                                <!-- Validation Status Icon -->
-                                <div class="absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center">
-                                    <iconify-icon id="status-check" icon="solar:check-circle-bold" class="text-brand-green text-xl hidden"></iconify-icon>
-                                    <iconify-icon id="status-error" icon="solar:close-circle-bold" class="text-brand-red text-xl hidden"></iconify-icon>
-                                    <iconify-icon id="status-spin" icon="svg-spinners:ring-resize" class="text-brand-text-tertiary text-lg hidden"></iconify-icon>
-                                </div>
-                            </div>
-                            <p id="username-msg" class="text-[12px] pl-1 h-4 transition-colors text-brand-green">Username
-                                available</p>
-                        </div>
-
-                        <!-- Bio Input -->
-                        <div class="space-y-2">
-                            <div class="flex justify-between items-end px-1">
-                                <label class="text-[13px] text-brand-text-secondary">Bio <span class="text-brand-text-tertiary">(optional)</span></label>
-                            </div>
-                            <div class="relative">
-                                <textarea id="bio" oninput="updateCounter(this)" maxlength="200" class="w-full min-h-[90px] bg-brand-dark text-white text-[16px] leading-relaxed rounded-xl p-4 border border-white/5 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue placeholder-brand-text-tertiary resize-none" placeholder="Tell us a bit about yourself..."></textarea>
-                                <div class="absolute bottom-3 right-3 text-[12px] text-brand-text-tertiary bg-brand-dark/80 px-1 rounded">
-                                    <span id="char-count">0</span> / 200
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Footer Actions -->
-                <div class="mt-auto w-full flex flex-col items-center space-y-3 pt-2 pb-4">
-                    <button id="complete-btn" onclick="completeSetup()" class="w-full h-[52px] bg-white hover:bg-white/90 text-black font-semibold text-[17px] rounded-xl flex items-center justify-center shadow-elevation-2 active:scale-[0.98] transition-all">
-                        <span id="btn-text">Complete</span>
-                        <iconify-icon id="btn-loader" icon="svg-spinners:ring-resize" class="hidden text-xl text-black"></iconify-icon>
-                    </button>
-                    
-                    <button onclick="skipSetup()" class="text-[15px] font-medium text-brand-text-secondary hover:text-white transition-colors py-2 active:opacity-70">
-                        Skip for now
-                    </button>
-                </div>
-
-            </div>
-
-            <!-- Home Indicator -->
-            <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-[134px] h-[5px] bg-white/30 rounded-full z-50">
-            </div>
+            <button
+              onclick="skipSetup()"
+              class="text-[15px] font-medium text-brand-text-secondary hover:text-white transition-colors py-2 active:opacity-70"
+            >
+              Skip for now
+            </button>
+          </div>
         </div>
+
+        <!-- Home Indicator -->
+        <div
+          class="absolute bottom-2 left-1/2 -translate-x-1/2 w-[134px] h-[5px] bg-white/30 rounded-full z-50"
+        ></div>
+      </div>
     </div>
 
     <script>
-        // State management for debounce
-        let timeoutId;
+      // State management for debounce
+      let timeoutId;
 
-        // Initialize view
-        document.addEventListener('DOMContentLoaded', () => {
-            // Run validation once for the default value
-            validateUsername(document.getElementById('username').value);
-        });
+      // Initialize view
+      document.addEventListener('DOMContentLoaded', () => {
+          // Run validation once for the default value
+          validateUsername(document.getElementById('username').value);
+      });
 
-        // Image Upload Handler
-        function handleImageUpload(input) {
-            if (input.files && input.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const img = document.getElementById('avatar-img');
-                    const icon = document.getElementById('avatar-icon');
-                    img.src = e.target.result;
-                    img.classList.remove('hidden');
-                    icon.classList.add('hidden');
-                }
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
+      // Image Upload Handler
+      function handleImageUpload(input) {
+          if (input.files && input.files[0]) {
+              const reader = new FileReader();
+              reader.onload = function(e) {
+                  const img = document.getElementById('avatar-img');
+                  const icon = document.getElementById('avatar-icon');
+                  img.src = e.target.result;
+                  img.classList.remove('hidden');
+                  icon.classList.add('hidden');
+              }
+              reader.readAsDataURL(input.files[0]);
+          }
+      }
 
-        // Username Validation
-        function validateUsername(value) {
-            const spin = document.getElementById('status-spin');
-            const check = document.getElementById('status-check');
-            const error = document.getElementById('status-error');
-            const msg = document.getElementById('username-msg');
-            const btn = document.getElementById('complete-btn');
+      // Username Validation
+      function validateUsername(value) {
+          const spin = document.getElementById('status-spin');
+          const check = document.getElementById('status-check');
+          const error = document.getElementById('status-error');
+          const msg = document.getElementById('username-msg');
+          const btn = document.getElementById('complete-btn');
 
-            // Reset UI
-            spin.classList.remove('hidden');
-            check.classList.add('hidden');
-            error.classList.add('hidden');
-            msg.textContent = 'Checking availability...';
-            msg.className = 'text-[12px] pl-1 h-4 transition-colors text-brand-text-tertiary';
-            
-            // Clear previous timeout
-            clearTimeout(timeoutId);
+          // Reset UI
+          spin.classList.remove('hidden');
+          check.classList.add('hidden');
+          error.classList.add('hidden');
+          msg.textContent = 'Checking availability...';
+          msg.className = 'text-[12px] pl-1 h-4 transition-colors text-brand-text-tertiary';
 
-            // Debounce simulation
-            timeoutId = setTimeout(() => {
-                spin.classList.add('hidden');
-                
-                if (value.length < 3) {
-                    error.classList.remove('hidden');
-                    msg.textContent = 'Username must be at least 3 characters';
-                    msg.className = 'text-[12px] pl-1 h-4 transition-colors text-brand-red';
-                    btn.classList.add('opacity-50', 'pointer-events-none');
-                } else if (value.toLowerCase() === 'admin') {
-                    // Simulate taken username
-                    error.classList.remove('hidden');
-                    msg.textContent = 'Username already taken';
-                    msg.className = 'text-[12px] pl-1 h-4 transition-colors text-brand-red';
-                    btn.classList.add('opacity-50', 'pointer-events-none');
-                } else {
-                    // Success
-                    check.classList.remove('hidden');
-                    msg.textContent = 'Username available';
-                    msg.className = 'text-[12px] pl-1 h-4 transition-colors text-brand-green';
-                    btn.classList.remove('opacity-50', 'pointer-events-none');
-                }
-            }, 600);
-        }
+          // Clear previous timeout
+          clearTimeout(timeoutId);
 
-        // Bio Character Counter
-        function updateCounter(textarea) {
-            const count = document.getElementById('char-count');
-            const currentLength = textarea.value.length;
-            count.textContent = currentLength;
-            
-            if (currentLength >= 200) {
-                count.classList.add('text-brand-red');
-            } else {
-                count.classList.remove('text-brand-red');
-            }
-        }
+          // Debounce simulation
+          timeoutId = setTimeout(() => {
+              spin.classList.add('hidden');
 
-        // Complete Action
-        function completeSetup() {
-            const btn = document.getElementById('complete-btn');
-            const text = document.getElementById('btn-text');
-            const loader = document.getElementById('btn-loader');
+              if (value.length < 3) {
+                  error.classList.remove('hidden');
+                  msg.textContent = 'Username must be at least 3 characters';
+                  msg.className = 'text-[12px] pl-1 h-4 transition-colors text-brand-red';
+                  btn.classList.add('opacity-50', 'pointer-events-none');
+              } else if (value.toLowerCase() === 'admin') {
+                  // Simulate taken username
+                  error.classList.remove('hidden');
+                  msg.textContent = 'Username already taken';
+                  msg.className = 'text-[12px] pl-1 h-4 transition-colors text-brand-red';
+                  btn.classList.add('opacity-50', 'pointer-events-none');
+              } else {
+                  // Success
+                  check.classList.remove('hidden');
+                  msg.textContent = 'Username available';
+                  msg.className = 'text-[12px] pl-1 h-4 transition-colors text-brand-green';
+                  btn.classList.remove('opacity-50', 'pointer-events-none');
+              }
+          }, 600);
+      }
 
-            text.classList.add('hidden');
-            loader.classList.remove('hidden');
-            btn.disabled = true;
+      // Bio Character Counter
+      function updateCounter(textarea) {
+          const count = document.getElementById('char-count');
+          const currentLength = textarea.value.length;
+          count.textContent = currentLength;
 
-            // Simulate API Call
-            setTimeout(() => {
-                // Success Toast/Transition would happen here
-                loader.classList.add('hidden');
-                text.classList.remove('hidden');
-                text.textContent = 'Success!';
-                
-                setTimeout(() => {
-                     window.location.href = './06-feed.html';
-                }, 500);
-            }, 1500);
-        }
+          if (currentLength >= 200) {
+              count.classList.add('text-brand-red');
+          } else {
+              count.classList.remove('text-brand-red');
+          }
+      }
 
-        // Skip Action
-        function skipSetup() {
-            // Simulate navigation
-            const container = document.querySelector('.relative.w-full.h-full');
-            container.style.opacity = '0';
-            container.style.transform = 'scale(0.95)';
-            container.style.transition = 'all 0.3s ease';
-            
-            setTimeout(() => {
-                window.location.href = './06-feed.html';
-            }, 300);
-        }
+      // Complete Action
+      function completeSetup() {
+          const btn = document.getElementById('complete-btn');
+          const text = document.getElementById('btn-text');
+          const loader = document.getElementById('btn-loader');
+
+          text.classList.add('hidden');
+          loader.classList.remove('hidden');
+          btn.disabled = true;
+
+          // Simulate API Call
+          setTimeout(() => {
+              // Success Toast/Transition would happen here
+              loader.classList.add('hidden');
+              text.classList.remove('hidden');
+              text.textContent = 'Success!';
+
+              setTimeout(() => {
+                   // Normally would navigate to /feed
+                   console.log("Navigate to Feed");
+              }, 500);
+          }, 1500);
+      }
+
+      // Skip Action
+      function skipSetup() {
+          // Simulate navigation
+          const container = document.querySelector('.relative.w-full.h-full');
+          container.style.opacity = '0';
+          container.style.transform = 'scale(0.95)';
+          container.style.transition = 'all 0.3s ease';
+
+          setTimeout(() => {
+              console.log("Navigating to Feed (Defaults)...");
+          }, 300);
+      }
     </script>
-</body></html>
+  </body>
+</html>

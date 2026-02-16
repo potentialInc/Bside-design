@@ -1,126 +1,191 @@
-<!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title>bside.art | Recognition Success</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
-<style>
-:root {
---primary: #1C1C1E;
---blue: #007AFF;
---success: #34C759;
---safe-bottom: 34px;
-}
-body {
-font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-background-color: #000;
-color: #FFFFFF;
-display: flex;
-align-items: center;
-justify-content: center;
-min-height: 100vh;
-margin: 0;
-padding: 20px;
-}
-.device-frame {
-width: 375px;
-height: 812px;
-background: #000000;
-border-radius: 40px;
-box-shadow: 0 0 0 12px #2d2d2d, 0 20px 50px rgba(0,0,0,0.5);
-position: relative;
-overflow: hidden;
-border: 8px solid #000;
-}
-.notch {
-position: absolute;
-top: 0;
-left: 50%;
-transform: translateX(-50%);
-width: 120px;
-height: 30px;
-background: #000;
-border-bottom-left-radius: 16px;
-border-bottom-right-radius: 16px;
-z-index: 100;
-}
-.status-time {
-position: absolute;
-top: 12px;
-left: 24px;
-font-size: 14px;
-font-weight: 600;
-color: white;
-z-index: 100;
-}
-.status-icons {
-position: absolute;
-top: 14px;
-right: 24px;
-display: flex;
-gap: 6px;
-color: white;
-font-size: 12px;
-z-index: 100;
-}
-.home-indicator {
-position: absolute;
-bottom: 8px;
-left: 50%;
-transform: translateX(-50%);
-width: 134px;
-height: 5px;
-background: white;
-border-radius: 100px;
-opacity: 0.4;
-z-index: 1000; /* Above sheet */
-}
-/* Camera Viewfinder Corners */
-.viewfinder-corner {
-position: absolute;
-width: 40px;
-height: 40px;
-border-color: rgba(255, 255, 255, 0.5);
-border-style: solid;
-border-width: 0;
-pointer-events: none;
-}
-.tl { top: 60px; left: 24px; border-top-width: 2px; border-left-width: 2px; border-radius: 12px 0 0 0; }
-.tr { top: 60px; right: 24px; border-top-width: 2px; border-right-width: 2px; border-radius: 0 12px 0 0; }
-.bl { bottom: 120px; left: 24px; border-bottom-width: 2px; border-left-width: 2px; border-radius: 0 0 0 12px; }
-.br { bottom: 120px; right: 24px; border-bottom-width: 2px; border-right-width: 2px; border-radius: 0 0 12px 0; }
-/* Bottom Sheet Animation */
-@keyframes slideUp {
-from { transform: translateY(100%); }
-to { transform: translateY(0); }
-}
-.bottom-sheet {
-animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
-}
-/* Image Fade In */
-@keyframes fadeIn {
-from { opacity: 0; }
-to { opacity: 1; }
-}
-.artwork-image {
-animation: fadeIn 0.6s ease-out 0.2s forwards;
-opacity: 0;
-}
-/* Shimmer Loading Effect */
-.shimmer {
-background: linear-gradient(90deg, #2c2c2e 0%, #3a3a3c 50%, #2c2c2e 100%);
-background-size: 200% 100%;
-animation: shimmer 1.5s infinite;
-}
-@keyframes shimmer {
-0% { background-position: -200% 0; }
-100% { background-position: 200% 0; }
-}
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-</style></head>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>bside.art | Recognition Success</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1C1C1E;
+            --blue: #007AFF;
+            --success: #34C759;
+            --safe-bottom: 34px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #000;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .device-frame {
+            width: 375px;
+            height: 812px;
+            background: #000000;
+            border-radius: 40px;
+            box-shadow: 0 0 0 12px #2d2d2d, 0 20px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            border: 8px solid #000;
+        }
+
+        .notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 30px;
+            background: #000;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+            z-index: 100;
+        }
+
+        .status-time {
+            position: absolute;
+            top: 12px;
+            left: 24px;
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            z-index: 100;
+        }
+
+        .status-icons {
+            position: absolute;
+            top: 14px;
+            right: 24px;
+            display: flex;
+            gap: 6px;
+            color: white;
+            font-size: 12px;
+            z-index: 100;
+        }
+
+        .home-indicator {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 134px;
+            height: 5px;
+            background: white;
+            border-radius: 100px;
+            opacity: 0.4;
+            z-index: 1000;
+        }
+
+        /* Camera Viewfinder Corners */
+        .viewfinder-corner {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-color: rgba(255, 255, 255, 0.5);
+            border-style: solid;
+            border-width: 0;
+            pointer-events: none;
+        }
+
+        .tl {
+            top: 60px;
+            left: 24px;
+            border-top-width: 2px;
+            border-left-width: 2px;
+            border-radius: 12px 0 0 0;
+        }
+
+        .tr {
+            top: 60px;
+            right: 24px;
+            border-top-width: 2px;
+            border-right-width: 2px;
+            border-radius: 0 12px 0 0;
+        }
+
+        .bl {
+            bottom: 120px;
+            left: 24px;
+            border-bottom-width: 2px;
+            border-left-width: 2px;
+            border-radius: 0 0 0 12px;
+        }
+
+        .br {
+            bottom: 120px;
+            right: 24px;
+            border-bottom-width: 2px;
+            border-right-width: 2px;
+            border-radius: 0 0 12px 0;
+        }
+
+        /* Bottom Sheet Animation */
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .bottom-sheet {
+            animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Image Fade In */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .artwork-image {
+            animation: fadeIn 0.6s ease-out 0.2s forwards;
+            opacity: 0;
+        }
+
+        /* Shimmer Loading Effect */
+        .shimmer {
+            background: linear-gradient(90deg, #2c2c2e 0%, #3a3a3c 50%, #2c2c2e 100%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
 <body>
 
     <div class="device-frame relative">
@@ -133,17 +198,17 @@ animation: shimmer 1.5s infinite;
             <iconify-icon icon="solar:battery-full-solid"></iconify-icon>
         </div>
 
-        <!-- Background: Camera View (Page 9 Simulation) -->
+        <!-- Background: Camera View -->
         <div class="absolute inset-0 bg-black overflow-hidden z-0">
             <!-- Simulated blurred camera feed -->
-            <img src="https://images.unsplash.com/photo-1544212711-c990d0b0b8c6?q=80&amp;w=600&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover opacity-60 scale-105 filter blur-[2px]" alt="Camera Feed">
-            
+            <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=2670&auto=format&fit=crop" class="w-full h-full object-cover opacity-60 scale-105 filter blur-[2px]" alt="Camera Feed">
+
             <!-- Viewfinder UI Elements (Background Context) -->
             <div class="viewfinder-corner tl"></div>
             <div class="viewfinder-corner tr"></div>
             <div class="viewfinder-corner bl"></div>
             <div class="viewfinder-corner br"></div>
-            
+
             <!-- Shutter Button (Partially visible/inactive) -->
             <div class="absolute bottom-[50px] left-1/2 -translate-x-1/2 w-[72px] h-[72px] rounded-full border-[4px] border-white flex items-center justify-center opacity-50">
                 <div class="w-[60px] h-[60px] bg-white rounded-full"></div>
@@ -151,11 +216,12 @@ animation: shimmer 1.5s infinite;
         </div>
 
         <!-- Backdrop -->
-        <div class="absolute inset-0 bg-black/60 z-10 backdrop-blur-sm transition-opacity" onclick="dismissSheet()"></div>
+        <div class="absolute inset-0 bg-black/60 z-10 backdrop-blur-sm transition-opacity" onclick="dismissSheet()">
+        </div>
 
         <!-- Recognition Success Bottom Sheet -->
         <div class="bottom-sheet absolute bottom-0 left-0 right-0 bg-[#1C1C1E] rounded-t-[16px] z-20 max-h-[85%] overflow-hidden flex flex-col">
-            
+
             <!-- Handle -->
             <div class="w-full flex justify-center pt-3 pb-1">
                 <div class="w-[36px] h-[5px] bg-white/20 rounded-full"></div>
@@ -163,7 +229,7 @@ animation: shimmer 1.5s infinite;
 
             <!-- Scrollable Content Area -->
             <div class="overflow-y-auto no-scrollbar pb-[40px]">
-                
+
                 <!-- Header -->
                 <div class="px-4 pt-2 pb-4 flex items-center justify-between">
                     <div class="flex items-center gap-2">
@@ -175,23 +241,17 @@ animation: shimmer 1.5s infinite;
                     </button>
                 </div>
 
-                <!-- Corrected Artwork Image -->
-                <!-- Edge-to-edge as requested, shimmer loading bg -->
+                <!-- Artwork Image (Clean, No Overlays) -->
                 <div class="w-full h-[320px] bg-[#2C2C2E] relative shimmer overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1578301978693-85e40d29469e?q=80&amp;w=800&amp;auto=format&amp;fit=crop" class="artwork-image w-full h-full object-cover" alt="Corrected Artwork">
-                    
-                    <!-- AI Tag Overlay -->
-                    <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-md px-2 py-1 rounded-lg flex items-center gap-1.5 border border-white/10 artwork-image">
-                        <iconify-icon icon="solar:magic-stick-3-linear" class="text-white/90 text-[12px]"></iconify-icon>
-                        <span class="text-[11px] font-medium text-white/90">AI Corrected</span>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=2670&auto=format&fit=crop" class="artwork-image w-full h-full object-cover" alt="Recognized Artwork">
                 </div>
 
                 <!-- Artwork Details -->
                 <div class="px-4 pt-5">
                     <!-- Title -->
-                    <h1 class="text-[20px] font-semibold text-white leading-snug mb-2 tracking-tight">The Starry Night (Cypress and Village)</h1>
-                    
+                    <h1 class="text-[20px] font-semibold text-white leading-snug mb-2 tracking-tight">The Starry Night
+                        (Cypress and Village)</h1>
+
                     <!-- Artist (Tappable) -->
                     <button class="text-[15px] text-white/60 hover:text-white transition-colors mb-2 text-left active:opacity-70 flex items-center gap-1 group">
                         Vincent van Gogh
@@ -225,9 +285,9 @@ animation: shimmer 1.5s infinite;
                         <span class="text-[15px] font-semibold">Add to Collection</span>
                     </button>
 
-                    <!-- View Details (Secondary) -->
-                    <button onclick="window.location.href='./09-artwork-detail.html'" class="w-full h-[48px] bg-transparent text-[#007AFF] rounded-xl flex items-center justify-center active:bg-white/5 transition-colors">
-                        <span class="text-[15px] font-semibold">View Details</span>
+                    <!-- Edit Details (Secondary) -->
+                    <button class="w-full h-[48px] bg-transparent text-[#007AFF] rounded-xl flex items-center justify-center gap-2 active:bg-white/5 transition-colors">
+                        <span class="text-[15px] font-semibold">Edit Details</span>
                     </button>
                 </div>
 
@@ -251,10 +311,8 @@ animation: shimmer 1.5s infinite;
                 backdrop.style.opacity = '0';
             }
 
-            // In a real app, this would remove the DOM elements or navigate back after timeout
             setTimeout(() => {
-                window.location.href = './12-camera-view.html';
-                // Reset for demo purposes
+                console.log("Sheet dismissed");
                 // location.reload(); 
             }, 300);
         }
@@ -306,5 +364,4 @@ animation: shimmer 1.5s infinite;
         `;
         document.head.appendChild(styleSheet);
     </script>
-
 </body></html>

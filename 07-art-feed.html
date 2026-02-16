@@ -1,115 +1,218 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title>bside.art | Feed</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
-<script src="https://unpkg.com/lucide@latest"></script>
-<style>
-body {
-font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-background-color: #111;
-display: flex;
-align-items: center;
-justify-content: center;
-min-height: 100vh;
-margin: 0;
-padding: 20px;
-}
-.device-frame {
-width: 375px;
-height: 812px;
-background: #ffffff;
-border-radius: 44px;
-box-shadow: 0 0 0 12px #1a1a1a, 0 20px 50px rgba(0,0,0,0.5);
-position: relative;
-overflow: hidden;
-}
-/* Custom scrollbar hiding */
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-</style></head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <title>bside.art | Feed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <style>
+      body {
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+          background-color: #111;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 100vh;
+          margin: 0;
+          padding: 20px;
+      }
 
+      .device-frame {
+          width: 375px;
+          height: 812px;
+          background: #000000;
+          border-radius: 44px;
+          box-shadow: 0 0 0 12px #1a1a1a, 0 20px 50px rgba(0, 0, 0, 0.5);
+          position: relative;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+      }
+
+      .no-scrollbar::-webkit-scrollbar {
+          display: none;
+      }
+
+      .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+      }
+    </style>
+  </head>
+
+  <body>
     <div class="device-frame">
-        
-        <!-- Main Scrollable Feed -->
-        <div class="h-full overflow-y-auto no-scrollbar pb-8 bg-white">
-            
-            <!-- Card 1: Nuance -->
-            <div class="w-full flex flex-col border-b border-gray-50/50">
-                <div class="w-full relative">
-                    <!-- Added fixed height and object-cover for consistency -->
-                    <img src="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&amp;w=800&amp;auto=format&amp;fit=crop" class="w-full h-[500px] object-cover block" alt="Art 1">
-                </div>
-                <div class="px-5 pt-3.5 pb-6 bg-white">
-                    <h3 class="text-[15px] font-semibold text-black tracking-tight leading-snug">Nuance</h3>
-                    <p class="text-[15px] text-gray-500 font-normal leading-snug mt-0.5">Chansong Kim</p>
-                    <div class="flex justify-between items-end mt-5">
-                        <div class="flex flex-col gap-0.5">
-                            <span class="text-[11px] text-gray-500 font-medium tracking-tight leading-none">Oil on Canvas</span>
-                            <span class="text-[11px] text-gray-500 font-medium tracking-tight leading-none">2023</span>
-                        </div>
-                        <div class="flex items-center gap-1.5 pb-0.5 opacity-90">
-                            <i data-lucide="eye" class="w-3.5 h-3.5 text-black fill-black/10" stroke-width="2.5"></i>
-                            <span class="text-[11px] font-bold text-black tracking-tight">1,424</span>
-                        </div>
-                    </div>
-                </div>
+      <!-- Main Scrollable Feed -->
+      <div class="flex-1 overflow-y-auto no-scrollbar bg-black">
+        <div
+          class="px-5 pt-14 pb-4 bg-black text-white z-20 flex flex-col gap-5 border-b border-zinc-900/50"
+        >
+          <!-- Top Navigation -->
+          <div class="flex items-center justify-between">
+            <button class="text-white hover:text-gray-300 transition-colors">
+              <iconify-icon icon="solar:alt-arrow-left-linear" width="24"></iconify-icon>
+            </button>
+            <h1 class="text-sm font-semibold tracking-wide">
+              Frieze London 2026
+            </h1>
+            <button class="text-white hover:text-gray-300 transition-colors">
+              <!-- Updated icon to match the solid dots image -->
+              <iconify-icon icon="solar:menu-dots-bold" width="24"></iconify-icon>
+            </button>
+          </div>
+
+          <!-- Collection Info -->
+          <div class="flex flex-col gap-3">
+            <div class="text-[13px] text-zinc-400 font-normal">
+              Captured by
+              <span class="text-white font-medium">hanjaekim</span>
             </div>
 
-            <!-- Card 2: Fabian Madri -->
-            <div class="w-full flex flex-col border-b border-gray-50/50">
-                <div class="w-full relative">
-                    <!-- Maintained fixed height -->
-                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&amp;w=800&amp;auto=format&amp;fit=crop" class="w-full h-[500px] object-cover block" alt="Art 2">
-                </div>
-                <div class="px-5 pt-3.5 pb-6 bg-white">
-                    <h3 class="text-[15px] font-semibold text-black tracking-tight leading-snug">Fabian Madri</h3>
-                    <p class="text-[15px] text-gray-500 font-normal leading-snug mt-0.5">Colors</p>
-                    <div class="flex justify-between items-end mt-5">
-                        <div class="flex flex-col gap-0.5">
-                            <span class="text-[11px] text-gray-500 font-medium tracking-tight leading-none">Oil on Canvas</span>
-                            <span class="text-[11px] text-gray-500 font-medium tracking-tight leading-none">2023</span>
-                        </div>
-                        <div class="flex items-center gap-1.5 pb-0.5 opacity-90">
-                            <i data-lucide="eye" class="w-3.5 h-3.5 text-black fill-black/10" stroke-width="2.5"></i>
-                            <span class="text-[11px] font-bold text-black tracking-tight">1,400</span>
-                        </div>
-                    </div>
-                </div>
+            <!-- Meta Tags -->
+            <div
+              class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-zinc-500 font-medium"
+            >
+              <div class="flex items-center gap-1.5">
+                <iconify-icon icon="solar:calendar-linear" width="12"></iconify-icon>
+                <span>Feb 17 2026</span>
+              </div>
+              <div class="w-0.5 h-0.5 rounded-full bg-zinc-700"></div>
+              <div class="flex items-center gap-1.5">
+                <iconify-icon icon="solar:map-point-linear" width="12"></iconify-icon>
+                <span>London, UK</span>
+              </div>
+              <div class="w-0.5 h-0.5 rounded-full bg-zinc-700"></div>
+              <div class="flex items-center gap-1.5">
+                <iconify-icon icon="solar:users-group-rounded-linear" width="12"></iconify-icon>
+                <span>2,647 friends were there</span>
+              </div>
             </div>
 
-            <!-- Card 3: Magritte Replacement -->
-            <div class="w-full flex flex-col">
-                <div class="w-full relative">
-                    <!-- Changed source to a frameless portrait image and added fixed height -->
-                    <img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?q=80&amp;w=800&amp;auto=format&amp;fit=crop" class="w-full h-[500px] object-cover block" alt="The Son of Man">
-                </div>
-                <div class="px-5 pt-3.5 pb-6 bg-white">
-                    <h3 class="text-[15px] font-semibold text-black tracking-tight leading-snug">Nuance</h3>
-                    <p class="text-[15px] text-gray-500 font-normal leading-snug mt-0.5">Rene Magritte</p>
-                    <div class="flex justify-between items-end mt-5">
-                        <div class="flex flex-col gap-0.5">
-                            <span class="text-[11px] text-gray-500 font-medium tracking-tight leading-none">Oil on Canvas</span>
-                            <span class="text-[11px] text-gray-500 font-medium tracking-tight leading-none">2023</span>
-                        </div>
-                        <div class="flex items-center gap-1.5 pb-0.5 opacity-90">
-                            <i data-lucide="eye" class="w-3.5 h-3.5 text-black fill-black/10" stroke-width="2.5"></i>
-                            <span class="text-[11px] font-bold text-black tracking-tight">1,424</span>
-                        </div>
-                    </div>
-                </div>
+            <!-- Artworks Count -->
+            <div
+              class="flex items-center gap-1.5 text-[11px] text-zinc-400 font-medium"
+            >
+              <iconify-icon icon="solar:layers-linear" width="12"></iconify-icon>
+              <span>47 Artworks</span>
             </div>
-
+          </div>
         </div>
 
-        <!-- Home Indicator -->
-        <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-[134px] h-[5px] bg-black rounded-full pointer-events-none z-50"></div>
+        <!-- Card 1: Nuance -->
+        <div class="w-full flex flex-col mb-6">
+          <div class="w-full relative">
+            <img
+              src="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&amp;w=800&amp;auto=format&amp;fit=crop"
+              class="w-full h-[480px] object-cover block"
+              alt="Art 1"
+            />
+          </div>
+          <div class="px-4 py-4 bg-black">
+            <div class="flex justify-between items-start">
+              <div class="flex flex-col gap-0.5">
+                <h3 class="text-sm font-medium text-white tracking-tight">
+                  Nuance
+                </h3>
+                <p class="text-[13px] text-zinc-400 font-normal">
+                  Chansong Kim
+                </p>
+              </div>
+              <!-- Camera Section -->
+              <div class="flex items-center gap-1.5">
+                <iconify-icon icon="solar:camera-bold" width="18" class="text-zinc-300"></iconify-icon>
+                <span class="text-sm font-medium text-white">1,424</span>
+              </div>
+            </div>
+            <div class="flex flex-col gap-0.5 mt-4">
+              <span class="text-[11px] text-zinc-500 font-normal">
+                Oil on Canvas
+              </span>
+              <span class="text-[11px] text-zinc-500 font-normal">2023</span>
+            </div>
+          </div>
+        </div>
 
+        <!-- Card 2: Abstract -->
+        <div class="w-full flex flex-col mb-6">
+          <div class="w-full relative">
+            <img
+              src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&amp;w=800&amp;auto=format&amp;fit=crop"
+              class="w-full h-[480px] object-cover block"
+              alt="Art 2"
+            />
+          </div>
+          <div class="px-4 py-4 bg-black">
+            <div class="flex justify-between items-start">
+              <div class="flex flex-col gap-0.5">
+                <h3 class="text-sm font-medium text-white tracking-tight">
+                  Nuance
+                </h3>
+                <p class="text-[13px] text-zinc-400 font-normal">
+                  Chansong Kim
+                </p>
+              </div>
+              <!-- Camera Section -->
+              <div class="flex items-center gap-1.5">
+                <iconify-icon icon="solar:camera-bold" width="18" class="text-zinc-300"></iconify-icon>
+                <span class="text-sm font-medium text-white">1,424</span>
+              </div>
+            </div>
+            <div class="flex flex-col gap-0.5 mt-4">
+              <span class="text-[11px] text-zinc-500 font-normal">
+                Oil on Canvas
+              </span>
+              <span class="text-[11px] text-zinc-500 font-normal">2023</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Magritte -->
+        <div class="w-full flex flex-col mb-12">
+          <div class="w-full relative">
+            <img
+              src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?q=80&amp;w=800&amp;auto=format&amp;fit=crop"
+              class="w-full h-[480px] object-cover block"
+              alt="The Son of Man"
+            />
+          </div>
+          <div class="px-4 py-4 bg-black">
+            <div class="flex justify-between items-start">
+              <div class="flex flex-col gap-0.5">
+                <h3 class="text-sm font-medium text-white tracking-tight">
+                  Nuance
+                </h3>
+                <p class="text-[13px] text-zinc-400 font-normal">
+                  Chansong Kim
+                </p>
+              </div>
+              <!-- Camera Section -->
+              <div class="flex items-center gap-1.5">
+                <iconify-icon icon="solar:camera-bold" width="18" class="text-zinc-300"></iconify-icon>
+                <span class="text-sm font-medium text-white">1,424</span>
+              </div>
+            </div>
+            <div class="flex flex-col gap-0.5 mt-4">
+              <span class="text-[11px] text-zinc-500 font-normal">
+                Oil on Canvas
+              </span>
+              <span class="text-[11px] text-zinc-500 font-normal">2023</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Home Indicator -->
+      <div
+        class="absolute bottom-2 left-1/2 -translate-x-1/2 w-[134px] h-[5px] bg-zinc-800 rounded-full pointer-events-none z-50"
+      ></div>
     </div>
-
-    <script>
-        lucide.createIcons();
-    </script>
-</body></html>
+  </body>
+</html>
