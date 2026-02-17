@@ -321,15 +321,14 @@
     });
   }
 
-  // Art feed cards → artwork detail (cards are divs containing full-height artwork images)
+  // Art feed cards → artwork detail (event delegation for reliability)
   if (currentPage === '07-art-feed.html') {
-    document.querySelectorAll('img[alt^="Art"], img[alt="The Son of Man"]').forEach(function (img) {
-      var card = img.closest('.mb-6') || img.parentElement.parentElement;
-      if (card) {
-        card.style.cursor = 'pointer';
-        card.addEventListener('click', function () {
-          navigateTo('./09-artwork-detail.html');
-        });
+    document.addEventListener('click', function (e) {
+      var target = e.target;
+      // Check if click is on/inside an artwork card (has h-[480px] image or its sibling info area)
+      var card = target.closest('.mb-6') || target.closest('.mb-12');
+      if (card && card.querySelector('img.object-cover')) {
+        navigateTo('./09-artwork-detail.html');
       }
     });
   }
