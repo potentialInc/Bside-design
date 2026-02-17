@@ -191,6 +191,9 @@ body {
                 btn.classList.add('bg-[#34C759]', 'text-white');
                 btn.innerHTML = '<iconify-icon icon="solar:check-circle-bold" class="text-[20px]"></iconify-icon><span class="text-[15px] font-semibold">Saved</span>';
                 showToast();
+                setTimeout(function() {
+                    window.location.href = './08-collection-detail-complete.html';
+                }, 1200);
             }, 800);
         }
 
