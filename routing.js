@@ -8,7 +8,7 @@
 
   // Current page filename
   var path = window.location.pathname;
-  var currentPage = path.substring(path.lastIndexOf('/') + 1) || 'index.html';
+  var currentPage = decodeURIComponent(path.substring(path.lastIndexOf('/') + 1) || 'index.html');
 
   // ─── NAVIGATION MAP ───────────────────────────────────────────────
   // Back button targets per page
@@ -42,7 +42,9 @@
     '21-edit-profile.html': './19-my-page-profile.html',
     '22-follower-list.html': './19-my-page-profile.html',
     '23-following-list.html': './19-my-page-profile.html',
-    '24-notification-list.html': './06-feed.html'
+    '24-notification-list.html': './06-feed.html',
+    '19-user-profile1(collections).html': './18-search-results.html',
+    '19-user-profile2(captures).html': './18-search-results.html'
   };
 
   // Form submission targets per page
@@ -585,8 +587,8 @@
       var hasChevronRight = el.querySelector('[data-lucide="chevron-right"]') || el.querySelector('iconify-icon[icon*="chevron-right"]');
 
       if (hasProfileImg) {
-        // Profile item → user profile
-        el.addEventListener('click', function () { navigateTo('./19-my-page-profile.html'); });
+        // Profile item → user profile (collections view)
+        el.addEventListener('click', function () { navigateTo('./19-user-profile1(collections).html'); });
       } else if (hasChevronRight && !hasArtworkImg) {
         // Artist item (has chevron-right, no artwork image) → artist profile
         el.addEventListener('click', function () { navigateTo('./10-artist-profile.html'); });
@@ -595,7 +597,41 @@
         el.addEventListener('click', function () { navigateTo('./09-artwork-detail.html'); });
       }
     });
-    // Filter tab buttons should NOT navigate (they filter results in place)
+
+    // Filter tab buttons on 18-search-results.html → navigate to filtered views
+    if (currentPage === '18-search-results.html') {
+      document.querySelectorAll('button').forEach(function (btn) {
+        if (btn.getAttribute('onclick')) return;
+        var text = getElementText(btn);
+        // Only target filter pill buttons (rounded-full in the filter bar area)
+        var inFilterBar = btn.closest('[class*="overflow-x-auto"]') || btn.closest('.no-scrollbar');
+        if (!inFilterBar) return;
+        if (text === 'artwork') {
+          btn.style.cursor = 'pointer';
+          btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            navigateTo('./18-search-results2.html');
+          });
+        }
+      });
+    }
+
+    // 18-search-results2.html - Clear filter (X button in Artwork pill) → back to all results
+    if (currentPage === '18-search-results2.html') {
+      document.querySelectorAll('button').forEach(function (btn) {
+        var text = getElementText(btn);
+        var hasXIcon = btn.querySelector('[data-lucide="x"]') || btn.querySelector('iconify-icon[icon*="close"]');
+        if (hasXIcon && text.includes('artwork')) {
+          btn.style.cursor = 'pointer';
+          btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            navigateTo('./18-search-results.html');
+          });
+        }
+      });
+    }
   }
 
   // 19-my-page-profile.html - Settings, Edit Profile, Followers, Following
@@ -639,6 +675,28 @@
         el.style.cursor = 'pointer';
         if (el.tagName === 'A') el.href = './01-welcome.html';
         else el.addEventListener('click', function () { navigateTo('./01-welcome.html'); });
+      }
+    });
+  }
+
+  // 19-user-profile1(collections).html - Tab switching to Captures
+  if (currentPage === '19-user-profile1(collections).html') {
+    document.querySelectorAll('button').forEach(function (btn) {
+      var text = getElementText(btn);
+      if (text === 'captures') {
+        btn.style.cursor = 'pointer';
+        btn.addEventListener('click', function () { navigateTo('./19-user-profile2(captures).html'); });
+      }
+    });
+  }
+
+  // 19-user-profile2(captures).html - Tab switching to Collections
+  if (currentPage === '19-user-profile2(captures).html') {
+    document.querySelectorAll('button').forEach(function (btn) {
+      var text = getElementText(btn);
+      if (text === 'collections') {
+        btn.style.cursor = 'pointer';
+        btn.addEventListener('click', function () { navigateTo('./19-user-profile1(collections).html'); });
       }
     });
   }
