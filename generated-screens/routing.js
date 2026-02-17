@@ -27,13 +27,11 @@
     '08-collection-detail-complete.html': './06-feed.html',
     '08-recognition-overlay-success.html': './08-collection-detail-complete.html',
     '08-recognition-overlay-failure.html': './08-collection-detail-complete.html',
-    '09-artwork-detail.html': './06-feed.html',
+    '09-artwork-detail.html': './07-art-feed.html',
     '10-artist-profile.html': './09-artwork-detail.html',
     '11-gallery-profile.html': './06-feed.html',
     '12-camera-view.html': './06-feed.html',
     '13-camera-view-2.html': './12-camera-view.html',
-    '14-recognition-success.html': './12-camera-view.html',
-    '15-recognition-failure.html': './12-camera-view.html',
     '16-manual-artwork-input.html': './12-camera-view.html',
     '17-search-main.html': './06-feed.html',
     '17-search-empty.html': './17-search-main.html',
@@ -70,7 +68,6 @@
     '06-feed.html', '07-art-feed.html', '08-collection-detail.html',
     '08-collection-detail-processing.html', '08-collection-detail-complete.html',
     '12-camera-view.html', '13-camera-view-2.html',
-    '14-recognition-success.html', '15-recognition-failure.html',
     '17-search-main.html', '17-search-empty.html', '17-search-suggestions.html',
     '18-search-results.html', '18-search-results2.html',
     '19-my-page-profile.html', '24-notification-list.html'
@@ -314,12 +311,22 @@
     });
   }
 
-  // Feed article cards → collection detail (each card IS a collection: "MoMA Visit", "Vein and Fever", etc.)
-  if (currentPage === '06-feed.html' || currentPage === '07-art-feed.html') {
+  // Feed article cards → art feed page
+  if (currentPage === '06-feed.html') {
     document.querySelectorAll('article').forEach(function (article) {
       article.style.cursor = 'pointer';
       article.addEventListener('click', function () {
-        navigateTo('./08-collection-detail.html');
+        navigateTo('./07-art-feed.html');
+      });
+    });
+  }
+
+  // Art feed cards → artwork detail
+  if (currentPage === '07-art-feed.html') {
+    document.querySelectorAll('article').forEach(function (article) {
+      article.style.cursor = 'pointer';
+      article.addEventListener('click', function () {
+        navigateTo('./09-artwork-detail.html');
       });
     });
   }
@@ -444,7 +451,7 @@
     });
   }
 
-  // 12/13 camera-view - Gallery preview button (small thumbnail on left of shutter) → collection detail
+  // 12/13 camera-view - Gallery preview button → feed (homepage)
   if (currentPage === '12-camera-view.html' || currentPage === '13-camera-view-2.html') {
     document.querySelectorAll('button').forEach(function (btn) {
       var galleryImg = btn.querySelector('img[alt="Gallery"]');
@@ -453,7 +460,7 @@
         btn.addEventListener('click', function (e) {
           e.preventDefault();
           e.stopPropagation();
-          navigateTo('./08-collection-detail.html');
+          navigateTo('./06-feed.html');
         });
       }
     });
@@ -476,49 +483,21 @@
     });
   }
 
-  // 13-camera-view-2.html - Shutter button
+  // 13-camera-view-2.html - Shutter button → feed (homepage)
   if (currentPage === '13-camera-view-2.html') {
     document.querySelectorAll('button').forEach(function (btn) {
       var icon = btn.querySelector('[data-lucide], iconify-icon');
       var iconName = icon ? getIconName(icon) : '';
       if (iconName.includes('circle')) {
-        btn.addEventListener('click', function () { navigateTo('./14-recognition-success.html'); });
+        btn.addEventListener('click', function () { navigateTo('./06-feed.html'); });
       }
       var style = window.getComputedStyle(btn);
       if (style.borderRadius && parseInt(style.borderRadius) > 20 && btn.offsetWidth > 50) {
-        btn.addEventListener('click', function () { navigateTo('./14-recognition-success.html'); });
+        btn.addEventListener('click', function () { navigateTo('./06-feed.html'); });
       }
     });
   }
 
-  // 14-recognition-success.html - "Edit Details" → manual input
-  if (currentPage === '14-recognition-success.html') {
-    document.querySelectorAll('button, a').forEach(function (el) {
-      var text = getElementText(el);
-      if (text.includes('edit detail')) {
-        el.style.cursor = 'pointer';
-        if (el.tagName === 'A') el.href = './16-manual-artwork-input.html';
-        else el.addEventListener('click', function () { navigateTo('./16-manual-artwork-input.html'); });
-      }
-    });
-  }
-
-  // 15-recognition-failure.html - Manual input / Retry
-  if (currentPage === '15-recognition-failure.html') {
-    document.querySelectorAll('button, a').forEach(function (el) {
-      var text = getElementText(el);
-      if (text.includes('manual') || text.includes('enter')) {
-        el.style.cursor = 'pointer';
-        if (el.tagName === 'A') el.href = './16-manual-artwork-input.html';
-        else el.addEventListener('click', function () { navigateTo('./16-manual-artwork-input.html'); });
-      }
-      if (text.includes('retry') || text.includes('try again') || text.includes('scan again')) {
-        el.style.cursor = 'pointer';
-        if (el.tagName === 'A') el.href = './12-camera-view.html';
-        else el.addEventListener('click', function () { navigateTo('./12-camera-view.html'); });
-      }
-    });
-  }
 
   // 17-search-clear-modal.html - Clear / Cancel buttons
   if (currentPage === '17-search-clear-modal.html') {
