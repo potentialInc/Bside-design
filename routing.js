@@ -381,14 +381,29 @@
     setTimeout(function () { navigateTo('./02-login.html'); }, 3000);
   }
 
-  // 05-profile-setup.html - Skip/Complete buttons
+  // 05-profile-setup.html - Override completeSetup/skipSetup to navigate
   if (currentPage === '05-profile-setup.html') {
+    // Override the page's completeSetup function to actually navigate
+    if (typeof window.completeSetup === 'function') {
+      window.completeSetup = function () {
+        var btn = document.getElementById('complete-btn');
+        var text = document.getElementById('btn-text');
+        if (btn) btn.disabled = true;
+        if (text) text.textContent = 'Success!';
+        setTimeout(function () { navigateTo('./06-feed.html'); }, 500);
+      };
+    }
+    if (typeof window.skipSetup === 'function') {
+      window.skipSetup = function () {
+        navigateTo('./06-feed.html');
+      };
+    }
+    // Also add click handlers as backup
     document.querySelectorAll('a, button').forEach(function (el) {
       var text = getElementText(el);
       if (text.includes('skip') || text.includes('complete') || text.includes('done')) {
         el.style.cursor = 'pointer';
         if (el.tagName === 'A') el.href = './06-feed.html';
-        else el.addEventListener('click', function () { navigateTo('./06-feed.html'); });
       }
     });
   }
@@ -499,36 +514,88 @@
     });
   }
 
-  // 17-search-main.html - Search input → suggestions; Clear history
-  if (currentPage === '17-search-main.html') {
-    document.querySelectorAll('button, a').forEach(function (el) {
-      var text = getElementText(el);
-      if (text.includes('clear') && (text.includes('history') || text.includes('all'))) {
-        el.style.cursor = 'pointer';
-        if (el.tagName === 'A') el.href = './17-search-clear-modal.html';
-        else el.addEventListener('click', function () { navigateTo('./17-search-clear-modal.html'); });
-      }
-    });
-    // Suggestion items → search results
-    document.querySelectorAll('[class*="cursor-pointer"]').forEach(function (el) {
-      if (!el.onclick && el.querySelector('img')) {
-        el.addEventListener('click', function () { navigateTo('./18-search-results.html'); });
+  // ─── SEARCH FLOW ROUTING ──────────────────────────────────────────
+  // Search input Enter key handler for all search pages
+  var searchPages = ['17-search-main.html', '17-search-empty.html', '17-search-suggestions.html',
+    '18-search-results.html', '18-search-results2.html'];
+  if (searchPages.indexOf(currentPage) !== -1) {
+    document.querySelectorAll('input[type="text"]').forEach(function (input) {
+      var placeholder = (input.getAttribute('placeholder') || '').toLowerCase();
+      if (placeholder.includes('search') || input.closest('[class*="search"]') ||
+          input.closest('.search-input') || input.id === 'searchInput') {
+        input.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' && input.value.trim().length > 0) {
+            e.preventDefault();
+            navigateTo('./18-search-results.html');
+          }
+        });
       }
     });
   }
 
-  // Search results - Result items → detail pages
-  if (currentPage === '18-search-results.html' || currentPage === '18-search-results2.html') {
+  // 17-search-main.html - Recent items, suggestion items, search input
+  if (currentPage === '17-search-main.html') {
+    // NOTE: "Clear Search History" uses inline showClearModal() - do NOT override it
+
+    // Recent search items → search results (these use iconify-icon, not <img>)
+    document.querySelectorAll('#recentSearches [class*="cursor-pointer"]').forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        // Don't navigate if clicking the close/remove button
+        if (e.target.closest('button[onclick*="remove"]') || e.target.closest('button[onclick*="stopPropagation"]')) return;
+        navigateTo('./18-search-results.html');
+      });
+    });
+    // Also catch recent items by structure: has clock icon + text
     document.querySelectorAll('[class*="cursor-pointer"]').forEach(function (el) {
-      if (!el.onclick) {
-        var text = getElementText(el);
-        if (text.includes('artist') || el.querySelector('img[alt*="artist"]')) {
-          el.addEventListener('click', function () { navigateTo('./10-artist-profile.html'); });
-        } else {
-          el.addEventListener('click', function () { navigateTo('./09-artwork-detail.html'); });
-        }
+      var hasClockIcon = el.querySelector('iconify-icon[icon*="clock"]') || el.querySelector('[data-lucide*="clock"]');
+      if (hasClockIcon) {
+        el.style.cursor = 'pointer';
+        el.addEventListener('click', function (e) {
+          if (e.target.closest('button')) return;
+          navigateTo('./18-search-results.html');
+        });
       }
     });
+
+    // Auto-complete suggestion items (#suggestions container) → search results
+    var suggestionsContainer = document.getElementById('suggestions');
+    if (suggestionsContainer) {
+      suggestionsContainer.querySelectorAll('[class*="cursor-pointer"]').forEach(function (el) {
+        el.style.cursor = 'pointer';
+        el.addEventListener('click', function () { navigateTo('./18-search-results.html'); });
+      });
+    }
+  }
+
+  // 17-search-suggestions.html - All suggestion items → search results
+  if (currentPage === '17-search-suggestions.html') {
+    document.querySelectorAll('[class*="cursor-pointer"]').forEach(function (el) {
+      el.style.cursor = 'pointer';
+      el.addEventListener('click', function () { navigateTo('./18-search-results.html'); });
+    });
+  }
+
+  // Search results - Result items → appropriate detail pages
+  if (currentPage === '18-search-results.html' || currentPage === '18-search-results2.html') {
+    document.querySelectorAll('[class*="cursor-pointer"]').forEach(function (el) {
+      if (el.getAttribute('onclick')) return; // Skip items with existing handlers
+      var hasProfileImg = el.querySelector('img[alt*="rofile"]') || el.querySelector('img.rounded-full') ||
+        el.querySelector('[class*="rounded-full"] img');
+      var hasArtworkImg = el.querySelector('img[alt*="rtwork"]') || el.querySelector('img[class*="object-cover"]:not(.rounded-full)');
+      var hasChevronRight = el.querySelector('[data-lucide="chevron-right"]') || el.querySelector('iconify-icon[icon*="chevron-right"]');
+
+      if (hasProfileImg) {
+        // Profile item → user profile
+        el.addEventListener('click', function () { navigateTo('./19-my-page-profile.html'); });
+      } else if (hasChevronRight && !hasArtworkImg) {
+        // Artist item (has chevron-right, no artwork image) → artist profile
+        el.addEventListener('click', function () { navigateTo('./10-artist-profile.html'); });
+      } else {
+        // Artwork item or default → artwork detail
+        el.addEventListener('click', function () { navigateTo('./09-artwork-detail.html'); });
+      }
+    });
+    // Filter tab buttons should NOT navigate (they filter results in place)
   }
 
   // 19-my-page-profile.html - Settings, Edit Profile, Followers, Following
@@ -562,8 +629,11 @@
   }
 
   // 20-settings.html - Logout
+  // NOTE: Settings page has inline handlers (showLogoutConfirm, showPasswordModal, etc.)
+  // Only add routing for buttons WITHOUT existing onclick handlers
   if (currentPage === '20-settings.html') {
     document.querySelectorAll('a, button').forEach(function (el) {
+      if (el.getAttribute('onclick')) return; // Skip buttons with existing handlers
       var text = getElementText(el);
       if (text.includes('log out') || text.includes('logout') || text.includes('sign out')) {
         el.style.cursor = 'pointer';
