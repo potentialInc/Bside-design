@@ -448,16 +448,46 @@ z-index: 100;
 
 
 
+
 <!-- ROUTING START -->
 <script>
 (function() {
   // Back button
-  var backBtns = document.querySelectorAll('[data-lucide="chevron-left"], [data-lucide="arrow-left"], [class*="back"], iconify-icon[icon*="arrow-left"], iconify-icon[icon*="alt-arrow-left"]');
+  var backBtns = document.querySelectorAll('[data-lucide="chevron-left"], [data-lucide="arrow-left"], iconify-icon[icon*="arrow-left"], iconify-icon[icon*="alt-arrow-left"]');
   backBtns.forEach(function(icon) {
-    var btn = icon.closest('button') || icon.closest('a') || icon.parentElement;
+    var btn = icon.closest('button') || icon.closest('a');
     if (btn) {
       btn.style.cursor = 'pointer';
       btn.onclick = function(e) { e.preventDefault(); location.href = './06-feed.html'; };
+    }
+  });
+
+  // Content item routes
+  var contentMap = {
+    'artwork': './09-artwork-detail.html'
+  };
+  var contentItems = document.querySelectorAll('[class*="cursor-pointer"], [class*="rounded"][class*="overflow-hidden"]:not([class*="bottom"])');
+  contentItems.forEach(function(item) {
+    // Only target card-like items, not full page containers
+    if (item.offsetHeight > 300 || item.offsetWidth > 300) return;
+    var imgs = item.querySelectorAll('img');
+    var text = (item.textContent || '').toLowerCase();
+    var alt = imgs.length ? (imgs[0].getAttribute('alt') || '').toLowerCase() : '';
+    var matched = false;
+    Object.keys(contentMap).forEach(function(type) {
+      if (!matched && (alt.includes(type) || text.includes(type) || item.className.toLowerCase().includes(type))) {
+        if (!item.onclick) {
+          item.style.cursor = 'pointer';
+          item.onclick = function() { location.href = contentMap[type]; };
+          matched = true;
+        }
+      }
+    });
+    // Default: if item has an image and no route yet, use first content route
+    if (!matched && imgs.length && !item.onclick && item.offsetHeight < 200) {
+      var firstTarget = Object.values(contentMap)[0];
+      item.style.cursor = 'pointer';
+      item.onclick = function() { location.href = firstTarget; };
     }
   });
 })();

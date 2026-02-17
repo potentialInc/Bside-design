@@ -12,7 +12,7 @@ const ROUTING_MAP = {
   },
   '01-welcome.html': {
     routes: {
-      'Get Started': './02-login.html',
+      'Get Started': './03-signup.html',
       'Sign Up': './03-signup.html',
       'Log In': './02-login.html',
       'Login': './02-login.html',
@@ -200,6 +200,7 @@ const ROUTING_MAP = {
     backTarget: './06-feed.html',
     bottomNav: true,
     activeTab: 'search',
+    suggestionTarget: './18-search-results.html',
     routes: {
       'Clear Search History': './17-search-clear-modal.html',
     },
@@ -337,9 +338,9 @@ function getRoutingScript(config) {
   if (config.backTarget) {
     parts.push(`
   // Back button
-  var backBtns = document.querySelectorAll('[data-lucide="chevron-left"], [data-lucide="arrow-left"], [class*="back"], iconify-icon[icon*="arrow-left"], iconify-icon[icon*="alt-arrow-left"]');
+  var backBtns = document.querySelectorAll('[data-lucide="chevron-left"], [data-lucide="arrow-left"], iconify-icon[icon*="arrow-left"], iconify-icon[icon*="alt-arrow-left"]');
   backBtns.forEach(function(icon) {
-    var btn = icon.closest('button') || icon.closest('a') || icon.parentElement;
+    var btn = icon.closest('button') || icon.closest('a');
     if (btn) {
       btn.style.cursor = 'pointer';
       btn.onclick = function(e) { e.preventDefault(); location.href = '${config.backTarget}'; };
@@ -397,9 +398,17 @@ function getRoutingScript(config) {
   if (config.suggestionTarget) {
     parts.push(`
   // Suggestion items → search results
-  var suggestionItems = document.querySelectorAll('[class*="cursor-pointer"][class*="items-center"]');
+  var suggestionItems = document.querySelectorAll('#suggestions [class*="cursor-pointer"], [class*="cursor-pointer"][class*="h-\\\\[60px\\\\]"], [class*="cursor-pointer"][class*="items-center"]:not([class*="bottom"]):not([class*="bg-black"]):not([class*="pt-14"])');
   suggestionItems.forEach(function(item) {
-    if (!item.onclick) {
+    // Only target items that look like list items (not full-page containers)
+    if (item.offsetHeight < 100) {
+      item.onclick = function() { location.href = '${config.suggestionTarget}'; };
+    }
+  });
+  // Recent search items
+  var recentItems = document.querySelectorAll('[class*="recent"] [class*="cursor-pointer"], [class*="recent"] [class*="items-center"]');
+  recentItems.forEach(function(item) {
+    if (item.offsetHeight < 100 && !item.onclick) {
       item.onclick = function() { location.href = '${config.suggestionTarget}'; };
     }
   });`);
@@ -429,6 +438,43 @@ ${routeEntries}
         }
       }
     });
+  });`);
+  }
+
+  // Content routes (artwork cards, artist cards, result items)
+  if (config.contentRoutes && Object.keys(config.contentRoutes).length > 0) {
+    const contentEntries = Object.entries(config.contentRoutes).map(([type, target]) =>
+      `    '${type}': '${target}'`
+    ).join(',\n');
+
+    parts.push(`
+  // Content item routes
+  var contentMap = {
+${contentEntries}
+  };
+  var contentItems = document.querySelectorAll('[class*="cursor-pointer"], [class*="rounded"][class*="overflow-hidden"]:not([class*="bottom"])');
+  contentItems.forEach(function(item) {
+    // Only target card-like items, not full page containers
+    if (item.offsetHeight > 300 || item.offsetWidth > 300) return;
+    var imgs = item.querySelectorAll('img');
+    var text = (item.textContent || '').toLowerCase();
+    var alt = imgs.length ? (imgs[0].getAttribute('alt') || '').toLowerCase() : '';
+    var matched = false;
+    Object.keys(contentMap).forEach(function(type) {
+      if (!matched && (alt.includes(type) || text.includes(type) || item.className.toLowerCase().includes(type))) {
+        if (!item.onclick) {
+          item.style.cursor = 'pointer';
+          item.onclick = function() { location.href = contentMap[type]; };
+          matched = true;
+        }
+      }
+    });
+    // Default: if item has an image and no route yet, use first content route
+    if (!matched && imgs.length && !item.onclick && item.offsetHeight < 200) {
+      var firstTarget = Object.values(contentMap)[0];
+      item.style.cursor = 'pointer';
+      item.onclick = function() { location.href = firstTarget; };
+    }
   });`);
   }
 

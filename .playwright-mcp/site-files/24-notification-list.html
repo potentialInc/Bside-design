@@ -449,13 +449,14 @@ background-position: -200% 0;
 
 
 
+
 <!-- ROUTING START -->
 <script>
 (function() {
   // Back button
-  var backBtns = document.querySelectorAll('[data-lucide="chevron-left"], [data-lucide="arrow-left"], [class*="back"], iconify-icon[icon*="arrow-left"], iconify-icon[icon*="alt-arrow-left"]');
+  var backBtns = document.querySelectorAll('[data-lucide="chevron-left"], [data-lucide="arrow-left"], iconify-icon[icon*="arrow-left"], iconify-icon[icon*="alt-arrow-left"]');
   backBtns.forEach(function(icon) {
-    var btn = icon.closest('button') || icon.closest('a') || icon.parentElement;
+    var btn = icon.closest('button') || icon.closest('a');
     if (btn) {
       btn.style.cursor = 'pointer';
       btn.onclick = function(e) { e.preventDefault(); location.href = './06-feed.html'; };

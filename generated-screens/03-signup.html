@@ -1,46 +1,71 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>bside.art | Login</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-body {
-font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-background-color: #111;
-display: flex;
-align-items: center;
-justify-content: center;
-min-height: 100vh;
-margin: 0;
-}
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-</style></head>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>bside.art | Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          background-color: #111;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 100vh;
+          margin: 0;
+      }
+
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+  </head>
   <body>
-    <div class="relative w-[375px] h-[812px] bg-black rounded-[50px] shadow-[0_0_0_12px_#2d2d2d,0_0_0_14px_#000,0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden shrink-0 border border-zinc-900">
+    <div
+      class="relative w-[375px] h-[812px] bg-black rounded-[50px] shadow-[0_0_0_12px_#2d2d2d,0_0_0_14px_#000,0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden shrink-0 border border-zinc-900"
+    >
       <!-- Status Bar -->
-      <div class="absolute top-0 left-0 w-full h-[44px] z-50 flex items-center justify-between px-6 select-none pointer-events-none text-white mix-blend-difference">
+      <div
+        class="absolute top-0 left-0 w-full h-[44px] z-50 flex items-center justify-between px-6 select-none pointer-events-none text-white mix-blend-difference"
+      >
         <span class="text-[15px] font-semibold">9:41</span>
         <div class="flex items-center space-x-2">
           <iconify-icon icon="solar:signal-bold" width="16"></iconify-icon>
           <iconify-icon icon="solar:wi-fi-bold" width="16"></iconify-icon>
-          <iconify-icon icon="solar:battery-full-bold" width="20"></iconify-icon>
+          <iconify-icon
+            icon="solar:battery-full-bold"
+            width="20"
+          ></iconify-icon>
         </div>
       </div>
 
       <!-- Dynamic Island Placeholder -->
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[35px] bg-black rounded-b-[20px] z-50"></div>
+      <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[35px] bg-black rounded-b-[20px] z-50"
+      ></div>
 
       <!-- Content -->
-      <div class="w-full h-full flex flex-col relative z-10 pt-[44px] pb-[34px]">
+      <div
+        class="w-full h-full flex flex-col relative z-10 pt-[44px] pb-[34px]"
+      >
         <!-- Logo Section -->
         <div class="flex-1 flex flex-col items-center justify-center -mt-10">
           <div class="w-[224px] h-[212px] mb-4 relative">
-            <img src="https://potential-dev.s3.ap-northeast-2.amazonaws.com/PotentialAi/media/04fac069-a187-4284-aa0b-6a0caa278649-image (3).png" class="w-full h-full object-contain" alt="bside.art">
+            <img
+              src="https://potential-dev.s3.ap-northeast-2.amazonaws.com/PotentialAi/media/04fac069-a187-4284-aa0b-6a0caa278649-image (3).png"
+              class="w-full h-full object-contain"
+              alt="bside.art"
+            />
           </div>
           <h1 class="text-white text-[28px] font-medium tracking-tight">
             bside.art
@@ -50,15 +75,23 @@ margin: 0;
         <!-- Buttons Section -->
         <div class="w-full px-6 space-y-3 mb-6">
           <!-- Apple -->
-          <button class="w-full h-[50px] bg-white rounded-xl flex items-center justify-center space-x-2 active:scale-[0.98] transition-transform duration-200">
-            <iconify-icon icon="logos:apple" width="22" class="mb-0.5"></iconify-icon>
+          <button
+            class="w-full h-[50px] bg-white rounded-xl flex items-center justify-center space-x-2 active:scale-[0.98] transition-transform duration-200"
+          >
+            <iconify-icon
+              icon="logos:apple"
+              width="22"
+              class="mb-0.5"
+            ></iconify-icon>
             <span class="text-black font-semibold text-[16px]">
               Sign in with Apple
             </span>
           </button>
 
           <!-- Google -->
-          <button class="w-full h-[50px] bg-white rounded-xl flex items-center justify-center space-x-2 active:scale-[0.98] transition-transform duration-200">
+          <button
+            class="w-full h-[50px] bg-white rounded-xl flex items-center justify-center space-x-2 active:scale-[0.98] transition-transform duration-200"
+          >
             <iconify-icon icon="logos:google-icon" width="20"></iconify-icon>
             <span class="text-black font-semibold text-[16px]">
               Sign in with Google
@@ -66,7 +99,10 @@ margin: 0;
           </button>
 
           <!-- Email -->
-          <a href="#" class="w-full h-[50px] bg-[#6e7480] rounded-xl flex items-center justify-center active:scale-[0.98] transition-transform duration-200">
+          <a
+            href="#"
+            class="w-full h-[50px] bg-[#6e7480] rounded-xl flex items-center justify-center active:scale-[0.98] transition-transform duration-200"
+          >
             <span class="text-white font-semibold text-[16px]">
               Continue with email
             </span>
@@ -76,20 +112,23 @@ margin: 0;
         <!-- Footer -->
         <div class="px-6 text-center">
           <p class="text-[14px] text-zinc-500 font-normal">
-            Don't have an account?
-            <a href="#" class="text-[#0A84FF] font-medium hover:text-[#0A84FF]/80 transition-colors">
-              Sign Up
+            Already have an account?
+            <a
+              href="#"
+              class="text-[#0A84FF] font-medium hover:text-[#0A84FF]/80 transition-colors"
+            >
+              Sign in
             </a>
           </p>
         </div>
 
         <!-- Home Indicator -->
-        <div class="absolute bottom-[8px] left-1/2 -translate-x-1/2 w-[134px] h-[5px] bg-white rounded-full pointer-events-none"></div>
+        <div
+          class="absolute bottom-[8px] left-1/2 -translate-x-1/2 w-[134px] h-[5px] bg-white rounded-full pointer-events-none"
+        ></div>
       </div>
     </div>
   
-
-
 <!-- ROUTING START -->
 <script>
 (function() {
@@ -118,4 +157,5 @@ margin: 0;
 })();
 </script>
 <!-- ROUTING END -->
-</body></html>
+</body>
+</html>

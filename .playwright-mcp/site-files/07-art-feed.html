@@ -123,9 +123,40 @@ scrollbar-width: none;
 
 
 
+
 <!-- ROUTING START -->
 <script>
 (function() {
+  // Content item routes
+  var contentMap = {
+    'collection': './08-collection-detail.html',
+    'artwork': './09-artwork-detail.html'
+  };
+  var contentItems = document.querySelectorAll('[class*="cursor-pointer"], [class*="rounded"][class*="overflow-hidden"]:not([class*="bottom"])');
+  contentItems.forEach(function(item) {
+    // Only target card-like items, not full page containers
+    if (item.offsetHeight > 300 || item.offsetWidth > 300) return;
+    var imgs = item.querySelectorAll('img');
+    var text = (item.textContent || '').toLowerCase();
+    var alt = imgs.length ? (imgs[0].getAttribute('alt') || '').toLowerCase() : '';
+    var matched = false;
+    Object.keys(contentMap).forEach(function(type) {
+      if (!matched && (alt.includes(type) || text.includes(type) || item.className.toLowerCase().includes(type))) {
+        if (!item.onclick) {
+          item.style.cursor = 'pointer';
+          item.onclick = function() { location.href = contentMap[type]; };
+          matched = true;
+        }
+      }
+    });
+    // Default: if item has an image and no route yet, use first content route
+    if (!matched && imgs.length && !item.onclick && item.offsetHeight < 200) {
+      var firstTarget = Object.values(contentMap)[0];
+      item.style.cursor = 'pointer';
+      item.onclick = function() { location.href = firstTarget; };
+    }
+  });
+
   // Top nav icon routes
   var topIcons = document.querySelectorAll('[data-lucide], iconify-icon');
   topIcons.forEach(function(icon) {
