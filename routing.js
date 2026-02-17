@@ -340,24 +340,39 @@
     });
   }
 
-  // 04-password-recovery-code.html - Auto-navigate when all 6 digits entered
-  if (currentPage === '04-password-recovery-code.html') {
+  // Verification code pages - Auto-navigate when code is entered
+  // Handles two patterns: 6 separate inputs (maxlength=1) or single hidden input
+  var codePageTarget = null;
+  if (currentPage === '04-password-recovery-code.html') codePageTarget = './04-password-recovery-new-password.html';
+  if (currentPage === '03-signup-step2.html') codePageTarget = './03-signup-step3.html';
+
+  if (codePageTarget) {
     var codeInputs = document.querySelectorAll('input[maxlength="1"]');
     if (codeInputs.length >= 6) {
+      // Pattern 1: Multiple single-digit inputs
       codeInputs.forEach(function (input, index) {
         input.addEventListener('input', function () {
           if (input.value.length === 1 && index === codeInputs.length - 1) {
-            // Last digit entered - check if all fields are filled
             var allFilled = true;
             codeInputs.forEach(function (inp) {
               if (!inp.value) allFilled = false;
             });
             if (allFilled) {
-              setTimeout(function () { navigateTo('./04-password-recovery-new-password.html'); }, 500);
+              setTimeout(function () { navigateTo(codePageTarget); }, 500);
             }
           }
         });
       });
+    } else {
+      // Pattern 2: Single hidden input (OTP-style)
+      var otpInput = document.querySelector('input[inputmode="numeric"], input[autocomplete="one-time-code"]');
+      if (otpInput) {
+        otpInput.addEventListener('input', function () {
+          if (otpInput.value.length >= 6) {
+            setTimeout(function () { navigateTo(codePageTarget); }, 500);
+          }
+        });
+      }
     }
   }
 
