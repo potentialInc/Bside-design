@@ -69,7 +69,7 @@ input:-webkit-autofill:active {
 
             <!-- Bottom Section: Form (Background removed) -->
             <div class="w-full px-6 pb-10 pt-8">
-                <form onsubmit="event.preventDefault();" class="flex flex-col gap-5">
+                <form onsubmit="event.preventDefault(); window.location.href='./06-feed.html';" class="flex flex-col gap-5">
                     
                     <!-- Email Input -->
                     <div class="space-y-2">
@@ -110,6 +110,7 @@ input:-webkit-autofill:active {
     <script>
         lucide.createIcons();
     </script>
+
 
 <!-- ROUTING START -->
 <script>
@@ -117,19 +118,18 @@ input:-webkit-autofill:active {
   // Form submission
   var forms = document.querySelectorAll('form');
   forms.forEach(function(form) {
-    if (!form.getAttribute('onsubmit')) {
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        location.href = './06-feed.html';
-      });
+    var existingHandler = form.getAttribute('onsubmit') || '';
+    // Override if no handler or if handler only prevents default without navigating
+    if (!existingHandler || (existingHandler.includes('preventDefault') && !existingHandler.includes('location') && !existingHandler.includes('href'))) {
+      form.setAttribute('onsubmit', "event.preventDefault(); window.location.href='./06-feed.html';");
     }
   });
   // Primary/Submit buttons (not in forms)
   var submitBtns = document.querySelectorAll('button[type="submit"], button:not([type])');
   submitBtns.forEach(function(btn) {
     var text = (btn.textContent || '').trim().toLowerCase();
-    if (['continue', 'next', 'submit', 'done', 'complete', 'save', 'sign up', 'create account', 'reset password', 'verify', 'confirm'].includes(text) ||
-        text.includes('continue') || text.includes('next') || text.includes('submit') || text.includes('complete') || text.includes('get started')) {
+    if (['continue', 'next', 'submit', 'done', 'complete', 'save', 'sign up', 'sign in', 'create account', 'reset password', 'verify', 'confirm'].includes(text) ||
+        text.includes('continue') || text.includes('next') || text.includes('submit') || text.includes('complete') || text.includes('get started') || text.includes('sign in')) {
       if (!btn.closest('form') && !btn.onclick) {
         btn.onclick = function(e) { e.preventDefault(); location.href = './06-feed.html'; };
       }

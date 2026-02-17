@@ -265,6 +265,7 @@ transition: background-color 5000s ease-in-out 0s;
 
 
 
+
 <!-- ROUTING START -->
 <script>
 (function() {
@@ -281,19 +282,18 @@ transition: background-color 5000s ease-in-out 0s;
   // Form submission
   var forms = document.querySelectorAll('form');
   forms.forEach(function(form) {
-    if (!form.getAttribute('onsubmit')) {
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        location.href = './05-profile-setup.html';
-      });
+    var existingHandler = form.getAttribute('onsubmit') || '';
+    // Override if no handler or if handler only prevents default without navigating
+    if (!existingHandler || (existingHandler.includes('preventDefault') && !existingHandler.includes('location') && !existingHandler.includes('href'))) {
+      form.setAttribute('onsubmit', "event.preventDefault(); window.location.href='./05-profile-setup.html';");
     }
   });
   // Primary/Submit buttons (not in forms)
   var submitBtns = document.querySelectorAll('button[type="submit"], button:not([type])');
   submitBtns.forEach(function(btn) {
     var text = (btn.textContent || '').trim().toLowerCase();
-    if (['continue', 'next', 'submit', 'done', 'complete', 'save', 'sign up', 'create account', 'reset password', 'verify', 'confirm'].includes(text) ||
-        text.includes('continue') || text.includes('next') || text.includes('submit') || text.includes('complete') || text.includes('get started')) {
+    if (['continue', 'next', 'submit', 'done', 'complete', 'save', 'sign up', 'sign in', 'create account', 'reset password', 'verify', 'confirm'].includes(text) ||
+        text.includes('continue') || text.includes('next') || text.includes('submit') || text.includes('complete') || text.includes('get started') || text.includes('sign in')) {
       if (!btn.closest('form') && !btn.onclick) {
         btn.onclick = function(e) { e.preventDefault(); location.href = './05-profile-setup.html'; };
       }
