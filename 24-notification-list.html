@@ -171,7 +171,35 @@ animation: shimmer 1.5s infinite;
 
             <!-- Content List -->
             <div id="listContent">
-                
+
+                <!-- Item 0: Recognition Complete (Unread, NEW) -->
+                <div class="notification-item-container w-full" data-id="0" data-type="recognition">
+                    <div class="delete-action" onclick="deleteNotification(this)">
+                        <iconify-icon icon="solar:trash-bin-trash-linear" width="24" height="24"></iconify-icon>
+                    </div>
+                    <div class="notification-content unread w-full p-4 border-b border-white/5 flex items-start cursor-pointer relative" onclick="goToRecognition(this)">
+                        <!-- Recognition Icon -->
+                        <div class="w-10 h-10 rounded-full bg-[#34C759]/15 border border-[#34C759]/20 flex items-center justify-center flex-none mt-0.5">
+                            <iconify-icon icon="solar:verified-check-bold" width="20" class="text-[#34C759]"></iconify-icon>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="ml-3 flex-1 min-w-0 pr-2">
+                            <p class="text-[15px] leading-snug notif-text text-white/90">
+                                <span class="font-semibold text-white">Recognition Complete</span> — <span class="text-[#34C759]">3 recognized</span>, <span class="text-[#FF9500]">1 needs review</span>, <span class="text-[#FF3B30]">1 not found</span> from your <span class="font-medium text-white">MoMA Visit</span>.
+                            </p>
+                            <p class="text-[12px] text-white/40 mt-1">Just now</p>
+                            <!-- Tap hint -->
+                            <div class="flex items-center gap-1 mt-2">
+                                <iconify-icon icon="solar:alt-arrow-right-linear" width="12" class="text-[#007AFF]"></iconify-icon>
+                                <span class="text-[12px] text-[#007AFF] font-medium">Tap to review</span>
+                            </div>
+                        </div>
+                        <!-- Unread Dot -->
+                        <div class="w-2 h-2 rounded-full bg-[#34C759] flex-none mt-2"></div>
+                    </div>
+                </div>
+
                 <!-- Item 1: Follow Request (Unread) -->
                 <div class="notification-item-container w-full" data-id="1">
                     <div class="delete-action" onclick="deleteNotification(this)">
@@ -303,6 +331,11 @@ animation: shimmer 1.5s infinite;
 
     <script>
         // --- Logic for Interactivity ---
+
+        function goToRecognition(element) {
+            markAsRead(element);
+            window.location.href = './08-collection-detail-processing.html';
+        }
 
         function markAsRead(element) {
             // Remove unread styling

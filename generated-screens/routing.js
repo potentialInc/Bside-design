@@ -314,12 +314,12 @@
     });
   }
 
-  // Feed article cards → artwork detail
+  // Feed article cards → collection detail (each card IS a collection: "MoMA Visit", "Vein and Fever", etc.)
   if (currentPage === '06-feed.html' || currentPage === '07-art-feed.html') {
     document.querySelectorAll('article').forEach(function (article) {
       article.style.cursor = 'pointer';
       article.addEventListener('click', function () {
-        navigateTo('./09-artwork-detail.html');
+        navigateTo('./08-collection-detail.html');
       });
     });
   }
@@ -444,6 +444,21 @@
     });
   }
 
+  // 12/13 camera-view - Gallery preview button (small thumbnail on left of shutter) → collection detail
+  if (currentPage === '12-camera-view.html' || currentPage === '13-camera-view-2.html') {
+    document.querySelectorAll('button').forEach(function (btn) {
+      var galleryImg = btn.querySelector('img[alt="Gallery"]');
+      if (galleryImg) {
+        btn.style.cursor = 'pointer';
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          navigateTo('./08-collection-detail.html');
+        });
+      }
+    });
+  }
+
   // 12-camera-view.html - Shutter button
   if (currentPage === '12-camera-view.html') {
     document.querySelectorAll('button').forEach(function (btn) {
@@ -476,14 +491,14 @@
     });
   }
 
-  // 14-recognition-success.html - View artwork
+  // 14-recognition-success.html - "Edit Details" → manual input
   if (currentPage === '14-recognition-success.html') {
     document.querySelectorAll('button, a').forEach(function (el) {
       var text = getElementText(el);
-      if (text.includes('view') || text.includes('detail') || text.includes('artwork')) {
+      if (text.includes('edit detail')) {
         el.style.cursor = 'pointer';
-        if (el.tagName === 'A') el.href = './09-artwork-detail.html';
-        else el.addEventListener('click', function () { navigateTo('./09-artwork-detail.html'); });
+        if (el.tagName === 'A') el.href = './16-manual-artwork-input.html';
+        else el.addEventListener('click', function () { navigateTo('./16-manual-artwork-input.html'); });
       }
     });
   }

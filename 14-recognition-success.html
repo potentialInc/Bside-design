@@ -329,9 +329,12 @@
                 btn.classList.remove('bg-white', 'text-[#1C1C1E]');
                 btn.classList.add('bg-[#34C759]', 'text-white');
                 btn.innerHTML = '<iconify-icon icon="solar:check-circle-bold" class="text-[20px]"></iconify-icon><span class="text-[15px] font-semibold">Saved</span>';
-                
-                // Show toast
+
+                // Show toast, then navigate to collection detail
                 showToast();
+                setTimeout(function() {
+                    window.location.href = './08-collection-detail.html';
+                }, 1200);
             }, 800);
         }
 
