@@ -36,6 +36,27 @@ margin: 0;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 }
+/* Scroll-triggered recognition notification */
+@keyframes scrollBannerIn {
+    from { transform: translateY(-100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+@keyframes scrollBannerOut {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-100%); opacity: 0; }
+}
+.scroll-notification {
+    animation: scrollBannerIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    position: absolute;
+    top: 88px;
+    left: 0;
+    right: 0;
+    z-index: 45;
+    pointer-events: auto;
+}
+.scroll-notification.hide {
+    animation: scrollBannerOut 0.3s ease forwards;
+}
 </style></head>
 <body>
 
@@ -59,6 +80,22 @@ margin: 0;
                 </button>
             </div>
         </nav>
+
+        <!-- Scroll-triggered Notification for Not Found items -->
+        <div id="scroll-notification" class="scroll-notification" style="display: none;">
+          <div class="mx-4 bg-[#1C1C1E]/95 backdrop-blur-md border border-[#FF3B30]/30 rounded-2xl overflow-hidden cursor-pointer" onclick="window.location.href='./08-recognition-overlay-failure.html'">
+            <div class="flex items-center gap-3 p-3">
+              <div class="w-8 h-8 rounded-full bg-[#FF3B30]/15 flex items-center justify-center shrink-0">
+                <iconify-icon icon="solar:danger-triangle-linear" class="text-[#FF3B30] text-[16px]"></iconify-icon>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-[13px] font-semibold text-white leading-tight">Recognition Failed</p>
+                <p class="text-[11px] text-white/50 mt-0.5">"Ethereal" could not be recognized. Tap to review.</p>
+              </div>
+              <iconify-icon icon="solar:alt-arrow-right-linear" class="text-[#FF3B30] text-[16px] shrink-0"></iconify-icon>
+            </div>
+          </div>
+        </div>
 
         <!-- Scrollable Content -->
         <main class="w-full h-full overflow-y-auto no-scrollbar scroll-smooth bg-[#000000]">
@@ -109,7 +146,7 @@ margin: 0;
 
                     <div class="mt-2 mb-4">
                         <div class="flex items-center gap-2">
-                            <span class="text-[15px] text-white">Modern Perspectives</span>
+                            <span class="text-[15px] text-white italic">Modern Perspectives</span>
                         </div>
                         <button class="text-[13px] text-[#007AFF] mt-1 active:opacity-60">@moma_official</button>
                     </div>
@@ -144,6 +181,7 @@ margin: 0;
                             <div class="absolute bottom-0 left-0 right-0 p-3 pb-3 z-20">
                                 <h3 class="text-[15px] font-semibold text-white leading-tight truncate">Neon Silence</h3>
                                 <p class="text-[13px] text-white/80 truncate mt-1">Kazuhiro Tsuji</p>
+                                <p class="text-[10px] text-white/40 italic truncate mt-0.5">from MoMA, New York</p>
                             </div>
                         </div>
                     </div>
@@ -160,6 +198,7 @@ margin: 0;
                             <div class="absolute bottom-0 left-0 right-0 p-3 pb-3 z-20">
                                 <h3 class="text-[15px] font-semibold text-white leading-tight truncate">Liquid Time</h3>
                                 <p class="text-[13px] text-white/80 truncate mt-1">Sarah Chen</p>
+                                <p class="text-[10px] text-white/40 italic truncate mt-0.5">from MoMA, New York</p>
                             </div>
                         </div>
                     </div>
@@ -176,6 +215,7 @@ margin: 0;
                             <div class="absolute bottom-0 left-0 right-0 p-3 pb-3 z-20">
                                 <h3 class="text-[15px] font-semibold text-white leading-tight truncate">Chromatopia</h3>
                                 <p class="text-[13px] text-white/80 truncate mt-1">Studio 42</p>
+                                <p class="text-[10px] text-white/40 italic truncate mt-0.5">from MoMA, New York</p>
                             </div>
                         </div>
                     </div>
@@ -192,12 +232,13 @@ margin: 0;
                             <div class="absolute bottom-0 left-0 right-0 p-3 pb-3 z-20">
                                 <h3 class="text-[15px] font-semibold text-white leading-tight truncate">Geometric Soul</h3>
                                 <p class="text-[13px] text-white/80 truncate mt-1">Unknown</p>
+                                <p class="text-[10px] text-white/40 italic truncate mt-0.5">from MoMA, New York</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Card 5: Not Found ✗ — tappable → failure overlay -->
-                    <div class="masonry-item group cursor-pointer" onclick="window.location.href='./08-recognition-overlay-failure.html'">
+                    <div id="not-found-card" class="masonry-item group cursor-pointer" onclick="window.location.href='./08-recognition-overlay-failure.html'">
                         <div class="relative w-full rounded-[20px] overflow-hidden bg-[#1C1C1E] shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
                             <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=600&auto=format&fit=crop" class="w-full h-auto block" alt="Artwork">
                             <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 to-transparent pointer-events-none"></div>
@@ -208,6 +249,7 @@ margin: 0;
                             <div class="absolute bottom-0 left-0 right-0 p-3 pb-3 z-20">
                                 <h3 class="text-[15px] font-semibold text-white leading-tight truncate">Ethereal</h3>
                                 <p class="text-[13px] text-[#FF3B30] truncate mt-1">Tap to review</p>
+                                <p class="text-[10px] text-white/40 italic truncate mt-0.5">from MoMA, New York</p>
                             </div>
                         </div>
                     </div>
@@ -218,11 +260,39 @@ margin: 0;
     </div>
 
     <script>
-        const mainContainer = document.querySelector('main');
-        mainContainer.addEventListener('scroll', () => {
-            const title = document.getElementById('nav-title-text');
+        var mainContainer = document.querySelector('main');
+        var scrollNotification = document.getElementById('scroll-notification');
+        var notFoundCard = document.getElementById('not-found-card');
+        var scrollBannerVisible = false;
+        var scrollBannerTimeout = null;
+
+        mainContainer.addEventListener('scroll', function() {
+            var title = document.getElementById('nav-title-text');
             if (mainContainer.scrollTop > 220) title.classList.add('visible');
             else title.classList.remove('visible');
+
+            // Contextual notification for Not Found card
+            if (notFoundCard && scrollNotification) {
+                var mainRect = mainContainer.getBoundingClientRect();
+                var cardRect = notFoundCard.getBoundingClientRect();
+                var cardTop = cardRect.top - mainRect.top;
+                var cardBottom = cardRect.bottom - mainRect.top;
+                var viewHeight = mainRect.height;
+                var isCardVisible = cardTop < viewHeight * 0.8 && cardBottom > viewHeight * 0.1;
+
+                if (isCardVisible && !scrollBannerVisible) {
+                    scrollBannerVisible = true;
+                    scrollNotification.style.display = 'block';
+                    scrollNotification.classList.remove('hide');
+                    if (scrollBannerTimeout) clearTimeout(scrollBannerTimeout);
+                } else if (!isCardVisible && scrollBannerVisible) {
+                    scrollBannerVisible = false;
+                    scrollNotification.classList.add('hide');
+                    scrollBannerTimeout = setTimeout(function() {
+                        scrollNotification.style.display = 'none';
+                    }, 300);
+                }
+            }
         });
 
         function dismissBanner(btn) {
@@ -235,5 +305,5 @@ margin: 0;
     </script>
 
 
-<script src="./routing.js?v=10"></script>
+<script src="./routing.js?v=11"></script>
 </body></html>
