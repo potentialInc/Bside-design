@@ -84,15 +84,6 @@
       .artwork-shadow {
       box-shadow: 0 4px 20px rgba(0,0,0,0.2);
       }
-      /* Recognition notification banner */
-      @keyframes bannerSlideDown {
-          from { transform: translateY(-100%); opacity: 0; }
-          to { transform: translateY(0); opacity: 1; }
-      }
-      .recognition-banner {
-          animation: bannerSlideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
-          opacity: 0;
-      }
     </style>
   </head>
   <body>
@@ -128,22 +119,6 @@
           />
         </div>
 
-        <!-- Recognition Notification Banner -->
-        <div class="recognition-banner mx-4 -mt-6 mb-2 relative z-20">
-          <div class="bg-[#1C1C1E]/95 backdrop-blur-md border border-[#FF9500]/30 rounded-2xl overflow-hidden cursor-pointer" onclick="window.location.href='./08-recognition-overlay-failure.html'">
-            <div class="flex items-center gap-3 p-3">
-              <div class="w-8 h-8 rounded-full bg-[#FF9500]/15 flex items-center justify-center shrink-0">
-                <iconify-icon icon="solar:danger-triangle-linear" class="text-[#FF9500] text-[16px]"></iconify-icon>
-              </div>
-              <div class="flex-1 min-w-0">
-                <p class="text-[13px] font-semibold text-white leading-tight">Recognition Incomplete</p>
-                <p class="text-[11px] text-white/50 mt-0.5">This artwork needs review. Tap to open Recognition Interface.</p>
-              </div>
-              <iconify-icon icon="solar:alt-arrow-right-linear" class="text-[#FF9500] text-[16px] shrink-0"></iconify-icon>
-            </div>
-          </div>
-        </div>
-
         <!-- Dark Info Section (Updated) -->
         <div class="bg-black px-5 pt-6 pb-8 flex flex-col relative z-10">
           <!-- Header with Title and Badge -->
@@ -159,21 +134,21 @@
               </p>
             </div>
 
-            <!-- Review Recognition CTA (replaces Camera Icon) -->
-            <button class="flex items-center gap-1.5 px-3 py-2 bg-[#FF9500]/15 border border-[#FF9500]/30 rounded-xl active:scale-95 transition-transform mt-1" onclick="window.location.href='./08-recognition-overlay-failure.html'">
-              <iconify-icon icon="solar:magnifer-zoom-in-linear" width="16" class="text-[#FF9500]"></iconify-icon>
-              <span class="text-[13px] font-semibold text-[#FF9500]">Review</span>
-            </button>
+            <!-- Simple Camera Icon + Number -->
+            <div class="flex items-center gap-1.5 mt-1">
+              <iconify-icon icon="solar:camera-bold" width="18" class="text-white"></iconify-icon>
+              <span class="text-[17px] font-semibold text-white tracking-tight leading-none">
+                2,410
+              </span>
+            </div>
           </div>
 
-          <!-- Details with Event Name -->
+          <!-- Details -->
           <div class="mt-10 flex flex-col gap-0.5">
             <span class="text-[15px] font-normal text-white">
               Oil on Canvas
             </span>
             <span class="text-[15px] font-normal text-white">2023</span>
-            <span class="text-[14px] font-normal text-white/50 italic mt-2">from Frieze London 2026</span>
-            <span class="text-[12px] font-normal text-white/30 mt-0.5">Captured on Feb 17, 2026</span>
           </div>
         </div>
 
@@ -375,9 +350,5 @@
     <script>
       lucide.createIcons();
     </script>
-  
-
-
-<script src="./routing.js?v=11"></script>
-</body>
+  </body>
 </html>
