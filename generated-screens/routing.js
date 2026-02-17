@@ -167,16 +167,17 @@
   var formTarget = formTargets[currentPage];
   if (formTarget) {
     document.querySelectorAll('form').forEach(function (form) {
-      var existing = form.getAttribute('onsubmit') || '';
-      // Only set if no existing navigation handler
-      if (!existing.includes('location') && !existing.includes('href')) {
-        form.setAttribute('onsubmit', "event.preventDefault(); window.location.href='" + formTarget + "';");
-      }
+      // Always override form submission to navigate to target
+      // Use .onsubmit property (not setAttribute) to reliably override compiled handlers
+      form.onsubmit = function (e) {
+        e.preventDefault();
+        navigateTo(formTarget);
+        return false;
+      };
     });
 
-    // Also handle submit-like buttons not in forms
+    // Handle submit-like buttons (both inside and outside forms)
     document.querySelectorAll('button').forEach(function (btn) {
-      if (btn.closest('form')) return;
       var text = getElementText(btn);
       var submitTexts = ['continue', 'next', 'submit', 'done', 'complete', 'save',
         'send verification code', 'verify', 'confirm', 'reset password',
@@ -184,7 +185,12 @@
       for (var i = 0; i < submitTexts.length; i++) {
         if (text.includes(submitTexts[i])) {
           btn.style.cursor = 'pointer';
-          btn.addEventListener('click', function (e) { e.preventDefault(); navigateTo(formTarget); });
+          // For buttons inside forms, add a click handler that also navigates
+          btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            navigateTo(formTarget);
+          });
           break;
         }
       }
