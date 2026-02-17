@@ -176,23 +176,26 @@
       };
     });
 
-    // Handle submit-like buttons (both inside and outside forms)
+    // Handle ALL submit buttons inside forms + submit-like buttons outside
     document.querySelectorAll('button').forEach(function (btn) {
       var text = getElementText(btn);
+      var isSubmitType = btn.type === 'submit' || (btn.closest('form') && btn.type !== 'button');
       var submitTexts = ['continue', 'next', 'submit', 'done', 'complete', 'save',
-        'send verification code', 'verify', 'confirm', 'reset password',
-        'create password', 'skip for now', 'skip'];
+        'send verification code', 'send reset code', 'send code', 'send',
+        'verify', 'confirm', 'reset password', 'create password',
+        'skip for now', 'skip'];
+      var isSubmitText = false;
       for (var i = 0; i < submitTexts.length; i++) {
-        if (text.includes(submitTexts[i])) {
-          btn.style.cursor = 'pointer';
-          // For buttons inside forms, add a click handler that also navigates
-          btn.addEventListener('click', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            navigateTo(formTarget);
-          });
-          break;
-        }
+        if (text.includes(submitTexts[i])) { isSubmitText = true; break; }
+      }
+
+      if (isSubmitType || isSubmitText) {
+        btn.style.cursor = 'pointer';
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          navigateTo(formTarget);
+        });
       }
     });
   }
