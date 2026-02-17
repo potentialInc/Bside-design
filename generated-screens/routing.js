@@ -321,13 +321,16 @@
     });
   }
 
-  // Art feed cards → artwork detail
+  // Art feed cards → artwork detail (cards are divs containing full-height artwork images)
   if (currentPage === '07-art-feed.html') {
-    document.querySelectorAll('article').forEach(function (article) {
-      article.style.cursor = 'pointer';
-      article.addEventListener('click', function () {
-        navigateTo('./09-artwork-detail.html');
-      });
+    document.querySelectorAll('img[alt^="Art"], img[alt="The Son of Man"]').forEach(function (img) {
+      var card = img.closest('.mb-6') || img.parentElement.parentElement;
+      if (card) {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', function () {
+          navigateTo('./09-artwork-detail.html');
+        });
+      }
     });
   }
 
