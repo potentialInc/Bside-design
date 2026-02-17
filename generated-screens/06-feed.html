@@ -36,11 +36,11 @@ transition: opacity 0.3s ease-in-out;
         <header class="-mx-3 bg-black pt-[50px] pb-3 px-5 flex items-center justify-between">
           <img src="https://potential-dev.s3.ap-northeast-2.amazonaws.com/PotentialAi/media/0be3d124-c34a-4f51-beb8-0df60eaf0341-image%20(4).png" alt="bside" width="479" height="94" class="h-[58px] w-auto">
           <div class="flex items-center gap-4">
-            <a href="#" class="text-white hover:opacity-70 transition-opacity relative">
+            <a href="./24-notification-list.html" class="text-white hover:opacity-70 transition-opacity relative">
               <iconify-icon icon="lucide:bell" width="26" stroke-width="2"></iconify-icon>
               <div class="absolute top-[2px] right-[3px] w-2 h-2 bg-red-600 rounded-full border border-black"></div>
             </a>
-            <a href="#" class="text-white hover:opacity-70 transition-opacity">
+            <a href="./17-search-main.html" class="text-white hover:opacity-70 transition-opacity">
               <iconify-icon icon="lucide:search" width="26" stroke-width="2"></iconify-icon>
             </a>
           </div>
@@ -406,7 +406,7 @@ transition: opacity 0.3s ease-in-out;
       <nav class="absolute bottom-8 left-1/2 -translate-x-1/2 z-50 w-full flex justify-center">
         <div class="relative flex items-center justify-between w-[280px] h-[72px] px-10 bg-[#0F0F0F] rounded-full border border-white/5 shadow-[0_20px_40px_rgba(0,0,0,0.8)] backdrop-blur-md">
           <!-- Home Icon -->
-          <a href="#" class="text-white hover:text-white/80 transition-colors">
+          <a href="./06-feed.html" class="text-white hover:text-white/80 transition-colors">
             <iconify-icon icon="lucide:home" width="24" stroke-width="1.5"></iconify-icon>
           </a>
 
@@ -418,7 +418,7 @@ transition: opacity 0.3s ease-in-out;
                 </div>
 
           <!-- User Icon -->
-          <a href="#" class="text-white hover:text-white/80 transition-colors">
+          <a href="./19-my-page-profile.html" class="text-white hover:text-white/80 transition-colors">
             <iconify-icon icon="lucide:user" width="24" stroke-width="1.5"></iconify-icon>
           </a>
         </div>
@@ -552,120 +552,5 @@ transition: opacity 0.3s ease-in-out;
     </script>
   
 
-<!-- ROUTING START -->
-<script>
-(function() {
-  // Content item routes
-  var contentMap = {
-    'collection': './08-collection-detail.html',
-    'artwork': './09-artwork-detail.html'
-  };
-  var contentItems = document.querySelectorAll('[class*="cursor-pointer"], [class*="rounded"][class*="overflow-hidden"]:not([class*="bottom"])');
-  contentItems.forEach(function(item) {
-    // Only target card-like items, not full page containers
-    if (item.offsetHeight > 300 || item.offsetWidth > 300) return;
-    var imgs = item.querySelectorAll('img');
-    var text = (item.textContent || '').toLowerCase();
-    var alt = imgs.length ? (imgs[0].getAttribute('alt') || '').toLowerCase() : '';
-    var matched = false;
-    Object.keys(contentMap).forEach(function(type) {
-      if (!matched && (alt.includes(type) || text.includes(type) || item.className.toLowerCase().includes(type))) {
-        if (!item.onclick) {
-          item.style.cursor = 'pointer';
-          item.onclick = function() { location.href = contentMap[type]; };
-          matched = true;
-        }
-      }
-    });
-    // Default: if item has an image and no route yet, use first content route
-    if (!matched && imgs.length && !item.onclick && item.offsetHeight < 200) {
-      var firstTarget = Object.values(contentMap)[0];
-      item.style.cursor = 'pointer';
-      item.onclick = function() { location.href = firstTarget; };
-    }
-  });
-
-  // Top nav icon routes
-  var topIcons = document.querySelectorAll('[data-lucide], iconify-icon');
-  topIcons.forEach(function(icon) {
-    var name = (icon.getAttribute('data-lucide') || icon.getAttribute('icon') || '').toLowerCase();
-    
-    if (name.includes('search')) {
-      var btn = icon.closest('a') || icon.closest('button') || icon.parentElement;
-      if (btn && !btn.closest('[class*="bottom"]')) {
-        btn.style.cursor = 'pointer';
-        if (btn.tagName === 'A') btn.href = './17-search-main.html';
-        else btn.onclick = function() { location.href = './17-search-main.html'; };
-      }
-    }
-    if (name.includes('notification')) {
-      var btn = icon.closest('a') || icon.closest('button') || icon.parentElement;
-      if (btn && !btn.closest('[class*="bottom"]')) {
-        btn.style.cursor = 'pointer';
-        if (btn.tagName === 'A') btn.href = './24-notification-list.html';
-        else btn.onclick = function() { location.href = './24-notification-list.html'; };
-      }
-    }
-    if (name.includes('bell')) {
-      var btn = icon.closest('a') || icon.closest('button') || icon.parentElement;
-      if (btn && !btn.closest('[class*="bottom"]')) {
-        btn.style.cursor = 'pointer';
-        if (btn.tagName === 'A') btn.href = './24-notification-list.html';
-        else btn.onclick = function() { location.href = './24-notification-list.html'; };
-      }
-    }
-  });
-})();
-</script>
-<script>
-(function() {
-  // Bottom Navigation Routing
-  var bottomNav = document.querySelector('[class*="bottom-"] [class*="flex"]') ||
-                  document.querySelector('.fixed.bottom-0') ||
-                  document.querySelector('[class*="absolute"][class*="bottom-"]');
-
-  // Find all navigation-like containers at the bottom
-  var allElements = document.querySelectorAll('a, button');
-  var navMap = {"home":"./06-feed.html","search":"./17-search-main.html","camera":"./12-camera-view.html","profile":"./19-my-page-profile.html","notifications":"./24-notification-list.html"};
-  var activeTab = 'home';
-
-  allElements.forEach(function(el) {
-    var text = (el.textContent || '').trim().toLowerCase();
-    var iconEl = el.querySelector('[data-lucide], iconify-icon, [class*="icon"], svg');
-    var iconName = '';
-    if (iconEl) {
-      iconName = (iconEl.getAttribute('data-lucide') || iconEl.getAttribute('icon') || '').toLowerCase();
-    }
-
-    // Match bottom nav items by icon or text
-    if (iconName.includes('home') || iconName.includes('house') || text === 'home' || text === 'feed') {
-      if (el.tagName === 'A') el.href = navMap.home;
-      else el.onclick = function() { location.href = navMap.home; };
-    }
-    if (iconName.includes('search') || iconName.includes('magnif') || text === 'search') {
-      if (el.closest('[class*="bottom"]') || el.closest('nav')) {
-        if (el.tagName === 'A') el.href = navMap.search;
-        else el.onclick = function() { location.href = navMap.search; };
-      }
-    }
-    if (iconName.includes('camera') || text === 'camera' || text === 'scan') {
-      if (el.tagName === 'A') el.href = navMap.camera;
-      else el.onclick = function() { location.href = navMap.camera; };
-    }
-    if (iconName.includes('user') || iconName.includes('person') || text === 'profile' || text === 'my page') {
-      if (el.closest('[class*="bottom"]') || el.closest('nav')) {
-        if (el.tagName === 'A') el.href = navMap.profile;
-        else el.onclick = function() { location.href = navMap.profile; };
-      }
-    }
-    if (iconName.includes('bell') || iconName.includes('notification') || text === 'notifications') {
-      if (el.closest('[class*="bottom"]') || el.closest('nav')) {
-        if (el.tagName === 'A') el.href = navMap.notifications;
-        else el.onclick = function() { location.href = navMap.notifications; };
-      }
-    }
-  });
-})();
-</script>
-<!-- ROUTING END -->
+<script src="./routing.js"></script>
 </body></html>

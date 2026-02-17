@@ -298,19 +298,5 @@ opacity: 0.8;
 
 
 
-<!-- ROUTING START -->
-<script>
-(function() {
-  // Back button
-  var backBtns = document.querySelectorAll('[data-lucide="chevron-left"], [data-lucide="arrow-left"], iconify-icon[icon*="arrow-left"], iconify-icon[icon*="alt-arrow-left"]');
-  backBtns.forEach(function(icon) {
-    var btn = icon.closest('button') || icon.closest('a');
-    if (btn) {
-      btn.style.cursor = 'pointer';
-      btn.onclick = function(e) { e.preventDefault(); location.href = './19-my-page-profile.html'; };
-    }
-  });
-})();
-</script>
-<!-- ROUTING END -->
+<script src="./routing.js"></script>
 </body></html>

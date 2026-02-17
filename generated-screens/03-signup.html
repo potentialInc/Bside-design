@@ -100,7 +100,7 @@
 
           <!-- Email -->
           <a
-            href="#"
+            href="./03-signup-step1.html"
             class="w-full h-[50px] bg-[#6e7480] rounded-xl flex items-center justify-center active:scale-[0.98] transition-transform duration-200"
           >
             <span class="text-white font-semibold text-[16px]">
@@ -114,7 +114,7 @@
           <p class="text-[14px] text-zinc-500 font-normal">
             Already have an account?
             <a
-              href="#"
+              href="./02-login.html"
               class="text-[#0A84FF] font-medium hover:text-[#0A84FF]/80 transition-colors"
             >
               Sign in
@@ -129,33 +129,6 @@
       </div>
     </div>
   
-<!-- ROUTING START -->
-<script>
-(function() {
-  // Named routes
-  var routeMap = {
-    'continue with email': './03-signup-step1.html',
-    'log in': './02-login.html',
-    'login': './02-login.html',
-    'sign in': './02-login.html',
-    'sign in': './02-login.html'
-  };
-  var clickables = document.querySelectorAll('a[href="#"], a:not([href]), button');
-  clickables.forEach(function(el) {
-    var text = (el.textContent || '').trim();
-    Object.keys(routeMap).forEach(function(key) {
-      if (text.toLowerCase().includes(key)) {
-        el.style.cursor = 'pointer';
-        if (el.tagName === 'A') {
-          el.href = routeMap[key];
-        } else if (!el.onclick) {
-          el.onclick = function(e) { e.preventDefault(); location.href = routeMap[key]; };
-        }
-      }
-    });
-  });
-})();
-</script>
-<!-- ROUTING END -->
+<script src="./routing.js"></script>
 </body>
 </html>
