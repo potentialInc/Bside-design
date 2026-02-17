@@ -23,6 +23,10 @@
     '04-password-recovery-success.html': './02-login.html',
     '07-art-feed.html': './06-feed.html',
     '08-collection-detail.html': './06-feed.html',
+    '08-collection-detail-processing.html': './06-feed.html',
+    '08-collection-detail-complete.html': './06-feed.html',
+    '08-recognition-overlay-success.html': './08-collection-detail-complete.html',
+    '08-recognition-overlay-failure.html': './08-collection-detail-complete.html',
     '09-artwork-detail.html': './06-feed.html',
     '10-artist-profile.html': './09-artwork-detail.html',
     '11-gallery-profile.html': './06-feed.html',
@@ -64,6 +68,7 @@
   // Pages that should have bottom navigation
   var bottomNavPages = [
     '06-feed.html', '07-art-feed.html', '08-collection-detail.html',
+    '08-collection-detail-processing.html', '08-collection-detail-complete.html',
     '12-camera-view.html', '13-camera-view-2.html',
     '14-recognition-success.html', '15-recognition-failure.html',
     '17-search-main.html', '17-search-empty.html', '17-search-suggestions.html',
@@ -297,6 +302,7 @@
   // ─── 7. CONTENT CARD ROUTING ──────────────────────────────────────
   // Artwork cards → artwork detail
   if (['06-feed.html', '07-art-feed.html', '08-collection-detail.html',
+    '08-collection-detail-processing.html', '08-collection-detail-complete.html',
     '10-artist-profile.html', '18-search-results.html', '18-search-results2.html',
     '19-my-page-profile.html'].indexOf(currentPage) !== -1) {
 
@@ -675,6 +681,34 @@
         el.style.cursor = 'pointer';
         if (el.tagName === 'A') el.href = './01-welcome.html';
         else el.addEventListener('click', function () { navigateTo('./01-welcome.html'); });
+      }
+    });
+  }
+
+  // 08-collection-detail-processing.html - Auto-navigate to complete after delay (simulates processing)
+  if (currentPage === '08-collection-detail-processing.html') {
+    // After 4 seconds, auto-navigate to the "complete" state
+    setTimeout(function () { navigateTo('./08-collection-detail-complete.html'); }, 4000);
+  }
+
+  // 08-recognition-overlay-success.html - "Confirm & Save" button
+  if (currentPage === '08-recognition-overlay-success.html') {
+    document.querySelectorAll('button').forEach(function (btn) {
+      var text = getElementText(btn);
+      if (text.includes('edit detail')) {
+        btn.style.cursor = 'pointer';
+        btn.addEventListener('click', function () { navigateTo('./16-manual-artwork-input.html'); });
+      }
+    });
+  }
+
+  // 08-recognition-overlay-failure.html - "Enter Artwork Info Manually" button
+  if (currentPage === '08-recognition-overlay-failure.html') {
+    document.querySelectorAll('button').forEach(function (btn) {
+      var text = getElementText(btn);
+      if (text.includes('manual') || text.includes('enter artwork')) {
+        btn.style.cursor = 'pointer';
+        btn.addEventListener('click', function () { navigateTo('./16-manual-artwork-input.html'); });
       }
     });
   }
