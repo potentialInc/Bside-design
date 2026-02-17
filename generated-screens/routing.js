@@ -133,13 +133,31 @@
       }
     });
 
-    // Also find text-based back buttons
+    // Also find text-based back buttons (including "Back to X" patterns)
     document.querySelectorAll('a, button').forEach(function (el) {
       var text = getElementText(el);
-      if (text === 'back' || text === '← back') {
+      if (text === 'back' || text === '← back' || text.indexOf('back to') === 0) {
         el.style.cursor = 'pointer';
         if (el.tagName === 'A') el.href = backTarget;
         else el.addEventListener('click', function (e) { e.preventDefault(); navigateTo(backTarget); });
+      }
+    });
+
+    // Also find back buttons using raw SVG chevron-left icons (path d="m15 18-6-6 6-6" or similar)
+    document.querySelectorAll('svg').forEach(function (svg) {
+      var path = svg.querySelector('path');
+      if (path) {
+        var d = path.getAttribute('d') || '';
+        // Common chevron-left/arrow-left SVG path patterns
+        if (d.includes('m15 18-6-6 6-6') || d.includes('15 18-6-6 6-6') ||
+            d.includes('M15 18l-6-6 6-6') || d.includes('m 15 18 -6 -6 6 -6')) {
+          var btn = svg.closest('a') || svg.closest('button');
+          if (btn) {
+            btn.style.cursor = 'pointer';
+            if (btn.tagName === 'A') btn.href = backTarget;
+            else btn.addEventListener('click', function (e) { e.preventDefault(); navigateTo(backTarget); });
+          }
+        }
       }
     });
   }
@@ -320,6 +338,27 @@
         btn.addEventListener('click', function () { navigateTo('./03-signup-step1.html'); });
       }
     });
+  }
+
+  // 04-password-recovery-code.html - Auto-navigate when all 6 digits entered
+  if (currentPage === '04-password-recovery-code.html') {
+    var codeInputs = document.querySelectorAll('input[maxlength="1"]');
+    if (codeInputs.length >= 6) {
+      codeInputs.forEach(function (input, index) {
+        input.addEventListener('input', function () {
+          if (input.value.length === 1 && index === codeInputs.length - 1) {
+            // Last digit entered - check if all fields are filled
+            var allFilled = true;
+            codeInputs.forEach(function (inp) {
+              if (!inp.value) allFilled = false;
+            });
+            if (allFilled) {
+              setTimeout(function () { navigateTo('./04-password-recovery-new-password.html'); }, 500);
+            }
+          }
+        });
+      });
+    }
   }
 
   // 04-password-recovery-success.html - Auto redirect
