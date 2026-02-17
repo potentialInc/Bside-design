@@ -138,4 +138,30 @@ transition: all 0.3s ease;
         <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-[134px] h-[5px] bg-white/40 rounded-full z-50"></div>
     </div>
 
+
+<!-- ROUTING START -->
+<script>
+(function() {
+  // Named routes
+  var routeMap = {
+    'clear all': './17-search-empty.html',
+    'cancel': './17-search-main.html'
+  };
+  var clickables = document.querySelectorAll('a[href="#"], a:not([href]), button');
+  clickables.forEach(function(el) {
+    var text = (el.textContent || '').trim();
+    Object.keys(routeMap).forEach(function(key) {
+      if (text.toLowerCase().includes(key)) {
+        el.style.cursor = 'pointer';
+        if (el.tagName === 'A') {
+          el.href = routeMap[key];
+        } else if (!el.onclick) {
+          el.onclick = function(e) { e.preventDefault(); location.href = routeMap[key]; };
+        }
+      }
+    });
+  });
+})();
+</script>
+<!-- ROUTING END -->
 </body></html>

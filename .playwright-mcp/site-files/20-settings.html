@@ -401,4 +401,41 @@ transform: translateY(0);
 
 
 
+
+<!-- ROUTING START -->
+<script>
+(function() {
+  // Back button
+  var backBtns = document.querySelectorAll('[data-lucide="chevron-left"], [data-lucide="arrow-left"], [class*="back"], iconify-icon[icon*="arrow-left"], iconify-icon[icon*="alt-arrow-left"]');
+  backBtns.forEach(function(icon) {
+    var btn = icon.closest('button') || icon.closest('a') || icon.parentElement;
+    if (btn) {
+      btn.style.cursor = 'pointer';
+      btn.onclick = function(e) { e.preventDefault(); location.href = './19-my-page-profile.html'; };
+    }
+  });
+
+  // Named routes
+  var routeMap = {
+    'log out': './01-welcome.html',
+    'logout': './01-welcome.html',
+    'sign out': './01-welcome.html'
+  };
+  var clickables = document.querySelectorAll('a[href="#"], a:not([href]), button');
+  clickables.forEach(function(el) {
+    var text = (el.textContent || '').trim();
+    Object.keys(routeMap).forEach(function(key) {
+      if (text.toLowerCase().includes(key)) {
+        el.style.cursor = 'pointer';
+        if (el.tagName === 'A') {
+          el.href = routeMap[key];
+        } else if (!el.onclick) {
+          el.onclick = function(e) { e.preventDefault(); location.href = routeMap[key]; };
+        }
+      }
+    });
+  });
+})();
+</script>
+<!-- ROUTING END -->
 </body></html>

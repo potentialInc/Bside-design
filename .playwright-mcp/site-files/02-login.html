@@ -241,4 +241,54 @@ transition: background-color 5000s ease-in-out 0s;
     </script>
 
 
+
+<!-- ROUTING START -->
+<script>
+(function() {
+  // Form submission
+  var forms = document.querySelectorAll('form');
+  forms.forEach(function(form) {
+    if (!form.getAttribute('onsubmit')) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        location.href = './06-feed.html';
+      });
+    }
+  });
+  // Primary/Submit buttons (not in forms)
+  var submitBtns = document.querySelectorAll('button[type="submit"], button:not([type])');
+  submitBtns.forEach(function(btn) {
+    var text = (btn.textContent || '').trim().toLowerCase();
+    if (['continue', 'next', 'submit', 'done', 'complete', 'save', 'sign up', 'create account', 'reset password', 'verify', 'confirm'].includes(text) ||
+        text.includes('continue') || text.includes('next') || text.includes('submit') || text.includes('complete') || text.includes('get started')) {
+      if (!btn.closest('form') && !btn.onclick) {
+        btn.onclick = function(e) { e.preventDefault(); location.href = './06-feed.html'; };
+      }
+    }
+  });
+
+  // Named routes
+  var routeMap = {
+    'forgot password': './04-password-recovery.html',
+    'sign up': './03-signup.html',
+    'sign up': './03-signup.html',
+    'create account': './03-signup.html'
+  };
+  var clickables = document.querySelectorAll('a[href="#"], a:not([href]), button');
+  clickables.forEach(function(el) {
+    var text = (el.textContent || '').trim();
+    Object.keys(routeMap).forEach(function(key) {
+      if (text.toLowerCase().includes(key)) {
+        el.style.cursor = 'pointer';
+        if (el.tagName === 'A') {
+          el.href = routeMap[key];
+        } else if (!el.onclick) {
+          el.onclick = function(e) { e.preventDefault(); location.href = routeMap[key]; };
+        }
+      }
+    });
+  });
+})();
+</script>
+<!-- ROUTING END -->
 </body></html>

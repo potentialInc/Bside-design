@@ -241,4 +241,39 @@ box-shadow: 0 4px 20px rgba(0,0,0,0.2);
         lucide.createIcons();
     </script>
 
+
+<!-- ROUTING START -->
+<script>
+(function() {
+  // Back button
+  var backBtns = document.querySelectorAll('[data-lucide="chevron-left"], [data-lucide="arrow-left"], [class*="back"], iconify-icon[icon*="arrow-left"], iconify-icon[icon*="alt-arrow-left"]');
+  backBtns.forEach(function(icon) {
+    var btn = icon.closest('button') || icon.closest('a') || icon.parentElement;
+    if (btn) {
+      btn.style.cursor = 'pointer';
+      btn.onclick = function(e) { e.preventDefault(); location.href = './06-feed.html'; };
+    }
+  });
+
+  // Named routes
+  var routeMap = {
+    'artist': './10-artist-profile.html'
+  };
+  var clickables = document.querySelectorAll('a[href="#"], a:not([href]), button');
+  clickables.forEach(function(el) {
+    var text = (el.textContent || '').trim();
+    Object.keys(routeMap).forEach(function(key) {
+      if (text.toLowerCase().includes(key)) {
+        el.style.cursor = 'pointer';
+        if (el.tagName === 'A') {
+          el.href = routeMap[key];
+        } else if (!el.onclick) {
+          el.onclick = function(e) { e.preventDefault(); location.href = routeMap[key]; };
+        }
+      }
+    });
+  });
+})();
+</script>
+<!-- ROUTING END -->
 </body></html>

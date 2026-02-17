@@ -341,4 +341,43 @@ scrollbar-width: none;
 
 
 
+
+<!-- ROUTING START -->
+<script>
+(function() {
+  // Close button
+  var closeBtns = document.querySelectorAll('[data-lucide="x"], [data-lucide="x-circle"], iconify-icon[icon*="close"], iconify-icon[icon*="x-mark"]');
+  closeBtns.forEach(function(icon) {
+    var btn = icon.closest('button') || icon.closest('a') || icon.parentElement;
+    if (btn) {
+      btn.style.cursor = 'pointer';
+      btn.onclick = function(e) { e.preventDefault(); location.href = './12-camera-view.html'; };
+    }
+  });
+
+  // Named routes
+  var routeMap = {
+    'try again': './12-camera-view.html',
+    'retry': './12-camera-view.html',
+    'manual': './16-manual-artwork-input.html',
+    'enter manually': './16-manual-artwork-input.html',
+    'manual': './16-manual-artwork-input.html'
+  };
+  var clickables = document.querySelectorAll('a[href="#"], a:not([href]), button');
+  clickables.forEach(function(el) {
+    var text = (el.textContent || '').trim();
+    Object.keys(routeMap).forEach(function(key) {
+      if (text.toLowerCase().includes(key)) {
+        el.style.cursor = 'pointer';
+        if (el.tagName === 'A') {
+          el.href = routeMap[key];
+        } else if (!el.onclick) {
+          el.onclick = function(e) { e.preventDefault(); location.href = routeMap[key]; };
+        }
+      }
+    });
+  });
+})();
+</script>
+<!-- ROUTING END -->
 </body></html>

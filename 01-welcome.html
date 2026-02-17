@@ -127,5 +127,33 @@
     <script>
       lucide.createIcons();
     </script>
-  </body>
+  
+<!-- ROUTING START -->
+<script>
+(function() {
+  // Named routes
+  var routeMap = {
+    'get started': './02-login.html',
+    'sign up': './03-signup.html',
+    'log in': './02-login.html',
+    'login': './02-login.html'
+  };
+  var clickables = document.querySelectorAll('a[href="#"], a:not([href]), button');
+  clickables.forEach(function(el) {
+    var text = (el.textContent || '').trim();
+    Object.keys(routeMap).forEach(function(key) {
+      if (text.toLowerCase().includes(key)) {
+        el.style.cursor = 'pointer';
+        if (el.tagName === 'A') {
+          el.href = routeMap[key];
+        } else if (!el.onclick) {
+          el.onclick = function(e) { e.preventDefault(); location.href = routeMap[key]; };
+        }
+      }
+    });
+  });
+})();
+</script>
+<!-- ROUTING END -->
+</body>
 </html>
