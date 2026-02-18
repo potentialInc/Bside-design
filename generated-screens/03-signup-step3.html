@@ -1,310 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>bside.art | Create Account</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: #050505;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    margin: 0;
-    color: white;
-}
-.no-scrollbar::-webkit-scrollbar {
-    display: none;
-}
-.no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-/* Custom Checkbox Styling */
-.custom-checkbox input:checked + div {
-    background-color: #007AFF;
-    border-color: #007AFF;
-}
-.custom-checkbox input:checked + div svg {
-    display: block;
-}
-/* Input Auto-fill style override */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 30px #1C1C1E inset !important;
-    -webkit-text-fill-color: white !important;
-    caret-color: white;
-    transition: background-color 5000s ease-in-out 0s;
-}
-/* Password dots styling */
-.password-dots {
-    font-family: caption;
-    letter-spacing: 2px;
-    font-size: 20px;
-}
-/* Smooth transition for validation pills */
-.validation-pill, .validation-icon, .validation-text {
-    transition: all 0.2s ease;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>bside.art | Create Account</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121212;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            color: white;
+        }
+        
+        /* Custom Checkbox Animation */
+        .checkbox-wrapper input:checked + div {
+            background-color: #3A3A3C;
+            border-color: #3A3A3C;
+        }
+        .checkbox-wrapper input:checked + div svg {
+            display: block;
+        }
+        
+        /* Input Auto-fill style override */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+            -webkit-box-shadow: 0 0 0 30px #1C1C1E inset !important;
+            -webkit-text-fill-color: white !important;
+            caret-color: white;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+
+        /* Password dots styling */
+        .password-dots {
+            font-family: caption;
+            letter-spacing: 2px;
+            font-size: 18px;
+        }
+        
+        .smooth-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
 </head>
-
 <body>
-    <div class="relative w-[375px] h-[812px] bg-black rounded-[50px] shadow-[0_0_0_12px_#1a1a1a,0_0_0_14px_#000,0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden shrink-0 border border-zinc-800 flex flex-col">
-      <!-- Status Bar -->
-      <div class="absolute top-0 left-0 w-full h-[44px] z-50 flex items-center justify-between px-6 select-none pointer-events-none mix-blend-difference text-white">
-        <span class="text-[15px] font-semibold">9:41</span>
-        <div class="flex items-center space-x-2">
-          <iconify-icon icon="solar:signal-bold" width="16"></iconify-icon>
-          <iconify-icon icon="solar:wi-fi-bold" width="16"></iconify-icon>
-          <iconify-icon icon="solar:battery-full-bold" width="20"></iconify-icon>
-        </div>
-      </div>
 
-      <!-- Notch -->
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[35px] bg-black rounded-b-[20px] z-50"></div>
-
-      <!-- Main Content -->
-      <div class="w-full h-full relative flex flex-col pt-[50px]">
-        <!-- Top Section: Header & Logo (Flexible Spacer) -->
-        <div class="flex-1 flex flex-col items-center justify-center -mt-4">
-          <h1 class="text-[28px] font-semibold tracking-tight text-white mb-6">
-            Create Account
-          </h1>
-
-          <!-- Custom Logo -->
-          <img src="https://potential-dev.s3.ap-northeast-2.amazonaws.com/PotentialAi/media/04fac069-a187-4284-aa0b-6a0caa278649-image%20(3).png" class="w-[200px] h-[190px] object-contain" alt="Logo">
+    <!-- Device Frame -->
+    <div class="relative w-[375px] h-[812px] bg-black rounded-[50px] shadow-[0_0_0_12px_#1a1a1a,0_0_0_14px_#000,0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden shrink-0 border border-zinc-900 flex flex-col">
+        
+        <!-- Status Bar -->
+        <div class="w-full h-[44px] flex items-center justify-between px-6 select-none z-50 pt-2">
+            <span class="text-[16px] font-semibold text-white tracking-wide">9:41</span>
+            <div class="flex items-center space-x-1.5">
+                <!-- Battery Icon simulation -->
+                <div class="w-[25px] h-[12px] rounded-[3px] border border-white/30 relative flex items-center p-[1px]">
+                    <div class="h-full w-full bg-white rounded-[1px]"></div>
+                </div>
+                <div class="w-[2px] h-[4px] bg-white/30 rounded-r-sm"></div>
+            </div>
         </div>
 
-        <!-- Bottom Sheet / Form Container -->
-        <div class="relative w-full bg-black rounded-t-[36px] px-6 pb-8 overflow-visible flex flex-col justify-end">
-          
-          <form id="signupForm" class="relative z-10 space-y-4">
-            <!-- Create Password Field -->
-            <div class="space-y-1.5">
-              <label class="text-[13px] font-medium text-white/50 ml-1">
-                Create Password
-              </label>
-              <div class="relative group">
-                <input type="password" id="passwordInput" placeholder="Enter password" class="w-full h-[50px] bg-[#1C1C1E] rounded-2xl pl-5 pr-12 text-white border border-white/5 focus:border-[#007AFF] focus:ring-1 focus:ring-[#007AFF] focus:outline-none transition-all duration-200 password-dots placeholder:font-sans placeholder:text-[15px] placeholder:tracking-normal placeholder:text-white/20">
-                <button type="button" id="togglePass1" class="absolute right-4 top-1/2 -translate-y-1/2 text-white/30 hover:text-white transition-colors cursor-pointer outline-none">
-                  <iconify-icon icon="lucide:eye" width="20"></iconify-icon>
-                </button>
-              </div>
-
-              <!-- Validation Requirements -->
-              <div class="flex flex-row space-x-4 pl-1 pt-1">
-                <!-- Length Check -->
-                <div class="flex items-center space-x-1.5 opacity-50 transition-opacity duration-300" id="req-length">
-                  <div class="validation-pill flex items-center justify-center w-3.5 h-3.5 bg-white/10 rounded-full shrink-0">
-                    <iconify-icon icon="lucide:check" class="validation-icon text-white/30 text-[9px] font-bold"></iconify-icon>
-                  </div>
-                  <span class="validation-text text-[11px] font-medium text-white/30">8+ chars</span>
-                </div>
-                <!-- Uppercase Check -->
-                <div class="flex items-center space-x-1.5 opacity-50 transition-opacity duration-300" id="req-upper">
-                  <div class="validation-pill flex items-center justify-center w-3.5 h-3.5 bg-white/10 rounded-full shrink-0">
-                    <iconify-icon icon="lucide:check" class="validation-icon text-white/30 text-[9px] font-bold"></iconify-icon>
-                  </div>
-                  <span class="validation-text text-[11px] font-medium text-white/30">1 uppercase</span>
-                </div>
-                <!-- Number Check -->
-                <div class="flex items-center space-x-1.5 opacity-50 transition-opacity duration-300" id="req-number">
-                  <div class="validation-pill flex items-center justify-center w-3.5 h-3.5 bg-white/10 rounded-full shrink-0">
-                    <iconify-icon icon="lucide:check" class="validation-icon text-white/30 text-[9px] font-bold"></iconify-icon>
-                  </div>
-                  <span class="validation-text text-[11px] font-medium text-white/30">1 number</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Confirm Password Field -->
-            <div class="space-y-1.5">
-              <label class="text-[13px] font-medium text-white/50 ml-1">
-                Confirm Password
-              </label>
-              <div class="relative">
-                <input type="password" id="confirmInput" placeholder="Re-enter password" class="w-full h-[50px] bg-[#1C1C1E] rounded-2xl pl-5 pr-12 text-white border border-white/5 focus:border-[#007AFF] focus:ring-1 focus:ring-[#007AFF] focus:outline-none transition-all duration-200 password-dots placeholder:font-sans placeholder:text-[15px] placeholder:tracking-normal placeholder:text-white/20">
-                <button type="button" id="togglePass2" class="absolute right-4 top-1/2 -translate-y-1/2 text-white/30 hover:text-white transition-colors cursor-pointer outline-none">
-                  <iconify-icon icon="lucide:eye" width="20"></iconify-icon>
-                </button>
-              </div>
-            </div>
-
-            <!-- Checkboxes -->
-            <div class="space-y-2.5 pt-1 px-1">
-              <label class="custom-checkbox flex items-center space-x-3 cursor-pointer group select-none">
-                <input type="checkbox" id="checkTerms" class="hidden peer">
-                <div class="w-[18px] h-[18px] rounded-[5px] border border-white/20 bg-[#1C1C1E] group-hover:border-white/40 transition-all flex items-center justify-center shrink-0">
-                  <svg class="w-3 h-3 text-white hidden pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                </div>
-                <span class="text-[12px] font-medium text-white/80">
-                  I agree to <a href="#" class="text-[#007AFF] hover:text-[#007AFF]/80 relative z-20">Terms of Service</a>
-                </span>
-              </label>
-
-              <label class="custom-checkbox flex items-center space-x-3 cursor-pointer group select-none">
-                <input type="checkbox" id="checkPrivacy" class="hidden peer">
-                <div class="w-[18px] h-[18px] rounded-[5px] border border-white/20 bg-[#1C1C1E] group-hover:border-white/40 transition-all flex items-center justify-center shrink-0">
-                  <svg class="w-3 h-3 text-white hidden pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                </div>
-                <span class="text-[12px] font-medium text-white/80">
-                  I agree to <a href="#" class="text-[#007AFF] hover:text-[#007AFF]/80 relative z-20">Privacy Policy</a>
-                </span>
-              </label>
-            </div>
-
-            <!-- Sign Up Button -->
-            <button type="submit" id="submitBtn" class="w-full h-[52px] bg-white hover:bg-white/90 active:scale-[0.98] transition-all rounded-2xl flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.1)] mt-2 opacity-50 cursor-not-allowed">
-              <span class="text-black font-semibold text-[16px]">Sign Up</span>
-            </button>
+        <!-- Main Scrollable Content -->
+        <div class="flex-1 flex flex-col px-6 relative overflow-y-auto no-scrollbar">
             
-          </form>
+            <!-- Close Button (Updated Color) -->
+            <button type="button" class="absolute top-5 right-6 text-white hover:text-white/80 transition-colors z-20 outline-none p-1 -mr-1">
+                <i data-lucide="x" width="24" height="24"></i>
+            </button>
+
+            <!-- Header Section -->
+            <div class="flex flex-col items-center mt-8 mb-4">
+                <h1 class="text-[26px] font-semibold text-white mb-10 tracking-tight">Create Account</h1>
+                
+                <!-- Logo -->
+                <div class="w-[180px] h-[180px] flex items-center justify-center mb-8">
+                    <img src="https://potential-dev.s3.ap-northeast-2.amazonaws.com/PotentialAi/media/04fac069-a187-4284-aa0b-6a0caa278649-image%20(3).png" 
+                         alt="B-Side Logo" 
+                         class="w-full h-full object-contain">
+                </div>
+            </div>
+
+            <!-- Form Section -->
+            <form id="signupForm" class="flex flex-col flex-1 pb-8">
+                
+                <!-- Create Password -->
+                <div class="mb-5">
+                    <label class="block text-[13px] font-medium text-[#8E8E93] mb-2 ml-1">Create Password</label>
+                    <div class="relative group">
+                        <input type="password" id="passwordInput" placeholder="Enter password" 
+                               class="w-full h-[54px] bg-[#1C1C1E] rounded-[18px] pl-5 pr-12 text-white border-none focus:ring-1 focus:ring-white/20 outline-none transition-all placeholder:text-[#545458] text-[16px]">
+                        <button type="button" class="toggle-password absolute right-4 top-1/2 -translate-y-1/2 text-[#8E8E93] hover:text-white transition-colors outline-none">
+                            <i data-lucide="eye" width="20" height="20"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Validation Pills -->
+                    <div class="flex flex-wrap gap-2 mt-3 ml-1">
+                        <div id="check-length" class="flex items-center space-x-1.5 opacity-40 transition-all duration-300">
+                            <div class="w-4 h-4 rounded-full bg-[#3A3A3C] flex items-center justify-center transition-colors">
+                                <i data-lucide="check" width="10" height="10" class="text-black stroke-[4]"></i>
+                            </div>
+                            <span class="text-[12px] font-medium text-[#8E8E93]">8+ chars</span>
+                        </div>
+                        <div id="check-upper" class="flex items-center space-x-1.5 opacity-40 transition-all duration-300">
+                            <div class="w-4 h-4 rounded-full bg-[#3A3A3C] flex items-center justify-center transition-colors">
+                                <i data-lucide="check" width="10" height="10" class="text-black stroke-[4]"></i>
+                            </div>
+                            <span class="text-[12px] font-medium text-[#8E8E93]">1 uppercase</span>
+                        </div>
+                        <div id="check-number" class="flex items-center space-x-1.5 opacity-40 transition-all duration-300">
+                            <div class="w-4 h-4 rounded-full bg-[#3A3A3C] flex items-center justify-center transition-colors">
+                                <i data-lucide="check" width="10" height="10" class="text-black stroke-[4]"></i>
+                            </div>
+                            <span class="text-[12px] font-medium text-[#8E8E93]">1 number</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="mb-8">
+                    <label class="block text-[13px] font-medium text-[#8E8E93] mb-2 ml-1">Confirm Password</label>
+                    <div class="relative">
+                        <input type="password" id="confirmInput" placeholder="Re-enter password" 
+                               class="w-full h-[54px] bg-[#1C1C1E] rounded-[18px] pl-5 pr-12 text-white border-none focus:ring-1 focus:ring-white/20 outline-none transition-all placeholder:text-[#545458] text-[16px]">
+                        <button type="button" class="toggle-password absolute right-4 top-1/2 -translate-y-1/2 text-[#8E8E93] hover:text-white transition-colors outline-none">
+                            <i data-lucide="eye" width="20" height="20"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Checkboxes -->
+                <div class="space-y-4 mb-8 pl-1">
+                    <label class="checkbox-wrapper flex items-center space-x-3 cursor-pointer group select-none">
+                        <input type="checkbox" id="termsCheck" class="hidden">
+                        <div class="w-[20px] h-[20px] rounded-[6px] bg-[#1C1C1E] border border-white/10 flex items-center justify-center transition-all group-hover:border-white/20">
+                            <svg class="w-3.5 h-3.5 text-white hidden pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <span class="text-[13px] text-white/90">I agree to <span class="text-[#0A84FF]">Terms of Service</span></span>
+                    </label>
+
+                    <label class="checkbox-wrapper flex items-center space-x-3 cursor-pointer group select-none">
+                        <input type="checkbox" id="privacyCheck" class="hidden">
+                        <div class="w-[20px] h-[20px] rounded-[6px] bg-[#1C1C1E] border border-white/10 flex items-center justify-center transition-all group-hover:border-white/20">
+                            <svg class="w-3.5 h-3.5 text-white hidden pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <span class="text-[13px] text-white/90">I agree to <span class="text-[#0A84FF]">Privacy Policy</span></span>
+                    </label>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="mt-auto">
+                    <button type="submit" id="submitBtn" disabled class="w-full h-[56px] bg-[#2C2C2E] text-[#8E8E93] rounded-[18px] font-semibold text-[17px] transition-all duration-300 flex items-center justify-center disabled:cursor-not-allowed">
+                        Sign Up
+                    </button>
+                </div>
+            </form>
         </div>
 
         <!-- Home Indicator -->
-        <div class="absolute bottom-[8px] left-1/2 -translate-x-1/2 w-[134px] h-[5px] bg-white/20 rounded-full z-50 pointer-events-none"></div>
-      </div>
+        <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-[134px] h-[5px] bg-white/20 rounded-full z-50 pointer-events-none"></div>
     </div>
 
     <script>
-        // DOM Elements
+        // Initialize Lucide icons with 1.5 stroke width for cleaner UI
+        lucide.createIcons({
+            attrs: {
+                'stroke-width': 1.5
+            }
+        });
+
         const passwordInput = document.getElementById('passwordInput');
         const confirmInput = document.getElementById('confirmInput');
-        const togglePass1 = document.getElementById('togglePass1');
-        const togglePass2 = document.getElementById('togglePass2');
-        const reqLength = document.getElementById('req-length');
-        const reqUpper = document.getElementById('req-upper');
-        const reqNumber = document.getElementById('req-number');
-        const checkTerms = document.getElementById('checkTerms');
-        const checkPrivacy = document.getElementById('checkPrivacy');
+        const termsCheck = document.getElementById('termsCheck');
+        const privacyCheck = document.getElementById('privacyCheck');
         const submitBtn = document.getElementById('submitBtn');
+        const toggleButtons = document.querySelectorAll('.toggle-password');
 
-        // State
+        // Validation Elements
+        const checks = {
+            length: document.getElementById('check-length'),
+            upper: document.getElementById('check-upper'),
+            number: document.getElementById('check-number')
+        };
+
         const state = {
-            hasLength: false,
-            hasUpper: false,
-            hasNumber: false,
+            length: false,
+            upper: false,
+            number: false,
             match: false,
             terms: false,
             privacy: false
         };
 
-        // Helper to update validation pills
-        function updatePill(element, isValid) {
-            const pill = element.querySelector('.validation-pill');
-            const icon = element.querySelector('.validation-icon');
-            const text = element.querySelector('.validation-text');
-
-            element.style.opacity = isValid ? '1' : '0.5';
-
-            if (isValid) {
-                pill.className = 'validation-pill flex items-center justify-center w-3.5 h-3.5 bg-[#22C55E] rounded-full shrink-0';
-                icon.className = 'validation-icon text-black text-[9px] font-bold';
-                text.className = 'validation-text text-[11px] font-medium text-[#22C55E]';
-            } else {
-                pill.className = 'validation-pill flex items-center justify-center w-3.5 h-3.5 bg-white/10 rounded-full shrink-0';
-                icon.className = 'validation-icon text-white/30 text-[9px] font-bold';
-                text.className = 'validation-text text-[11px] font-medium text-white/30';
-            }
-        }
-
-        // Helper to check button state
-        function checkFormValidity() {
-            const isPasswordValid = state.hasLength && state.hasUpper && state.hasNumber;
-            const isMatch = passwordInput.value === confirmInput.value && passwordInput.value !== '';
-            const areChecksValid = checkTerms.checked && checkPrivacy.checked;
-
-            if (isPasswordValid && isMatch && areChecksValid) {
-                submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-                submitBtn.classList.add('cursor-pointer');
-                submitBtn.disabled = false;
-            } else {
-                submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
-                submitBtn.classList.remove('cursor-pointer');
-                submitBtn.disabled = true;
-            }
-        }
-
-        // Toggle Password Visibility
-        function setupToggle(btn, input) {
-            btn.addEventListener('click', () => {
+        // Password Toggle Logic
+        toggleButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const input = btn.previousElementSibling;
+                
                 if (input.type === 'password') {
                     input.type = 'text';
-                    btn.querySelector('iconify-icon').setAttribute('icon', 'lucide:eye-off');
-                    btn.style.opacity = '1';
+                    // Re-render icon eye-off
+                    btn.innerHTML = '<i data-lucide="eye-off" width="20" height="20"></i>';
                 } else {
                     input.type = 'password';
-                    btn.querySelector('iconify-icon').setAttribute('icon', 'lucide:eye');
-                    btn.style.opacity = '';
+                    // Re-render icon eye
+                    btn.innerHTML = '<i data-lucide="eye" width="20" height="20"></i>';
                 }
+                // Re-initialize icons
+                lucide.createIcons({
+                    attrs: {
+                        'stroke-width': 1.5
+                    }
+                });
             });
+        });
+
+        // Update Validation UI
+        function updateValidationUI(element, isValid) {
+            const circle = element.querySelector('div');
+            
+            if (isValid) {
+                element.classList.remove('opacity-40');
+                element.classList.add('opacity-100');
+                circle.classList.remove('bg-[#3A3A3C]');
+                circle.classList.add('bg-[#32D74B]'); // iOS Green
+            } else {
+                element.classList.add('opacity-40');
+                element.classList.remove('opacity-100');
+                circle.classList.add('bg-[#3A3A3C]');
+                circle.classList.remove('bg-[#32D74B]');
+            }
         }
 
-        setupToggle(togglePass1, passwordInput);
-        setupToggle(togglePass2, confirmInput);
+        // Check Form State
+        function checkForm() {
+            const isPasswordValid = state.length && state.upper && state.number;
+            const isMatch = passwordInput.value === confirmInput.value && passwordInput.value !== '';
+            const isChecked = termsCheck.checked && privacyCheck.checked;
 
-        // Password Validation Logic
+            if (isPasswordValid && isMatch && isChecked) {
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('bg-[#2C2C2E]', 'text-[#8E8E93]');
+                submitBtn.classList.add('bg-white', 'text-black', 'hover:bg-white/90', 'shadow-[0_0_20px_rgba(255,255,255,0.15)]');
+            } else {
+                submitBtn.disabled = true;
+                submitBtn.classList.add('bg-[#2C2C2E]', 'text-[#8E8E93]');
+                submitBtn.classList.remove('bg-white', 'text-black', 'hover:bg-white/90', 'shadow-[0_0_20px_rgba(255,255,255,0.15)]');
+            }
+        }
+
+        // Password Input Listener
         passwordInput.addEventListener('input', (e) => {
             const val = e.target.value;
             
-            // Checks
-            state.hasLength = val.length >= 8;
-            state.hasUpper = /[A-Z]/.test(val);
-            state.hasNumber = /[0-9]/.test(val);
+            state.length = val.length >= 8;
+            state.upper = /[A-Z]/.test(val);
+            state.number = /[0-9]/.test(val);
 
-            // Update UI
-            updatePill(reqLength, state.hasLength);
-            updatePill(reqUpper, state.hasUpper);
-            updatePill(reqNumber, state.hasNumber);
-
-            checkFormValidity();
+            updateValidationUI(checks.length, state.length);
+            updateValidationUI(checks.upper, state.upper);
+            updateValidationUI(checks.number, state.number);
+            
+            checkForm();
         });
 
-        // Confirm Password Logic
-        confirmInput.addEventListener('input', (e) => {
-            const val = e.target.value;
-            if (val && val === passwordInput.value) {
-                confirmInput.classList.remove('border-white/5', 'focus:border-[#007AFF]', 'focus:ring-[#007AFF]');
-                confirmInput.classList.add('border-[#22C55E]', 'focus:border-[#22C55E]', 'focus:ring-[#22C55E]', 'ring-1');
-            } else {
-                confirmInput.classList.add('border-white/5', 'focus:border-[#007AFF]', 'focus:ring-[#007AFF]');
-                confirmInput.classList.remove('border-[#22C55E]', 'focus:border-[#22C55E]', 'focus:ring-[#22C55E]', 'ring-1');
-            }
-            checkFormValidity();
+        // Confirm Input Listener
+        confirmInput.addEventListener('input', () => {
+            checkForm();
         });
 
-        // Checkbox Logic
-        const handleCheckbox = () => checkFormValidity();
-        checkTerms.addEventListener('change', handleCheckbox);
-        checkPrivacy.addEventListener('change', handleCheckbox);
+        // Checkbox Listeners
+        termsCheck.addEventListener('change', checkForm);
+        privacyCheck.addEventListener('change', checkForm);
 
-        // Submit Handler
+        // Submit Action
         document.getElementById('signupForm').addEventListener('submit', (e) => {
             e.preventDefault();
             if(!submitBtn.disabled) {
+                const originalText = submitBtn.innerText;
                 submitBtn.innerHTML = '<iconify-icon icon="line-md:loading-twotone-loop" width="24" class="text-black"></iconify-icon>';
                 setTimeout(() => {
-                    window.location.href = './05-profile-setup.html';
+                    submitBtn.innerText = 'Account Created';
+                    setTimeout(() => {
+                        submitBtn.innerText = originalText;
+                        passwordInput.value = '';
+                        confirmInput.value = '';
+                        termsCheck.checked = false;
+                        privacyCheck.checked = false;
+                        // Reset UI
+                        [checks.length, checks.upper, checks.number].forEach(el => {
+                            el.classList.add('opacity-40');
+                            el.querySelector('div').classList.add('bg-[#3A3A3C]');
+                            el.querySelector('div').classList.remove('bg-[#32D74B]');
+                        });
+                        checkForm();
+                    }, 2000);
                 }, 1500);
             }
         });
 
     </script>
-
-
-
-<script src="./routing.js?v=12"></script>
 </body>
 </html>

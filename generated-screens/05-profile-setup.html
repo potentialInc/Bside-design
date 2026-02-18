@@ -9,6 +9,7 @@
     <title>bside.art | Profile Setup</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
       rel="stylesheet"
@@ -119,12 +120,9 @@
         <!-- Modal Close Button (Top Right) -->
         <button
           onclick="skipSetup()"
-          class="absolute top-[50px] right-6 z-20 text-brand-text-tertiary hover:text-white transition-colors p-2"
+          class="absolute top-[50px] right-6 z-20 text-white hover:text-white/80 transition-colors p-2"
         >
-          <iconify-icon
-            icon="solar:close-circle-linear"
-            width="28"
-          ></iconify-icon>
+          <i data-lucide="x" class="w-7 h-7"></i>
         </button>
 
         <!-- Background Gradient -->
@@ -336,6 +334,13 @@
 
       // Initialize view
       document.addEventListener('DOMContentLoaded', () => {
+          // Initialize Lucide Icons with specified stroke width
+          lucide.createIcons({
+              attrs: {
+                  'stroke-width': 1.5
+              }
+          });
+          
           // Run validation once for the default value
           validateUsername(document.getElementById('username').value);
       });
@@ -423,31 +428,30 @@
 
           // Simulate API Call
           setTimeout(() => {
+              // Success Toast/Transition would happen here
               loader.classList.add('hidden');
               text.classList.remove('hidden');
               text.textContent = 'Success!';
 
               setTimeout(() => {
-                   window.location.href = './06-feed.html';
+                   // Normally would navigate to /feed
+                   console.log("Navigate to Feed");
               }, 500);
           }, 1500);
       }
 
       // Skip Action
       function skipSetup() {
+          // Simulate navigation
           const container = document.querySelector('.relative.w-full.h-full');
           container.style.opacity = '0';
           container.style.transform = 'scale(0.95)';
           container.style.transition = 'all 0.3s ease';
 
           setTimeout(() => {
-              window.location.href = './06-feed.html';
+              console.log("Navigating to Feed (Defaults)...");
           }, 300);
       }
     </script>
-  
-
-
-<script src="./routing.js?v=12"></script>
-</body>
+  </body>
 </html>
