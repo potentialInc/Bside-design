@@ -79,6 +79,27 @@
       .artwork-shadow {
       box-shadow: 0 4px 20px rgba(0,0,0,0.2);
       }
+      /* Recognition notification banner */
+      @keyframes slideDown {
+        from { transform: translateY(-100%); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+      @keyframes slideUp {
+        from { transform: translateY(0); opacity: 1; }
+        to { transform: translateY(-100%); opacity: 0; }
+      }
+      .recognition-banner {
+        animation: slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        position: absolute;
+        top: 44px;
+        left: 0;
+        right: 0;
+        z-index: 80;
+        pointer-events: auto;
+      }
+      .recognition-banner.hide {
+        animation: slideUp 0.3s ease forwards;
+      }
     </style>
   </head>
   <body>
@@ -95,8 +116,23 @@
         </div>
       </div>
 
+      <!-- Scroll-triggered Recognition Notification Banner (Capture Collection context) -->
+      <div id="recognition-banner" class="recognition-banner" style="display: none;">
+        <div class="mx-4 mt-2 bg-[#1C1C1E]/95 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden cursor-pointer" onclick="window.location.href='./25-recognition-interface.html'">
+          <div class="flex items-center gap-3 p-3">
+            <div class="w-8 h-8 rounded-full bg-white/8 flex items-center justify-center shrink-0">
+              <iconify-icon icon="solar:question-circle-linear" class="text-white/60 text-[16px]"></iconify-icon>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-[13px] font-medium text-white/80 leading-tight italic">from Frieze London 2026 — Can you help identify this artwork?</p>
+            </div>
+            <iconify-icon icon="solar:alt-arrow-right-linear" class="text-white/40 text-[16px] shrink-0"></iconify-icon>
+          </div>
+        </div>
+      </div>
+
       <!-- Scrollable Area -->
-      <div class="app-content no-scrollbar">
+      <div class="app-content no-scrollbar" id="artworkScroll">
         <!-- Hero Image -->
         <div class="relative w-full aspect-[375/500] bg-[#E5D5D0]">
           <!-- Back Button Overlay -->
@@ -276,5 +312,36 @@
     <script>
       lucide.createIcons();
     </script>
-  
+
+    <script>
+    // Scroll-triggered recognition notification for Capture Collection context
+    (function() {
+      var scrollEl = document.getElementById('artworkScroll');
+      var banner = document.getElementById('recognition-banner');
+      var bannerVisible = false;
+      var bannerTimeout = null;
+
+      if (scrollEl && banner) {
+        scrollEl.addEventListener('scroll', function() {
+          var scrollTop = scrollEl.scrollTop;
+          var shouldShow = scrollTop > 120;
+
+          if (shouldShow && !bannerVisible) {
+            bannerVisible = true;
+            banner.style.display = 'block';
+            banner.classList.remove('hide');
+            if (bannerTimeout) clearTimeout(bannerTimeout);
+          } else if (!shouldShow && bannerVisible) {
+            bannerVisible = false;
+            banner.classList.add('hide');
+            bannerTimeout = setTimeout(function() {
+              banner.style.display = 'none';
+            }, 300);
+          }
+        });
+      }
+    })();
+    </script>
+
+<script src="./routing.js?v=12"></script>
 </body></html>

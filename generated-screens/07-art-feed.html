@@ -131,16 +131,15 @@
 
         <!-- Scroll-triggered Recognition Notification Banner -->
         <div id="recognition-banner" class="recognition-banner" style="display: none;">
-          <div class="mx-4 mt-14 bg-[#1C1C1E]/95 backdrop-blur-md border border-[#FF9500]/30 rounded-2xl overflow-hidden cursor-pointer" onclick="window.location.href='./08-recognition-overlay-failure.html'">
+          <div class="mx-4 mt-14 bg-[#1C1C1E]/95 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden cursor-pointer" onclick="window.location.href='./25-recognition-interface.html'">
             <div class="flex items-center gap-3 p-3">
-              <div class="w-8 h-8 rounded-full bg-[#FF9500]/15 flex items-center justify-center shrink-0">
-                <iconify-icon icon="solar:danger-triangle-linear" class="text-[#FF9500] text-[16px]"></iconify-icon>
+              <div class="w-8 h-8 rounded-full bg-white/8 flex items-center justify-center shrink-0">
+                <iconify-icon icon="solar:question-circle-linear" class="text-white/60 text-[16px]"></iconify-icon>
               </div>
               <div class="flex-1 min-w-0">
-                <p class="text-[13px] font-semibold text-white leading-tight">Recognition Incomplete</p>
-                <p class="text-[11px] text-white/50 mt-0.5">This artwork could not be recognized. Tap to review.</p>
+                <p class="text-[13px] font-medium text-white/80 leading-tight italic">from Frieze London 2026 — Can you help identify this artwork?</p>
               </div>
-              <iconify-icon icon="solar:alt-arrow-right-linear" class="text-[#FF9500] text-[16px] shrink-0"></iconify-icon>
+              <iconify-icon icon="solar:alt-arrow-right-linear" class="text-white/40 text-[16px] shrink-0"></iconify-icon>
             </div>
           </div>
         </div>
@@ -188,34 +187,24 @@
               class="w-full h-[480px] object-cover block"
               alt="Art 2"
             />
-            <!-- Unrecognized badge overlay -->
-            <div class="absolute top-3 right-3 px-2.5 py-1.5 bg-[#FF3B30]/90 backdrop-blur-md rounded-lg flex items-center gap-1.5 z-10">
-              <iconify-icon icon="solar:danger-circle-bold" width="12" class="text-white"></iconify-icon>
-              <span class="text-[11px] font-semibold text-white">Not Recognized</span>
-            </div>
           </div>
           <div class="px-4 py-4 bg-black">
             <div class="flex justify-between items-start">
               <div class="flex flex-col gap-0.5">
-                <h3 class="text-sm font-medium text-white/60 tracking-tight">
-                  Unknown Artwork
+                <h3 class="text-sm font-medium text-white/50 tracking-tight italic">
+                  from Frieze London 2026
                 </h3>
-                <p class="text-[13px] text-zinc-500 font-normal">
-                  Artist Unknown
+                <p class="text-[13px] text-zinc-500 font-normal italic">
+                  from Frieze London 2026
                 </p>
               </div>
-              <!-- Review Recognition CTA (replaces Camera icon) -->
-              <button class="flex items-center gap-1.5 px-3 py-1.5 bg-[#FF9500]/15 border border-[#FF9500]/30 rounded-lg active:scale-95 transition-transform" onclick="window.location.href='./08-recognition-overlay-failure.html'">
-                <iconify-icon icon="solar:magnifer-zoom-in-linear" width="14" class="text-[#FF9500]"></iconify-icon>
-                <span class="text-[11px] font-semibold text-[#FF9500]">Review</span>
+              <!-- Identify Artwork CTA (replaces Camera icon) -->
+              <button class="flex items-center gap-1.5 px-3 py-1.5 bg-white/8 border border-white/15 rounded-lg active:scale-95 transition-transform" onclick="window.location.href='./25-recognition-interface.html'">
+                <span class="text-[11px] font-semibold text-white/60">Identify Artwork</span>
               </button>
             </div>
             <div class="flex flex-col gap-0.5 mt-4">
-              <span class="text-[11px] text-zinc-500 font-normal">
-                Medium Unknown
-              </span>
-              <span class="text-[11px] text-zinc-500 font-normal italic mt-1">from Frieze London 2026</span>
-              <span class="text-[11px] text-zinc-600 font-normal mt-0.5">Captured on Feb 17, 2026</span>
+              <span class="text-[11px] text-zinc-600 font-normal italic">captured on 2026-02-17</span>
             </div>
           </div>
         </div>

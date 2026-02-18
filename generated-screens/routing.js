@@ -45,6 +45,7 @@
     '22-follower-list.html': './19-my-page-profile.html',
     '23-following-list.html': './19-my-page-profile.html',
     '24-notification-list.html': './06-feed.html',
+    '25-recognition-interface.html': './24-notification-list.html',
     '19-user-profile1(collections).html': './18-search-results.html',
     '19-user-profile2(captures).html': './18-search-results.html'
   };
@@ -60,6 +61,7 @@
     '04-password-recovery-new-password.html': './04-password-recovery-success.html',
     '05-profile-setup.html': './06-feed.html',
     '16-manual-artwork-input.html': './06-feed.html',
+    '25-recognition-interface.html': './06-feed.html',
     '21-edit-profile.html': './19-my-page-profile.html'
   };
 
@@ -685,6 +687,20 @@
   if (currentPage === '08-collection-detail-processing.html') {
     // After 4 seconds, auto-navigate to the "complete" state
     setTimeout(function () { navigateTo('./08-collection-detail-complete.html'); }, 4000);
+  }
+
+  // 25-recognition-interface.html - Submit/Skip buttons (handled inline in page JS)
+  // Routing fallback: skip → back to notification list
+  if (currentPage === '25-recognition-interface.html') {
+    document.querySelectorAll('button').forEach(function(btn) {
+      var text = getElementText(btn);
+      if (text === 'skip for now' || text === 'skip') {
+        if (!btn.getAttribute('onclick')) {
+          btn.style.cursor = 'pointer';
+          btn.addEventListener('click', function() { navigateTo('./24-notification-list.html'); });
+        }
+      }
+    });
   }
 
   // 08-recognition-overlay-success.html - "Confirm & Save" button
