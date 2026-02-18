@@ -17,6 +17,8 @@
     '03-signup-step1.html': './03-signup.html',
     '03-signup-step2.html': './03-signup-step1.html',
     '03-signup-step3.html': './03-signup-step2.html',
+    '05-profile-setup.html': './03-signup-step3.html',
+    '25-recognition-interface.html': './24-notification-list.html',
     '04-password-recovery.html': './02-login.html',
     '04-password-recovery-code.html': './04-password-recovery.html',
     '04-password-recovery-new-password.html': './04-password-recovery-code.html',
