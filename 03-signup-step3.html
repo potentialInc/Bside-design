@@ -296,8 +296,7 @@ input:-webkit-autofill:active {
             if(!submitBtn.disabled) {
                 submitBtn.innerHTML = '<iconify-icon icon="line-md:loading-twotone-loop" width="24" class="text-black"></iconify-icon>';
                 setTimeout(() => {
-                    alert('Account Created Successfully!');
-                    submitBtn.innerHTML = '<span class="text-black font-semibold text-[16px]">Sign Up</span>';
+                    window.location.href = './05-profile-setup.html';
                 }, 1500);
             }
         });
@@ -306,6 +305,6 @@ input:-webkit-autofill:active {
 
 
 
-<script src="./routing.js?v=11"></script>
+<script src="./routing.js?v=12"></script>
 </body>
 </html>

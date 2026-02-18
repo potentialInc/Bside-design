@@ -205,7 +205,7 @@
       var submitTexts = ['continue', 'next', 'submit', 'done', 'complete', 'save',
         'send verification code', 'send reset code', 'send code', 'send',
         'verify', 'confirm', 'reset password', 'create password',
-        'skip for now', 'skip'];
+        'skip for now', 'skip', 'sign up'];
       var isSubmitText = false;
       for (var i = 0; i < submitTexts.length; i++) {
         if (text.includes(submitTexts[i])) { isSubmitText = true; break; }
@@ -239,7 +239,7 @@
     Object.keys(namedRoutes).forEach(function (key) {
       if (text === key || text.includes(key)) {
         // Don't override form submit buttons
-        if (el.closest('form') && (key === 'sign in' || key === 'login')) return;
+        if (el.closest('form') && (key === 'sign in' || key === 'login' || key === 'sign up' || key === 'create account')) return;
         el.style.cursor = 'pointer';
         el.addEventListener('click', function (e) { e.preventDefault(); navigateTo(namedRoutes[key]); });
       }

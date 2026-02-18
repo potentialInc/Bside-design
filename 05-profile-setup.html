@@ -423,34 +423,31 @@
 
           // Simulate API Call
           setTimeout(() => {
-              // Success Toast/Transition would happen here
               loader.classList.add('hidden');
               text.classList.remove('hidden');
               text.textContent = 'Success!';
 
               setTimeout(() => {
-                   // Normally would navigate to /feed
-                   console.log("Navigate to Feed");
+                   window.location.href = './06-feed.html';
               }, 500);
           }, 1500);
       }
 
       // Skip Action
       function skipSetup() {
-          // Simulate navigation
           const container = document.querySelector('.relative.w-full.h-full');
           container.style.opacity = '0';
           container.style.transform = 'scale(0.95)';
           container.style.transition = 'all 0.3s ease';
 
           setTimeout(() => {
-              console.log("Navigating to Feed (Defaults)...");
+              window.location.href = './06-feed.html';
           }, 300);
       }
     </script>
   
 
 
-<script src="./routing.js?v=11"></script>
+<script src="./routing.js?v=12"></script>
 </body>
 </html>
