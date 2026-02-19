@@ -9,7 +9,7 @@
 :root {
 --bg-primary: #000000;
 --bg-secondary: #1C1C1E;
---accent-blue: #007AFF;
+--accent-blue: #0A84FF;
 --destructive-red: #FF3B30;
 --text-primary: #FFFFFF;
 --text-secondary: rgba(255, 255, 255, 0.6);
@@ -96,13 +96,13 @@ border: none;
 transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 </style></head>
-<body class="antialiased text-white selection:bg-[#007AFF] selection:text-white">
+<body class="antialiased text-white selection:bg-[#0A84FF] selection:text-white">
 
     <div class="device-frame flex flex-col relative">
         <!-- Status Bar -->
         <div class="notch"></div>
-        <div class="absolute top-3 left-6 text-sm font-medium text-white z-50">9:41</div>
-        <div class="absolute top-3.5 right-6 flex gap-1.5 text-white text-xs z-50">
+        <div class="absolute top-3 left-6 text-[13px] font-medium text-white z-50">9:41</div>
+        <div class="absolute top-3.5 right-6 flex gap-1.5 text-white text-[12px] z-50">
             <iconify-icon icon="solar:signal-linear"></iconify-icon>
             <iconify-icon icon="solar:wi-fi-linear"></iconify-icon>
             <iconify-icon icon="solar:battery-full-solid"></iconify-icon>
@@ -219,7 +219,7 @@ transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             <!-- Empty State -->
             <div id="emptyState" class="hidden absolute inset-0 flex flex-col items-center justify-center pb-20 pointer-events-none">
                 <div class="w-16 h-16 rounded-full bg-[#1C1C1E] flex items-center justify-center mb-4">
-                    <iconify-icon icon="solar:users-group-two-rounded-linear" class="text-white/30 text-3xl"></iconify-icon>
+                    <iconify-icon icon="solar:users-group-two-rounded-linear" class="text-white/30 text-[30px]"></iconify-icon>
                 </div>
                 <h3 class="text-[18px] font-semibold text-white">Not following anyone yet</h3>
                 <p class="text-[15px] text-white/40 mt-1">Discover artists and users to follow</p>

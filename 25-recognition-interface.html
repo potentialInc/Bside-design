@@ -9,7 +9,7 @@
 :root {
   --bg-dark: #000000;
   --bg-card: #1C1C1E;
-  --accent-blue: #007AFF;
+  --accent-blue: #0A84FF;
   --text-primary: #FFFFFF;
   --text-secondary: rgba(255, 255, 255, 0.6);
   --text-tertiary: rgba(255, 255, 255, 0.38);
@@ -63,8 +63,8 @@ body {
   <div class="device-frame">
     <!-- Status Bar -->
     <div class="notch"></div>
-    <div class="absolute top-3 left-6 text-sm font-semibold text-white z-50">9:41</div>
-    <div class="absolute top-3.5 right-6 flex gap-1.5 text-white text-xs z-50">
+    <div class="absolute top-3 left-6 text-[13px] font-semibold text-white z-50">9:41</div>
+    <div class="absolute top-3.5 right-6 flex gap-1.5 text-white text-[12px] z-50">
       <iconify-icon icon="solar:signal-linear"></iconify-icon>
       <iconify-icon icon="solar:wi-fi-linear"></iconify-icon>
       <iconify-icon icon="solar:battery-full-solid"></iconify-icon>
@@ -150,7 +150,7 @@ body {
   <script>
     function handleSubmit() {
       var btn = document.getElementById('submitBtn');
-      btn.innerHTML = '<iconify-icon icon="line-md:loading-loop" class="text-xl text-black"></iconify-icon>';
+      btn.innerHTML = '<iconify-icon icon="line-md:loading-loop" class="text-[20px] text-black"></iconify-icon>';
       btn.disabled = true;
       setTimeout(function() {
         window.location.href = './06-feed.html';

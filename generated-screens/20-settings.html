@@ -9,7 +9,7 @@
 :root {
 --bg-primary: #000000;
 --bg-secondary: #1C1C1E;
---accent-blue: #007AFF;
+--accent-blue: #0A84FF;
 --success-green: #34C759;
 --error-red: #FF3B30;
 --toggle-off: #39393D;
@@ -132,13 +132,13 @@ transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
 transform: translateY(0);
 }
 </style></head>
-<body class="antialiased text-white selection:bg-[#007AFF] selection:text-white">
+<body class="antialiased text-white selection:bg-[#0A84FF] selection:text-white">
 
     <div class="device-frame">
         <!-- Status Bar -->
         <div class="notch"></div>
-        <div class="absolute top-3 left-6 text-sm font-semibold text-white z-50">9:41</div>
-        <div class="absolute top-3.5 right-6 flex gap-1.5 text-white text-xs z-50">
+        <div class="absolute top-3 left-6 text-[13px] font-semibold text-white z-50">9:41</div>
+        <div class="absolute top-3.5 right-6 flex gap-1.5 text-white text-[12px] z-50">
             <iconify-icon icon="solar:signal-linear"></iconify-icon>
             <iconify-icon icon="solar:wi-fi-linear"></iconify-icon>
             <iconify-icon icon="solar:battery-full-solid"></iconify-icon>
@@ -146,7 +146,7 @@ transform: translateY(0);
 
         <!-- Navigation Bar -->
         <div class="absolute top-0 left-0 right-0 h-[100px] pt-[44px] px-2 flex items-center justify-between bg-black/95 backdrop-blur-md z-40 border-b-[0.5px] border-white/10">
-            <button class="flex items-center gap-1 h-[44px] pl-2 pr-4 text-[#007AFF] active:opacity-60 transition-opacity" onclick="window.location.href='./19-my-page-profile.html'">
+            <button class="flex items-center gap-1 h-[44px] pl-2 pr-4 text-[#0A84FF] active:opacity-60 transition-opacity" onclick="window.location.href='./19-my-page-profile.html'">
                 <iconify-icon icon="solar:alt-arrow-left-linear" width="24" height="24"></iconify-icon>
                 <span class="text-[17px] font-normal">Back</span>
             </button>
@@ -309,7 +309,7 @@ transform: translateY(0);
                 <h2 class="text-[20px] font-semibold text-white text-center mb-6">Enter password to continue</h2>
                 
                 <div class="relative w-full mb-6">
-                    <input type="password" placeholder="Your password" class="w-full h-[48px] bg-black border border-white/10 rounded-xl px-4 text-white placeholder-white/30 focus:outline-none focus:border-[#007AFF] transition-colors">
+                    <input type="password" placeholder="Your password" class="w-full h-[48px] bg-black border border-white/10 rounded-xl px-4 text-white placeholder-white/30 focus:outline-none focus:border-[#0A84FF] transition-colors">
                     <button class="absolute right-4 top-1/2 -translate-y-1/2 text-white/40">
                         <iconify-icon icon="solar:eye-linear" width="20"></iconify-icon>
                     </button>
@@ -334,7 +334,7 @@ transform: translateY(0);
                     <p id="confirmText" class="text-[13px] text-white/80">Are you sure you want to perform this action?</p>
                 </div>
                 <div class="flex border-t border-white/10">
-                    <button onclick="hideConfirmModal()" class="flex-1 h-[44px] text-[17px] text-[#007AFF] font-medium border-r border-white/10 active:bg-white/5">Cancel</button>
+                    <button onclick="hideConfirmModal()" class="flex-1 h-[44px] text-[17px] text-[#0A84FF] font-medium border-r border-white/10 active:bg-white/5">Cancel</button>
                     <button onclick="confirmAction()" class="flex-1 h-[44px] text-[17px] text-[#FF3B30] font-semibold active:bg-white/5">Confirm</button>
                 </div>
             </div>

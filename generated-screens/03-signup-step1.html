@@ -40,10 +40,10 @@
   </head>
 
   <body>
-    <div class="relative w-full max-w-sm h-[812px] bg-black rounded-[50px] shadow-[0_0_0_12px_#2d2d2d,0_0_0_14px_#000,0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden shrink-0 border border-zinc-800">
+    <div class="relative w-full max-w-sm h-[812px] bg-black rounded-[50px] shadow-[0_0_0_12px_#2d2d2d,0_0_0_14px_#000,0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden shrink-0 border border-white/10">
       <!-- Status Bar -->
       <div class="absolute top-0 left-0 w-full h-[44px] z-50 flex items-center justify-between px-6 select-none pointer-events-none text-white mix-blend-difference">
-        <span class="text-sm font-medium">9:41</span>
+        <span class="text-[13px] font-medium">9:41</span>
         <div class="flex items-center space-x-2">
           <iconify-icon icon="solar:signal-bold" width="16"></iconify-icon>
           <iconify-icon icon="solar:wi-fi-bold" width="16"></iconify-icon>
@@ -62,7 +62,7 @@
       <div class="w-full h-full bg-black relative flex flex-col items-center">
         <!-- Title -->
         <div class="mt-[120px] text-center z-10 mb-12">
-          <h1 class="text-white text-3xl font-medium tracking-tight">
+          <h1 class="text-white text-[28px] font-semibold tracking-tight">
             Create Account
           </h1>
         </div>
@@ -79,13 +79,13 @@
         <div class="w-full px-6 pb-[56px] relative z-20">
           <form onsubmit="goToStep2(event)" class="space-y-5 pb-[70px]">
             <div class="space-y-2">
-              <label class="text-sm text-zinc-400 block ml-1 font-normal">
+              <label class="text-[13px] text-[#8E8E93] block ml-1 font-normal">
                 Email
               </label>
-              <input type="email" id="email-input" placeholder="your@email.com" required="" class="w-full h-[52px] bg-[#1C1C1E] border border-white/5 rounded-xl px-4 text-white placeholder-zinc-600 focus:outline-none focus:ring-1 focus:ring-zinc-700 transition-all text-lg font-light">
+              <input type="email" id="email-input" placeholder="your@email.com" required="" class="w-full h-[52px] bg-[#1C1C1E] border border-white/5 rounded-xl px-4 text-white placeholder-[#636366] focus:outline-none focus:ring-1 focus:ring-[#0A84FF] transition-all text-[16px] font-normal">
             </div>
 
-            <button type="submit" class="w-full h-[52px] bg-white hover:bg-zinc-200 text-black font-normal text-lg rounded-xl active:scale-[0.98] transition-all duration-200 flex items-center justify-center">
+            <button type="submit" class="w-full h-[52px] bg-white hover:bg-white/90 text-black font-semibold text-[15px] rounded-xl active:scale-[0.98] transition-all duration-200 flex items-center justify-center">
               Send Verification Code
             </button>
           </form>

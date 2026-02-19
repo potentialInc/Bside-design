@@ -9,7 +9,7 @@
 :root {
 --bg-primary: #000000;
 --bg-secondary: #1C1C1E;
---accent-blue: #007AFF;
+--accent-blue: #0A84FF;
 --success-green: #34C759;
 --error-red: #FF3B30;
 }
@@ -86,13 +86,13 @@ transform: translateY(0);
 opacity: 1;
 }
 </style></head>
-<body class="antialiased text-white selection:bg-[#007AFF] selection:text-white">
+<body class="antialiased text-white selection:bg-[#0A84FF] selection:text-white">
 
     <div class="device-frame">
         <!-- Status Bar -->
         <div class="notch"></div>
-        <div class="absolute top-3 left-6 text-sm font-medium text-white z-50">9:41</div>
-        <div class="absolute top-3.5 right-6 flex gap-1.5 text-white text-xs z-50">
+        <div class="absolute top-3 left-6 text-[13px] font-medium text-white z-50">9:41</div>
+        <div class="absolute top-3.5 right-6 flex gap-1.5 text-white text-[12px] z-50">
             <iconify-icon icon="solar:signal-linear"></iconify-icon>
             <iconify-icon icon="solar:wi-fi-linear"></iconify-icon>
             <iconify-icon icon="solar:battery-full-solid"></iconify-icon>
@@ -100,18 +100,18 @@ opacity: 1;
 
         <!-- Navigation Bar -->
         <div class="absolute top-0 left-0 right-0 h-[100px] pt-[44px] px-4 flex items-center justify-between bg-black/80 backdrop-blur-md z-40 border-b-[0.5px] border-white/10">
-            <button onclick="handleCancel()" class="h-[44px] min-w-[60px] flex items-center justify-start text-[17px] text-[#007AFF] active:opacity-60 transition-opacity">
+            <button onclick="handleCancel()" class="h-[44px] min-w-[60px] flex items-center justify-start text-[17px] text-[#0A84FF] active:opacity-60 transition-opacity">
                 Cancel
             </button>
             <h1 class="text-[17px] font-semibold text-white tracking-tight absolute left-1/2 -translate-x-1/2">Edit Profile</h1>
-            <button id="saveBtn" onclick="handleSave()" class="h-[44px] min-w-[60px] flex items-center justify-end text-[17px] font-medium text-[#007AFF] opacity-50 active:opacity-30 transition-all" disabled="">
+            <button id="saveBtn" onclick="handleSave()" class="h-[44px] min-w-[60px] flex items-center justify-end text-[17px] font-medium text-[#0A84FF] opacity-50 active:opacity-30 transition-all" disabled="">
                 Save
             </button>
         </div>
 
         <!-- Success Toast -->
         <div id="toast" class="toast absolute top-[110px] left-4 right-4 bg-[#323232] text-white px-4 py-3 rounded-xl shadow-lg z-50 flex items-center gap-3 border border-white/5">
-            <iconify-icon icon="solar:check-circle-bold" class="text-[#34C759] text-xl"></iconify-icon>
+            <iconify-icon icon="solar:check-circle-bold" class="text-[#34C759] text-[20px]"></iconify-icon>
             <span class="text-[15px] font-medium">Profile updated</span>
         </div>
 
@@ -125,7 +125,7 @@ opacity: 1;
                         <img id="profileImage" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&amp;w=200&amp;auto=format&amp;fit=crop" alt="Profile" class="w-full h-full object-cover">
                     </div>
                 </div>
-                <button onclick="toggleActionSheet()" class="mt-3 text-[15px] font-medium text-[#007AFF] active:opacity-60 transition-opacity">
+                <button onclick="toggleActionSheet()" class="mt-3 text-[15px] font-medium text-[#0A84FF] active:opacity-60 transition-opacity">
                     Change Photo
                 </button>
             </div>
@@ -140,7 +140,7 @@ opacity: 1;
                         <input type="text" id="usernameInput" value="alexmorgan" class="custom-input w-full h-[48px] bg-[#1C1C1E] border border-white/10 rounded-xl px-4 text-[17px] text-white placeholder-white/20 transition-colors" placeholder="Enter username" maxlength="30">
                         <!-- Validation Icon -->
                         <div id="usernameStatus" class="absolute right-4 top-1/2 -translate-y-1/2 hidden">
-                            <iconify-icon icon="solar:check-circle-linear" class="text-[#34C759] text-xl"></iconify-icon>
+                            <iconify-icon icon="solar:check-circle-linear" class="text-[#34C759] text-[20px]"></iconify-icon>
                         </div>
                     </div>
                     <p id="usernameError" class="text-[13px] text-[#FF3B30] ml-1 hidden">Username already taken</p>
@@ -164,10 +164,10 @@ opacity: 1;
             <div class="bottom-sheet w-full px-4 pb-8">
                 <!-- Options Group -->
                 <div class="bg-[#1C1C1E]/90 backdrop-blur-xl rounded-[14px] overflow-hidden mb-2">
-                    <button class="w-full h-[56px] text-[17px] text-[#007AFF] font-normal active:bg-white/10 transition-colors border-b border-white/10" onclick="updatePhoto('camera')">
+                    <button class="w-full h-[56px] text-[17px] text-[#0A84FF] font-normal active:bg-white/10 transition-colors border-b border-white/10" onclick="updatePhoto('camera')">
                         Take Photo
                     </button>
-                    <button class="w-full h-[56px] text-[17px] text-[#007AFF] font-normal active:bg-white/10 transition-colors border-b border-white/10" onclick="updatePhoto('library')">
+                    <button class="w-full h-[56px] text-[17px] text-[#0A84FF] font-normal active:bg-white/10 transition-colors border-b border-white/10" onclick="updatePhoto('library')">
                         Choose from Library
                     </button>
                     <button class="w-full h-[56px] text-[17px] text-[#FF3B30] font-normal active:bg-white/10 transition-colors" onclick="updatePhoto('remove')">
@@ -176,7 +176,7 @@ opacity: 1;
                 </div>
                 
                 <!-- Cancel Button -->
-                <button onclick="toggleActionSheet()" class="w-full h-[56px] bg-[#1C1C1E] text-[17px] font-semibold text-[#007AFF] rounded-[14px] active:bg-[#2C2C2E] transition-colors">
+                <button onclick="toggleActionSheet()" class="w-full h-[56px] bg-[#1C1C1E] text-[17px] font-semibold text-[#0A84FF] rounded-[14px] active:bg-[#2C2C2E] transition-colors">
                     Cancel
                 </button>
             </div>
@@ -190,7 +190,7 @@ opacity: 1;
                     <p class="text-[13px] text-white/80 leading-snug">If you go back now, your changes will be lost.</p>
                 </div>
                 <div class="flex border-t border-white/15">
-                    <button onclick="hideDiscardModal()" class="flex-1 h-[44px] text-[17px] text-[#007AFF] font-normal border-r border-white/15 active:bg-white/5">Keep Editing</button>
+                    <button onclick="hideDiscardModal()" class="flex-1 h-[44px] text-[17px] text-[#0A84FF] font-normal border-r border-white/15 active:bg-white/5">Keep Editing</button>
                     <button onclick="confirmDiscard()" class="flex-1 h-[44px] text-[17px] text-[#FF3B30] font-semibold active:bg-white/5">Discard</button>
                 </div>
             </div>

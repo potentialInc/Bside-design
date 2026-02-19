@@ -28,7 +28,7 @@ animation: blink 1.2s infinite;
 </style></head>
 
   <body>
-    <div class="relative w-[375px] h-[812px] bg-black rounded-[40px] shadow-[0_0_0_12px_#2d2d2d,0_0_0_14px_#000] overflow-hidden shrink-0 border border-zinc-900 flex flex-col">
+    <div class="relative w-[375px] h-[812px] bg-black rounded-[40px] shadow-[0_0_0_12px_#2d2d2d,0_0_0_14px_#000] overflow-hidden shrink-0 border border-white/5 flex flex-col">
       <!-- Status Bar -->
       <div class="absolute top-0 left-0 w-full h-[44px] z-50 flex items-center justify-between px-6 pt-2 select-none pointer-events-none text-white mix-blend-difference">
         <span class="text-[15px] font-semibold tracking-tight">9:41</span>
@@ -54,7 +54,7 @@ animation: blink 1.2s infinite;
       <div class="flex-1 flex flex-col relative z-10">
         <!-- Header -->
         <div class="pt-[110px] pb-10 flex justify-center">
-          <h1 class="text-[26px] font-semibold tracking-tight text-white">
+          <h1 class="text-[28px] font-semibold tracking-tight text-white">
             Create Account
           </h1>
         </div>
@@ -71,7 +71,7 @@ animation: blink 1.2s infinite;
           <div class="absolute inset-0 bottom-glow pointer-events-none"></div>
 
           <div class="relative px-6 flex flex-col space-y-2 z-10">
-            <label class="text-[13px] font-medium text-zinc-500 ml-1">
+            <label class="text-[13px] font-medium text-[#8E8E93] ml-1">
               Verification Code
             </label>
 
@@ -80,16 +80,16 @@ animation: blink 1.2s infinite;
               
               <!-- Visual Digits -->
               <div class="font-[JetBrains_Mono] text-[17px] tracking-[0.2em] flex items-center justify-center h-full w-full pointer-events-none">
-                <span class="otp-digit mr-[2px] text-zinc-700 transition-colors duration-100">0</span>
-                <span class="otp-digit mr-[2px] text-zinc-700 transition-colors duration-100">0</span>
-                <span class="otp-digit mr-[2px] text-zinc-700 transition-colors duration-100">0</span>
+                <span class="otp-digit mr-[2px] text-[#48484A] transition-colors duration-100">0</span>
+                <span class="otp-digit mr-[2px] text-[#48484A] transition-colors duration-100">0</span>
+                <span class="otp-digit mr-[2px] text-[#48484A] transition-colors duration-100">0</span>
 
                 <!-- Center Divider/Cursor (Added ID for toggle) -->
                 <div id="otp-cursor" class="w-[1.5px] h-[20px] bg-white cursor-blink mx-[6px] rounded-full"></div>
 
-                <span class="otp-digit ml-[2px] text-zinc-700 transition-colors duration-100">0</span>
-                <span class="otp-digit ml-[2px] text-zinc-700 transition-colors duration-100">0</span>
-                <span class="otp-digit ml-[2px] text-zinc-700 transition-colors duration-100">0</span>
+                <span class="otp-digit ml-[2px] text-[#48484A] transition-colors duration-100">0</span>
+                <span class="otp-digit ml-[2px] text-[#48484A] transition-colors duration-100">0</span>
+                <span class="otp-digit ml-[2px] text-[#48484A] transition-colors duration-100">0</span>
               </div>
 
               <!-- Functional Input -->
@@ -98,7 +98,7 @@ animation: blink 1.2s infinite;
 
             <!-- Timer Text -->
             <div class="flex justify-center pt-3">
-              <button id="resend-btn" class="text-[13px] font-medium text-zinc-600 disabled:cursor-not-allowed transition-colors" disabled="">
+              <button id="resend-btn" class="text-[13px] font-medium text-[#636366] disabled:cursor-not-allowed transition-colors" disabled="">
                 Resend code in <span id="timer-display" class="tabular-nums">0:59</span>
               </button>
             </div>
@@ -131,12 +131,12 @@ animation: blink 1.2s infinite;
         digits.forEach((digit, index) => {
           if (val[index]) {
             digit.textContent = val[index];
-            digit.classList.remove('text-zinc-700');
+            digit.classList.remove('text-[#48484A]');
             digit.classList.add('text-white');
           } else {
             digit.textContent = '0';
             digit.classList.remove('text-white');
-            digit.classList.add('text-zinc-700');
+            digit.classList.add('text-[#48484A]');
           }
         });
       });
@@ -152,7 +152,7 @@ animation: blink 1.2s infinite;
         timeLeft = 59;
         resendBtn.disabled = true;
         resendBtn.classList.remove('text-white', 'cursor-pointer');
-        resendBtn.classList.add('text-zinc-600');
+        resendBtn.classList.add('text-[#636366]');
         resendBtn.innerHTML = `Resend code in <span id="timer-display" class="tabular-nums">0:59</span>`;
         
         timerId = setInterval(() => {
@@ -166,7 +166,7 @@ animation: blink 1.2s infinite;
           if (timeLeft <= 0) {
             clearInterval(timerId);
             resendBtn.disabled = false;
-            resendBtn.classList.remove('text-zinc-600');
+            resendBtn.classList.remove('text-[#636366]');
             resendBtn.classList.add('text-white', 'cursor-pointer');
             resendBtn.textContent = "Resend code";
           }

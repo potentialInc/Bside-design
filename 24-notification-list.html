@@ -9,7 +9,7 @@
 :root {
 --bg-primary: #000000;
 --bg-secondary: #1C1C1E;
---accent-blue: #007AFF;
+--accent-blue: #0A84FF;
 --success-green: #34C759;
 --destructive-red: #FF3B30;
 --text-primary: rgba(255, 255, 255, 0.92);
@@ -125,13 +125,13 @@ animation: shimmer 1.5s infinite;
 100% { background-position: -200% 0; }
 }
 </style></head>
-<body class="antialiased selection:bg-[#007AFF] selection:text-white">
+<body class="antialiased selection:bg-[#0A84FF] selection:text-white">
 
     <div class="device-frame flex flex-col relative">
         <!-- Status Bar -->
         <div class="notch"></div>
-        <div class="absolute top-3 left-6 text-sm font-medium text-white z-50">9:41</div>
-        <div class="absolute top-3.5 right-6 flex gap-1.5 text-white text-xs z-50">
+        <div class="absolute top-3 left-6 text-[13px] font-medium text-white z-50">9:41</div>
+        <div class="absolute top-3.5 right-6 flex gap-1.5 text-white text-[12px] z-50">
             <iconify-icon icon="solar:signal-linear"></iconify-icon>
             <iconify-icon icon="solar:wi-fi-linear"></iconify-icon>
             <iconify-icon icon="solar:battery-full-solid"></iconify-icon>
@@ -212,7 +212,7 @@ animation: shimmer 1.5s infinite;
                             <p class="text-[12px] text-white/40 mt-1">Just now</p>
                         </div>
                         <!-- Unread Dot -->
-                        <div class="w-2 h-2 rounded-full bg-[#007AFF] flex-none mt-2"></div>
+                        <div class="w-2 h-2 rounded-full bg-[#0A84FF] flex-none mt-2"></div>
                     </div>
                 </div>
 
@@ -223,7 +223,7 @@ animation: shimmer 1.5s infinite;
                     </div>
                     <div class="notification-content unread w-full p-4 border-b border-white/5 flex items-start cursor-pointer relative" onclick="markAsRead(this)">
                         <!-- Avatar -->
-                        <div class="w-10 h-10 rounded-full bg-gray-800 flex-none overflow-hidden mt-0.5">
+                        <div class="w-10 h-10 rounded-full bg-[#1C1C1E] flex-none overflow-hidden mt-0.5">
                             <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&amp;w=150&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover" alt="User">
                         </div>
                         
@@ -236,7 +236,7 @@ animation: shimmer 1.5s infinite;
                             
                             <!-- Action Buttons -->
                             <div class="flex gap-2 mt-3 action-buttons">
-                                <button onclick="handleRequest(event, this, true)" class="h-[32px] px-5 bg-[#007AFF] text-white rounded-lg text-[13px] font-medium btn-press">
+                                <button onclick="handleRequest(event, this, true)" class="h-[32px] px-5 bg-[#0A84FF] text-white rounded-lg text-[13px] font-medium btn-press">
                                     Accept
                                 </button>
                                 <button onclick="handleRequest(event, this, false)" class="h-[32px] px-5 border border-white/20 text-white rounded-lg text-[13px] font-medium btn-press">
@@ -245,7 +245,7 @@ animation: shimmer 1.5s infinite;
                             </div>
                         </div>
                         <!-- Unread Dot -->
-                        <div class="w-2 h-2 rounded-full bg-[#007AFF] flex-none mt-2"></div>
+                        <div class="w-2 h-2 rounded-full bg-[#0A84FF] flex-none mt-2"></div>
                     </div>
                 </div>
 
@@ -255,7 +255,7 @@ animation: shimmer 1.5s infinite;
                         <iconify-icon icon="solar:trash-bin-trash-linear" width="24" height="24"></iconify-icon>
                     </div>
                     <div class="notification-content unread w-full p-4 border-b border-white/5 flex items-start cursor-pointer relative" onclick="markAsRead(this)">
-                        <div class="w-10 h-10 rounded-full bg-gray-800 flex-none overflow-hidden mt-0.5">
+                        <div class="w-10 h-10 rounded-full bg-[#1C1C1E] flex-none overflow-hidden mt-0.5">
                             <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&amp;w=150&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover" alt="User">
                         </div>
                         <div class="ml-3 flex-1 min-w-0 pr-4">
@@ -264,7 +264,7 @@ animation: shimmer 1.5s infinite;
                             </p>
                             <p class="text-[12px] text-white/40 mt-1">5h ago</p>
                         </div>
-                        <div class="w-2 h-2 rounded-full bg-[#007AFF] flex-none mt-2"></div>
+                        <div class="w-2 h-2 rounded-full bg-[#0A84FF] flex-none mt-2"></div>
                     </div>
                 </div>
 
@@ -293,7 +293,7 @@ animation: shimmer 1.5s infinite;
                         <iconify-icon icon="solar:trash-bin-trash-linear" width="24" height="24"></iconify-icon>
                     </div>
                     <div class="notification-content read w-full p-4 border-b border-white/5 flex items-start cursor-pointer relative" onclick="markAsRead(this)">
-                        <div class="w-10 h-10 rounded-full bg-gray-800 flex-none overflow-hidden mt-0.5">
+                        <div class="w-10 h-10 rounded-full bg-[#1C1C1E] flex-none overflow-hidden mt-0.5">
                             <img src="https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?q=80&amp;w=150&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover" alt="User">
                         </div>
                         <div class="ml-3 flex-1 min-w-0 pr-4">
@@ -311,7 +311,7 @@ animation: shimmer 1.5s infinite;
                         <iconify-icon icon="solar:trash-bin-trash-linear" width="24" height="24"></iconify-icon>
                     </div>
                     <div class="notification-content read w-full p-4 border-b border-white/5 flex items-start cursor-pointer relative" onclick="markAsRead(this)">
-                        <div class="w-10 h-10 rounded-full bg-gray-800 flex-none overflow-hidden mt-0.5">
+                        <div class="w-10 h-10 rounded-full bg-[#1C1C1E] flex-none overflow-hidden mt-0.5">
                             <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&amp;w=150&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover" alt="User">
                         </div>
                         <div class="ml-3 flex-1 min-w-0 pr-4">
@@ -328,7 +328,7 @@ animation: shimmer 1.5s infinite;
             <!-- Empty State -->
             <div id="emptyState" class="hidden h-full flex flex-col items-center justify-center pt-32 px-10 text-center">
                 <div class="w-16 h-16 rounded-full bg-[#1C1C1E] flex items-center justify-center mb-4">
-                    <iconify-icon icon="solar:bell-linear" class="text-white/30 text-3xl"></iconify-icon>
+                    <iconify-icon icon="solar:bell-linear" class="text-white/30 text-[30px]"></iconify-icon>
                 </div>
                 <h3 class="text-[18px] font-semibold text-white">No new notifications</h3>
                 <p class="text-[15px] text-white/40 mt-2">When you get notifications, they'll show up here.</p>
@@ -337,7 +337,7 @@ animation: shimmer 1.5s infinite;
 
         <!-- Toast Notification (Hidden by default) -->
         <div id="toast" class="absolute bottom-10 left-1/2 -translate-x-1/2 bg-[#333] text-white px-4 py-2.5 rounded-full text-[13px] font-medium opacity-0 pointer-events-none transition-opacity duration-300 z-50 flex items-center shadow-2xl border border-white/10 whitespace-nowrap">
-            <iconify-icon icon="solar:check-circle-bold" class="text-[#34C759] mr-2 text-base"></iconify-icon>
+            <iconify-icon icon="solar:check-circle-bold" class="text-[#34C759] mr-2 text-[16px]"></iconify-icon>
             <span id="toastMsg">Request accepted</span>
         </div>
 
@@ -365,7 +365,7 @@ animation: shimmer 1.5s infinite;
                 element.classList.add('read');
                 
                 // Remove the blue dot
-                const dot = element.querySelector('.bg-\\[\\#007AFF\\]');
+                const dot = element.querySelector('.bg-\\[\\#0A84FF\\]');
                 if(dot) dot.remove();
             }
         }
