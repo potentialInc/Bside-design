@@ -116,17 +116,20 @@
         </div>
       </div>
 
-      <!-- Scroll-triggered Recognition Notification Banner (Capture Collection context) -->
+      <!-- Scroll-triggered Recognition Success Notification Banner -->
       <div id="recognition-banner" class="recognition-banner" style="display: none;">
-        <div class="mx-4 mt-2 bg-[#1C1C1E]/95 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden cursor-pointer" onclick="window.location.href='./25-recognition-interface.html'">
+        <div class="mx-4 mt-2 bg-[#1C1C1E]/95 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden">
           <div class="flex items-center gap-3 p-3">
-            <div class="w-8 h-8 rounded-full bg-white/8 flex items-center justify-center shrink-0">
-              <iconify-icon icon="solar:question-circle-linear" class="text-white/60 text-[16px]"></iconify-icon>
+            <div class="w-9 h-9 rounded-full flex items-center justify-center shrink-0" style="background: rgba(52,199,89,0.15);">
+              <iconify-icon icon="solar:check-circle-bold" class="text-[#34C759] text-[20px]"></iconify-icon>
             </div>
             <div class="flex-1 min-w-0">
-              <p class="text-[13px] font-medium text-white/80 leading-tight italic">from Frieze London 2026 — Can you help identify this artwork?</p>
+              <p class="text-[13px] font-semibold text-white leading-tight">Artwork Recognized &amp; Added</p>
+              <p class="text-[11px] text-white/50 mt-0.5 leading-tight">Nuance · Chansong Kim · Frieze London 2026</p>
             </div>
-            <iconify-icon icon="solar:alt-arrow-right-linear" class="text-white/40 text-[16px] shrink-0"></iconify-icon>
+            <div class="w-6 h-6 rounded-full flex items-center justify-center shrink-0" style="background: rgba(52,199,89,0.12);">
+              <iconify-icon icon="solar:gallery-add-bold" class="text-[#34C759] text-[13px]"></iconify-icon>
+            </div>
           </div>
         </div>
       </div>

@@ -1,167 +1,257 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title>bside.art | Identify Artwork</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg-dark: #000000;
-  --bg-card: #1C1C1E;
-  --accent-blue: #0A84FF;
-  --text-primary: #FFFFFF;
-  --text-secondary: rgba(255, 255, 255, 0.6);
-  --text-tertiary: rgba(255, 255, 255, 0.38);
-}
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background-color: #111;
-  color: var(--text-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  margin: 0;
-  padding: 20px;
-}
-.device-frame {
-  width: 375px;
-  height: 812px;
-  background: var(--bg-dark);
-  border-radius: 40px;
-  box-shadow: 0 0 0 12px #2d2d2d, 0 20px 50px rgba(0,0,0,0.5);
-  position: relative;
-  overflow: hidden;
-  border: 8px solid #000;
-}
-.notch {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 30px;
-  background: #000;
-  border-bottom-left-radius: 16px;
-  border-bottom-right-radius: 16px;
-  z-index: 50;
-}
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-.input-field {
-  transition: border-color 0.2s ease, background-color 0.2s ease;
-}
-.input-field:focus {
-  border-color: var(--accent-blue);
-  outline: none;
-  background-color: #252528;
-}
-</style></head>
-<body class="antialiased">
-
-  <div class="device-frame">
-    <!-- Status Bar -->
-    <div class="notch"></div>
-    <div class="absolute top-3 left-6 text-[13px] font-semibold text-white z-50">9:41</div>
-    <div class="absolute top-3.5 right-6 flex gap-1.5 text-white text-[12px] z-50">
-      <iconify-icon icon="solar:signal-linear"></iconify-icon>
-      <iconify-icon icon="solar:wi-fi-linear"></iconify-icon>
-      <iconify-icon icon="solar:battery-full-solid"></iconify-icon>
-    </div>
-
-    <!-- Navigation Bar -->
-    <div class="absolute top-0 left-0 right-0 h-[100px] bg-black/80 backdrop-blur-md z-40 flex items-end pb-3 px-4 border-b border-white/10">
-      <div class="w-full flex items-center justify-between">
-        <button onclick="history.back()" class="w-10 h-10 flex items-center justify-start text-white active:opacity-60 transition-opacity">
-          <iconify-icon icon="solar:alt-arrow-left-linear" width="24" height="24"></iconify-icon>
-        </button>
-        <h1 class="text-[17px] font-semibold tracking-tight text-white absolute left-1/2 -translate-x-1/2">Identify Artwork</h1>
-        <div class="w-10"></div>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <title>bside.art | Identify Artwork</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+      --bg-dark: #000000;
+      --bg-card: #1C1C1E;
+      --accent-blue: #007AFF;
+      --text-primary: #FFFFFF;
+      --text-secondary: rgba(255, 255, 255, 0.6);
+      --text-tertiary: rgba(255, 255, 255, 0.38);
+      }
+      body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #111;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      }
+      .device-frame {
+      width: 375px;
+      height: 812px;
+      background: var(--bg-dark);
+      border-radius: 40px;
+      box-shadow: 0 0 0 12px #2d2d2d, 0 20px 50px rgba(0,0,0,0.5);
+      position: relative;
+      overflow: hidden;
+      border: 8px solid #000;
+      }
+      .notch {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 30px;
+      background: #000;
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+      z-index: 50;
+      }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      .input-field {
+      transition: border-color 0.2s ease, background-color 0.2s ease;
+      }
+      .input-field:focus {
+      border-color: var(--accent-blue);
+      outline: none;
+      background-color: #252528;
+      }
+    </style>
+  </head>
+  <body class="antialiased">
+    <div class="device-frame">
+      <!-- Status Bar -->
+      <div class="notch"></div>
+      <div class="absolute top-3 left-6 text-sm font-semibold text-white z-50">
+        9:41
       </div>
-    </div>
+      <div
+        class="absolute top-3.5 right-6 flex gap-1.5 text-white text-xs z-50"
+      >
+        <iconify-icon icon="solar:signal-linear"></iconify-icon>
+        <iconify-icon icon="solar:wi-fi-linear"></iconify-icon>
+        <iconify-icon icon="solar:battery-full-solid"></iconify-icon>
+      </div>
 
-    <!-- Main Scrollable Content -->
-    <div class="h-full overflow-y-auto no-scrollbar pt-[112px] pb-[100px] bg-black">
-
-      <!-- Captured Image Preview -->
-      <div class="px-4 mb-6 flex flex-col items-center">
-        <div class="w-[110px] h-[140px] rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-[#1C1C1E] relative">
-          <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover opacity-90" alt="Captured Artwork">
+      <!-- Navigation Bar -->
+      <div
+        class="absolute top-0 left-0 right-0 h-[100px] bg-black/80 backdrop-blur-md z-40 flex items-end pb-3 px-4 border-b border-white/10"
+      >
+        <div class="w-full flex items-center justify-between">
+          <button
+            onclick="history.back()"
+            class="w-10 h-10 flex items-center justify-start text-white active:opacity-60 transition-opacity"
+          >
+            <iconify-icon
+              icon="solar:alt-arrow-left-linear"
+              width="24"
+              height="24"
+            ></iconify-icon>
+          </button>
+          <h1
+            class="text-[17px] font-semibold tracking-tight text-white absolute left-1/2 -translate-x-1/2"
+          >
+            Identify Artwork
+          </h1>
+          <div class="w-10"></div>
         </div>
-        <!-- Source context line (italicized) -->
-        <p class="mt-3 text-[13px] text-white/40 font-normal italic">from Frieze London 2026</p>
       </div>
 
-      <!-- Collaborative Message -->
-      <div class="px-4 mb-6">
-        <div class="bg-[#1C1C1E] rounded-2xl p-4 border border-white/8">
-          <p class="text-[15px] text-white/80 font-normal leading-relaxed">
-            We found this artwork at <span class="text-white font-medium">London, UK</span> around <span class="text-white font-medium">Feb 17, 2026 4:55 PM</span>. Can you help us identify this artwork?
+      <!-- Main Scrollable Content -->
+      <div
+        class="h-full overflow-y-auto no-scrollbar pt-[112px] pb-[180px] bg-black"
+      >
+        <!-- Captured Image Preview -->
+        <div class="px-4 mb-6 flex flex-col items-center">
+          <div
+            class="w-[110px] h-[140px] rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-[#1C1C1E] relative"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&amp;w=400&amp;auto=format&amp;fit=crop"
+              class="w-full h-full object-cover opacity-90"
+              alt="Captured Artwork"
+            />
+          </div>
+          <!-- Source context line (italicized) -->
+          <p class="mt-3 text-[13px] text-white/40 font-normal italic">
+            from Frieze London 2026
           </p>
         </div>
+
+        <!-- Collaborative Message -->
+        <div class="px-4 mb-6">
+          <div class="bg-[#1C1C1E] rounded-2xl p-4 border border-white/8">
+            <p class="text-[15px] text-white/80 font-normal leading-relaxed">
+              We found this artwork at
+              <span class="text-white font-medium">London, UK</span>
+              around
+              <span class="text-white font-medium">Feb 17, 2026 4:55 PM</span>
+              . Can you help us identify this artwork?
+            </p>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <form id="recognitionForm" class="px-4 flex flex-col gap-5">
+          <!-- Artwork Title -->
+          <div class="flex flex-col gap-2">
+            <label class="text-[13px] text-white/60 font-normal">
+              Artwork Title
+              <span class="text-white/30 font-normal italic text-[12px]">
+                · awaiting input
+              </span>
+            </label>
+            <input
+              type="text"
+              id="title"
+              class="input-field w-full h-[48px] bg-[#1C1C1E] rounded-xl border border-white/10 px-4 text-[17px] text-white placeholder-white/20"
+              placeholder="Enter artwork title"
+            />
+          </div>
+
+          <!-- Artist Name -->
+          <div class="flex flex-col gap-2">
+            <label class="text-[13px] text-white/60 font-normal">
+              Artist Name
+              <span class="text-white/30 font-normal italic text-[12px]">
+                · awaiting input
+              </span>
+            </label>
+            <input
+              type="text"
+              id="artist"
+              class="input-field w-full h-[48px] bg-[#1C1C1E] rounded-xl border border-white/10 px-4 text-[17px] text-white placeholder-white/20"
+              placeholder="Enter artist name"
+            />
+          </div>
+
+          <!-- Year (optional) -->
+          <div class="flex flex-col gap-2">
+            <label class="text-[13px] text-white/60 font-normal">
+              Year
+              <span class="text-white/30 font-normal text-[12px]">
+                · optional
+              </span>
+            </label>
+            <input
+              type="number"
+              id="year"
+              inputmode="numeric"
+              class="input-field w-full h-[48px] bg-[#1C1C1E] rounded-xl border border-white/10 px-4 text-[17px] text-white placeholder-white/20"
+              placeholder="e.g., 2023"
+              oninput="if(this.value.length&gt;4) this.value=this.value.slice(0,4)"
+            />
+          </div>
+
+          <!-- Medium (optional) -->
+          <div class="flex flex-col gap-2">
+            <label class="text-[13px] text-white/60 font-normal">
+              Medium
+              <span class="text-white/30 font-normal text-[12px]">
+                · optional
+              </span>
+            </label>
+            <input
+              type="text"
+              id="medium"
+              class="input-field w-full h-[48px] bg-[#1C1C1E] rounded-xl border border-white/10 px-4 text-[17px] text-white placeholder-white/20"
+              placeholder="e.g., Oil on canvas"
+            />
+          </div>
+
+          <div class="h-4"></div>
+        </form>
       </div>
 
-      <!-- Form -->
-      <form id="recognitionForm" class="px-4 flex flex-col gap-5">
+      <!-- Sticky Bottom Buttons -->
+      <div
+        class="absolute bottom-0 left-0 right-0 p-4 pb-8 bg-gradient-to-t from-black via-black to-transparent z-40 flex flex-col gap-3"
+      >
+        <button
+          id="submitBtn"
+          onclick="handleSubmit()"
+          class="w-full h-[52px] rounded-xl bg-white text-black text-[16px] font-semibold flex items-center justify-center gap-2 active:scale-[0.98] transition-all"
+        >
+          Submit
+        </button>
+        <button
+          onclick="handleSkip()"
+          class="w-full h-[44px] rounded-xl bg-transparent text-white/50 text-[15px] font-medium flex items-center justify-center active:opacity-60 transition-opacity"
+        >
+          Skip for now
+        </button>
+      </div>
 
-        <!-- Artwork Title -->
-        <div class="flex flex-col gap-2">
-          <label class="text-[13px] text-white/60 font-normal">Artwork Title <span class="text-white/30 font-normal italic text-[12px]">· awaiting input</span></label>
-          <input type="text" id="title" class="input-field w-full h-[48px] bg-[#1C1C1E] rounded-xl border border-white/10 px-4 text-[17px] text-white placeholder-white/20" placeholder="Enter artwork title">
-        </div>
-
-        <!-- Artist Name -->
-        <div class="flex flex-col gap-2">
-          <label class="text-[13px] text-white/60 font-normal">Artist Name <span class="text-white/30 font-normal italic text-[12px]">· awaiting input</span></label>
-          <input type="text" id="artist" class="input-field w-full h-[48px] bg-[#1C1C1E] rounded-xl border border-white/10 px-4 text-[17px] text-white placeholder-white/20" placeholder="Enter artist name">
-        </div>
-
-        <!-- Year (optional) -->
-        <div class="flex flex-col gap-2">
-          <label class="text-[13px] text-white/60 font-normal">Year <span class="text-white/30 font-normal text-[12px]">· optional</span></label>
-          <input type="number" id="year" inputmode="numeric" class="input-field w-full h-[48px] bg-[#1C1C1E] rounded-xl border border-white/10 px-4 text-[17px] text-white placeholder-white/20" placeholder="e.g., 2023" oninput="if(this.value.length>4) this.value=this.value.slice(0,4)">
-        </div>
-
-        <!-- Medium (optional) -->
-        <div class="flex flex-col gap-2">
-          <label class="text-[13px] text-white/60 font-normal">Medium <span class="text-white/30 font-normal text-[12px]">· optional</span></label>
-          <input type="text" id="medium" class="input-field w-full h-[48px] bg-[#1C1C1E] rounded-xl border border-white/10 px-4 text-[17px] text-white placeholder-white/20" placeholder="e.g., Oil on canvas">
-        </div>
-
-        <div class="h-4"></div>
-      </form>
+      <!-- Home Indicator -->
+      <div
+        class="absolute bottom-2 left-1/2 -translate-x-1/2 w-[134px] h-[5px] bg-white/40 rounded-full z-50"
+      ></div>
     </div>
 
-    <!-- Sticky Bottom Buttons -->
-    <div class="absolute bottom-0 left-0 right-0 p-4 pb-8 bg-gradient-to-t from-black via-black to-transparent z-40 flex flex-col gap-3">
-      <button id="submitBtn" onclick="handleSubmit()" class="w-full h-[52px] rounded-xl bg-white text-black text-[16px] font-semibold flex items-center justify-center gap-2 active:scale-[0.98] transition-all">
-        Submit
-      </button>
-      <button onclick="handleSkip()" class="w-full h-[44px] rounded-xl bg-transparent text-white/50 text-[15px] font-medium flex items-center justify-center active:opacity-60 transition-opacity">
-        Skip for now
-      </button>
-    </div>
+    <script>
+      function handleSubmit() {
+        var btn = document.getElementById('submitBtn');
+        btn.innerHTML = '<iconify-icon icon="line-md:loading-loop" class="text-xl text-black"></iconify-icon>';
+        btn.disabled = true;
+        setTimeout(function() {
+          window.location.href = './06-feed.html';
+        }, 800);
+      }
 
-    <!-- Home Indicator -->
-    <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-[134px] h-[5px] bg-white/40 rounded-full z-50"></div>
-  </div>
-
-  <script>
-    function handleSubmit() {
-      var btn = document.getElementById('submitBtn');
-      btn.innerHTML = '<iconify-icon icon="line-md:loading-loop" class="text-[20px] text-black"></iconify-icon>';
-      btn.disabled = true;
-      setTimeout(function() {
+      function handleSkip() {
         window.location.href = './06-feed.html';
-      }, 800);
-    }
+      }
+    </script>
 
-    function handleSkip() {
-      window.location.href = './06-feed.html';
-    }
-  </script>
-
-
-<script src="./routing.js?v=12"></script>
-</body></html>
+    <script src="./routing.js?v=12"></script>
+  </body>
+</html>

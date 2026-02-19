@@ -45,29 +45,6 @@
           -ms-overflow-style: none;
           scrollbar-width: none;
       }
-
-      /* Recognition notification banner */
-      @keyframes slideDown {
-          from { transform: translateY(-100%); opacity: 0; }
-          to { transform: translateY(0); opacity: 1; }
-      }
-      @keyframes slideUp {
-          from { transform: translateY(0); opacity: 1; }
-          to { transform: translateY(-100%); opacity: 0; }
-      }
-      .recognition-banner {
-          animation: slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-          position: fixed;
-          top: 0;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 375px;
-          z-index: 60;
-          pointer-events: auto;
-      }
-      .recognition-banner.hide {
-          animation: slideUp 0.3s ease forwards;
-      }
     </style>
   </head>
 
@@ -76,17 +53,17 @@
       <!-- Main Scrollable Feed -->
       <div class="flex-1 overflow-y-auto no-scrollbar bg-black">
         <div
-          class="px-5 pt-14 pb-4 bg-black text-white z-20 flex flex-col gap-5 border-b border-white/5/50"
+          class="px-5 pt-14 pb-4 bg-black text-white z-20 flex flex-col gap-5 border-b border-zinc-900/50"
         >
           <!-- Top Navigation -->
           <div class="flex items-center justify-between">
-            <button class="text-white hover:text-[#C7C7CC] transition-colors">
+            <button class="text-white hover:text-gray-300 transition-colors">
               <iconify-icon icon="solar:alt-arrow-left-linear" width="24"></iconify-icon>
             </button>
-            <h1 class="text-[13px] font-semibold tracking-wide">
+            <h1 class="text-sm font-semibold tracking-wide">
               Frieze London 2026
             </h1>
-            <button class="text-white hover:text-[#C7C7CC] transition-colors">
+            <button class="text-white hover:text-gray-300 transition-colors">
               <!-- Updated icon to match the solid dots image -->
               <iconify-icon icon="solar:menu-dots-bold" width="24"></iconify-icon>
             </button>
@@ -94,25 +71,25 @@
 
           <!-- Collection Info -->
           <div class="flex flex-col gap-3">
-            <div class="text-[13px] text-[#8E8E93] font-normal">
+            <div class="text-[13px] text-zinc-400 font-normal">
               Captured by
               <span class="text-white font-medium">hanjaekim</span>
             </div>
 
             <!-- Meta Tags -->
             <div
-              class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-[#8E8E93] font-medium"
+              class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-zinc-500 font-medium"
             >
               <div class="flex items-center gap-1.5">
                 <iconify-icon icon="solar:calendar-linear" width="12"></iconify-icon>
                 <span>Feb 17 2026</span>
               </div>
-              <div class="w-0.5 h-0.5 rounded-full bg-[#3A3A3C]"></div>
+              <div class="w-0.5 h-0.5 rounded-full bg-zinc-700"></div>
               <div class="flex items-center gap-1.5">
                 <iconify-icon icon="solar:map-point-linear" width="12"></iconify-icon>
                 <span>London, UK</span>
               </div>
-              <div class="w-0.5 h-0.5 rounded-full bg-[#3A3A3C]"></div>
+              <div class="w-0.5 h-0.5 rounded-full bg-zinc-700"></div>
               <div class="flex items-center gap-1.5">
                 <iconify-icon icon="solar:users-group-rounded-linear" width="12"></iconify-icon>
                 <span>2,647 friends were there</span>
@@ -121,7 +98,7 @@
 
             <!-- Artworks Count -->
             <div
-              class="flex items-center gap-1.5 text-[11px] text-[#8E8E93] font-medium"
+              class="flex items-center gap-1.5 text-[11px] text-zinc-400 font-medium"
             >
               <iconify-icon icon="solar:layers-linear" width="12"></iconify-icon>
               <span>47 Artworks</span>
@@ -129,23 +106,8 @@
           </div>
         </div>
 
-        <!-- Scroll-triggered Recognition Notification Banner -->
-        <div id="recognition-banner" class="recognition-banner" style="display: none;">
-          <div class="mx-4 mt-14 bg-[#1C1C1E]/95 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden cursor-pointer" onclick="window.location.href='./25-recognition-interface.html'">
-            <div class="flex items-center gap-3 p-3">
-              <div class="w-8 h-8 rounded-full bg-white/8 flex items-center justify-center shrink-0">
-                <iconify-icon icon="solar:question-circle-linear" class="text-white/60 text-[16px]"></iconify-icon>
-              </div>
-              <div class="flex-1 min-w-0">
-                <p class="text-[13px] font-medium text-white/80 leading-tight italic">from Frieze London 2026 — Can you help identify this artwork?</p>
-              </div>
-              <iconify-icon icon="solar:alt-arrow-right-linear" class="text-white/40 text-[16px] shrink-0"></iconify-icon>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 1: Nuance (Recognized) -->
-        <div class="w-full flex flex-col mb-6" data-recognized="true">
+        <!-- Card 1: Nuance -->
+        <div class="w-full flex flex-col mb-6 cursor-pointer active:opacity-75 transition-opacity" onclick="window.location.href='./09-artwork-detail.html'">
           <div class="w-full relative">
             <img
               src="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&amp;w=800&amp;auto=format&amp;fit=crop"
@@ -156,31 +118,30 @@
           <div class="px-4 py-4 bg-black">
             <div class="flex justify-between items-start">
               <div class="flex flex-col gap-0.5">
-                <h3 class="text-[13px] font-medium text-white tracking-tight">
+                <h3 class="text-sm font-medium text-white tracking-tight">
                   Nuance
                 </h3>
-                <p class="text-[13px] text-[#8E8E93] font-normal">
+                <p class="text-[13px] text-zinc-400 font-normal">
                   Chansong Kim
                 </p>
               </div>
               <!-- Camera Section -->
               <div class="flex items-center gap-1.5">
-                <iconify-icon icon="solar:camera-bold" width="18" class="text-[#C7C7CC]"></iconify-icon>
-                <span class="text-[13px] font-medium text-white">1,424</span>
+                <iconify-icon icon="solar:camera-bold" width="18" class="text-zinc-300"></iconify-icon>
+                <span class="text-sm font-medium text-white">1,424</span>
               </div>
             </div>
             <div class="flex flex-col gap-0.5 mt-4">
-              <span class="text-[11px] text-[#8E8E93] font-normal">
+              <span class="text-[11px] text-zinc-500 font-normal">
                 Oil on Canvas
               </span>
-              <span class="text-[11px] text-[#8E8E93] font-normal">2023</span>
-              <span class="text-[11px] text-[#8E8E93] font-normal italic mt-1">from Frieze London 2026</span>
+              <span class="text-[11px] text-zinc-500 font-normal">2023</span>
             </div>
           </div>
         </div>
 
-        <!-- Card 2: Unrecognized Artwork -->
-        <div id="unrecognized-card" class="w-full flex flex-col mb-6" data-recognized="false">
+        <!-- Card 2: Abstract -->
+        <div class="w-full flex flex-col mb-6 cursor-pointer active:opacity-75 transition-opacity" onclick="window.location.href='./09-artwork-detail.html'">
           <div class="w-full relative">
             <img
               src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&amp;w=800&amp;auto=format&amp;fit=crop"
@@ -191,26 +152,48 @@
           <div class="px-4 py-4 bg-black">
             <div class="flex justify-between items-start">
               <div class="flex flex-col gap-0.5">
-                <h3 class="text-[13px] font-medium text-white/50 tracking-tight italic">
-                  from Frieze London 2026
+                <h3 class="text-sm font-medium text-white tracking-tight">
+                  Nuance
                 </h3>
-                <p class="text-[13px] text-[#8E8E93] font-normal italic">
-                  from Frieze London 2026
+                <p class="text-[13px] text-zinc-400 font-normal">
+                  Chansong Kim
                 </p>
               </div>
-              <!-- Identify Artwork CTA (replaces Camera icon) -->
-              <button class="flex items-center gap-1.5 px-3 py-1.5 bg-white/8 border border-white/15 rounded-lg active:scale-95 transition-transform" onclick="window.location.href='./25-recognition-interface.html'">
-                <span class="text-[11px] font-semibold text-white/60">Identify Artwork</span>
-              </button>
+              <!-- Camera Section -->
+              <div class="flex items-center gap-1.5">
+                <iconify-icon icon="solar:camera-bold" width="18" class="text-zinc-300"></iconify-icon>
+                <span class="text-sm font-medium text-white">1,424</span>
+              </div>
             </div>
             <div class="flex flex-col gap-0.5 mt-4">
-              <span class="text-[11px] text-[#636366] font-normal italic">captured on 2026-02-17</span>
+              <span class="text-[11px] text-zinc-500 font-normal">
+                Oil on Canvas
+              </span>
+              <span class="text-[11px] text-zinc-500 font-normal">2023</span>
             </div>
           </div>
         </div>
 
-        <!-- Card 3: Magritte (Recognized) -->
-        <div class="w-full flex flex-col mb-12" data-recognized="true">
+        <!-- Card 4: Not Recognized -->
+        <div class="w-full flex flex-col mb-6 cursor-pointer active:opacity-75 transition-opacity" onclick="window.location.href='./25-recognition-interface.html'">
+          <div class="w-full relative">
+            <img
+              src="https://images.unsplash.com/photo-1574182245530-967d9b3831af?q=80&amp;w=800&amp;auto=format&amp;fit=crop"
+              class="w-full h-[480px] object-cover block"
+              alt="Unknown Artwork"
+            />
+            <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-black/65 backdrop-blur-sm px-2.5 py-1.5 rounded-full">
+              <iconify-icon icon="solar:question-circle-bold" style="color:#FF9F0A;font-size:12px;"></iconify-icon>
+              <span style="font-size:11px;font-weight:600;color:#FF9F0A;line-height:1;letter-spacing:-0.01em;">Not Recognized</span>
+            </div>
+          </div>
+          <div class="px-4 py-4 bg-black">
+            <h3 class="text-sm font-medium tracking-tight" style="color:rgba(255,255,255,0.4);font-style:italic;">Unknown Artwork</h3>
+          </div>
+        </div>
+
+        <!-- Card 3: Magritte -->
+        <div class="w-full flex flex-col mb-12 cursor-pointer active:opacity-75 transition-opacity" onclick="window.location.href='./09-artwork-detail.html'">
           <div class="w-full relative">
             <img
               src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?q=80&amp;w=800&amp;auto=format&amp;fit=crop"
@@ -221,25 +204,24 @@
           <div class="px-4 py-4 bg-black">
             <div class="flex justify-between items-start">
               <div class="flex flex-col gap-0.5">
-                <h3 class="text-[13px] font-medium text-white tracking-tight">
+                <h3 class="text-sm font-medium text-white tracking-tight">
                   Nuance
                 </h3>
-                <p class="text-[13px] text-[#8E8E93] font-normal">
+                <p class="text-[13px] text-zinc-400 font-normal">
                   Chansong Kim
                 </p>
               </div>
               <!-- Camera Section -->
               <div class="flex items-center gap-1.5">
-                <iconify-icon icon="solar:camera-bold" width="18" class="text-[#C7C7CC]"></iconify-icon>
-                <span class="text-[13px] font-medium text-white">1,424</span>
+                <iconify-icon icon="solar:camera-bold" width="18" class="text-zinc-300"></iconify-icon>
+                <span class="text-sm font-medium text-white">1,424</span>
               </div>
             </div>
             <div class="flex flex-col gap-0.5 mt-4">
-              <span class="text-[11px] text-[#8E8E93] font-normal">
+              <span class="text-[11px] text-zinc-500 font-normal">
                 Oil on Canvas
               </span>
-              <span class="text-[11px] text-[#8E8E93] font-normal">2023</span>
-              <span class="text-[11px] text-[#8E8E93] font-normal italic mt-1">from Frieze London 2026</span>
+              <span class="text-[11px] text-zinc-500 font-normal">2023</span>
             </div>
           </div>
         </div>
@@ -247,49 +229,8 @@
 
       <!-- Home Indicator -->
       <div
-        class="absolute bottom-2 left-1/2 -translate-x-1/2 w-[134px] h-[5px] bg-[#1C1C1E] rounded-full pointer-events-none z-50"
+        class="absolute bottom-2 left-1/2 -translate-x-1/2 w-[134px] h-[5px] bg-zinc-800 rounded-full pointer-events-none z-50"
       ></div>
     </div>
-
-    <script>
-    // Scroll-triggered contextual notification for unrecognized artworks
-    (function() {
-      var scrollContainer = document.querySelector('.flex-1.overflow-y-auto');
-      var banner = document.getElementById('recognition-banner');
-      var unrecognizedCard = document.getElementById('unrecognized-card');
-      var bannerVisible = false;
-      var bannerTimeout = null;
-
-      if (scrollContainer && unrecognizedCard && banner) {
-        scrollContainer.addEventListener('scroll', function() {
-          var containerRect = scrollContainer.getBoundingClientRect();
-          var cardRect = unrecognizedCard.getBoundingClientRect();
-          var cardTop = cardRect.top - containerRect.top;
-          var cardBottom = cardRect.bottom - containerRect.top;
-          var containerHeight = containerRect.height;
-
-          // Show banner when unrecognized card is visible in viewport
-          var isVisible = cardTop < containerHeight * 0.7 && cardBottom > containerHeight * 0.1;
-
-          if (isVisible && !bannerVisible) {
-            bannerVisible = true;
-            banner.style.display = 'block';
-            banner.classList.remove('hide');
-            if (bannerTimeout) clearTimeout(bannerTimeout);
-          } else if (!isVisible && bannerVisible) {
-            bannerVisible = false;
-            banner.classList.add('hide');
-            bannerTimeout = setTimeout(function() {
-              banner.style.display = 'none';
-            }, 300);
-          }
-        });
-      }
-    })();
-    </script>
-
-
-
-<script src="./routing.js?v=12"></script>
-</body>
+  </body>
 </html>
