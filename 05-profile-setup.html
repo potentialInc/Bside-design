@@ -442,17 +442,8 @@
 
       // Skip Action
       function skipSetup() {
-          // Simulate navigation
-          const container = document.querySelector('.relative.w-full.h-full');
-          container.style.opacity = '0';
-          container.style.transform = 'scale(0.95)';
-          container.style.transition = 'all 0.3s ease';
-
-          setTimeout(() => {
-              console.log("Navigating to Feed (Defaults)...");
-          }, 300);
+          window.location.href = './06-feed.html';
       }
     </script>
-<script src="./routing.js?v=12"></script>
   </body>
 </html>

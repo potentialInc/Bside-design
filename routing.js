@@ -169,7 +169,14 @@
   }
 
   // ─── 2. CLOSE BUTTON ROUTING (X icons) ───────────────────────────
-  var closeTarget = backTargets[currentPage] || './06-feed.html';
+  // Close targets can differ from back targets (e.g. X on signup steps exits the flow)
+  var closeTargets = {
+    '03-signup-step1.html': './03-signup.html',
+    '03-signup-step2.html': './03-signup.html',
+    '03-signup-step3.html': './03-signup.html',
+    '05-profile-setup.html': './06-feed.html'
+  };
+  var closeTarget = closeTargets[currentPage] || backTargets[currentPage] || './06-feed.html';
   var closeIcons = document.querySelectorAll(
     'iconify-icon[icon*="close-circle"], iconify-icon[icon*="close-square"]'
   );
