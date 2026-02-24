@@ -47,8 +47,8 @@
     '22-follower-list.html': './19-my-page-profile.html',
     '23-following-list.html': './19-my-page-profile.html',
     '24-notification-list.html': './06-feed.html',
-    '19-user-profile1(collections).html': './18-search-results.html',
-    '19-user-profile2(captures).html': './18-search-results.html'
+    '19-user-profile.html': './18-search-results.html',
+    '19-user-profile(capture-list).html': './19-my-page-profile.html'
   };
 
   // Form submission targets per page
@@ -72,7 +72,7 @@
     '12-camera-view.html', '13-camera-view-2.html',
     '17-search-main.html', '17-search-empty.html', '17-search-suggestions.html',
     '18-search-results.html', '18-search-results2.html',
-    '19-my-page-profile.html', '24-notification-list.html'
+    '19-my-page-profile.html', '19-user-profile.html', '24-notification-list.html'
   ];
 
   // Named link routes (text → target)
@@ -598,8 +598,8 @@
       var hasChevronRight = el.querySelector('[data-lucide="chevron-right"]') || el.querySelector('iconify-icon[icon*="chevron-right"]');
 
       if (hasProfileImg) {
-        // Profile item → user profile (collections view)
-        el.addEventListener('click', function () { navigateTo('./19-user-profile1(collections).html'); });
+        // Profile item → user profile
+        el.addEventListener('click', function () { navigateTo('./19-user-profile.html'); });
       } else if (hasChevronRight && !hasArtworkImg) {
         // Artist item (has chevron-right, no artwork image) → artist profile
         el.addEventListener('click', function () { navigateTo('./10-artist-profile.html'); });
@@ -718,25 +718,49 @@
     });
   }
 
-  // 19-user-profile1(collections).html - Tab switching to Captures
-  if (currentPage === '19-user-profile1(collections).html') {
-    document.querySelectorAll('button').forEach(function (btn) {
-      var text = getElementText(btn);
-      if (text === 'captures') {
-        btn.style.cursor = 'pointer';
-        btn.addEventListener('click', function () { navigateTo('./19-user-profile2(captures).html'); });
+  // 19-my-page-profile.html - Grid cards → art feed, Captures stat → capture list
+  if (currentPage === '19-my-page-profile.html') {
+    // Grid cards (collections) → art feed
+    document.querySelectorAll('.grid .rounded-\\[14px\\], .grid .rounded-\\[16px\\]').forEach(function (card) {
+      if (card.getAttribute('onclick')) return;
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', function (e) {
+        if (e.target.closest('button')) return; // Don't navigate on menu/action button clicks
+        navigateTo('./07-art-feed.html');
+      });
+    });
+    // Captures stat → capture list
+    document.querySelectorAll('.flex.flex-col.items-center').forEach(function (stat) {
+      var label = stat.querySelector('span');
+      if (label && getElementText(label) === 'captures') {
+        stat.style.cursor = 'pointer';
+        stat.addEventListener('click', function () { navigateTo('./19-user-profile(capture-list).html'); });
       }
     });
   }
 
-  // 19-user-profile2(captures).html - Tab switching to Collections
-  if (currentPage === '19-user-profile2(captures).html') {
-    document.querySelectorAll('button').forEach(function (btn) {
-      var text = getElementText(btn);
-      if (text === 'collections') {
-        btn.style.cursor = 'pointer';
-        btn.addEventListener('click', function () { navigateTo('./19-user-profile1(collections).html'); });
-      }
+  // 19-user-profile.html - Grid cards → art feed
+  if (currentPage === '19-user-profile.html') {
+    document.querySelectorAll('.grid .rounded-\\[14px\\], .grid .rounded-\\[16px\\]').forEach(function (card) {
+      if (card.getAttribute('onclick')) return;
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', function (e) {
+        if (e.target.closest('button')) return;
+        navigateTo('./07-art-feed.html');
+      });
+    });
+  }
+
+  // 19-user-profile(capture-list).html - List items → artwork detail
+  if (currentPage === '19-user-profile(capture-list).html') {
+    document.querySelectorAll('.flex.w-full.border-b, .flex.w-full:last-child').forEach(function (item) {
+      item.style.cursor = 'pointer';
+      item.addEventListener('click', function () { navigateTo('./09-artwork-detail.html'); });
+    });
+    // Group headers → art feed (collection view)
+    document.querySelectorAll('.bg-\\[\\#38383A\\]').forEach(function (header) {
+      header.style.cursor = 'pointer';
+      header.addEventListener('click', function () { navigateTo('./07-art-feed.html'); });
     });
   }
 
