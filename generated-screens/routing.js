@@ -657,7 +657,7 @@
         if (el.tagName === 'A') el.href = './20-settings.html';
         else el.addEventListener('click', function () { navigateTo('./20-settings.html'); });
       }
-      if (text.includes('edit profile')) {
+      if (text.includes('edit profile') || text.includes('bio edit')) {
         el.style.cursor = 'pointer';
         if (el.tagName === 'A') el.href = './21-edit-profile.html';
         else el.addEventListener('click', function () { navigateTo('./21-edit-profile.html'); });
@@ -739,7 +739,7 @@
     });
   }
 
-  // 19-user-profile.html - Grid cards → art feed
+  // 19-user-profile.html - Grid cards → art feed, Captures stat → capture list
   if (currentPage === '19-user-profile.html') {
     document.querySelectorAll('.grid .rounded-\\[14px\\], .grid .rounded-\\[16px\\]').forEach(function (card) {
       if (card.getAttribute('onclick')) return;
@@ -748,6 +748,14 @@
         if (e.target.closest('button')) return;
         navigateTo('./07-art-feed.html');
       });
+    });
+    // Captures stat → capture list
+    document.querySelectorAll('.flex.flex-col.items-center').forEach(function (stat) {
+      var label = stat.querySelector('span');
+      if (label && getElementText(label) === 'captures') {
+        stat.style.cursor = 'pointer';
+        stat.addEventListener('click', function () { navigateTo('./19-user-profile(capture-list).html'); });
+      }
     });
   }
 
