@@ -18,7 +18,7 @@
     '03-signup-step2.html': './03-signup-step1.html',
     '03-signup-step3.html': './03-signup-step2.html',
     '05-profile-setup.html': './03-signup-step3.html',
-    '25-recognition-interface.html': './24-notification-list.html',
+    '25-recognition-interface.html': './07-art-feed.html',
     '04-password-recovery.html': './02-login.html',
     '04-password-recovery-code.html': './04-password-recovery.html',
     '04-password-recovery-new-password.html': './04-password-recovery-code.html',
@@ -62,7 +62,8 @@
     '04-password-recovery-new-password.html': './04-password-recovery-success.html',
     '05-profile-setup.html': './06-feed.html',
     '16-manual-artwork-input.html': './06-feed.html',
-    '21-edit-profile.html': './19-my-page-profile.html'
+    '21-edit-profile.html': './19-my-page-profile.html',
+    '25-recognition-interface.html': './07-art-feed.html'
   };
 
   // Pages that should have bottom navigation
@@ -337,6 +338,9 @@
       // Check if click is on/inside an artwork card (has h-[480px] image or its sibling info area)
       var card = target.closest('.mb-6') || target.closest('.mb-12');
       if (card && card.querySelector('img.object-cover')) {
+        // Skip cards that already have their own onclick (e.g. Not Recognized → recognition interface)
+        var existingOnclick = card.getAttribute('onclick');
+        if (existingOnclick && existingOnclick.indexOf('09-artwork-detail') === -1) return;
         navigateTo('./09-artwork-detail.html');
       }
     });
